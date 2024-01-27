@@ -11,6 +11,9 @@
 
 ## 发送推送
 1. 打开APP，复制测试URL 
+```
+以下使用SERVER_ADDRESS 指代服务器地址 push.shkqg.com
+```
 
 <img src="https://wx4.sinaimg.cn/mw2000/003rYfqply1grd1meqrvcj60bi08zt9i02.jpg" width=365 />
 
@@ -29,7 +32,7 @@ category 另外的功能占用的字段，还没开放 忽略就行
 post 请求 参数名也是上面这些
 
 URL参数 > GET参数 > POST参数
-假如 你的请求是 https://push.shkqg.com/key/标题/内容?title=标题
+假如 你的请求是 https://SERVER_ADDRESS/key/标题/内容?title=标题
 
 后面的title不会覆盖前面的title
 
@@ -40,22 +43,23 @@ URL参数 > GET参数 > POST参数
 
 > <img src="http://wx4.sinaimg.cn/mw690/0060lm7Tly1g0btjhgimij30ku0a60v1.jpg" width=375 />
 
-```objc
+```
 //将复制“验证码是9527”
-https://push.shkqg.com/yourkey/验证码是9527
+https://SERVER_ADDRESS/yourkey/验证码是9527
 ```
 
 携带参数 automaticallyCopy=1， 收到推送时，推送内容会自动复制到粘贴板（如发现不能自动复制，可尝试重启一下手机）
-```objc
+```
 //自动复制 “验证码是9527” 到粘贴板
-https://push.shkqg.com/yourkey/验证码是9527?automaticallyCopy=1 
+https://SERVER_ADDRESS/yourkey/验证码是9527?automaticallyCopy=1 
 ```
 
 
 携带copy参数， 则上面两种复制操作，将只复制copy参数的值
-```objc
+```
 //自动复制 “9527” 到粘贴板
-https://push.shkqg.com/yourkey/验证码是9527?automaticallyCopy=1&copy=9527
+https://SERVER_ADDRESS/yourkey/验证码是9527?automaticallyCopy=1&copy=9527
+
 ```
 
 ## 其他参数
@@ -63,31 +67,33 @@ https://push.shkqg.com/yourkey/验证码是9527?automaticallyCopy=1&copy=9527
 * url
 ```
 // 点击推送将跳转到url的地址（发送时，URL参数需要编码）
-https://push.shkqg.com/yourkey/百度网址?url=https://www.baidu.com 
+https://SERVER_ADDRESS/yourkey/百度网址?url=https://www.baidu.com 
 ```
 * isArchive
 ```
-// 指定是否需要保存推送信息到历史记录，1 为保存，其他值为不保存。
-// 如果不指定这个参数，推送信息将按照APP内设置来决定是否保存。
-https://push.shkqg.com/yourkey/需要保存的推送?isArchive=1
+// 指定是否需要保存推送信息到历史记录，0 为不保存，其他值或默认保存。
+https://SERVER_ADDRESS/yourkey/不需要保存?isArchive=0
 ```
 * group
 ```
 // 指定推送消息分组，可在历史记录中按分组查看推送。
-https://push.shkqg.com/yourkey/需要分组的推送?group=groupName
+https://SERVER_ADDRESS/yourkey/需要分组的推送?group=groupName
 ```
 * icon (仅 iOS15 或以上支持）
 ```
 // 指定推送消息图标
-https://push.shkqg.com/yourkey/需要自定义图标的推送?icon=http://day.app/assets/images/avatar.jpg
+https://SERVER_ADDRESS/yourkey/需要自定义图标的推送?icon=http://day.app/assets/images/avatar.jpg
 
+```
+* image 
+```
 // 可以携带一张图片URL,直接在通知里展示
-https://push.shkqg.com/yourkey/需要自定义图标的推送?image=http://day.app/assets/images/avatar.jpg
+https://SERVER_ADDRESS/yourkey/需要自定义图标的推送?image=http://day.app/assets/images/avatar.jpg
 ```
 * 时效性通知
 ```
 // 设置时效性通知
-https://push.shkqg.com/yourkey/时效性通知?level=timeSensitive
+https://SERVER_ADDRESS/yourkey/时效性通知?level=timeSensitive
 
 // 可选参数值
 // active：不设置时的默认值，系统会立即亮屏显示通知。
