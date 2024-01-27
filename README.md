@@ -1,5 +1,3 @@
-# AlarmPaw
-
 # App 所有功能均参照[Bark](https://github.com/Finb/Bark)开发, 只是推送的证书和服务器不同，请直接参照bark文档进行使用 
 
 ## 使用文档
@@ -29,6 +27,12 @@ title 推送标题 比 body 字号粗一点
 body 推送内容 换行请使用换行符 '\n'
 category 另外的功能占用的字段，还没开放 忽略就行 
 post 请求 参数名也是上面这些
+
+URL参数 > GET参数 > POST参数
+假如 你的请求是 https://push.shkqg.com/key/标题/内容?title=标题
+
+后面的title不会覆盖前面的title
+
 ```
 
 ## 复制推送内容
