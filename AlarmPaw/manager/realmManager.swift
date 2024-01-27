@@ -1,0 +1,114 @@
+//
+//  realmManager.swift
+//  AlarmPaw
+//
+//  Created by He Cho on 2024/1/19.
+//
+
+import Foundation
+import RealmSwift
+
+class RealmManager {
+    
+    static let shared = RealmManager()
+    var realm: Realm?
+
+    private init() {
+        realm = try? Realm()
+    }
+    
+    func getUnreadCount()-> Int?{
+        return self.getObject()?.where({!$0.isRead}).count
+    }
+
+    // Create
+    func addObject(_ object: Message) -> Bool {
+        guard let realm = realm else { return false }
+        do {
+            try realm.write {
+                realm.add(object)
+            }
+            return true
+        } catch {
+            return false
+        }
+    }
+
+    // Read
+    func getObject() -> Results<Message>? {
+        guard let realm = realm else { return nil }
+        return realm.objects(Message.self)
+    }
+    
+
+
+    // Update
+    func updateObject(_ object: Message, with updates: (Message) -> Void) -> Bool {
+        guard let realm = realm else { return false }
+        do {
+            try realm.write {
+                let objectToUpdate = object.isFrozen ? object.thaw() : object
+                if let objectToUpdate = objectToUpdate {
+                    updates(objectToUpdate)
+                }
+            }
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    func updateObjects(_ results: Results<Message>?, with updates: (Message?) -> Void) -> Bool {
+        guard let realm = realm else { return false }
+        
+        if let datas = results{
+            do {
+                try realm.write {
+                    for object in datas {
+                        let data = realm.objects(Message.self).where({$0.id == object.id}).first
+                        updates(data)
+                    }
+                }
+                return true
+            } catch {
+                return false
+            }
+        }
+        return false
+        
+    }
+
+    // Delete
+    func deleteObject(_ object: Message?) -> Bool {
+        guard let realm = realm else { return false }
+        if let data = object{
+            do {
+                try realm.write {
+                    let item = realm.objects(Message.self).where({$0.id == data.id})
+                    realm.delete(item)
+                }
+                return true
+            } catch {
+                return false
+            }
+        }
+       return false
+    }
+    
+    func deleteObjects<T: Object>(_ objects: Results<T>?) -> Bool {
+        guard let realm = realm else { return false }
+        if let datas = objects{
+            do {
+                try realm.write {
+                    realm.delete(datas)
+                }
+                return true
+            } catch {
+                return false
+            }
+        }
+       return false
+    }
+
+}
+

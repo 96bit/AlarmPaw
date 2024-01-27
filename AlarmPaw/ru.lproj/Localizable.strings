@@ -1,0 +1,179 @@
+/* 
+  Localizable.strings
+  AlarmPaw
+
+  Created by He Cho on 2024/1/16.
+  
+*/
+CFBundleDisplayName = "Коготь";
+removeMessage = "Удалить";
+timeJustNow = "Прямо сейчас";
+timeMinAgo = "%1$d минут назад";
+timeHourAgo = "%1$d часов назад";
+timeMinHourAgo = "%1$d часов %2$d минут назад";
+
+bottomBarSettings = "Настройки";
+bottomBarMsg = "Сообщения";
+
+unknown = "Неизвестно";
+
+showImage = "Показать изображение";
+displayImage = "Скрыть изображение";
+
+typechanged = "Статус сообщения изменен";
+allRead = "Все прочитано";
+registerPush = "Регистрация уведомлений устройства";
+
+checkimge = "Проверка изображения";
+controlSuccess = "Операция успешна";
+register = "Регистрация";
+againRegister = "Повторная регистрация";
+notRegistered = "Не зарегистрировано";
+registered = "Зарегистрировано";
+icloudHeader = "Уведомления будут синхронизированы с iCloud, когда он станет доступен";
+icloudBody = "Синхронизация с iCloud";
+badgeModeTitle = "Режим значка";
+badgeHeader = "Режим уведомления с значком, нажмите для изменения, удерживайте для очистки значка";
+baddgeFooter = "Автоматически: количество непрочитанных, настраиваемо: согласно параметрам URL";
+
+exportHeader = "Экспорт списка сообщений";
+exportTitle =  "Экспорт";
+exportFail = "Не удалось экспортировать";
+exportSuccess = "Экспорт успешен";
+allSounds = "Все звуки";
+
+copyTitle = "Копировать";
+
+someMessageCount = "%d сообщений";
+deviceTokenHeader = "Токен уведомлений для устройства Apple, не раскрывать";
+copySuccessText = "Копирование успешно";
+needRegister = "Пожалуйста, сначала зарегистрируйтесь";
+commonProblem = "Общие проблемы";
+otherHeader = "Другое";
+useHelpTitle = "Справка по использованию";
+
+opened = "Открыто";
+notopen = "Не открыто";
+
+autoModeNotClear = "Автоматический режим не может очищаться";
+clearSuccess = "Очистка успешна";
+
+groupMessageMode = "Режим группировки";
+defaultMessageMode = "Стандартный режим";
+
+deleteTimeMessage = "Удалить сообщения за указанный период";
+messageModeChanged = "Статус сообщения изменен";
+markNotRead = "Отметить как непрочитанное";
+markRead = "Отметить как прочитанное";
+deleteSuccess = "Удаление успешно";
+deleteTitle = "Удалить";
+
+nothing =  "Ничего";
+notread =  " Непрочитанное";
+deleteMessageGroup = "Удалить группу";
+groupMarkRead = "Группа прочитана";
+nothingMessage = "Нет сообщений";
+deleteAllMessage = "Удалить все сообщения";
+allMarkRead = "Отметить все как прочитанное";
+deleteSuccess = "Удаление успешно";
+deleteGroup = "Группа по умолчанию";
+
+changeServer = "Сменить сервер";
+useExample = "Пример использования";
+
+
+pushExampleHeader1 = "Пример 1";
+pushExampleFooter1 = "Нажмите на кнопку в правом верхнем углу, чтобы скопировать тестовый URL и предварительно просмотреть эффект уведомления\nВ Safari есть кэш, если уведомление не поступило, обновите страницу";
+pushExampleTitle1 = "Содержание уведомления";
+pushExampleParams1 = "Содержание уведомления";
+
+pushExampleHeader2 = "Пример 2";
+pushExampleFooter2 = "Размер шрифта заголовка уведомления немного крупнее размера шрифта содержания";
+pushExampleTitle2 = "Заголовок + Содержание";
+pushExampleParams2 = "Заголовок/Содержание";
+
+pushExampleHeader3 = "Нажмите в правом верхнем углу, чтобы посмотреть все звуки";
+pushExampleFooter3 = "Можно установить разные звуки для уведомлений";
+pushExampleTitle3 = "Звук уведомления";
+pushExampleParams3 = "Содержание уведомления?sound=minuet";
+
+
+pushExampleHeader4 = "Пользовательская иконка";
+pushExampleFooter4 = "Можно настроить иконку с помощью URL-адреса изображения. Встроено 4 вида: по умолчанию - info, warn, error, weixin, miniapp";
+pushExampleTitle4 = "Пользовательская иконка";
+pushExampleParams4 = "Содержание уведомления?icon=warn";
+
+
+pushExampleHeader5 = "С изображением";
+pushExampleFooter5 = "image=https://URL-адрес изображения";
+pushExampleTitle5 = "Пользовательское изображение";
+pushExampleParams5 = "Содержание уведомления?image=https://day.app/assets/images/avatar.jpg";
+
+pushExampleHeader6 = "Автосохранение";
+pushExampleFooter6 = "Сообщения сохраняются по умолчанию, если не указан isArchive=0, информация не будет отображаться на переднем плане";
+pushExampleTitle6 = "Не сохранять сообщение";
+pushExampleParams6 = "Содержание уведомления?isArchive=0";
+
+pushExampleHeader7 = "URLScheme или URL";
+pushExampleFooter7 = "Нажмите для открытия приложения";
+pushExampleTitle7 = "Открыть стороннее приложение или веб-сайт";
+pushExampleParams7 = "Содержание уведомления?icon=weixin&url=weixin://";
+
+
+pushExampleHeader8 = "Все параметры могут использоваться по отдельности или в комбинации";
+pushExampleFooter8 = "Вес параметров: URL > GET > POST\n Если не указан параметр url, необходим вызов интерфейса: http://адрес_сервера/push,";
+pushExampleTitle8 = "Полные параметры";
+pushExampleParams8 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=Группа&copy=Это фрагмент для копирования&autocopy=1&isArchive=1&badge=99";
+
+
+updateSuccess = "Обновление завершено";
+addNewServerList = "Добавить новый сервер";
+newaddServer = "Новый сервер";
+recoverDefaultServer = "Восстановить настройки по умолчанию";
+serverList = "Список серверов";
+addSuccess = "Добавление успешно";
+serverExist = "Сервер уже существует";
+
+addNewServerListAddress = "Добавить адрес сервера";
+inputServerAddress = "Введите адрес сервера";
+verifyFail = "Ошибка проверки";
+addTitle = "Добавить";
+online = "Онлайн";
+offline = "Офлайн";
+serverOnlineFooter = "Проведите влево для удаления, вправо для проверки статуса регистрации";
+
+serverName = "Сервер";
+registerAndCheck = "Регистрация/Проверка";
+needOneServer = "Необходимо оставить хотя бы один сервер";
+
+groupModeName = "Группировка";
+allModeName = "Все";
+
+allMarkRead = "Отметить все как прочитанное";
+hourAgo = "Час назад";
+dayAgo = "День назад";
+weekAgo = "Неделю назад";
+monthAgo = "Месяц назад";
+allTime = "Все время";
+
+
+messageExampleTitle1 = "Пример";
+messageExampleGroup1 = "Пример";
+messageExampleBody1 = "Щелкните или проведите для изменения статуса сообщения. В этом примере есть изображение. Оно автоматически скроется после получения первого сообщения.";
+
+messageExampleTitle2 = "Пользовательская иконка - это заголовок";
+messageExampleGroup2 = "Разработка";
+messageExampleBody2 = "Внутренние иконки: info, warn, error, weixin, miniapp. Пользовательская иконка = https://image-url";
+
+messageExampleTitle3 = "Щелкните, чтобы открыть другое приложение";
+messageExampleGroup3 = "Приложение";
+messageExampleBody3 = "Атрибут 'url' может открывать URL-схемы. Щелчок по уведомлению автоматически выполнит переход. При получении сообщений во время активности приложения произойдет автоматический переход.";
+
+settingNetWorkHeader = "Вы должны включить сетевой доступ для использования сервиса";
+settingNetWorkTitle = "Сетевые разрешения не включены";
+openSetting = "Открыть настройки";
+notificationHeader = "Вы должны включить уведомления, чтобы использовать этот сервис";
+notificationTitle = "Разрешения на уведомления не включены";
+openNotification = "Открыть разрешения";
+
+checkServerDeploy = "Проверить инструкцию по развертыванию сервера";

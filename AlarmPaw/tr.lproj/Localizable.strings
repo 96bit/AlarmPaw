@@ -1,0 +1,175 @@
+/* 
+  Localizable.strings
+  AlarmPaw
+
+  Created by He Cho on 2024/1/16.
+  
+*/
+
+CFBundleDisplayName = "Pençe";
+
+removeMessage = "Sil";
+timeJustNow = "Şimdi";
+timeMinAgo = "%1$d dakika önce";
+timeHourAgo = "%1$d saat önce";
+timeMinHourAgo = "%1$d saat %2$d dakika önce";
+
+bottomBarSettings = "Ayarlar";
+bottomBarMsg = "Mesaj";
+
+unknown = "Bilinmeyen";
+
+showImage = "Resmi Göster";
+displayImage = "Resmi Gizle";
+
+typechanged = "Mesaj Durumu Değiştirildi";
+allRead = "Tümü Okundu";
+registerPush = "Cihazı Kaydet";
+
+checkimge = "Kontrol Ediliyor";
+controlSuccess = "İşlem Başarılı";
+register = "Kayıt Ol";
+againRegister = "Tekrar Kayıt Ol";
+notRegistered = "Kayıtlı Değil";
+registered = "Kayıtlı";
+icloudHeader = "Bildirimler iCloud kullanılabilir olduğunda senkronize edilecektir";
+icloudBody = "iCloud Senkronizasyonu";
+badgeModeTitle = "Badge Modu";
+badgeHeader = "Bildirim simgesi modu, tıklamak için değiştirin, uzun basın ve simgeyi temizleyin";
+baddgeFooter = "Otomatik: Okunmamış sayısı, Özel: URL parametresine göre";
+
+exportHeader = "Mesaj Listesini Dışa Aktar";
+exportTitle = "Dışa Aktar";
+exportFail = "Dışa Aktarma Başarısız";
+exportSuccess = "Dışa Aktarma Başarılı";
+allSounds = "Tüm Sesler";
+
+copyTitle = "Kopyala";
+
+someMessageCount = "%d Mesaj";
+deviceTokenHeader = "Apple Cihaz Bildirim Kimliği (Device Token), lütfen paylaşmayın";
+copySuccessText = "Kopyalama Başarılı";
+needRegister = "Lütfen Kayıt Olun";
+commonProblem = "Yaygın Sorunlar";
+otherHeader = "Diğer";
+useHelpTitle = "Kullanım Yardımı";
+
+opened = "Açık";
+notopen = "Kapalı";
+
+autoModeNotClear = "Otomatik Mod Temizlenemez";
+clearSuccess = "Temizleme Başarılı";
+
+groupMessageMode = "Grup Mesaj Modu";
+defaultMessageMode = "Varsayılan Modu";
+
+deleteTimeMessage = "Aşağıdaki zaman aralığındaki mesajları sil";
+messageModeChanged = "Mesaj Durumu Değiştirildi";
+markNotRead = "Okunmamış Olarak İşaretle";
+markRead = "Okundu Olarak İşaretle";
+deleteSuccess = "Silme Başarılı";
+deleteTitle = "Sil";
+
+nothing = "Hiçbir Şey";
+notread = "Okunmamış";
+deleteMessageGroup = "Grubu Sil";
+groupMarkRead = "Grup Okundu";
+nothingMessage = "Hiç Mesaj Yok";
+deleteAllMessage = "Tüm Mesajları Sil";
+allMarkRead = "Tümünü Okundu Olarak İşaretle";
+deleteSuccess = "Silme Başarılı";
+deleteGroup = "Varsayılan Grup";
+
+changeServer = "Sunucuyu Değiştir";
+useExample = "Örnek Kullanım";
+
+pushExampleHeader1 = "Örnek 1";
+pushExampleFooter1 = "Sağ üst köşedeki düğmeyi tıklayarak test URL'sini kopyalayabilir, bildirim önizlemesini görebilirsiniz\nSafari önbelleğe alır, bildirim almadıysanız sayfayı yenileyin";
+pushExampleTitle1 = "Bildirim İçeriği";
+pushExampleParams1 = "Bildirim İçeriği";
+
+pushExampleHeader2 = "Örnek 2";
+pushExampleFooter2 = "Bildirim başlığı, bildirim içeriğinden kalın bir yazı tipine sahiptir";
+pushExampleTitle2 = "Başlık + İçerik";
+pushExampleParams2 = "Başlık/İçerik";
+
+pushExampleHeader3 = "Sağ üst köşedeki kulaklık simgesine tıklayarak tüm sesleri görüntüleyin";
+pushExampleFooter3 = "Farklı bildirim sesleri ayarlayabilirsiniz";
+pushExampleTitle3 = "Bildirim Sesi";
+pushExampleParams3 = "Bildirim İçeriği?sound=minuet";
+
+pushExampleHeader4 = "Özel İkon";
+pushExampleFooter4 = "Özel ikonlar için icon=https://image_url kullanabilirsiniz, yerleşik 4 tane vardır: varsayılan olarak info, warn, error, weixin, miniapp";
+pushExampleTitle4 = "Özel İkon";
+pushExampleParams4 = "Bildirim İçeriği?icon=warn";
+
+pushExampleHeader5 = "Resim Eşliğinde";
+pushExampleFooter5 = "image=https://image_url kullanarak resim ekleyebilirsiniz";
+pushExampleTitle5 = "Özel Resim";
+pushExampleParams5 = "Bildirim İçeriği?image=https://day.app/assets/images/avatar.jpg";
+
+pushExampleHeader6 = "Otomatik Saklama";
+pushExampleFooter6 = "Mesajlar varsayılan olarak saklanır, isArchive=0 kullanmadıkça mesajlar ön planda görünmez";
+pushExampleTitle6 = "Mesajları Saklama";
+pushExampleParams6 = "Bildirim İçeriği?isArchive=0";
+
+pushExampleHeader7 = "URL Şeması veya Web Adresi";
+pushExampleFooter7 = "Tıklanabilir ve uygulamaya yönlendirebilir";
+pushExampleTitle7 = "Üçüncü Taraf Uygulama veya Websitesi Açma";
+pushExampleParams7 = "Bildirim İçeriği?icon=weixin&url=weixin://";
+
+pushExampleHeader8 = "Tüm Parametreler Tek Tek veya Birlikte Kullanılabilir";
+pushExampleFooter8 = "Parametre Önceliği: URL > GET > POST\n url parametresi belirtilmezse, http://server_adresi/push adresini çağırmanız gerekir";
+pushExampleTitle8 = "Tüm Parametreler";
+pushExampleParams8 = "?title=title&body=body&icon=https://day.app/assets/images/avatar.jpg&image=https://day.app/assets/images/avatar.jpg&url=weixin://&sound=alarm&group=grup&copy=Burayı Kopyala&autocopy=1&isArchive=1&badge=99";
+
+updateSuccess = "Güncelleme Tamamlandı";
+addNewServerList = "Yeni Sunucu Ekle";
+newaddServer = "Yeni Sunucu Ekle";
+recoverDefaultServer = "Varsayılan Sunucuyu Geri Yükle";
+serverList = "Sunucu Listesi";
+addSuccess = "Ekleme Başarılı";
+serverExist = "Sunucu Zaten Mevcut";
+
+addNewServerListAddress = "Yeni Sunucu Adresi Ekle";
+inputServerAddress = "Sunucu Adresini Gir";
+verifyFail = "Doğrulama Başarısız";
+addTitle = "Ekle";
+online = "Çevrimiçi";
+offline = "Çevrimdışı";
+serverOnlineFooter = "Sola Kaydırarak Sil, Sağa Kaydırarak Kayıt Durumunu Kontrol Et";
+
+serverName = "Sunucu Adı";
+registerAndCheck = "Kaydet/Kontrol Et";
+needOneServer = "Bir Sunucu Saklanmalıdır";
+
+groupModeName = "Grup";
+allModeName = "Tümü";
+
+allMarkRead = "Tümünü Okundu Olarak İşaretle";
+hourAgo = "Bir Saat Önce";
+dayAgo = "Bir Gün Önce";
+weekAgo = "Bir Hafta Önce";
+monthAgo = "Bir Ay Önce";
+allTime = "Tüm Zamanlar";
+
+messageExampleTitle1 = "Örnek";
+messageExampleGroup1 = "Örnek";
+messageExampleBody1 = "Tıklama veya kaydırma ile mesaj durumunu değiştirebilirsiniz\nBu örnekte bir resim bulunmaktadır, ilk mesaj alındığında otomatik olarak gizlenir";
+
+messageExampleTitle2 = "Özel İkon, Bu Bir Başlık";
+messageExampleGroup2 = "Geliştirme";
+messageExampleBody2 = "İçsel olarak şu ikonlar mevcuttur:\n info, warn, error, weixin, miniapp\n Özel ikon için icon=https://resim_adresi kullanabilirsiniz";
+
+messageExampleTitle3 = "Diğer Uygulamaya Gitmek İçin Tıkla";
+messageExampleGroup3 = "Uygulama";
+messageExampleBody3 = "url özelliği URL Şemasını açabilir, bildirime tıkladığınızda otomatik olarak yönlendirilir, önde mesaj aldığınızda otomatik olarak yönlendirilir";
+
+settingNetWorkHeader = "Hizmeti kullanabilmek için ağ bağlantısı açık olmalıdır";
+settingNetWorkTitle = "Ağ İzni Açık Değil";
+openSetting = "Ayarları Aç";
+notificationHeader = "Hizmeti kullanabilmek için bildirimler açık olmalıdır";
+notificationTitle = "Bildirim İzni Açık Değil";
+openNotification = "İzni Aç";
+
+checkServerDeploy = "unucu Dağıtım Kılavuzunu Kontrol Et";

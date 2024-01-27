@@ -1,0 +1,295 @@
+//
+//  Paw.swift
+//  AlarmPaw
+//
+//  Created by He Cho on 2024/1/16.
+//
+
+import Foundation
+import UIKit
+import SwiftUI
+import RealmSwift
+import Network
+import Combine
+import UserNotifications
+
+class pawManager: ObservableObject{
+    
+    @AppStorage(settings.deviceToken.rawValue) var deviceToken:String = ""
+    @AppStorage(settings.deviceKey.rawValue) var deviceKey:String = ""
+    @AppStorage(settings.pawKey.rawValue) var pawKey:String = ""
+    @AppStorage(settings.badgemode.rawValue) var badgeMode:badgeAutoMode = .auto
+    @AppStorage(settings.server.rawValue) var servers:[serverInfo] = [serverInfo.serverDefault]
+    @AppStorage(settings.defaultPage.rawValue) var page:PageView = .message
+    @AppStorage(settings.messageFirstShow.rawValue) var firstShow = true
+    @AppStorage(settings.messageShowMode.rawValue) var showMessageMode:MessageGroup = .all
+    
+    @Published var showSafariWebView = false
+    @Published var showSafariWebUrl:URL? = nil
+    @Published var  isNetworkAvailable = false
+   
+    @Published var notificationPermissionStatus: UNAuthorizationStatus = .notDetermined
+    private var cancellables: Set<AnyCancellable> = []
+    
+    static let shared = pawManager()
+    private let session = URLSession(configuration: .default)
+    private init() {}
+    
+    
+    func changeBadge(badge:Int){
+        
+        dispatch_sync_safely_main_queue {
+            if badge == -1{
+                UNUserNotificationCenter.current().setBadgeCount(0)
+            }
+            
+            if self.badgeMode == .auto{
+                UNUserNotificationCenter.current().setBadgeCount(badge)
+            }
+        }
+       
+    }
+    
+   
+    
+    
+    func changeDeviceToken(_ token:String){
+        self.deviceToken = token
+    }
+    
+    
+    
+    func openUrl(url: String ){
+        if  let url = URL(string: url) {
+            self.openUrl(url: url )
+        }
+    }
+    
+    
+    
+    func openUrl(url: URL) {
+        if ["http", "https"].contains(url.scheme?.lowercased() ?? "") {
+            UIApplication.shared.open(url, options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]) { success in
+                if !success {
+                    // 打不开Universal Link时，则用内置 safari 打开
+                    self.showSafariWebUrl = url
+                    self.showSafariWebView = true
+                    
+                }
+            }
+        }
+        else {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func copy(text:String){
+        UIPasteboard.general.string = text
+    }
+    
+    // MARK: 注册设备
+    func registerForRemoteNotifications() {
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge, .carPlay], completionHandler: { (_ granted: Bool, _: Error?) -> Void in
+            
+            if granted {
+                self.dispatch_sync_safely_main_queue {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+                
+            }
+            else {
+               print("没有打开推送")
+            }
+        })
+    }
+
+
+    // MARK: 将代码安全的运行在主线程
+    func dispatch_sync_safely_main_queue(_ block: () -> ()) {
+        if Thread.isMainThread {
+            block()
+        } else {
+            DispatchQueue.main.sync {
+                block()
+            }
+        }
+    }
+
+
+    func clickMessageHandler(){
+        page = .message
+    }
+
+
+    
+    func startsWithHttpOrHttps(_ urlString: String) -> Bool {
+        let pattern = "^(http|https)://.*"
+        let test = NSPredicate(format:"SELF MATCHES %@", pattern)
+        return test.evaluate(with: urlString)
+    }
+
+}
+
+
+
+extension pawManager{
+    
+    
+    func fetch<T:Codable>(url:String) async throws -> T?{
+        guard let requestUrl = URL(string: url) else {return  nil}
+        let data = try await session.data(for: URLRequest(url: requestUrl))
+        let result = try JSONDecoder().decode(baseResponse<T>.self, from: data)
+        return result.data
+    }
+    
+    func fetchRaw<T:Codable>(url:String) async throws -> T?{
+        guard let requestUrl = URL(string: url) else {return  nil}
+        let data = try await session.data(for: URLRequest(url: requestUrl))
+        let result = try JSONDecoder().decode(T.self, from: data)
+        return result
+    }
+    
+    
+    func health(url: String) async-> Bool {
+        do{
+            if let health: String = try await fetchRaw(url: url){
+                return health == "ok"
+            }
+        }catch{
+            return false
+        }
+        
+        return false
+        
+    }
+    
+    func healthAll() async-> Bool{
+        let servers = pawManager.shared.servers
+        var result:Bool = true
+        for server in servers{
+           let ok =  await health(url: server.url + "/health")
+            if !ok{
+                result = false
+            }
+        }
+        return result
+    }
+    
+    func healthAllColor() async-> Color{
+        let servers = pawManager.shared.servers
+        var hasTrue = false
+        var hasFalse = false
+        
+        for server in servers {
+            let ok = await health(url: server.url + "/health")
+            if ok {
+                hasTrue = true
+            } else {
+                hasFalse = true
+            }
+        }
+        
+        if hasTrue && hasFalse {
+            return .orange
+        } else if hasTrue {
+            return .green
+        } else {
+            return .red
+        }
+        
+    }
+    
+    
+    
+    func registerAll() {
+        Task{
+           await registerAll()
+        }
+    }
+    
+    func registerAll() async{
+        for server in servers{
+            await register(server: server)
+        }
+    }
+    func register(server: serverInfo){
+        Task{
+            await register(server: server)
+        }
+    }
+    
+    func register(server: serverInfo) async {
+        var servers = pawManager.shared.servers
+        let index = servers.firstIndex(where: {$0.id == server.id})!
+        var serverInfo = server
+        do{
+            let requestUrl = server.url + "/register/" + self.deviceToken + "/" + server.key
+            
+            if let deviceInfo:DeviceInfo = try await fetch(url: requestUrl){
+                serverInfo.key = deviceInfo.deviceKey
+                serverInfo.status = true
+            }else{
+                serverInfo.status = false
+            }
+        }catch{
+            serverInfo.status = false
+        }
+        servers[index] = serverInfo
+        dispatch_sync_safely_main_queue {
+            pawManager.shared.servers = servers
+        }
+        print(serverInfo)
+    }
+    
+    func openSetting(){
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        
+        UIApplication.shared.open(settingsURL)
+    }
+
+    
+}
+
+extension pawManager{
+    func monitorNetwork() {
+        let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { path in
+            print("网络发生变化",path)
+            self.dispatch_sync_safely_main_queue {
+                self.isNetworkAvailable = path.status == .satisfied
+                if self.isNetworkAvailable {
+                    self.registerForRemoteNotifications()
+                }
+            }
+        }
+        let queue = DispatchQueue(label: "NetworkMonitor")
+        monitor.start(queue: queue)
+    }
+    
+    // 监听通知权限变化
+    func monitorNotification(){
+        NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+            .sink { _ in
+                self.checkNotificationPermissionStatus()
+            }
+            .store(in: &cancellables)
+        self.checkNotificationPermissionStatus()
+    }
+    
+    func checkNotificationPermissionStatus() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                self.notificationPermissionStatus = settings.authorizationStatus
+                
+                if settings.authorizationStatus == .authorized {
+                    //  MARK: 注册设备
+                    pawManager.shared.registerForRemoteNotifications()
+                }
+                
+            }
+        }
+    }
+}
