@@ -14,12 +14,12 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v3
 
-      - name: List files in the repository
-        run: |
-          ls -la
       - name: Set environment variables from project settings
         run: |
-          exec .github/scripts/set-env-from-xcodeproj.sh
+          SCHEME="$(xcodebuild -list -json | jq -r '.project.schemes[0]')"
+          PRODUCT_NAME="$(xcodebuild -scheme "$SCHEME" -showBuildSettings | grep " PRODUCT_NAME " | sed "s/[ ]*PRODUCT_NAME = //")"
+          echo "PRODUCT_NAME=$PRODUCT_NAME" >> $GITHUB_ENV
+          
       - name: Import signing certificate
         env:
           SIGNING_CERTIFICATE_P12_DATA: ${{ secrets.SIGNING_CERTIFICATE_P12_DATA }}
