@@ -277,11 +277,11 @@ extension SettingView{
     }
 }
 
-#Preview {
-    NavigationStack{
-        SettingView()
-    }
-}
+//#Preview {
+//    NavigationStack{
+//        SettingView()
+//    }
+//}
 
 
 struct ShareSheet: UIViewControllerRepresentable {
