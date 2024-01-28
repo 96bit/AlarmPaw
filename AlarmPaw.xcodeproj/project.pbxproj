@@ -49,39 +49,41 @@
 		1987A68C2B5E165C00452572 /* toastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987A68B2B5E165C00452572 /* toastView.swift */; };
 		199723152B601F47008B51A8 /* musicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199723142B601F47008B51A8 /* musicItemView.swift */; };
 		199723172B601FA0008B51A8 /* audioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199723162B601FA0008B51A8 /* audioManager.swift */; };
-		199723392B616D3A008B51A8 /* sherwoodforest.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723192B616D39008B51A8 /* sherwoodforest.caf */; };
-		1997233A2B616D3A008B51A8 /* choo.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997231A2B616D39008B51A8 /* choo.caf */; };
-		1997233B2B616D3A008B51A8 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997231B2B616D39008B51A8 /* silence.caf */; };
-		1997233C2B616D3A008B51A8 /* bloom.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997231C2B616D39008B51A8 /* bloom.caf */; };
-		1997233D2B616D3A008B51A8 /* noir.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997231D2B616D39008B51A8 /* noir.caf */; };
-		1997233E2B616D3A008B51A8 /* update.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997231E2B616D39008B51A8 /* update.caf */; };
-		1997233F2B616D3A008B51A8 /* paymentsuccess.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997231F2B616D39008B51A8 /* paymentsuccess.caf */; };
-		199723402B616D3A008B51A8 /* shake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723202B616D39008B51A8 /* shake.caf */; };
-		199723412B616D3A008B51A8 /* tiptoes.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723212B616D39008B51A8 /* tiptoes.caf */; };
-		199723422B616D3A008B51A8 /* birdsong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723222B616D39008B51A8 /* birdsong.caf */; };
-		199723432B616D3A008B51A8 /* healthnotification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723232B616D39008B51A8 /* healthnotification.caf */; };
-		199723442B616D3A008B51A8 /* spell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723242B616D39008B51A8 /* spell.caf */; };
-		199723452B616D3A008B51A8 /* telegraph.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723252B616D39008B51A8 /* telegraph.caf */; };
-		199723462B616D3A008B51A8 /* newmail.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723262B616D39008B51A8 /* newmail.caf */; };
-		199723472B616D3A008B51A8 /* electronic.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723272B616D39008B51A8 /* electronic.caf */; };
-		199723482B616D3A008B51A8 /* typewriters.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723282B616D39008B51A8 /* typewriters.caf */; };
-		199723492B616D3A008B51A8 /* glass.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723292B616D39008B51A8 /* glass.caf */; };
-		1997234A2B616D3A008B51A8 /* ladder.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997232A2B616D39008B51A8 /* ladder.caf */; };
-		1997234B2B616D3A008B51A8 /* chime.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997232B2B616D39008B51A8 /* chime.caf */; };
-		1997234C2B616D3A008B51A8 /* gotosleep.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997232C2B616D39008B51A8 /* gotosleep.caf */; };
-		1997234D2B616D3A008B51A8 /* mailsent.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997232D2B616D39008B51A8 /* mailsent.caf */; };
-		1997234E2B616D3A008B51A8 /* minuet.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997232E2B616D39008B51A8 /* minuet.caf */; };
-		1997234F2B616D3A008B51A8 /* anticipate.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1997232F2B616D39008B51A8 /* anticipate.caf */; };
-		199723502B616D3A008B51A8 /* horn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723302B616D39008B51A8 /* horn.caf */; };
-		199723512B616D3A008B51A8 /* descent.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723312B616D39008B51A8 /* descent.caf */; };
-		199723522B616D3A008B51A8 /* bell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723322B616D39008B51A8 /* bell.caf */; };
-		199723532B616D3A008B51A8 /* newsflash.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723332B616D39008B51A8 /* newsflash.caf */; };
-		199723542B616D3A008B51A8 /* suspense.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723342B616D3A008B51A8 /* suspense.caf */; };
-		199723552B616D3A008B51A8 /* multiwayinvitation.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723352B616D3A008B51A8 /* multiwayinvitation.caf */; };
-		199723562B616D3A008B51A8 /* fanfare.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723362B616D3A008B51A8 /* fanfare.caf */; };
-		199723572B616D3A008B51A8 /* calypso.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723372B616D3A008B51A8 /* calypso.caf */; };
-		199723582B616D3A008B51A8 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723382B616D3A008B51A8 /* alarm.caf */; };
 		19C4388C2B64EDC300D73D63 /* addServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4388B2B64EDC300D73D63 /* addServerView.swift */; };
+		19C4954C2B66820D001AB195 /* suspense.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952C2B66820C001AB195 /* suspense.caf */; };
+		19C4954D2B66820D001AB195 /* sherwoodforest.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952D2B66820C001AB195 /* sherwoodforest.caf */; };
+		19C4954E2B66820D001AB195 /* calypso.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952E2B66820C001AB195 /* calypso.caf */; };
+		19C4954F2B66820D001AB195 /* anticipate.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952F2B66820C001AB195 /* anticipate.caf */; };
+		19C495502B66820D001AB195 /* telegraph.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495302B66820C001AB195 /* telegraph.caf */; };
+		19C495512B66820D001AB195 /* tiptoes.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495312B66820C001AB195 /* tiptoes.caf */; };
+		19C495522B66820D001AB195 /* typewriters.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495322B66820C001AB195 /* typewriters.caf */; };
+		19C495532B66820D001AB195 /* healthnotification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495332B66820C001AB195 /* healthnotification.caf */; };
+		19C495542B66820D001AB195 /* spell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495342B66820C001AB195 /* spell.caf */; };
+		19C495552B66820D001AB195 /* newmail.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495352B66820C001AB195 /* newmail.caf */; };
+		19C495562B66820D001AB195 /* glass.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495362B66820C001AB195 /* glass.caf */; };
+		19C495572B66820D001AB195 /* bell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495372B66820C001AB195 /* bell.caf */; };
+		19C495582B66820D001AB195 /* choo.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495382B66820C001AB195 /* choo.caf */; };
+		19C495592B66820D001AB195 /* descent.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495392B66820C001AB195 /* descent.caf */; };
+		19C4955A2B66820D001AB195 /* fanfare.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4953A2B66820C001AB195 /* fanfare.caf */; };
+		19C4955B2B66820D001AB195 /* multiwayinvitation.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4953B2B66820C001AB195 /* multiwayinvitation.caf */; };
+		19C4955C2B66820D001AB195 /* birdsong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4953C2B66820C001AB195 /* birdsong.caf */; };
+		19C4955D2B66820D001AB195 /* paymentsuccess.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4953D2B66820D001AB195 /* paymentsuccess.caf */; };
+		19C4955E2B66820D001AB195 /* shake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4953E2B66820D001AB195 /* shake.caf */; };
+		19C4955F2B66820D001AB195 /* electronic.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4953F2B66820D001AB195 /* electronic.caf */; };
+		19C495602B66820D001AB195 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495402B66820D001AB195 /* alarm.caf */; };
+		19C495612B66820D001AB195 /* mailsent.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495412B66820D001AB195 /* mailsent.caf */; };
+		19C495622B66820D001AB195 /* noir.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495422B66820D001AB195 /* noir.caf */; };
+		19C495632B66820D001AB195 /* gotosleep.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495432B66820D001AB195 /* gotosleep.caf */; };
+		19C495642B66820D001AB195 /* update.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495442B66820D001AB195 /* update.caf */; };
+		19C495652B66820D001AB195 /* horn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495452B66820D001AB195 /* horn.caf */; };
+		19C495662B66820D001AB195 /* minuet.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495462B66820D001AB195 /* minuet.caf */; };
+		19C495672B66820D001AB195 /* newsflash.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495472B66820D001AB195 /* newsflash.caf */; };
+		19C495682B66820D001AB195 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495482B66820D001AB195 /* silence.caf */; };
+		19C495692B66820D001AB195 /* bloom.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495492B66820D001AB195 /* bloom.caf */; };
+		19C4956A2B66820D001AB195 /* chime.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954A2B66820D001AB195 /* chime.caf */; };
+		19C4956B2B66820D001AB195 /* ladder.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954B2B66820D001AB195 /* ladder.caf */; };
+		19C4956D2B668D82001AB195 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 19C4956C2B668D82001AB195 /* Gemfile */; };
+		19C4956F2B668D93001AB195 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 19C4956E2B668D93001AB195 /* fastlane */; };
 		19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CC2B54399A0039103D /* URLSession+.swift */; };
 		19D0F6D02B543CCE0039103D /* Operator+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CF2B543CCE0039103D /* Operator+.swift */; };
 		19D0F6F62B55A4360039103D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196E1CBD2B527C1E001FAD01 /* UserNotifications.framework */; };
@@ -168,41 +170,43 @@
 		199723142B601F47008B51A8 /* musicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicItemView.swift; sourceTree = "<group>"; };
 		199723162B601FA0008B51A8 /* audioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioManager.swift; sourceTree = "<group>"; };
 		199723182B6168FD008B51A8 /* AlarmPawRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AlarmPawRelease.entitlements; sourceTree = "<group>"; };
-		199723192B616D39008B51A8 /* sherwoodforest.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sherwoodforest.caf; path = ../../../Documents/Sounds/sherwoodforest.caf; sourceTree = "<group>"; };
-		1997231A2B616D39008B51A8 /* choo.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = choo.caf; path = ../../../Documents/Sounds/choo.caf; sourceTree = "<group>"; };
-		1997231B2B616D39008B51A8 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = silence.caf; path = ../../../Documents/Sounds/silence.caf; sourceTree = "<group>"; };
-		1997231C2B616D39008B51A8 /* bloom.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bloom.caf; path = ../../../Documents/Sounds/bloom.caf; sourceTree = "<group>"; };
-		1997231D2B616D39008B51A8 /* noir.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = noir.caf; path = ../../../Documents/Sounds/noir.caf; sourceTree = "<group>"; };
-		1997231E2B616D39008B51A8 /* update.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = update.caf; path = ../../../Documents/Sounds/update.caf; sourceTree = "<group>"; };
-		1997231F2B616D39008B51A8 /* paymentsuccess.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = paymentsuccess.caf; path = ../../../Documents/Sounds/paymentsuccess.caf; sourceTree = "<group>"; };
-		199723202B616D39008B51A8 /* shake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = shake.caf; path = ../../../Documents/Sounds/shake.caf; sourceTree = "<group>"; };
-		199723212B616D39008B51A8 /* tiptoes.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tiptoes.caf; path = ../../../Documents/Sounds/tiptoes.caf; sourceTree = "<group>"; };
-		199723222B616D39008B51A8 /* birdsong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = birdsong.caf; path = ../../../Documents/Sounds/birdsong.caf; sourceTree = "<group>"; };
-		199723232B616D39008B51A8 /* healthnotification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = healthnotification.caf; path = ../../../Documents/Sounds/healthnotification.caf; sourceTree = "<group>"; };
-		199723242B616D39008B51A8 /* spell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = spell.caf; path = ../../../Documents/Sounds/spell.caf; sourceTree = "<group>"; };
-		199723252B616D39008B51A8 /* telegraph.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = telegraph.caf; path = ../../../Documents/Sounds/telegraph.caf; sourceTree = "<group>"; };
-		199723262B616D39008B51A8 /* newmail.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = newmail.caf; path = ../../../Documents/Sounds/newmail.caf; sourceTree = "<group>"; };
-		199723272B616D39008B51A8 /* electronic.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = electronic.caf; path = ../../../Documents/Sounds/electronic.caf; sourceTree = "<group>"; };
-		199723282B616D39008B51A8 /* typewriters.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = typewriters.caf; path = ../../../Documents/Sounds/typewriters.caf; sourceTree = "<group>"; };
-		199723292B616D39008B51A8 /* glass.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = glass.caf; path = ../../../Documents/Sounds/glass.caf; sourceTree = "<group>"; };
-		1997232A2B616D39008B51A8 /* ladder.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ladder.caf; path = ../../../Documents/Sounds/ladder.caf; sourceTree = "<group>"; };
-		1997232B2B616D39008B51A8 /* chime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = chime.caf; path = ../../../Documents/Sounds/chime.caf; sourceTree = "<group>"; };
-		1997232C2B616D39008B51A8 /* gotosleep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = gotosleep.caf; path = ../../../Documents/Sounds/gotosleep.caf; sourceTree = "<group>"; };
-		1997232D2B616D39008B51A8 /* mailsent.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = mailsent.caf; path = ../../../Documents/Sounds/mailsent.caf; sourceTree = "<group>"; };
-		1997232E2B616D39008B51A8 /* minuet.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = minuet.caf; path = ../../../Documents/Sounds/minuet.caf; sourceTree = "<group>"; };
-		1997232F2B616D39008B51A8 /* anticipate.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = anticipate.caf; path = ../../../Documents/Sounds/anticipate.caf; sourceTree = "<group>"; };
-		199723302B616D39008B51A8 /* horn.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = horn.caf; path = ../../../Documents/Sounds/horn.caf; sourceTree = "<group>"; };
-		199723312B616D39008B51A8 /* descent.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = descent.caf; path = ../../../Documents/Sounds/descent.caf; sourceTree = "<group>"; };
-		199723322B616D39008B51A8 /* bell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bell.caf; path = ../../../Documents/Sounds/bell.caf; sourceTree = "<group>"; };
-		199723332B616D39008B51A8 /* newsflash.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = newsflash.caf; path = ../../../Documents/Sounds/newsflash.caf; sourceTree = "<group>"; };
-		199723342B616D3A008B51A8 /* suspense.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = suspense.caf; path = ../../../Documents/Sounds/suspense.caf; sourceTree = "<group>"; };
-		199723352B616D3A008B51A8 /* multiwayinvitation.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = multiwayinvitation.caf; path = ../../../Documents/Sounds/multiwayinvitation.caf; sourceTree = "<group>"; };
-		199723362B616D3A008B51A8 /* fanfare.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = fanfare.caf; path = ../../../Documents/Sounds/fanfare.caf; sourceTree = "<group>"; };
-		199723372B616D3A008B51A8 /* calypso.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = calypso.caf; path = ../../../Documents/Sounds/calypso.caf; sourceTree = "<group>"; };
-		199723382B616D3A008B51A8 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = alarm.caf; path = ../../../Documents/Sounds/alarm.caf; sourceTree = "<group>"; };
 		199723592B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		1997235A2B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		19C4388B2B64EDC300D73D63 /* addServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addServerView.swift; sourceTree = "<group>"; };
+		19C4952C2B66820C001AB195 /* suspense.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = suspense.caf; sourceTree = "<group>"; };
+		19C4952D2B66820C001AB195 /* sherwoodforest.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sherwoodforest.caf; sourceTree = "<group>"; };
+		19C4952E2B66820C001AB195 /* calypso.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = calypso.caf; sourceTree = "<group>"; };
+		19C4952F2B66820C001AB195 /* anticipate.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = anticipate.caf; sourceTree = "<group>"; };
+		19C495302B66820C001AB195 /* telegraph.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = telegraph.caf; sourceTree = "<group>"; };
+		19C495312B66820C001AB195 /* tiptoes.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tiptoes.caf; sourceTree = "<group>"; };
+		19C495322B66820C001AB195 /* typewriters.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = typewriters.caf; sourceTree = "<group>"; };
+		19C495332B66820C001AB195 /* healthnotification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = healthnotification.caf; sourceTree = "<group>"; };
+		19C495342B66820C001AB195 /* spell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = spell.caf; sourceTree = "<group>"; };
+		19C495352B66820C001AB195 /* newmail.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = newmail.caf; sourceTree = "<group>"; };
+		19C495362B66820C001AB195 /* glass.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = glass.caf; sourceTree = "<group>"; };
+		19C495372B66820C001AB195 /* bell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.caf; sourceTree = "<group>"; };
+		19C495382B66820C001AB195 /* choo.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = choo.caf; sourceTree = "<group>"; };
+		19C495392B66820C001AB195 /* descent.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = descent.caf; sourceTree = "<group>"; };
+		19C4953A2B66820C001AB195 /* fanfare.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fanfare.caf; sourceTree = "<group>"; };
+		19C4953B2B66820C001AB195 /* multiwayinvitation.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = multiwayinvitation.caf; sourceTree = "<group>"; };
+		19C4953C2B66820C001AB195 /* birdsong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = birdsong.caf; sourceTree = "<group>"; };
+		19C4953D2B66820D001AB195 /* paymentsuccess.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = paymentsuccess.caf; sourceTree = "<group>"; };
+		19C4953E2B66820D001AB195 /* shake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shake.caf; sourceTree = "<group>"; };
+		19C4953F2B66820D001AB195 /* electronic.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = electronic.caf; sourceTree = "<group>"; };
+		19C495402B66820D001AB195 /* alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = alarm.caf; sourceTree = "<group>"; };
+		19C495412B66820D001AB195 /* mailsent.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mailsent.caf; sourceTree = "<group>"; };
+		19C495422B66820D001AB195 /* noir.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = noir.caf; sourceTree = "<group>"; };
+		19C495432B66820D001AB195 /* gotosleep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gotosleep.caf; sourceTree = "<group>"; };
+		19C495442B66820D001AB195 /* update.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = update.caf; sourceTree = "<group>"; };
+		19C495452B66820D001AB195 /* horn.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = horn.caf; sourceTree = "<group>"; };
+		19C495462B66820D001AB195 /* minuet.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minuet.caf; sourceTree = "<group>"; };
+		19C495472B66820D001AB195 /* newsflash.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = newsflash.caf; sourceTree = "<group>"; };
+		19C495482B66820D001AB195 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
+		19C495492B66820D001AB195 /* bloom.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloom.caf; sourceTree = "<group>"; };
+		19C4954A2B66820D001AB195 /* chime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime.caf; sourceTree = "<group>"; };
+		19C4954B2B66820D001AB195 /* ladder.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ladder.caf; sourceTree = "<group>"; };
+		19C4956C2B668D82001AB195 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
+		19C4956E2B668D93001AB195 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		19D0F6CC2B54399A0039103D /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		19D0F6CF2B543CCE0039103D /* Operator+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Operator+.swift"; sourceTree = "<group>"; };
 		19D0F6D72B54F6BE0039103D /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
@@ -287,38 +291,38 @@
 		1936B4C32B56AAFC00FC31E2 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				199723382B616D3A008B51A8 /* alarm.caf */,
-				1997232F2B616D39008B51A8 /* anticipate.caf */,
-				199723322B616D39008B51A8 /* bell.caf */,
-				199723222B616D39008B51A8 /* birdsong.caf */,
-				1997231C2B616D39008B51A8 /* bloom.caf */,
-				199723372B616D3A008B51A8 /* calypso.caf */,
-				1997232B2B616D39008B51A8 /* chime.caf */,
-				1997231A2B616D39008B51A8 /* choo.caf */,
-				199723312B616D39008B51A8 /* descent.caf */,
-				199723272B616D39008B51A8 /* electronic.caf */,
-				199723362B616D3A008B51A8 /* fanfare.caf */,
-				199723292B616D39008B51A8 /* glass.caf */,
-				1997232C2B616D39008B51A8 /* gotosleep.caf */,
-				199723232B616D39008B51A8 /* healthnotification.caf */,
-				199723302B616D39008B51A8 /* horn.caf */,
-				1997232A2B616D39008B51A8 /* ladder.caf */,
-				1997232D2B616D39008B51A8 /* mailsent.caf */,
-				1997232E2B616D39008B51A8 /* minuet.caf */,
-				199723352B616D3A008B51A8 /* multiwayinvitation.caf */,
-				199723262B616D39008B51A8 /* newmail.caf */,
-				199723332B616D39008B51A8 /* newsflash.caf */,
-				1997231D2B616D39008B51A8 /* noir.caf */,
-				1997231F2B616D39008B51A8 /* paymentsuccess.caf */,
-				199723202B616D39008B51A8 /* shake.caf */,
-				199723192B616D39008B51A8 /* sherwoodforest.caf */,
-				1997231B2B616D39008B51A8 /* silence.caf */,
-				199723242B616D39008B51A8 /* spell.caf */,
-				199723342B616D3A008B51A8 /* suspense.caf */,
-				199723252B616D39008B51A8 /* telegraph.caf */,
-				199723212B616D39008B51A8 /* tiptoes.caf */,
-				199723282B616D39008B51A8 /* typewriters.caf */,
-				1997231E2B616D39008B51A8 /* update.caf */,
+				19C495402B66820D001AB195 /* alarm.caf */,
+				19C4952F2B66820C001AB195 /* anticipate.caf */,
+				19C495372B66820C001AB195 /* bell.caf */,
+				19C4953C2B66820C001AB195 /* birdsong.caf */,
+				19C495492B66820D001AB195 /* bloom.caf */,
+				19C4952E2B66820C001AB195 /* calypso.caf */,
+				19C4954A2B66820D001AB195 /* chime.caf */,
+				19C495382B66820C001AB195 /* choo.caf */,
+				19C495392B66820C001AB195 /* descent.caf */,
+				19C4953F2B66820D001AB195 /* electronic.caf */,
+				19C4953A2B66820C001AB195 /* fanfare.caf */,
+				19C495362B66820C001AB195 /* glass.caf */,
+				19C495432B66820D001AB195 /* gotosleep.caf */,
+				19C495332B66820C001AB195 /* healthnotification.caf */,
+				19C495452B66820D001AB195 /* horn.caf */,
+				19C4954B2B66820D001AB195 /* ladder.caf */,
+				19C495412B66820D001AB195 /* mailsent.caf */,
+				19C495462B66820D001AB195 /* minuet.caf */,
+				19C4953B2B66820C001AB195 /* multiwayinvitation.caf */,
+				19C495352B66820C001AB195 /* newmail.caf */,
+				19C495472B66820D001AB195 /* newsflash.caf */,
+				19C495422B66820D001AB195 /* noir.caf */,
+				19C4953D2B66820D001AB195 /* paymentsuccess.caf */,
+				19C4953E2B66820D001AB195 /* shake.caf */,
+				19C4952D2B66820C001AB195 /* sherwoodforest.caf */,
+				19C495482B66820D001AB195 /* silence.caf */,
+				19C495342B66820C001AB195 /* spell.caf */,
+				19C4952C2B66820C001AB195 /* suspense.caf */,
+				19C495302B66820C001AB195 /* telegraph.caf */,
+				19C495312B66820C001AB195 /* tiptoes.caf */,
+				19C495322B66820C001AB195 /* typewriters.caf */,
+				19C495442B66820D001AB195 /* update.caf */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -340,6 +344,8 @@
 		196E1C962B5273CC001FAD01 = {
 			isa = PBXGroup;
 			children = (
+				19C4956E2B668D93001AB195 /* fastlane */,
+				19C4956C2B668D82001AB195 /* Gemfile */,
 				1936B4C32B56AAFC00FC31E2 /* Sounds */,
 				196E1CA12B5273CC001FAD01 /* AlarmPaw */,
 				196E1CD72B5280F1001FAD01 /* NotificationServiceExtension */,
@@ -550,42 +556,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				199723512B616D3A008B51A8 /* descent.caf in Resources */,
-				199723422B616D3A008B51A8 /* birdsong.caf in Resources */,
-				199723442B616D3A008B51A8 /* spell.caf in Resources */,
-				199723502B616D3A008B51A8 /* horn.caf in Resources */,
-				199723402B616D3A008B51A8 /* shake.caf in Resources */,
-				1997234F2B616D3A008B51A8 /* anticipate.caf in Resources */,
-				199723572B616D3A008B51A8 /* calypso.caf in Resources */,
-				199723482B616D3A008B51A8 /* typewriters.caf in Resources */,
-				1997234D2B616D3A008B51A8 /* mailsent.caf in Resources */,
-				199723392B616D3A008B51A8 /* sherwoodforest.caf in Resources */,
-				1997233A2B616D3A008B51A8 /* choo.caf in Resources */,
-				199723492B616D3A008B51A8 /* glass.caf in Resources */,
-				199723582B616D3A008B51A8 /* alarm.caf in Resources */,
-				199723542B616D3A008B51A8 /* suspense.caf in Resources */,
-				1997233E2B616D3A008B51A8 /* update.caf in Resources */,
-				199723562B616D3A008B51A8 /* fanfare.caf in Resources */,
+				19C495622B66820D001AB195 /* noir.caf in Resources */,
+				19C495562B66820D001AB195 /* glass.caf in Resources */,
+				19C4954F2B66820D001AB195 /* anticipate.caf in Resources */,
+				19C495652B66820D001AB195 /* horn.caf in Resources */,
+				19C495512B66820D001AB195 /* tiptoes.caf in Resources */,
+				19C495552B66820D001AB195 /* newmail.caf in Resources */,
+				19C4956B2B66820D001AB195 /* ladder.caf in Resources */,
+				19C4955C2B66820D001AB195 /* birdsong.caf in Resources */,
+				19C495642B66820D001AB195 /* update.caf in Resources */,
+				19C495692B66820D001AB195 /* bloom.caf in Resources */,
+				19C4954C2B66820D001AB195 /* suspense.caf in Resources */,
+				19C495682B66820D001AB195 /* silence.caf in Resources */,
+				19C495662B66820D001AB195 /* minuet.caf in Resources */,
+				19C495532B66820D001AB195 /* healthnotification.caf in Resources */,
+				19C495502B66820D001AB195 /* telegraph.caf in Resources */,
 				196E1CAC2B5273CF001FAD01 /* Preview Assets.xcassets in Resources */,
-				1997234A2B616D3A008B51A8 /* ladder.caf in Resources */,
-				1997233C2B616D3A008B51A8 /* bloom.caf in Resources */,
-				199723452B616D3A008B51A8 /* telegraph.caf in Resources */,
-				1997233F2B616D3A008B51A8 /* paymentsuccess.caf in Resources */,
-				199723472B616D3A008B51A8 /* electronic.caf in Resources */,
+				19C4955D2B66820D001AB195 /* paymentsuccess.caf in Resources */,
+				19C495632B66820D001AB195 /* gotosleep.caf in Resources */,
+				19C4955A2B66820D001AB195 /* fanfare.caf in Resources */,
+				19C495672B66820D001AB195 /* newsflash.caf in Resources */,
+				19C495522B66820D001AB195 /* typewriters.caf in Resources */,
+				19C495602B66820D001AB195 /* alarm.caf in Resources */,
+				19C4954D2B66820D001AB195 /* sherwoodforest.caf in Resources */,
+				19C4955B2B66820D001AB195 /* multiwayinvitation.caf in Resources */,
+				19C495612B66820D001AB195 /* mailsent.caf in Resources */,
 				1936B4CC2B56B58B00FC31E2 /* Localizable.strings in Resources */,
-				199723412B616D3A008B51A8 /* tiptoes.caf in Resources */,
-				1997234E2B616D3A008B51A8 /* minuet.caf in Resources */,
-				1997233D2B616D3A008B51A8 /* noir.caf in Resources */,
-				1997234C2B616D3A008B51A8 /* gotosleep.caf in Resources */,
-				1997233B2B616D3A008B51A8 /* silence.caf in Resources */,
+				19C4954E2B66820D001AB195 /* calypso.caf in Resources */,
+				19C495542B66820D001AB195 /* spell.caf in Resources */,
+				19C495582B66820D001AB195 /* choo.caf in Resources */,
 				196E1CA92B5273CF001FAD01 /* Assets.xcassets in Resources */,
-				199723532B616D3A008B51A8 /* newsflash.caf in Resources */,
+				19C4955E2B66820D001AB195 /* shake.caf in Resources */,
+				19C495592B66820D001AB195 /* descent.caf in Resources */,
+				19C4956F2B668D93001AB195 /* fastlane in Resources */,
+				19C4956A2B66820D001AB195 /* chime.caf in Resources */,
 				196AD4782B60038B0086B42C /* Launch Screen.storyboard in Resources */,
-				199723552B616D3A008B51A8 /* multiwayinvitation.caf in Resources */,
-				199723462B616D3A008B51A8 /* newmail.caf in Resources */,
-				199723522B616D3A008B51A8 /* bell.caf in Resources */,
-				1997234B2B616D3A008B51A8 /* chime.caf in Resources */,
-				199723432B616D3A008B51A8 /* healthnotification.caf in Resources */,
+				19C4956D2B668D82001AB195 /* Gemfile in Resources */,
+				19C4955F2B66820D001AB195 /* electronic.caf in Resources */,
+				19C495572B66820D001AB195 /* bell.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,7 +846,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
@@ -877,7 +885,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
@@ -912,7 +920,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -943,7 +951,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -974,7 +982,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1005,7 +1013,7 @@
 				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
