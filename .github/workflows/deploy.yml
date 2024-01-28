@@ -12,8 +12,11 @@ jobs:
 
     steps:
       - name: Checkout project
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
+      - name: List files in the repository
+        run: |
+          ls -la
       - name: Set environment variables from project settings
         run: |
           exec .github/scripts/set-env-from-xcodeproj.sh
