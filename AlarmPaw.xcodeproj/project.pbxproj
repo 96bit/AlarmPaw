@@ -82,7 +82,6 @@
 		199723572B616D3A008B51A8 /* calypso.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723372B616D3A008B51A8 /* calypso.caf */; };
 		199723582B616D3A008B51A8 /* alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 199723382B616D3A008B51A8 /* alarm.caf */; };
 		19C4388C2B64EDC300D73D63 /* addServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4388B2B64EDC300D73D63 /* addServerView.swift */; };
-		19C4952B2B65E381001AB195 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952A2B65E381001AB195 /* Gemfile */; };
 		19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CC2B54399A0039103D /* URLSession+.swift */; };
 		19D0F6D02B543CCE0039103D /* Operator+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CF2B543CCE0039103D /* Operator+.swift */; };
 		19D0F6F62B55A4360039103D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196E1CBD2B527C1E001FAD01 /* UserNotifications.framework */; };
@@ -204,7 +203,6 @@
 		199723592B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		1997235A2B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		19C4388B2B64EDC300D73D63 /* addServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addServerView.swift; sourceTree = "<group>"; };
-		19C4952A2B65E381001AB195 /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		19D0F6CC2B54399A0039103D /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		19D0F6CF2B543CCE0039103D /* Operator+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Operator+.swift"; sourceTree = "<group>"; };
 		19D0F6D72B54F6BE0039103D /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
@@ -342,7 +340,6 @@
 		196E1C962B5273CC001FAD01 = {
 			isa = PBXGroup;
 			children = (
-				19C4952A2B65E381001AB195 /* Gemfile */,
 				1936B4C32B56AAFC00FC31E2 /* Sounds */,
 				196E1CA12B5273CC001FAD01 /* AlarmPaw */,
 				196E1CD72B5280F1001FAD01 /* NotificationServiceExtension */,
@@ -587,7 +584,6 @@
 				199723552B616D3A008B51A8 /* multiwayinvitation.caf in Resources */,
 				199723462B616D3A008B51A8 /* newmail.caf in Resources */,
 				199723522B616D3A008B51A8 /* bell.caf in Resources */,
-				19C4952B2B65E381001AB195 /* Gemfile in Resources */,
 				1997234B2B616D3A008B51A8 /* chime.caf in Resources */,
 				199723432B616D3A008B51A8 /* healthnotification.caf in Resources */,
 			);
