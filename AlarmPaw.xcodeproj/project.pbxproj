@@ -84,8 +84,6 @@
 		19C495692B66820D001AB195 /* bloom.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495492B66820D001AB195 /* bloom.caf */; };
 		19C4956A2B66820D001AB195 /* chime.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954A2B66820D001AB195 /* chime.caf */; };
 		19C4956B2B66820D001AB195 /* ladder.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954B2B66820D001AB195 /* ladder.caf */; };
-		19C4956D2B668D82001AB195 /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 19C4956C2B668D82001AB195 /* Gemfile */; };
-		19C4956F2B668D93001AB195 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 19C4956E2B668D93001AB195 /* fastlane */; };
 		19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CC2B54399A0039103D /* URLSession+.swift */; };
 		19D0F6D02B543CCE0039103D /* Operator+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CF2B543CCE0039103D /* Operator+.swift */; };
 		19D0F6F62B55A4360039103D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196E1CBD2B527C1E001FAD01 /* UserNotifications.framework */; };
@@ -217,8 +215,6 @@
 		19C495492B66820D001AB195 /* bloom.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloom.caf; sourceTree = "<group>"; };
 		19C4954A2B66820D001AB195 /* chime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime.caf; sourceTree = "<group>"; };
 		19C4954B2B66820D001AB195 /* ladder.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ladder.caf; sourceTree = "<group>"; };
-		19C4956C2B668D82001AB195 /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
-		19C4956E2B668D93001AB195 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		19D0F6CC2B54399A0039103D /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		19D0F6CF2B543CCE0039103D /* Operator+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Operator+.swift"; sourceTree = "<group>"; };
 		19D0F6D72B54F6BE0039103D /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
@@ -372,8 +368,6 @@
 		196E1C962B5273CC001FAD01 = {
 			isa = PBXGroup;
 			children = (
-				19C4956E2B668D93001AB195 /* fastlane */,
-				19C4956C2B668D82001AB195 /* Gemfile */,
 				1936B4C32B56AAFC00FC31E2 /* Sounds */,
 				196E1CA12B5273CC001FAD01 /* AlarmPaw */,
 				196E1CD72B5280F1001FAD01 /* NotificationServiceExtension */,
@@ -648,10 +642,8 @@
 				196E1CA92B5273CF001FAD01 /* Assets.xcassets in Resources */,
 				19C4955E2B66820D001AB195 /* shake.caf in Resources */,
 				19C495592B66820D001AB195 /* descent.caf in Resources */,
-				19C4956F2B668D93001AB195 /* fastlane in Resources */,
 				19C4956A2B66820D001AB195 /* chime.caf in Resources */,
 				196AD4782B60038B0086B42C /* Launch Screen.storyboard in Resources */,
-				19C4956D2B668D82001AB195 /* Gemfile in Resources */,
 				19C4955F2B66820D001AB195 /* electronic.caf in Resources */,
 				19C495572B66820D001AB195 /* bell.caf in Resources */,
 			);
@@ -791,14 +783,16 @@
 		194CA22C2B6771E10033B602 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.AlarmPawUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -809,14 +803,16 @@
 		194CA22D2B6771E10033B602 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.AlarmPawUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -974,7 +970,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1013,7 +1009,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
