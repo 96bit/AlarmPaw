@@ -3,10 +3,10 @@ name: Tests
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   tests:
@@ -19,7 +19,7 @@ jobs:
     - name: Select Xcode Version
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: '15.0.2'
+        xcode-version: '15.2.0'
 
     - name: Setup ruby
       uses: ruby/setup-ruby@v1
