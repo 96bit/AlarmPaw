@@ -35,7 +35,7 @@ jobs:
       run: |
         export LC_ALL=en_US.UTF-8
         export LANG=en_US.UTF-8
-        bundle exec fastlane release store_version_number:${{ github.event.inputs.storeVersionNumber }} build_number:${{ github.event.inputs.buildNumber }}
+        bundle exec fastlane beta store_version_number:${{ github.event.inputs.storeVersionNumber }} build_number:${{ github.event.inputs.buildNumber }}
       env:
         APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
         APP_STORE_CONNECT_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}

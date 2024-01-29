@@ -28,7 +28,7 @@ default_platform(:ios)
 
 platform :ios do
   desc "Push a new beta build to TestFlight"
-  lane :release do | options |
+  lane :beta do | options |
     setup_ci
     
     version = options[:store_version_number]
@@ -58,11 +58,14 @@ platform :ios do
       in_house: false # optional but may be required if using match/sigh
     )    
 
-    upload_to_app_store
+    upload_to_testflight
 
     paw_key = ENV["PAW_KEY"]
     %x( 'curl' 'https://api.day.app/#{paw_key}/Bark%20has%20completed%20processing?isArchive=0&url=https%3A%2F%2Fgithub.com%2FFinb%2FBark%2Factions%2Fruns%2F#{run_id}' )
     
+  end
+  lane :tests do
+    run_tests(scheme: "AlarmPaw")
   end
 end
 
