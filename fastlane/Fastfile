@@ -65,7 +65,7 @@ platform :ios do
     
   end
   lane :tests do
-    run_tests(scheme: "AlarmPaw")
+    run_tests(project: "Bark.xcodeproj",scheme: "AlarmPaw")
   end
 end
 
