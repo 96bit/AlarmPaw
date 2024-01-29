@@ -38,6 +38,7 @@ struct MessageView: View {
                     Image(systemName: "questionmark.circle")
                     
                 } .foregroundStyle(Color("textBlack"))
+                    .accessibilityIdentifier("HelpButton")
             }
             
             ToolbarItem{

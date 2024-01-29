@@ -26,7 +26,6 @@
 		1948DEB02B59235C00FDA68B /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948DEAF2B59235C00FDA68B /* MessageItem.swift */; };
 		1948DEB42B593BA000FDA68B /* ServerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948DEB32B593BA000FDA68B /* ServerListView.swift */; };
 		194CA2262B6771E10033B602 /* AlarmPawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194CA2252B6771E10033B602 /* AlarmPawUITests.swift */; };
-		194CA2282B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194CA2272B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift */; };
 		195E5D3E2B5B9B82005C7EAF /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 196E1CA82B5273CF001FAD01 /* Assets.xcassets */; };
 		196AD46F2B5FA1A10086B42C /* otherModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196AD46E2B5FA1A10086B42C /* otherModal.swift */; };
 		196AD4702B5FA5570086B42C /* otherModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196AD46E2B5FA1A10086B42C /* otherModal.swift */; };
@@ -47,6 +46,8 @@
 		196E1CEE2B52962A001FAD01 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 196E1CED2B52962A001FAD01 /* Realm */; };
 		196E1CF02B52962A001FAD01 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 196E1CEF2B52962A001FAD01 /* RealmSwift */; };
 		196E1CF22B529D43001FAD01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E1CF12B529D43001FAD01 /* AppDelegate.swift */; };
+		197CE2BF2B67A65100750434 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 197CE2BE2B67A65100750434 /* Realm */; };
+		197CE2C12B67A65600750434 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 197CE2C02B67A65600750434 /* RealmSwift */; };
 		1987A68A2B5CB98400452572 /* musicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987A6892B5CB98400452572 /* musicView.swift */; };
 		1987A68C2B5E165C00452572 /* toastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987A68B2B5E165C00452572 /* toastView.swift */; };
 		199723152B601F47008B51A8 /* musicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199723142B601F47008B51A8 /* musicItemView.swift */; };
@@ -154,7 +155,6 @@
 		1948DEB32B593BA000FDA68B /* ServerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListView.swift; sourceTree = "<group>"; };
 		194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmPawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		194CA2252B6771E10033B602 /* AlarmPawUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPawUITests.swift; sourceTree = "<group>"; };
-		194CA2272B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPawUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		196AD46E2B5FA1A10086B42C /* otherModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherModal.swift; sourceTree = "<group>"; };
 		196AD4712B5FA6EE0086B42C /* baseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseResponse.swift; sourceTree = "<group>"; };
 		196AD4742B5FFE7A0086B42C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -231,6 +231,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197CE2C12B67A65600750434 /* RealmSwift in Frameworks */,
+				197CE2BF2B67A65100750434 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +362,6 @@
 			isa = PBXGroup;
 			children = (
 				194CA2252B6771E10033B602 /* AlarmPawUITests.swift */,
-				194CA2272B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift */,
 			);
 			path = AlarmPawUITests;
 			sourceTree = "<group>";
@@ -368,6 +369,7 @@
 		196E1C962B5273CC001FAD01 = {
 			isa = PBXGroup;
 			children = (
+				190B901F2B5EA46A0099DA0E /* Public */,
 				1936B4C32B56AAFC00FC31E2 /* Sounds */,
 				196E1CA12B5273CC001FAD01 /* AlarmPaw */,
 				196E1CD72B5280F1001FAD01 /* NotificationServiceExtension */,
@@ -393,7 +395,6 @@
 			isa = PBXGroup;
 			children = (
 				19D0F6CE2B543C870039103D /* Extension */,
-				190B901F2B5EA46A0099DA0E /* Public */,
 				190B901D2B5EA20C0099DA0E /* manager */,
 				1936B4BC2B56577900FC31E2 /* Page */,
 				196E1CA22B5273CC001FAD01 /* AlarmPawApp.swift */,
@@ -476,6 +477,10 @@
 				194CA22A2B6771E10033B602 /* PBXTargetDependency */,
 			);
 			name = AlarmPawUITests;
+			packageProductDependencies = (
+				197CE2BE2B67A65100750434 /* Realm */,
+				197CE2C02B67A65600750434 /* RealmSwift */,
+			);
 			productName = AlarmPawUITests;
 			productReference = 194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -671,7 +676,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				194CA2282B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift in Sources */,
 				194CA2262B6771E10033B602 /* AlarmPawUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1248,6 +1252,16 @@
 			productName = Realm;
 		};
 		196E1CEF2B52962A001FAD01 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		197CE2BE2B67A65100750434 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		197CE2C02B67A65600750434 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
