@@ -76,6 +76,6 @@ struct ContentView: View {
     }
 }
 
-//#Preview {
-//    ContentView().environmentObject(pawManager.shared)
-//}
+#Preview {
+    ContentView().environmentObject(pawManager.shared)
+}

@@ -174,11 +174,11 @@ extension MessageItem{
 
 
 
-//#Preview {
-//    List {
-//        MessageItem(message: Message(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123"]),imageID: .constant("123"),toastText: .constant("123"))
-//            .frame(width: 300)
-//    }.listStyle(GroupedListStyle())
-//    
-//    
-//}
+#Preview {
+    List {
+        MessageItem(message: Message(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123"]),imageID: .constant("123"),toastText: .constant("123"))
+            .frame(width: 300)
+    }.listStyle(GroupedListStyle())
+    
+    
+}

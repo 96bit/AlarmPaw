@@ -523,9 +523,9 @@ extension MessageView{
 
 
 
-//#Preview {
-//    NavigationStack{
-//        MessageView()
-//    }
-//    
-//}
+#Preview {
+    NavigationStack{
+        MessageView()
+    }
+    
+}

@@ -39,6 +39,6 @@ extension musicView{
 
 
 
-//#Preview {
-//    musicView()
-//}
+#Preview {
+    musicView()
+}

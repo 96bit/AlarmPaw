@@ -34,9 +34,9 @@ struct syncRegisterView: View {
     }
 }
 
-//#Preview {
-//    NavigationStack{
-//        syncRegisterView()
-//    }
-//    
-//}
+#Preview {
+    NavigationStack{
+        syncRegisterView()
+    }
+    
+}

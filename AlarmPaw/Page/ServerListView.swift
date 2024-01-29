@@ -123,9 +123,9 @@ extension ServerListView{
 }
 
 
-//
-//#Preview {
-//    NavigationStack{
-//        ServerListView().environmentObject(pawManager.shared)
-//    }
-//}
+
+#Preview {
+    NavigationStack{
+        ServerListView().environmentObject(pawManager.shared)
+    }
+}

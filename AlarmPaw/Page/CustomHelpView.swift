@@ -60,11 +60,11 @@ struct CustomHelpView: View {
 
 
 
-//#Preview {
-//    
-//    CustomHelpView().environmentObject(pawManager.shared)
-//    
-//}
+#Preview {
+    
+    CustomHelpView().environmentObject(pawManager.shared)
+    
+}
 
 
 

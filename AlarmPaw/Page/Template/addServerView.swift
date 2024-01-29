@@ -116,9 +116,9 @@ enum requestHeader :String {
 }
 
 
-//#Preview {
-//    NavigationStack{
-//        addServerView().environmentObject(pawManager.shared)
-//    }
-//  
-//}
+#Preview {
+    NavigationStack{
+        addServerView().environmentObject(pawManager.shared)
+    }
+  
+}

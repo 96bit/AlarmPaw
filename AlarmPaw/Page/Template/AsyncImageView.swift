@@ -61,7 +61,7 @@ struct AsyncImageView: View {
     }
 }
 
-//#Preview {
-//    AsyncImageView(url: URL(string: "https://day.app/assets/images/avatar.jpg")!)
-//    
-//}
+#Preview {
+    AsyncImageView(url: URL(string: "https://day.app/assets/images/avatar.jpg")!)
+    
+}
