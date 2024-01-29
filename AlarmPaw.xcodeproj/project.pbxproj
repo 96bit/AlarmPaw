@@ -25,6 +25,8 @@
 		1936B51B2B56E48E00FC31E2 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B51A2B56E48E00FC31E2 /* CloudKit.swift */; };
 		1948DEB02B59235C00FDA68B /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948DEAF2B59235C00FDA68B /* MessageItem.swift */; };
 		1948DEB42B593BA000FDA68B /* ServerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948DEB32B593BA000FDA68B /* ServerListView.swift */; };
+		194CA2262B6771E10033B602 /* AlarmPawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194CA2252B6771E10033B602 /* AlarmPawUITests.swift */; };
+		194CA2282B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194CA2272B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift */; };
 		195E5D3E2B5B9B82005C7EAF /* Assets.xcassets in Sources */ = {isa = PBXBuildFile; fileRef = 196E1CA82B5273CF001FAD01 /* Assets.xcassets */; };
 		196AD46F2B5FA1A10086B42C /* otherModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196AD46E2B5FA1A10086B42C /* otherModal.swift */; };
 		196AD4702B5FA5570086B42C /* otherModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196AD46E2B5FA1A10086B42C /* otherModal.swift */; };
@@ -95,6 +97,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		194CA2292B6771E10033B602 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 196E1C972B5273CC001FAD01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 196E1C9E2B5273CC001FAD01;
+			remoteInfo = AlarmPaw;
+		};
 		196E1CDB2B5280F1001FAD01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 196E1C972B5273CC001FAD01 /* Project object */;
@@ -145,6 +154,9 @@
 		1936B51A2B56E48E00FC31E2 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		1948DEAF2B59235C00FDA68B /* MessageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
 		1948DEB32B593BA000FDA68B /* ServerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListView.swift; sourceTree = "<group>"; };
+		194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmPawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		194CA2252B6771E10033B602 /* AlarmPawUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPawUITests.swift; sourceTree = "<group>"; };
+		194CA2272B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPawUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		196AD46E2B5FA1A10086B42C /* otherModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherModal.swift; sourceTree = "<group>"; };
 		196AD4712B5FA6EE0086B42C /* baseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = baseResponse.swift; sourceTree = "<group>"; };
 		196AD4742B5FFE7A0086B42C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -219,6 +231,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		194CA2202B6771E10033B602 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		196E1C9C2B5273CC001FAD01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -341,6 +360,15 @@
 			path = Template;
 			sourceTree = "<group>";
 		};
+		194CA2242B6771E10033B602 /* AlarmPawUITests */ = {
+			isa = PBXGroup;
+			children = (
+				194CA2252B6771E10033B602 /* AlarmPawUITests.swift */,
+				194CA2272B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift */,
+			);
+			path = AlarmPawUITests;
+			sourceTree = "<group>";
+		};
 		196E1C962B5273CC001FAD01 = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +378,7 @@
 				196E1CA12B5273CC001FAD01 /* AlarmPaw */,
 				196E1CD72B5280F1001FAD01 /* NotificationServiceExtension */,
 				19D0F6F82B55A4360039103D /* NotificationContentExtension */,
+				194CA2242B6771E10033B602 /* AlarmPawUITests */,
 				196E1CBC2B527C1E001FAD01 /* Frameworks */,
 				196E1CA02B5273CC001FAD01 /* Products */,
 			);
@@ -361,6 +390,7 @@
 				196E1C9F2B5273CC001FAD01 /* AlarmPaw.app */,
 				196E1CD62B5280F1001FAD01 /* NotificationServiceExtension.appex */,
 				19D0F6F52B55A4360039103D /* NotificationContentExtension.appex */,
+				194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -438,6 +468,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		194CA2222B6771E10033B602 /* AlarmPawUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 194CA22B2B6771E10033B602 /* Build configuration list for PBXNativeTarget "AlarmPawUITests" */;
+			buildPhases = (
+				194CA21F2B6771E10033B602 /* Sources */,
+				194CA2202B6771E10033B602 /* Frameworks */,
+				194CA2212B6771E10033B602 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				194CA22A2B6771E10033B602 /* PBXTargetDependency */,
+			);
+			name = AlarmPawUITests;
+			productName = AlarmPawUITests;
+			productReference = 194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		196E1C9E2B5273CC001FAD01 /* AlarmPaw */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 196E1CB12B5273CF001FAD01 /* Build configuration list for PBXNativeTarget "AlarmPaw" */;
@@ -512,6 +560,10 @@
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
+					194CA2222B6771E10033B602 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 196E1C9E2B5273CC001FAD01;
+					};
 					196E1C9E2B5273CC001FAD01 = {
 						CreatedOnToolsVersion = 15.1;
 					};
@@ -547,11 +599,19 @@
 				196E1C9E2B5273CC001FAD01 /* AlarmPaw */,
 				196E1CD52B5280F1001FAD01 /* NotificationServiceExtension */,
 				19D0F6F42B55A4360039103D /* NotificationContentExtension */,
+				194CA2222B6771E10033B602 /* AlarmPawUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		194CA2212B6771E10033B602 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		196E1C9D2B5273CC001FAD01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -615,6 +675,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		194CA21F2B6771E10033B602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				194CA2282B6771E10033B602 /* AlarmPawUITestsLaunchTests.swift in Sources */,
+				194CA2262B6771E10033B602 /* AlarmPawUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		196E1C9B2B5273CC001FAD01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -675,6 +744,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		194CA22A2B6771E10033B602 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 196E1C9E2B5273CC001FAD01 /* AlarmPaw */;
+			targetProxy = 194CA2292B6771E10033B602 /* PBXContainerItemProxy */;
+		};
 		196E1CDC2B5280F1001FAD01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 196E1CD52B5280F1001FAD01 /* NotificationServiceExtension */;
@@ -714,6 +788,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		194CA22C2B6771E10033B602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FUWV6U942Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.twown.AlarmPawUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AlarmPaw;
+			};
+			name = Debug;
+		};
+		194CA22D2B6771E10033B602 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FUWV6U942Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.twown.AlarmPawUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AlarmPaw;
+			};
+			name = Release;
+		};
 		196E1CAF2B5273CF001FAD01 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1041,6 +1151,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		194CA22B2B6771E10033B602 /* Build configuration list for PBXNativeTarget "AlarmPawUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				194CA22C2B6771E10033B602 /* Debug */,
+				194CA22D2B6771E10033B602 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		196E1C9A2B5273CC001FAD01 /* Build configuration list for PBXProject "AlarmPaw" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

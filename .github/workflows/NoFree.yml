@@ -1,4 +1,4 @@
-name: No Free usage issue checker
+name: No Free usage issue checker # 必须star才能提issue
 
 on:
   issues:
