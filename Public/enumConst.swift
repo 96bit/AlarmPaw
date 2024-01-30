@@ -46,5 +46,5 @@ enum otherUrl:String{
     case helpWebUrl = "https://bark.day.app/#/?id=bark"
     case problemWebUrl = "https://bark.day.app/#/faq"
     case defaultServer = "https://push.shkqg.com"
-    case delpoydoc = "https://bark.day.app/#/deploy"
+    case delpoydoc = "https://docs.twown.com/docs/alarm/alarmpaw/"
 }
