@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        whith:
+        with:
           path: docs
       - name: Setup Node.js
         uses: actions/setup-node@v4
