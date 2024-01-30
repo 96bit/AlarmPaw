@@ -1,6 +1,6 @@
 <img src="_media/logo.png" alt="logo"  height="100">
 
-# Bark <small></small>
+# AlarmPaw <small></small>
 
 > A privacy-focused, secure and controllable custom notification push tool.
 

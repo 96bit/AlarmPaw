@@ -31,7 +31,7 @@ chmod +x 二进制文件名
 
 
 ## Render
-Render 能非常简单的创建免费的 bark-server
+Render 能非常简单的创建免费的 alarm-paw-server
 1. [注册](https://dashboard.render.com/register/)一个 Render 账号
 2. 创建一个 [New Web Service](https://dashboard.render.com/select-repo?type=web)
 3. 在底部的 **Public Git repository** 输入框输入下面的URL

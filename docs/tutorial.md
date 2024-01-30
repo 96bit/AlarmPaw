@@ -31,7 +31,7 @@ curl -X POST https://push.shkqg.com/your_key \
 curl -X "POST" "//https://push.shkqg.com/your_key" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
-  "body": "Test Bark Server",
+  "body": "Test AlarmPaw Server",
   "title": "Test Title",
   "badge": 1,
   "category": "myNotificationCategory",
@@ -47,7 +47,7 @@ curl -X "POST" "//https://push.shkqg.com/your_key" \
 curl -X "POST" "https://push.shkqg.com/push" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
-  "body": "Test Bark Server",
+  "body": "Test AlarmPaw Server",
   "title": "Test Title",
   "device_key": "your_key"
 }'
