@@ -42,7 +42,7 @@ enum msgIcon: String, Codable{
 }
 
 enum otherUrl:String{
-    case defaultImage = "https://day.app/assets/images/avatar.jpg"
+    case defaultImage = "https://alarmpaw.twown.com/_media/avatar.jpg"
     case helpWebUrl = "https://alarmpaw.twown.com/#/tutorial"
     case problemWebUrl = "https://alarmpaw.twown.com/#/faq"
     case defaultServer = "https://push.shkqg.com"
