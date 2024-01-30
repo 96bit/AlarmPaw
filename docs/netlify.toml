@@ -9,6 +9,7 @@
 [context.production]
   command = "pnpm build"
 
+
 [context.deploy-preview]
   command = "pnpm build -- -b $DEPLOY_PRIME_URL"
 
