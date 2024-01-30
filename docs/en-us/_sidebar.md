@@ -1,6 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-- [Bark](/en-us/#bark)
+- [Bark](/en-us/#AlarmPaw)
 - **App**
   - [Tutorial](/en-us/tutorial)
   - [Encryption](/en-us/encryption)
