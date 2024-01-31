@@ -24,6 +24,7 @@ struct SettingView: View {
     @State private var cloudStatus = NSLocalizedString("checkimge")
     @State private var serverSize:CGSize = .zero
     @State private var serverColor:Color = .red
+    @State private var showChangeIcon = false
     var timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some View {
         VStack{
@@ -164,6 +165,38 @@ struct SettingView: View {
                     }
                 }
                 
+                
+                if let infoDict = Bundle.main.infoDictionary,
+                   let runId = infoDict["GitHub Run Id"] as? String{
+                    Section(footer:Text(NSLocalizedString("buildDesc"))){
+                        Button{
+                            self.paw.copy(text: runId)
+                            self.toastText = NSLocalizedString("copySuccessText")
+                        }label:{
+                            HStack{
+                                Text("Github Run Id")
+                                Spacer()
+                                Text(runId)
+                            }.foregroundStyle(Color("textBlack"))
+                        }
+                    }
+                }
+                
+                Section(header:Text("AppIcon")) {
+                    Button{
+                        self.showChangeIcon.toggle()
+                    }label: {
+                        HStack(alignment:.center){
+                            Text("AppIcon")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }.foregroundStyle(Color("textBlack"))
+                       
+                    }
+                    
+                }
+               
+                
                 Section(header:Text(NSLocalizedString("otherHeader"))) {
                     
                     Button{
@@ -190,6 +223,9 @@ struct SettingView: View {
                        
                     }
                 }
+                
+               
+
                 
             }
                
@@ -223,6 +259,13 @@ struct SettingView: View {
             .sheet(isPresented: $isShareSheetPresented) {
                 ShareSheet(activityItems: [self.jsonFileUrl!])
                     .presentationDetents([.medium, .large])
+            }
+            .sheet(isPresented: $showChangeIcon) {
+                NavigationStack{
+                    pawAppIconView()
+                        
+                }.presentationDetents([.medium])
+               
             }
             .onReceive(self.timerz) { _ in
                 Task{

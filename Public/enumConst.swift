@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 
 
 enum settings :String{
@@ -47,4 +47,29 @@ enum otherUrl:String{
     case problemWebUrl = "https://alarmpaw.twown.com/#/faq"
     case defaultServer = "https://push.shkqg.com"
     case delpoydoc = "https://alarmpaw.twown.com/#/?id=alarmpaw"
+}
+
+
+enum appIcon:String{
+    case def = "AppIcon"
+    case zero = "AppIcon0"
+    case one = "AppIcon1"
+    case two = "AppIcon2"
+    case three = "AppIcon3"
+    case four = "AppIcon4"
+    case five = "AppIcon5"
+    case six = "AppIcon6"
+    case seven = "AppIcon7"
+}
+
+enum logoImage:String{
+    case def = "logo"
+    case zero = "logo0"
+    case one = "logo1"
+    case two = "logo2"
+    case three = "logo3"
+    case four = "logo4"
+    case five = "logo5"
+    case six = "logo6"
+    case seven = "logo7"
 }

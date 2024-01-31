@@ -48,6 +48,7 @@
 		196E1CF22B529D43001FAD01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E1CF12B529D43001FAD01 /* AppDelegate.swift */; };
 		197CE2BF2B67A65100750434 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 197CE2BE2B67A65100750434 /* Realm */; };
 		197CE2C12B67A65600750434 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 197CE2C02B67A65600750434 /* RealmSwift */; };
+		197CE2C52B69503B00750434 /* pawAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197CE2C42B69503B00750434 /* pawAppIconView.swift */; };
 		1987A68A2B5CB98400452572 /* musicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987A6892B5CB98400452572 /* musicView.swift */; };
 		1987A68C2B5E165C00452572 /* toastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987A68B2B5E165C00452572 /* toastView.swift */; };
 		199723152B601F47008B51A8 /* musicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199723142B601F47008B51A8 /* musicItemView.swift */; };
@@ -175,6 +176,7 @@
 		196E1CD82B5280F1001FAD01 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		196E1CDA2B5280F1001FAD01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		196E1CF12B529D43001FAD01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		197CE2C42B69503B00750434 /* pawAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pawAppIconView.swift; sourceTree = "<group>"; };
 		1987A6892B5CB98400452572 /* musicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicView.swift; sourceTree = "<group>"; };
 		1987A68B2B5E165C00452572 /* toastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toastView.swift; sourceTree = "<group>"; };
 		199723142B601F47008B51A8 /* musicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicItemView.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				1948DEB32B593BA000FDA68B /* ServerListView.swift */,
 				1987A6892B5CB98400452572 /* musicView.swift */,
 				1920AC962B63C4CC00D0CE6F /* syncRegisterView.swift */,
+				197CE2C42B69503B00750434 /* pawAppIconView.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				196AD4722B5FA6EE0086B42C /* baseResponse.swift in Sources */,
 				199723152B601F47008B51A8 /* musicItemView.swift in Sources */,
 				196E1CD12B527FB1001FAD01 /* MessageModal.swift in Sources */,
+				197CE2C52B69503B00750434 /* pawAppIconView.swift in Sources */,
 				1936B4C62B56AB5800FC31E2 /* Date+.swift in Sources */,
 				1936B51B2B56E48E00FC31E2 /* CloudKit.swift in Sources */,
 				19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */,
@@ -950,16 +954,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon0 AppIcon1 AppIcon2 AppIcon3 AppIcon4 AppIcon5 AppIcon6 AppIcon7";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = AlarmPaw/AlarmPaw.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
+				DEVELOPMENT_TEAM = FUWV6U942Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AlarmPaw/Info.plist;
@@ -974,11 +978,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.twown.paw";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -989,13 +992,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon AppIcon0 AppIcon1 AppIcon2 AppIcon3 AppIcon4 AppIcon5 AppIcon6 AppIcon7";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = AlarmPaw/AlarmPawRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
@@ -1013,7 +1018,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1028,11 +1033,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
+				DEVELOPMENT_TEAM = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationServiceExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationServiceExtension;
@@ -1047,7 +1051,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.NotificationServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.twown.paw.NotificationServiceExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1059,6 +1062,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NotificationServiceExtension/NotificationServiceExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
@@ -1090,11 +1094,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
+				DEVELOPMENT_TEAM = FUWV6U942Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationContentExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationContentExtension;
@@ -1109,7 +1112,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.NotificationContentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.twown.paw.NotificationContentExtension";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1121,6 +1123,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = NotificationContentExtension/NotificationContentExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;

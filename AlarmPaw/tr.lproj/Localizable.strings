@@ -173,3 +173,6 @@ notificationTitle = "Bildirim İzni Açık Değil";
 openNotification = "İzni Aç";
 
 checkServerDeploy = "unucu Dağıtım Kılavuzunu Kontrol Et";
+
+
+buildDesc = "Bark, kendisini oluşturmak ve App Store'da yayınlamak için GitHub Actions'ı kullanır. Bark'ın orijinal açık kaynak kod tabanından oluşturulduğundan emin olmak için URL'deki 'run_id'yi doğrulayabilirsiniz.";

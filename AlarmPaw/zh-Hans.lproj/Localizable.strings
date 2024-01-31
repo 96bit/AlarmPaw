@@ -197,3 +197,8 @@ checkServerDeploy = "查看服务器部署教程";
 
 
 
+
+buildDesc = "AlarmPaw 由 GitHub Actions 构建后上传到 App Store，此信息可帮助你确认当前版本是由开源代码所构建，未经任何人(包含作者)修改。";
+
+
+

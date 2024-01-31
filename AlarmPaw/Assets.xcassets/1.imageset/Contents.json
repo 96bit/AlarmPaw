@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "DALL·E 2024-01-30 22.40.59 - A cartoon-style logo design for 'Alarm Paw', a messaging notification software. The logo should creatively combine an alarm and a paw in a playful, ca.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
