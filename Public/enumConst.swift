@@ -23,6 +23,8 @@ enum settings :String{
     case defaultPage = "defaultPageViewShow"
     case messageFirstShow = "messageFirstShow"
     case messageShowMode = "messageShowMode"
+    case syncServerUrl = "syncServerUrl"
+    case syncServerParams = "syncServerParams"
 }
 
 
@@ -50,7 +52,7 @@ enum otherUrl:String{
 }
 
 
-enum appIcon:String{
+enum appIcon:String,CaseIterable{
     case def = "AppIcon"
     case zero = "AppIcon0"
     case one = "AppIcon1"
@@ -60,9 +62,14 @@ enum appIcon:String{
     case five = "AppIcon5"
     case six = "AppIcon6"
     case seven = "AppIcon7"
+    case eight = "AppIcon8"
+    case nine = "AppIcon9"
+    
+    static let arr = [appIcon.def,appIcon.zero,appIcon.one,appIcon.two,appIcon.three,appIcon.four,appIcon.five,appIcon.six,appIcon.seven,appIcon.eight,appIcon.nine]
 }
 
-enum logoImage:String{
+
+enum logoImage:String,CaseIterable{
     case def = "logo"
     case zero = "logo0"
     case one = "logo1"
@@ -72,4 +79,7 @@ enum logoImage:String{
     case five = "logo5"
     case six = "logo6"
     case seven = "logo7"
+    case eight = "logo8"
+    case nine = "logo9"
+    static let arr = [logoImage.def,logoImage.zero,logoImage.one,logoImage.two,logoImage.three,logoImage.four,logoImage.five,logoImage.six,logoImage.seven,logoImage.eight,logoImage.nine]
 }

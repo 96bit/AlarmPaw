@@ -23,6 +23,12 @@ class pawManager: ObservableObject{
     @AppStorage(settings.defaultPage.rawValue) var page:PageView = .message
     @AppStorage(settings.messageFirstShow.rawValue) var firstShow = true
     @AppStorage(settings.messageShowMode.rawValue) var showMessageMode:MessageGroup = .all
+    @AppStorage(settings.syncServerUrl.rawValue) var syncUrl = "https://"
+    @AppStorage(settings.syncServerParams.rawValue) var syncParams = ""
+    
+    var exampleUrl:String{
+        syncUrl + "?custom=" + syncParams
+    }
     
     @Published var showSafariWebView = false
     @Published var showSafariWebUrl:URL? = nil

@@ -10,14 +10,13 @@ import SwiftUI
 struct pawAppIconView: View {
     @Environment(\.dismiss) var dismiss
     @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
-    var logoArr = [logoImage.def,logoImage.zero,logoImage.one,logoImage.two,logoImage.three,logoImage.four,logoImage.five,logoImage.six,logoImage.seven]
-    var iconArr = [appIcon.def,appIcon.zero,appIcon.one,appIcon.two,appIcon.three,appIcon.four,appIcon.five,appIcon.six,appIcon.seven]
+    @State var toastText = ""
     var body: some View {
         List{
-            ForEach(Array(logoArr.enumerated()), id: \.offset){index,item in
+            ForEach(Array(logoImage.arr.enumerated()), id: \.offset){index,item in
                 
                 Button{
-                    setting_active_app_icon = iconArr[index]
+                    setting_active_app_icon = appIcon.arr[index]
                     let manager = UIApplication.shared
                     
                     var iconName:String? = manager.alternateIconName ?? appIcon.def.rawValue
@@ -32,7 +31,6 @@ struct pawAppIconView: View {
                         iconName = nil
                     }
                     if UIApplication.shared.supportsAlternateIcons {
-                        
                         Task{
                             do {
                                 try await manager.setAlternateIconName(iconName)
@@ -42,22 +40,21 @@ struct pawAppIconView: View {
                         }
                        
                     }else{
-                        print("不能切换")
+                        self.toastText = NSLocalizedString("switchError")
                     }
                     
                 }label: {
                     HStack{
-                       
                         Image(item.rawValue)
                             .resizable()
                             .clipShape(RoundedRectangle(cornerRadius: 20, style: .circular))
                             .frame(width: 60,height:60)
-                            .tag(iconArr[index])
+                            .tag(appIcon.arr[index])
                         Spacer()
                         Image(systemName: "checkmark.seal.fill")
                             .font(.system(.largeTitle))
-                            .offset(x:iconArr[index] == setting_active_app_icon ? 0 : 100)
-                            .opacity(iconArr[index] == setting_active_app_icon ? 1 : 0)
+                            .offset(x:appIcon.arr[index] == setting_active_app_icon ? 0 : 100)
+                            .opacity(appIcon.arr[index] == setting_active_app_icon ? 1 : 0)
                             .foregroundStyle(.green)
                         
                     }.animation(.spring, value: setting_active_app_icon)
@@ -67,9 +64,10 @@ struct pawAppIconView: View {
                
             }
         }
-       
+        .toast(info: $toastText)
+        
         .listStyle(GroupedListStyle())
-        .navigationTitle("程序图标")
+        .navigationTitle(NSLocalizedString("AppIconTitle"))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar{
             ToolbarItem{

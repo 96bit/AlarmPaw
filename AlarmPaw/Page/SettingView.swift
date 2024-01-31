@@ -83,9 +83,9 @@ struct SettingView: View {
                     
                     NavigationLink(destination: syncRegisterView()) {
                         HStack{
-                            Text("同步注册")
+                            Text("同步回调")
                             Spacer()
-                            Text(cloudStatus)
+                            Text(isValidURL(paw.syncUrl) ? "已开启" : "未开启")
                         }
                     }
                     
@@ -99,6 +99,7 @@ struct SettingView: View {
                             .foregroundStyle(Color("textBlack"))
                         Spacer()
                         Text(paw.badgeMode.rawValue)
+                            .foregroundStyle(paw.badgeMode == .auto ? .blue : .red)
                     }.contentShape(Rectangle())
                     .onTapGesture {
                             paw.badgeMode = paw.badgeMode == .auto ? .custom : .auto
@@ -116,10 +117,6 @@ struct SettingView: View {
                             }
                            
                         })
-                    
-                
-                    
-                 
                 }
                 
                 Section(footer:Text(NSLocalizedString("exportHeader"))) {

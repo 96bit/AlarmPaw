@@ -176,3 +176,13 @@ checkServerDeploy = "unucu Dağıtım Kılavuzunu Kontrol Et";
 
 
 buildDesc = "Bark, kendisini oluşturmak ve App Store'da yayınlamak için GitHub Actions'ı kullanır. Bark'ın orijinal açık kaynak kod tabanından oluşturulduğundan emin olmak için URL'deki 'run_id'yi doğrulayabilirsiniz.";
+
+AppIconTitle = "Uygulama İkonu";
+AppIconTips = "Varsayılan uygulama ikonunu değiştirmek için tıklayın";
+
+
+
+
+
+switchError = "暂时不能切换";
+

@@ -181,3 +181,9 @@ openNotification = "Open Permissions";
 checkServerDeploy = "Check Server Deployment Tutorial";
 
 buildDesc = "AlarmPaw uses GitHub Actions to build and publish itself to the App Store. You can verify the ‘run_id’ in the URL to ensure Bark was built from its original open-source codebase.";
+
+
+AppIconTitle = "App Icon";
+AppIconTips = "Click to modify the default app icon";
+
+switchError = "暂时不能切换";
