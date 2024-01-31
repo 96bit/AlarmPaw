@@ -28,3 +28,9 @@ struct DeviceInfo: Codable {
         case pawKey = "key"
     }
 }
+
+
+struct ServersForSync:Codable{
+    var key,url:String
+}
+

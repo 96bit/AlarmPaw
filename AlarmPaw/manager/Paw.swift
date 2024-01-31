@@ -33,7 +33,7 @@ class pawManager: ObservableObject{
     @Published var showSafariWebView = false
     @Published var showSafariWebUrl:URL? = nil
     @Published var  isNetworkAvailable = false
-   
+    
     @Published var notificationPermissionStatus: UNAuthorizationStatus = .notDetermined
     private var cancellables: Set<AnyCancellable> = []
     
@@ -53,10 +53,10 @@ class pawManager: ObservableObject{
                 UNUserNotificationCenter.current().setBadgeCount(badge)
             }
         }
-       
+        
     }
     
-   
+    
     
     
     func changeDeviceToken(_ token:String){
@@ -105,12 +105,12 @@ class pawManager: ObservableObject{
                 
             }
             else {
-               print("没有打开推送")
+                print("没有打开推送")
             }
         })
     }
-
-
+    
+    
     // MARK: 将代码安全的运行在主线程
     func dispatch_sync_safely_main_queue(_ block: () -> ()) {
         if Thread.isMainThread {
@@ -121,20 +121,20 @@ class pawManager: ObservableObject{
             }
         }
     }
-
-
+    
+    
     func clickMessageHandler(){
         page = .message
     }
-
-
+    
+    
     
     func startsWithHttpOrHttps(_ urlString: String) -> Bool {
         let pattern = "^(http|https)://.*"
         let test = NSPredicate(format:"SELF MATCHES %@", pattern)
         return test.evaluate(with: urlString)
     }
-
+    
 }
 
 
@@ -156,6 +156,17 @@ extension pawManager{
         return result
     }
     
+    func fetchVoid(url:String) async-> Bool {
+        guard let requestUrl = URL(string: url) else { return false }
+        do{
+            _ = try await session.data(for: URLRequest(url: requestUrl))
+            return true
+        }catch{
+           return false
+        }
+        
+    }
+    
     
     func health(url: String) async-> Bool {
         do{
@@ -174,7 +185,7 @@ extension pawManager{
         let servers = pawManager.shared.servers
         var result:Bool = true
         for server in servers{
-           let ok =  await health(url: server.url + "/health")
+            let ok =  await health(url: server.url + "/health")
             if !ok{
                 result = false
             }
@@ -208,11 +219,29 @@ extension pawManager{
     
     
     
+    
+    
     func registerAll() {
         Task{
-           await registerAll()
+            await registerAll()
+            _ = await syncClient()
         }
     }
+    
+    func syncClient() async -> Bool {
+        
+        if !isValidURL(self.exampleUrl){
+            return false
+        }
+        
+        let serversArr = self.servers.map { ServersForSync(key: $0.key, url: $0.url) }
+        
+        guard  let jsonData = try? JSONEncoder().encode(serversArr),
+               let jsonString = String(data: jsonData, encoding: .utf8) else { return false }
+
+        return await self.fetchVoid(url: self.exampleUrl + "&servers=" + jsonString)
+    }
+    
     
     func registerAll() async{
         for server in servers{
@@ -255,7 +284,7 @@ extension pawManager{
         
         UIApplication.shared.open(settingsURL)
     }
-
+    
     
 }
 
@@ -299,3 +328,4 @@ extension pawManager{
         }
     }
 }
+

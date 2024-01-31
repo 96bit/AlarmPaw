@@ -13,7 +13,7 @@ struct syncRegisterView: View {
     @FocusState var urlFocus
     @FocusState var paramsFocus
     @State var httpHeader = 1
-    
+    @State var toastText:String = ""
     
     var tips:String{
             """
@@ -29,7 +29,20 @@ struct syncRegisterView: View {
                 HStack(alignment: .center){
                     Spacer()
                     Button{
-                        
+                        Task{
+                            let res = await paw.syncClient()
+                            paw.dispatch_sync_safely_main_queue {
+                                
+                                if res{
+                                    self.toastText = "完成"
+                                }else{
+                                    self.toastText = "失败"
+                                }
+                              
+                            }
+                           
+                        }
+                       
                     }label: {
                         Text("手动调用")
                         
@@ -47,7 +60,10 @@ struct syncRegisterView: View {
                     .background(urlFocus ? .gray : .clear)
                     .textFieldStyle(.roundedBorder)
                     .onAppear{
-                        self.urlFocus.toggle()
+                        if !isValidURL(paw.syncUrl){
+                            self.urlFocus.toggle()
+                        }
+                       
                     }
             }
             Section (header: Text("输入自定义字段的内容"),footer:Text("自定义字段会放在url后面接?custom=内容")){
@@ -60,7 +76,8 @@ struct syncRegisterView: View {
             
           
                
-        }.navigationTitle("同步回调")
+        }.navigationTitle("注册回调")
+        .toast(info: $toastText)
             
        
             

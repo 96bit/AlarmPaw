@@ -83,7 +83,7 @@ struct SettingView: View {
                     
                     NavigationLink(destination: syncRegisterView()) {
                         HStack{
-                            Text("同步回调")
+                            Text("注册回调")
                             Spacer()
                             Text(isValidURL(paw.syncUrl) ? "已开启" : "未开启")
                         }

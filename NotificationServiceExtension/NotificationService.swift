@@ -19,7 +19,7 @@ import UIKit
 
 class NotificationService: UNNotificationServiceExtension {
     
-   
+    @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
     
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
@@ -269,13 +269,16 @@ class NotificationService: UNNotificationServiceExtension {
         
        let userInfo = bestAttemptContent.userInfo
         
-        // 通知角标
-        if let badgeStr = userInfo["badge"] as? String, let badge = Int(badgeStr) {
-            bestAttemptContent.badge = NSNumber(value: badge)
-        }else{
-            let messages = realm?.objects(Message.self).where {!$0.isRead}
-            bestAttemptContent.badge = NSNumber(value:  messages?.count ?? 0 + 1)
+        // MARK: 通知角标 程序内自定义角标的设置才在此处处理
+        if badgeMode == .custom{
+            if let badgeStr = userInfo["badge"] as? String, let badge = Int(badgeStr) {
+                bestAttemptContent.badge = NSNumber(value: badge)
+            }else{
+                let messages = realm?.objects(Message.self).where {!$0.isRead}
+                bestAttemptContent.badge = NSNumber(value:  messages?.count ?? 0 + 1)
+            }
         }
+       
         
      
         
