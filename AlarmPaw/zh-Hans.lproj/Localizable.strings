@@ -71,7 +71,6 @@ deleteTimeMessage = "删除以下时间的消息";
 messageModeChanged = "信息状态已更改";
 markNotRead = "标为未读";
 markRead = "标为已读";
-deleteSuccess = "删除成功";
 deleteTitle = "删除";
 
 nothing =  "无";
@@ -80,7 +79,6 @@ deleteMessageGroup = "删除组";
 groupMarkRead = "组已读";
 nothingMessage = "没有消息";
 deleteAllMessage = "删除所有信息";
-allMarkRead = "全部已读";
 deleteSuccess = "删除成功";
 deleteGroup = "默认组";
 
@@ -158,7 +156,7 @@ needOneServer = "必须保留一个服务";
 groupModeName = "分组";
 allModeName = "全部";
 
-allMarkRead = "全部标为已读";
+allMarkRead = "全部已读";
 hourAgo = "一小时前";
 dayAgo = "一天前";
 weekAgo = "一周前";
@@ -207,3 +205,21 @@ AppIconTips = "点击可以修改默认App图标";
 
 switchError = "暂时不能切换";
 
+
+syncHeader = "与其他程序联动";
+syncFooter = "携带服务器key和token数组";
+syncTitle = "注册回调";
+syncOpend = "已开启";
+syncNotOpen = "未开启";
+syncTips = " 本功能会在注册完设备后异步调用该api，传输所有服务器的资料(程序不会校验是否发送成功)\n
+        最后的请求地址示例如下:\n
+        https://twown.com/sync?custom=自定义内容&servers=[{url:url,key:key},...]";
+syncSuccess = "完成";
+syncFail = "失败";
+syncManualCall = "手动调用";
+syncServerHeader = "服务器地址";
+syncServerField = "输入地址";
+
+syncParamsHeader = "输入自定义字段的内容";
+syncParamsFooter = "自定义字段会放在url后面接?custom=内容";
+syncParamsTitle = "输入自定义字段的内容";

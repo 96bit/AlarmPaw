@@ -77,7 +77,6 @@ groupMarkRead = "Grup Okundu";
 nothingMessage = "Hiç Mesaj Yok";
 deleteAllMessage = "Tüm Mesajları Sil";
 allMarkRead = "Tümünü Okundu Olarak İşaretle";
-deleteSuccess = "Silme Başarılı";
 deleteGroup = "Varsayılan Grup";
 
 changeServer = "Sunucuyu Değiştir";
@@ -146,7 +145,6 @@ needOneServer = "Bir Sunucu Saklanmalıdır";
 groupModeName = "Grup";
 allModeName = "Tümü";
 
-allMarkRead = "Tümünü Okundu Olarak İşaretle";
 hourAgo = "Bir Saat Önce";
 dayAgo = "Bir Gün Önce";
 weekAgo = "Bir Hafta Önce";
@@ -180,9 +178,24 @@ buildDesc = "Bark, kendisini oluşturmak ve App Store'da yayınlamak için GitHu
 AppIconTitle = "Uygulama İkonu";
 AppIconTips = "Varsayılan uygulama ikonunu değiştirmek için tıklayın";
 
+switchError = "Şu anda geçiş yapılamıyor";
 
+syncHeader = "Diğer programlarla bağlantı";
+syncFooter = "Sunucu anahtarı ve token dizisi ile";
+syncTitle = "Geribildirim Kaydı";
+syncOpened = "Açık";
+syncNotOpen = "Açık Değil";
+syncTips = "Bu işlev, cihaz kaydedildikten sonra bu API'yi asenkron olarak çağıracak, tüm sunucu bilgilerini iletecektir (program gönderimin başarılı olup olmadığını doğrulamaz)\n
+        Son istek URL örneği şu şekildedir:\n
+        https://twown.com/sync?custom=özel içerik&servers=[{url:url,key:key},...]";
+syncSuccess = "Tamamlandı";
+syncFail = "Başarısız";
+syncManualCall = "Manuel Çağrı";
+syncServerHeader = "Sunucu Adresi";
+syncServerField = "Adres Girin";
 
+syncParamsHeader = "Özel alanların içeriğini girin";
+syncParamsFooter = "Özel alanlar, URL'ye ?custom=içerik olarak eklenecek";
+syncParamsTitle = "Özel alanların içeriğini girin";
 
-
-switchError = "暂时不能切换";
 

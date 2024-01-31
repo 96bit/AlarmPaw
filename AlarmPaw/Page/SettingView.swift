@@ -78,14 +78,15 @@ struct SettingView: View {
                     }
                 }
                 
+               
                 
-                Section(header: Text("与其他程序联动"),footer: Text("携带服务器key和token数组")) {
+                Section(header: Text(NSLocalizedString("syncHeader")),footer: Text(NSLocalizedString("syncFooter"))) {
                     
                     NavigationLink(destination: syncRegisterView()) {
                         HStack{
-                            Text("注册回调")
+                            Text(NSLocalizedString("syncTitle"))
                             Spacer()
-                            Text(isValidURL(paw.syncUrl) ? "已开启" : "未开启")
+                            Text(isValidURL(paw.syncUrl) ? NSLocalizedString("syncOpend") : NSLocalizedString("syncNotOpen"))
                         }
                     }
                     
@@ -179,12 +180,12 @@ struct SettingView: View {
                     }
                 }
                 
-                Section(header:Text("AppIcon")) {
+                Section(header:Text(NSLocalizedString("AppIconTitle")),footer:Text(NSLocalizedString("AppIconTips"))) {
                     Button{
                         self.showChangeIcon.toggle()
                     }label: {
                         HStack(alignment:.center){
-                            Text("AppIcon")
+                            Text(NSLocalizedString("AppIconTitle"))
                             Spacer()
                             Image(systemName: "chevron.right")
                         }.foregroundStyle(Color("textBlack"))
