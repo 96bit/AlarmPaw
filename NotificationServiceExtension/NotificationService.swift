@@ -149,7 +149,7 @@ class NotificationService: UNNotificationServiceExtension {
             
             
             let userInfo = bestAttemptContent.userInfo
-           
+            
             guard let imageUrl = userInfo["icon"] as? String,
                   startsWithHttpOrHttps(imageUrl),
                   let imageFileUrl = await downloadImage(imageUrl,bestAttemptContent) else {
@@ -238,7 +238,7 @@ class NotificationService: UNNotificationServiceExtension {
             }
             return  true
         }
-       
+        
         
         if isArchive == true {
             try? realm?.write {
@@ -253,7 +253,7 @@ class NotificationService: UNNotificationServiceExtension {
                 realm?.add(message)
             }
         }
-       
+        
         
     }
     
@@ -268,7 +268,7 @@ class NotificationService: UNNotificationServiceExtension {
             return
         }
         
-       let userInfo = bestAttemptContent.userInfo
+        let userInfo = bestAttemptContent.userInfo
         
         // MARK: 通知角标 程序内自定义角标的设置才在此处处理
         if badgeMode == .custom{
@@ -279,11 +279,9 @@ class NotificationService: UNNotificationServiceExtension {
                 bestAttemptContent.badge = NSNumber(value:  messages?.count ?? 0 + 1)
             }
         }
-       
         
-     
         
-        // 通知中断级别
+        // MARK:  通知中断级别
         if let level = userInfo["level"] as? String {
             let interruptionLevels: [String: UNNotificationInterruptionLevel] = [
                 "passive": UNNotificationInterruptionLevel.passive,
@@ -295,8 +293,11 @@ class NotificationService: UNNotificationServiceExtension {
             bestAttemptContent.interruptionLevel = interruptionLevels[level] ?? .active
         }
         
-        
+        // MARK: 保存消息
         archive(userInfo)
+        
+        // MARK: 发送邮件
+        mailAuto(userInfo)
         
         Task.init {
             
@@ -309,6 +310,24 @@ class NotificationService: UNNotificationServiceExtension {
             contentHandler(imageResult)
         }
     }
+    
+    // MARK: 发送邮件
+    private func mailAuto(_ userInfo:[AnyHashable: Any]){
+        Task{
+            if let action = userInfo["action"] as? String{
+                if let jsonData = try? JSONSerialization.data(withJSONObject: userInfo, options: .prettyPrinted) {
+                    let jsonString = String(data: jsonData, encoding: .utf8)
+                    sendMail(config: email, title: "自动化\(action)", text: jsonString ?? "数据编码失败")
+                } else {
+                    print("转换失败")
+                    sendMail(config: email, title: "自动化\(action)", text: "数据编码失败")
+                }
+            }
+        }
+        
+    }
+    
+    
     
     override func serviceExtensionTimeWillExpire() {
         // Called just before the extension will be terminated by the system.

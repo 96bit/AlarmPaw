@@ -15,8 +15,6 @@ enum settings :String{
     case cloudMessageName = "alarmPawMessageCloud"
     case settingName = "cryptoSettingFields"
     case deviceToken = "deviceToken"
-    case deviceKey = "deviceKey"
-    case pawKey = "pawKey"
     case imageCache = "shard"
     case badgemode = "alarmpawbadgemode"
     case server = "serverArrayStroage"
@@ -48,8 +46,9 @@ enum otherUrl:String{
     case defaultImage = "https://alarmpaw.twown.com/_media/avatar.jpg"
     case helpWebUrl = "https://alarmpaw.twown.com/#/tutorial"
     case problemWebUrl = "https://alarmpaw.twown.com/#/faq"
-    case defaultServer = "https://push.shkqg.com"
+    case defaultServer = "https://push.twown.com"
     case delpoydoc = "https://alarmpaw.twown.com/#/?id=alarmpaw"
+    case emailHelpUrl = "https://alarmpaw.twown.com/#/email"
 }
 
 

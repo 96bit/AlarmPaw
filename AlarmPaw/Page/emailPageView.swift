@@ -11,9 +11,21 @@ import SwiftSMTP
 struct emailPageView: View {
     @EnvironmentObject var paw:pawManager
     @State var helpShow = false
-    @State var webUrl = "https://alarmpaw.twown.com/"
     var body: some View {
         List{
+            
+            HStack{
+                Spacer()
+                Button{
+                    sendMail(config: paw.email, title: "自动化: 测试", text: "{title:\"标题\",...}")
+                }label: {
+                    Text("测试")
+                }
+                .buttonStyle(BorderedButtonStyle())
+                
+                   
+            }.listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
 
             Section(header:Text("邮件服务器配置,本地化服务")) {
                 HStack{
@@ -62,6 +74,8 @@ struct emailPageView: View {
                 })
             }
             
+           
+            
             
         }.navigationTitle("邮件自动化")
             .toolbar {
@@ -74,39 +88,11 @@ struct emailPageView: View {
                 }
             }
             .fullScreenCover(isPresented: $helpShow) {
-                SFSafariViewWrapper(url: URL(string: self.webUrl)!)
+                SFSafariViewWrapper(url: URL(string: otherUrl.emailHelpUrl.rawValue)!)
                     .ignoresSafeArea()
             }
     }
     
-    
-    func sendMail(){
-
-        
-        let smtp = SMTP(
-            hostname: "smtp.qq.com",     // SMTP server address
-            email: "909038822@qq.com",        // username to login
-            password: "illozqrqvcshbahi"            // password to login
-        )
-        
-        let drLight = Mail.User(name: "Dr. Light", email: "909038822@qq.com")
-        let megaman = Mail.User(name: "Megaman", email: "rakeecao@icloud.com")
-
-        let mail = Mail(
-            from: drLight,
-            to: [megaman],
-            subject: "paw",
-            text: "That was my ultimate wish."
-        )
-
-        smtp.send(mail) { (error) in
-            if let error = error {
-                print(error)
-            }
-        }
-        
-        
-    }
 }
 
 #Preview {

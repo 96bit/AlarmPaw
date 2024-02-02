@@ -25,7 +25,7 @@ struct SettingView: View {
     @State private var serverSize:CGSize = .zero
     @State private var serverColor:Color = .red
     @State private var showChangeIcon = false
-    var timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    var timerz = Timer.publish(every: 6, on: .main, in: .common).autoconnect()
     var body: some View {
         
         VStack{
@@ -314,12 +314,6 @@ extension SettingView{
     }
 }
 
-#Preview {
-    NavigationStack{
-        SettingView()
-    }
-}
-
 
 struct ShareSheet: UIViewControllerRepresentable {
     let activityItems: [Any]
@@ -352,5 +346,14 @@ extension SettingView{
                 }
             }
         }
+    }
+}
+
+
+
+
+#Preview {
+    NavigationStack{
+        SettingView()
     }
 }

@@ -103,6 +103,16 @@ extension ServerListView{
                                 Text(NSLocalizedString("registerAndCheck"))
                             }.tint(.blue)
                         }
+                        .swipeActions(edge: .leading) {
+                            Button{
+                                if let index = paw.servers.firstIndex(where: {$0.id == item.id}){
+                                    paw.servers[index].key = ""
+                                }
+                                self.toastText = NSLocalizedString("controlSuccess")
+                            }label: {
+                                Text("重置Key")
+                            }.tint(.red)
+                        }
                         
                     }
                     

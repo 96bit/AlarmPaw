@@ -45,7 +45,7 @@ struct addServerView: View {
                 
                 Spacer()
                 Button{
-                    if self.addServer(url:serverInfo.serverDefault.url){
+                    if self.addServer(url: serverInfo.serverDefault.url){
                         self.dismiss()
                     }
                 }label: {
@@ -71,7 +71,7 @@ struct addServerView: View {
                 
                 ToolbarItem {
                     Button{
-                        if self.addServer(url: serverName){
+                        if self.addServer(url:pickerSelect.rawValue + serverName){
                             self.dismiss()
                         }
                     }label: {

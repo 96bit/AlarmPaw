@@ -16,8 +16,6 @@ import UserNotifications
 class pawManager: ObservableObject{
     
     @AppStorage(settings.deviceToken.rawValue) var deviceToken:String = ""
-    @AppStorage(settings.deviceKey.rawValue) var deviceKey:String = ""
-    @AppStorage(settings.pawKey.rawValue) var pawKey:String = ""
     @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
     @AppStorage(settings.server.rawValue) var servers:[serverInfo] = [serverInfo.serverDefault]
     @AppStorage(settings.defaultPage.rawValue) var page:PageView = .message
@@ -197,8 +195,18 @@ extension pawManager{
             let ok = await health(url: server.url + "/health")
             if ok {
                 hasTrue = true
+                if let index = servers.firstIndex(where: {$0.id == server.id}){
+                    self.dispatch_sync_safely_main_queue {
+                        pawManager.shared.servers[index].status = true
+                    }
+                }
             } else {
                 hasFalse = true
+                if let index = servers.firstIndex(where: {$0.id == server.id}){
+                    self.dispatch_sync_safely_main_queue {
+                        pawManager.shared.servers[index].status = false
+                    }
+                }
             }
         }
         
@@ -212,49 +220,39 @@ extension pawManager{
         
     }
     
-    
-    
-    
-    
-    func registerAll() {
-        Task{
-            await registerAll()
-        }
-    }
-    
-    
-    func registerAll() async{
+    func registerAll(){
         for server in servers{
-            await register(server: server)
+           register(server: server)
         }
     }
-    func register(server: serverInfo){
-        Task{
-            await register(server: server)
-        }
-    }
+
     
-    func register(server: serverInfo) async {
-        var servers = pawManager.shared.servers
-        let index = servers.firstIndex(where: {$0.id == server.id})!
-        var serverInfo = server
-        do{
-            let requestUrl = server.url + "/register/" + self.deviceToken + "/" + server.key
-            
-            if let deviceInfo:DeviceInfo = try await fetch(url: requestUrl){
-                serverInfo.key = deviceInfo.deviceKey
-                serverInfo.status = true
-            }else{
-                serverInfo.status = false
+    func register(server: serverInfo) {
+        Task{
+            print("开始注册设备")
+            guard let index = servers.firstIndex(where: {$0.id == server.id}) else {
+                print("没有获取到")
+                return
             }
-        }catch{
-            serverInfo.status = false
+            
+            do {
+                if let deviceInfo:DeviceInfo? = try await fetch(url: server.url + "/register/" + self.deviceToken + "/" + server.key){
+                    
+                    self.dispatch_sync_safely_main_queue {
+                        servers[index].key = deviceInfo?.pawKey ?? ""
+//                        print("注册设备:", deviceInfo)
+                    }
+                }
+                
+                
+                
+            }catch{
+                print(error)
+            }
+            
+        
         }
-        servers[index] = serverInfo
-        dispatch_sync_safely_main_queue {
-            pawManager.shared.servers = servers
-        }
-        print(serverInfo)
+      
     }
     
     func openSetting(){
