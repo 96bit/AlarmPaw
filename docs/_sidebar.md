@@ -3,6 +3,7 @@
 - [AlarmPaw](/#AlarmPaw)
 - **App**
   - [使用教程](/tutorial)
+  - [自动化](/email)
   - [推送加密](/encryption)
   - [常见问题](/faq)
 - **服务端**

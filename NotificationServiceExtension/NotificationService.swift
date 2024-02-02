@@ -20,6 +20,7 @@ import UIKit
 class NotificationService: UNNotificationServiceExtension {
     
     @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
+    @AppStorage(settings.emailConfig.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var email:emailConfig = emailConfig.data
     
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?

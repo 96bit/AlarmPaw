@@ -27,13 +27,12 @@ struct SettingView: View {
     @State private var showChangeIcon = false
     var timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some View {
+        
         VStack{
-            
             List{
-                
                 if !paw.isNetworkAvailable{
                     Section(header:Text(
-                    NSLocalizedString("settingNetWorkHeader")
+                        NSLocalizedString("settingNetWorkHeader")
                     )) {
                         Button{
                             paw.openSetting()
@@ -78,22 +77,19 @@ struct SettingView: View {
                     }
                 }
                 
-               
                 
-                Section(header: Text(NSLocalizedString("syncHeader")),footer: Text(NSLocalizedString("syncFooter"))) {
+                Section(header:Text("邮件触发运行捷径")) {
                     
-                    NavigationLink(destination: syncRegisterView()) {
+                    NavigationLink(destination:  emailPageView()) {
                         HStack{
-                            Text(NSLocalizedString("syncTitle"))
-                            Spacer()
-                            Text(isValidURL(paw.syncUrl) ? NSLocalizedString("syncOpend") : NSLocalizedString("syncNotOpen"))
+                            Text("自动化配置")
+                            
                         }
                     }
                     
-                   
+                    
                 }
-                
-                
+ 
                 Section(header: Text(NSLocalizedString("badgeHeader")),footer: Text(NSLocalizedString("baddgeFooter"))) {
                     HStack{
                         Text(NSLocalizedString("badgeModeTitle"))
@@ -102,7 +98,7 @@ struct SettingView: View {
                         Text(paw.badgeMode.rawValue)
                             .foregroundStyle(paw.badgeMode == .auto ? .blue : .red)
                     }.contentShape(Rectangle())
-                    .onTapGesture {
+                        .onTapGesture {
                             paw.badgeMode = paw.badgeMode == .auto ? .custom : .auto
                             if let badge = RealmManager.shared.getUnreadCount(){
                                 paw.changeBadge(badge:badge )
@@ -116,14 +112,14 @@ struct SettingView: View {
                                 self.toastText = NSLocalizedString("clearSuccess")
                                 paw.changeBadge(badge:-1)
                             }
-                           
+                            
                         })
                 }
                 
                 Section(footer:Text(NSLocalizedString("exportHeader"))) {
                     HStack{
                         Button {
-                           
+                            
                             if RealmManager.shared.getObject()?.count ?? 0 > 0{
                                 self.toastText = NSLocalizedString("controlSuccess")
                                 // TODO: 这个位置有警告，暂时不清楚什么原因，不影响使用
@@ -132,8 +128,8 @@ struct SettingView: View {
                             }else{
                                 self.toastText = NSLocalizedString("nothingMessage")
                             }
-                           
-                           
+                            
+                            
                         } label: {
                             Text(NSLocalizedString("exportTitle"))
                         }
@@ -141,7 +137,7 @@ struct SettingView: View {
                         Spacer()
                         Text(String(format: NSLocalizedString("someMessageCount"), messages.count) )
                     }
-
+                    
                 }
                 
                 Section(footer:Text(NSLocalizedString("deviceTokenHeader"))) {
@@ -189,11 +185,11 @@ struct SettingView: View {
                             Spacer()
                             Image(systemName: "chevron.right")
                         }.foregroundStyle(Color("textBlack"))
-                       
+                        
                     }
                     
                 }
-               
+                
                 
                 Section(header:Text(NSLocalizedString("otherHeader"))) {
                     
@@ -206,7 +202,7 @@ struct SettingView: View {
                             Spacer()
                             Image(systemName: "chevron.right")
                         }.foregroundStyle(Color("textBlack"))
-                       
+                        
                     }
                     
                     Button{
@@ -218,61 +214,61 @@ struct SettingView: View {
                             Spacer()
                             Image(systemName: "chevron.right")
                         }.foregroundStyle(Color("textBlack"))
-                       
+                        
                     }
                 }
                 
-               
-
+                
+                
                 
             }
-               
-        } 
+            
+        }
         .toast(info: $toastText)
         .background(hexColor("#f5f5f5"))
-        .navigationTitle(NSLocalizedString("bottomBarSettings"))
-            .toolbar {
-                ToolbarItem {
-                    Button{
-                        self.showServer = true
-                    }label:{
-                        Image("baseline_filter_drama_black_24pt")
-                            .tint(serverColor)
-                            .task {
-                                let color = await paw.healthAllColor()
-                                paw.dispatch_sync_safely_main_queue {
-                                    self.serverColor = color
-                                }
+        .toolbar {
+            ToolbarItem {
+                Button{
+                    self.showServer = true
+                }label:{
+                    Image("baseline_filter_drama_black_24pt")
+                        .tint(serverColor)
+                        .task {
+                            let color = await paw.healthAllColor()
+                            paw.dispatch_sync_safely_main_queue {
+                                self.serverColor = color
                             }
-                    }
+                        }
                 }
             }
-            .fullScreenCover(isPresented: $webShow) {
-                SFSafariViewWrapper(url: URL(string: self.webUrl)!)
-                    .ignoresSafeArea()
-            }
-            .fullScreenCover(isPresented: $showServer) {
-              ServerListView()
-            }
-            .sheet(isPresented: $isShareSheetPresented) {
-                ShareSheet(activityItems: [self.jsonFileUrl!])
-                    .presentationDetents([.medium, .large])
-            }
-            .sheet(isPresented: $showChangeIcon) {
-                NavigationStack{
-                    pawAppIconView()
-                        
-                }.presentationDetents([.medium])
-               
-            }
-            .onReceive(self.timerz) { _ in
-                Task{
-                    let color = await paw.healthAllColor()
-                    paw.dispatch_sync_safely_main_queue {
-                        self.serverColor = color
-                    }
+        }
+        .fullScreenCover(isPresented: $webShow) {
+            SFSafariViewWrapper(url: URL(string: self.webUrl)!)
+                .ignoresSafeArea()
+        }
+        .fullScreenCover(isPresented: $showServer) {
+            ServerListView()
+        }
+        .sheet(isPresented: $isShareSheetPresented) {
+            ShareSheet(activityItems: [self.jsonFileUrl!])
+                .presentationDetents([.medium, .large])
+        }
+        .sheet(isPresented: $showChangeIcon) {
+            NavigationStack{
+                pawAppIconView()
+                
+            }.presentationDetents([.medium])
+            
+        }
+        .onReceive(self.timerz) { _ in
+            Task{
+                let color = await paw.healthAllColor()
+                paw.dispatch_sync_safely_main_queue {
+                    self.serverColor = color
                 }
             }
+        }
+        
         
         
     }
@@ -332,7 +328,7 @@ struct ShareSheet: UIViewControllerRepresentable {
         let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         return activityViewController
     }
-
+    
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
         // Update the view controller if needed
     }

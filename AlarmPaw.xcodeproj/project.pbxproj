@@ -11,7 +11,6 @@
 		190B90222B5EA48B0099DA0E /* other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190B90202B5EA47B0099DA0E /* other.swift */; };
 		19166B582B57AC2500D02431 /* CustomHelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19166B572B57AC2500D02431 /* CustomHelpView.swift */; };
 		19183BAB2B5BDE0800E2E346 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19183BAA2B5BDE0800E2E346 /* AsyncImageView.swift */; };
-		1920AC972B63C4CC00D0CE6F /* syncRegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1920AC962B63C4CC00D0CE6F /* syncRegisterView.swift */; };
 		1936B4B02B563CF200FC31E2 /* enumConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4AF2B563CF200FC31E2 /* enumConst.swift */; };
 		1936B4BB2B564C3800FC31E2 /* enumConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4AF2B563CF200FC31E2 /* enumConst.swift */; };
 		1936B4BE2B5657D900FC31E2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4BD2B5657D900FC31E2 /* SettingView.swift */; };
@@ -94,6 +93,9 @@
 		19D0F6FD2B55A4360039103D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19D0F6FB2B55A4360039103D /* MainInterface.storyboard */; };
 		19D0F7012B55A4360039103D /* NotificationContentExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 19D0F6F52B55A4360039103D /* NotificationContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		19E13B122B5A9C1A005AAA9D /* realmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E13B112B5A9C1A005AAA9D /* realmManager.swift */; };
+		19E3F6942B6BF2AF00F23888 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = 19E3F6932B6BF2AF00F23888 /* SwiftSMTP */; };
+		19E3F6962B6BF30E00F23888 /* emailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E3F6952B6BF30E00F23888 /* emailPageView.swift */; };
+		19E3F6982B6C01B600F23888 /* SwiftSMTP in Frameworks */ = {isa = PBXBuildFile; productRef = 19E3F6972B6C01B600F23888 /* SwiftSMTP */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +141,6 @@
 		190B90202B5EA47B0099DA0E /* other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = other.swift; sourceTree = "<group>"; };
 		19166B572B57AC2500D02431 /* CustomHelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHelpView.swift; sourceTree = "<group>"; };
 		19183BAA2B5BDE0800E2E346 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
-		1920AC962B63C4CC00D0CE6F /* syncRegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = syncRegisterView.swift; sourceTree = "<group>"; };
 		1936B4AF2B563CF200FC31E2 /* enumConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enumConst.swift; sourceTree = "<group>"; };
 		1936B4BD2B5657D900FC31E2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		1936B4BF2B5665E100FC31E2 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		19D0F6FE2B55A4360039103D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19D0F7052B55A4B60039103D /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 		19E13B112B5A9C1A005AAA9D /* realmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmManager.swift; sourceTree = "<group>"; };
+		19E3F6952B6BF30E00F23888 /* emailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emailPageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 			files = (
 				196E1CF02B52962A001FAD01 /* RealmSwift in Frameworks */,
 				196E1CEE2B52962A001FAD01 /* Realm in Frameworks */,
+				19E3F6942B6BF2AF00F23888 /* SwiftSMTP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +256,7 @@
 			files = (
 				196E1CEC2B52905C001FAD01 /* RealmSwift in Frameworks */,
 				196E1CEA2B52905C001FAD01 /* Realm in Frameworks */,
+				19E3F6982B6C01B600F23888 /* SwiftSMTP in Frameworks */,
 				196E1CE72B528F75001FAD01 /* SwiftyJSON in Frameworks */,
 				196E1CE42B528E80001FAD01 /* Kingfisher in Frameworks */,
 			);
@@ -302,8 +306,8 @@
 				19166B572B57AC2500D02431 /* CustomHelpView.swift */,
 				1948DEB32B593BA000FDA68B /* ServerListView.swift */,
 				1987A6892B5CB98400452572 /* musicView.swift */,
-				1920AC962B63C4CC00D0CE6F /* syncRegisterView.swift */,
 				197CE2C42B69503B00750434 /* pawAppIconView.swift */,
+				19E3F6952B6BF30E00F23888 /* emailPageView.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -507,6 +511,7 @@
 			packageProductDependencies = (
 				196E1CED2B52962A001FAD01 /* Realm */,
 				196E1CEF2B52962A001FAD01 /* RealmSwift */,
+				19E3F6932B6BF2AF00F23888 /* SwiftSMTP */,
 			);
 			productName = AlarmPaw;
 			productReference = 196E1C9F2B5273CC001FAD01 /* AlarmPaw.app */;
@@ -530,6 +535,7 @@
 				196E1CE62B528F75001FAD01 /* SwiftyJSON */,
 				196E1CE92B52905C001FAD01 /* Realm */,
 				196E1CEB2B52905C001FAD01 /* RealmSwift */,
+				19E3F6972B6C01B600F23888 /* SwiftSMTP */,
 			);
 			productName = NotificationServiceExtension;
 			productReference = 196E1CD62B5280F1001FAD01 /* NotificationServiceExtension.appex */;
@@ -593,6 +599,7 @@
 				196E1CE22B528E80001FAD01 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				196E1CE52B528F75001FAD01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 			);
 			productRefGroup = 196E1CA02B5273CC001FAD01 /* Products */;
 			projectDirPath = "";
@@ -707,9 +714,9 @@
 				19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */,
 				196E1CA52B5273CC001FAD01 /* ContentView.swift in Sources */,
 				1987A68C2B5E165C00452572 /* toastView.swift in Sources */,
-				1920AC972B63C4CC00D0CE6F /* syncRegisterView.swift in Sources */,
 				19183BAB2B5BDE0800E2E346 /* AsyncImageView.swift in Sources */,
 				1936B4BE2B5657D900FC31E2 /* SettingView.swift in Sources */,
+				19E3F6962B6BF30E00F23888 /* emailPageView.swift in Sources */,
 				1936B5172B56C47300FC31E2 /* WebKitView.swift in Sources */,
 				199723172B601FA0008B51A8 /* audioManager.swift in Sources */,
 				1948DEB02B59235C00FDA68B /* MessageItem.swift in Sources */,
@@ -1226,6 +1233,14 @@
 				kind = branch;
 			};
 		};
+		19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Swift-SMTP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1268,6 +1283,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		19E3F6932B6BF2AF00F23888 /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
+		};
+		19E3F6972B6C01B600F23888 /* SwiftSMTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */;
+			productName = SwiftSMTP;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

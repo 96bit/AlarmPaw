@@ -25,10 +25,33 @@ struct MessageView: View {
     var body: some View {
         VStack{
             
-            messageModeView
+            List{
+                
+                if messages.count == 0 && paw.firstShow{
+                    
+                    if paw.showMessageMode == .all{
+                        showDemoView
+                    }else {
+                        showDemoGroupView
+                    }
+                   
+                   
+                }
+                
+                if paw.showMessageMode == .all{
+                    showAllMessage
+                }else {
+                    showGroupView
+                }
+                
+                
+                
+            }.listStyle(.sidebar)
+            
+            .searchable(text: $searchText)
            
         }
-        .navigationTitle(NSLocalizedString("bottomBarMsg"))
+        
         .toolbar{
             ToolbarItem(placement: .navigationBarLeading) {
                 
@@ -101,35 +124,6 @@ struct MessageView: View {
 }
 
 
-extension MessageView{
-    private var messageModeView: some View{
-        List{
-            
-            if messages.count == 0 && paw.firstShow{
-                
-                if paw.showMessageMode == .all{
-                    showDemoView
-                }else {
-                    showDemoGroupView
-                }
-               
-               
-            }
-            
-            if paw.showMessageMode == .all{
-                showAllMessage
-            }else {
-                showGroupView
-            }
-            
-            
-            
-        }.listStyle(.sidebar)
-        
-        .searchable(text: $searchText)
-    }
-    
-}
 
 
 

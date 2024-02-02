@@ -3,7 +3,7 @@
     {
       "color" : {
         "platform" : "universal",
-        "reference" : "systemCyanColor"
+        "reference" : "systemMintColor"
       },
       "idiom" : "universal"
     },
@@ -23,7 +23,7 @@
     {
       "color" : {
         "platform" : "universal",
-        "reference" : "systemCyanColor"
+        "reference" : "systemMintColor"
       },
       "idiom" : "universal",
       "locale" : "ru"

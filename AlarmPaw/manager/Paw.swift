@@ -18,17 +18,12 @@ class pawManager: ObservableObject{
     @AppStorage(settings.deviceToken.rawValue) var deviceToken:String = ""
     @AppStorage(settings.deviceKey.rawValue) var deviceKey:String = ""
     @AppStorage(settings.pawKey.rawValue) var pawKey:String = ""
-    @AppStorage(settings.badgemode.rawValue) var badgeMode:badgeAutoMode = .auto
+    @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
     @AppStorage(settings.server.rawValue) var servers:[serverInfo] = [serverInfo.serverDefault]
     @AppStorage(settings.defaultPage.rawValue) var page:PageView = .message
     @AppStorage(settings.messageFirstShow.rawValue) var firstShow = true
     @AppStorage(settings.messageShowMode.rawValue) var showMessageMode:MessageGroup = .all
-    @AppStorage(settings.syncServerUrl.rawValue) var syncUrl = "https://"
-    @AppStorage(settings.syncServerParams.rawValue) var syncParams = ""
-    
-    var exampleUrl:String{
-        syncUrl + "?custom=" + syncParams
-    }
+    @AppStorage(settings.emailConfig.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var email:emailConfig = emailConfig.data
     
     @Published var showSafariWebView = false
     @Published var showSafariWebUrl:URL? = nil
@@ -224,22 +219,7 @@ extension pawManager{
     func registerAll() {
         Task{
             await registerAll()
-            _ = await syncClient()
         }
-    }
-    
-    func syncClient() async -> Bool {
-        
-        if !isValidURL(self.exampleUrl){
-            return false
-        }
-        
-        let serversArr = self.servers.map { ServersForSync(key: $0.key, url: $0.url) }
-        
-        guard  let jsonData = try? JSONEncoder().encode(serversArr),
-               let jsonString = String(data: jsonData, encoding: .utf8) else { return false }
-
-        return await self.fetchVoid(url: self.exampleUrl + "&servers=" + jsonString)
     }
     
     

@@ -21,12 +21,18 @@ struct CustomHelpView: View {
 
             List{
                 
-                Picker(selection: $pickerSeletion, label: Text(NSLocalizedString("changeServer"))) {
-                    ForEach(paw.servers.indices, id: \.self){index in
-                        let server = paw.servers[index]
-                        Text(server.name).tag(server.id)
-                    }
+                HStack{
+                    Spacer()
+                    Picker(selection: $pickerSeletion, label: Text(NSLocalizedString("changeServer"))) {
+                        ForEach(paw.servers.indices, id: \.self){index in
+                            let server = paw.servers[index]
+                            Text(server.name).tag(server.id)
+                        }
+                    }.pickerStyle(MenuPickerStyle())
+                       
                 }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.clear)
                 
                 customHelpItemView
                
