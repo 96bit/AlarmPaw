@@ -18,7 +18,7 @@ enum PageView :String{
 struct ContentView: View {
     @AppStorage("defaultPageViewShow") var page:PageView = .message
     @EnvironmentObject var paw: pawManager
-    
+    @ObservedResults(Message.self,where: {!$0.isRead}) var messages
     var body: some View {
         
         
@@ -29,6 +29,7 @@ struct ContentView: View {
                     .navigationTitle(NSLocalizedString("bottomBarMsg"))
             }.tabItem { Label(NSLocalizedString("bottomBarMsg"), systemImage: "ellipsis.message") }
                 .tag(PageView.message)
+                .badge(messages.count)
             // MARK: 设置页面
             NavigationStack{
                 SettingView()

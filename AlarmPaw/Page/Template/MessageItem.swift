@@ -107,6 +107,7 @@ struct MessageItem: View {
         }header: {
             HStack{
                 Text(message.createDate.agoFormatString())
+                    .font(.caption2)
                 Spacer()
                 Image(systemName: message.isRead ? "envelope.open" :"envelope")
                     .animation(.easeInOut, value: message.isRead)
