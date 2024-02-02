@@ -183,24 +183,30 @@ buildDesc = "AlarmPaw uses GitHub Actions to build and publish itself to the App
 
 AppIconTitle = "App Icon";
 AppIconTips = "Click to modify the default app icon";
-
 switchError = "Switching is temporarily unavailable";
 
-syncHeader = "Link with other programs";
-syncFooter = "Carry server key and array of tokens";
-syncTitle = "Register Callback";
-syncOpened = "Enabled";
-syncNotOpen = "Not Enabled";
-syncTips = "This function will asynchronously call this API after the device is registered, transmitting all server information (the program will not verify if the sending is successful)\n
-        The final request URL example is as follows:\n
-        https://twown.com/sync?custom=custom content&servers=[{url:url,key:key},...]";
-syncSuccess = "Completed";
-syncFail = "Failed";
-syncManualCall = "Manual Call";
-syncServerHeader = "Server Address";
-syncServerField = "Enter Address";
 
-syncParamsHeader = "Enter the content of custom fields";
-syncParamsFooter = "Custom fields will be appended to the URL as ?custom=content";
-syncParamsTitle = "Enter the content of custom fields";
 
+mailTestTips = "Subject includes: alarmpaw";
+
+mailHeader = "Email triggers the shortcut to run";
+
+mailTitle = "Automation configuration";
+
+toMailTestTitle = "Automation: AlarmPaaw";
+
+toMailTestText = "{title:\"Title\",...}";
+
+sendMailFail = "Invocation failed";
+
+sendMailSuccess = "Invocation succeeded";
+
+sendMailTestBtn = "Test";
+
+emailConfigHeader = "Email server configuration, localized service";
+
+emailPasswordPl = "Please enter password";
+
+tomailListHeader = "Recipient email list";
+
+emailNavigationTitle = "Email Automation";

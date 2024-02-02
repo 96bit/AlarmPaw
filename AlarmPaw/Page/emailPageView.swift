@@ -11,15 +11,38 @@ import SwiftSMTP
 struct emailPageView: View {
     @EnvironmentObject var paw:pawManager
     @State var helpShow = false
+    @State var showLoading:Bool = false
+    @State var toastText:String = ""
     var body: some View {
         List{
             
             HStack{
+                
+                Text( NSLocalizedString("mailTestTips", comment: "主题包含: alarmpaw"))
+                    .font(.caption2)
                 Spacer()
                 Button{
-                    sendMail(config: paw.email, title: "自动化: 测试", text: "{title:\"标题\",...}")
+                    self.showLoading = true
+                    paw.dispatch_async_queue{
+                        sendMail(config: paw.email, title:   NSLocalizedString("toMailTestTitle", comment: "自动化: AlarmPaaw"), text:NSLocalizedString("toMailTestText", comment:  "{title:\"标题\",...}")){ error in
+                            paw.dispatch_sync_safely_main_queue {
+                                if error != nil {
+                                    self.toastText = NSLocalizedString("sendMailFail", comment: "调用失败")
+                                }else{
+                                    self.toastText = NSLocalizedString("sendMailSuccess", comment:  "调用成功")
+                                }
+                                self.showLoading = false
+                            }
+                            
+                        }
+                    }
+                   
                 }label: {
-                    Text("测试")
+                    if showLoading{
+                        ProgressView()
+                    }else{
+                        Text(NSLocalizedString("sendMailTestBtn", comment:  "测试"))
+                    }
                 }
                 .buttonStyle(BorderedButtonStyle())
                 
@@ -27,7 +50,7 @@ struct emailPageView: View {
             }.listRowBackground(Color.clear)
             .listRowSeparator(.hidden)
 
-            Section(header:Text("邮件服务器配置,本地化服务")) {
+            Section(header:Text(NSLocalizedString("emailConfigHeader", comment: "邮件服务器配置,本地化服务"))) {
                 HStack{
                     Text("Smtp:")
                         .foregroundStyle(.gray)
@@ -45,12 +68,12 @@ struct emailPageView: View {
                 HStack{
                     Text("Password:")
                         .foregroundStyle(.gray)
-                    SecureField("123", text: $paw.email.password)
+                    SecureField(NSLocalizedString("emailPasswordPl", comment: "请输入密码"), text: $paw.email.password)
                         .textFieldStyle(.roundedBorder)
                 }
             }
             
-            Section(header:Text("接收邮件列表")) {
+            Section(header:Text(NSLocalizedString("tomailListHeader", comment: "接收邮件列表"))) {
                 HStack{
                     Spacer()
                     Button{
@@ -77,7 +100,7 @@ struct emailPageView: View {
            
             
             
-        }.navigationTitle("邮件自动化")
+        }.navigationTitle(NSLocalizedString("emailNavigationTitle", comment: "邮件自动化"))
             .toolbar {
                 ToolbarItem {
                     Button{
@@ -90,7 +113,7 @@ struct emailPageView: View {
             .fullScreenCover(isPresented: $helpShow) {
                 SFSafariViewWrapper(url: URL(string: otherUrl.emailHelpUrl.rawValue)!)
                     .ignoresSafeArea()
-            }
+            }.toast(info: $toastText)
     }
     
 }

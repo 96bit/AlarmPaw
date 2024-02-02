@@ -105,7 +105,11 @@ struct addServerView: View {
             self.toastText =  NSLocalizedString("serverExist")
             return false
         }
-        paw.registerAll()
+        
+        Task(priority: .userInitiated) {
+            await paw.registerAll()
+        }
+        
         return true
     }
 }

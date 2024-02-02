@@ -186,15 +186,7 @@ openSetting = "打开设置";
 notificationHeader = "必须打开通知才能使用本服务";
 notificationTitle = "通知权限未打开";
 openNotification = "打开权限";
-
-
 checkServerDeploy = "查看服务器部署教程";
-
-
-
-
-
-
 
 buildDesc = "AlarmPaw 由 GitHub Actions 构建后上传到 App Store，此信息可帮助你确认当前版本是由开源代码所构建，未经任何人(包含作者)修改。";
 
@@ -202,24 +194,21 @@ buildDesc = "AlarmPaw 由 GitHub Actions 构建后上传到 App Store，此信�
 AppIconTitle = "程序图标";
 AppIconTips = "点击可以修改默认App图标";
 
-
 switchError = "暂时不能切换";
 
+mailTestTips = "主题包含: alarmpaw";
+mailHeader = "邮件触发运行捷径";
+mailTitle = "自动化配置";
 
-syncHeader = "与其他程序联动";
-syncFooter = "携带服务器key和token数组";
-syncTitle = "注册回调";
-syncOpend = "已开启";
-syncNotOpen = "未开启";
-syncTips = " 本功能会在注册完设备后异步调用该api，传输所有服务器的资料(程序不会校验是否发送成功)\n
-        最后的请求地址示例如下:\n
-        https://twown.com/sync?custom=自定义内容&servers=[{url:url,key:key},...]";
-syncSuccess = "完成";
-syncFail = "失败";
-syncManualCall = "手动调用";
-syncServerHeader = "服务器地址";
-syncServerField = "输入地址";
+toMailTestTitle = "自动化: AlarmPaaw";
+toMailTestText = "{title:\"标题\",...}";
 
-syncParamsHeader = "输入自定义字段的内容";
-syncParamsFooter = "自定义字段会放在url后面接?custom=内容";
-syncParamsTitle = "输入自定义字段的内容";
+sendMailFail = "调用失败";
+sendMailSuccess ="调用成功";
+
+sendMailTestBtn = "测试";
+emailConfigHeader = "邮件服务器配置,本地化服务";
+emailPasswordPl =  "请输入密码";
+
+tomailListHeader = "接收邮件列表";
+emailNavigationTitle = "邮件自动化";

@@ -60,7 +60,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             pawManager.shared.deviceToken = token
         }
         
-        pawManager.shared.registerAll()
+        Task(priority: .userInitiated) { 
+            await  pawManager.shared.registerAll()
+        }
         
     }
     

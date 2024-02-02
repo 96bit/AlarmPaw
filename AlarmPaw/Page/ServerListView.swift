@@ -37,7 +37,9 @@ struct ServerListView: View {
                 
                 ToolbarItem(placement: .topBarLeading) {
                     Button{
-                        paw.registerAll()
+                        Task(priority: .userInitiated) {
+                           await paw.registerAll()
+                        }
                         self.toastText = NSLocalizedString("updateSuccess")
                     }label:{
                         Image(systemName: "goforward")
@@ -97,7 +99,9 @@ extension ServerListView{
                         
                         .swipeActions(edge: .leading, allowsFullSwipe: true) {
                             Button{
-                                paw.register(server: item)
+                                Task{
+                                    await paw.register(server: item)
+                                }
                                 self.toastText = NSLocalizedString("controlSuccess")
                             }label: {
                                 Text(NSLocalizedString("registerAndCheck"))

@@ -115,6 +115,12 @@ class pawManager: ObservableObject{
         }
     }
     
+    func dispatch_async_queue(_ qos:DispatchQoS.QoSClass = .background,of block: @escaping () -> ()){
+        DispatchQueue.global(qos: qos).async{
+            block()
+        }
+    }
+    
     
     func clickMessageHandler(){
         page = .message
@@ -220,39 +226,36 @@ extension pawManager{
         
     }
     
-    func registerAll(){
+    func registerAll() async {
         for server in servers{
-           register(server: server)
+            await register(server: server)
         }
     }
 
     
-    func register(server: serverInfo) {
-        Task{
-            print("开始注册设备")
-            guard let index = servers.firstIndex(where: {$0.id == server.id}) else {
-                print("没有获取到")
-                return
-            }
-            
-            do {
-                if let deviceInfo:DeviceInfo? = try await fetch(url: server.url + "/register/" + self.deviceToken + "/" + server.key){
-                    
-                    self.dispatch_sync_safely_main_queue {
-                        servers[index].key = deviceInfo?.pawKey ?? ""
-//                        print("注册设备:", deviceInfo)
-                    }
-                }
-                
-                
-                
-            }catch{
-                print(error)
-            }
-            
+    func register(server: serverInfo) async  {
         
+        print("开始注册设备")
+        guard let index = servers.firstIndex(where: {$0.id == server.id}) else {
+            print("没有获取到")
+            return
         }
-      
+        
+        do {
+            if let deviceInfo:DeviceInfo? = try await fetch(url: server.url + "/register/" + self.deviceToken + "/" + server.key){
+                
+                self.dispatch_sync_safely_main_queue {
+                    servers[index].key = deviceInfo?.pawKey ?? ""
+//                        print("注册设备:", deviceInfo)
+                }
+            }
+            
+            
+            
+        }catch{
+            print(error)
+        }
+        
     }
     
     func openSetting(){

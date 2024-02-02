@@ -55,3 +55,26 @@ func sendMail(config:emailConfig,title:String,text:String){
 }
 
 
+func sendMail(config:emailConfig,title:String,text:String, completionHandler: @escaping (Error?) -> Void){
+    
+    let smtp = SMTP(
+        hostname: config.smtp,     // SMTP server address
+        email: config.email,        // username to login
+        password: config.password   // password to login
+        // "illozqrqvcshbahi"
+    )
+
+    let mail = Mail(
+        from: Mail.User(name: "AlarmPaw", email: "909038822@qq.com"),
+        to: config.toEmail.map({Mail.User(name: "AlarmPaw", email: $0.mail)}),
+        subject: title,
+        text:text
+    )
+    
+    smtp.send(mail) { (error) in
+       completionHandler(error)
+    }
+    
+}
+
+

@@ -78,11 +78,11 @@ struct SettingView: View {
                 }
                 
                 
-                Section(header:Text("邮件触发运行捷径")) {
+                Section(header:Text(NSLocalizedString("mailHeader", comment: "邮件触发运行捷径"))) {
                     
                     NavigationLink(destination:  emailPageView()) {
                         HStack{
-                            Text("自动化配置")
+                            Text(NSLocalizedString("mailTitle", comment: "自动化配置"))
                             
                         }
                     }
