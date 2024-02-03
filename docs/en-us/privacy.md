@@ -1,3 +1,4 @@
+ *感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 #### 隐私如何泄露 <!-- {docsify-ignore-all} -->
 
 一条推送从发送到接收经过路线是：<br>

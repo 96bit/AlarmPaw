@@ -1,3 +1,5 @@
+ *感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
+
 ## 发送推送 
 1. 打开APP，复制测试URL 
 

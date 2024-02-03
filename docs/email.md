@@ -1,3 +1,5 @@
+
+ *感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 # 邮件自动化
 
 * 配置 登陆iphone自带客户端

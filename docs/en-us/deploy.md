@@ -1,4 +1,4 @@
-
+*感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 ## Docker 
 ```
 docker run -dt --name alarmpaw -p 8080:8080 -v `pwd`/data:/data thurmantsao/alarm-paw-server
@@ -47,12 +47,12 @@ https://github.com/tsaohe/AlarmPawServer
    * 点击 Add Environment Variable 添加 Serverless 模式需要的 BARK_KEY 和 BARK_DEVICE_TOKEN 字段。 (填写要求参考 [Serverless](#Serverless)) <br><img src="../_media/environment.png" />
    * 其他的默认不动
 5. 点击底部的 Create Web Service 按钮，然后等待状态从 In progress 变成 Live，可能需要几分钟到十几分钟。
-6. 页面顶部找到你的服务器URL，这个就是alarm-paw-server服务器URL，在 AlarmPaw App 中添加即可
+6. 页面顶部找到你的服务器URL，这个就是bark-server服务器URL，在 Bark App 中添加即可
 ```
 https://[your-server-name].onrender.com
 ```
 7. 如果添加失败，可以等待一段时间再试，有可能服务还没准备好。
-8. 不添加到 AlarmPaw App 中也可以，直接调用就能发推送。BARK_KEY 就是上面环境变量中你填写的。
+8. 不添加到 Bark App 中也可以，直接调用就能发推送。BARK_KEY 就是上面环境变量中你填写的。
 ```
 https://[your-server-name].onrender.com/BARK_KEY/推送内容
 ```

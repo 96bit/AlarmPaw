@@ -1,4 +1,4 @@
-
+ *感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 *Bark的文档，使用替换对应域名*
 #### 江苏移动用户提示“服务器错误，不能使用推送服务” <!-- {docsify-ignore-all} -->
 江苏移动存在DNS解析污染，可以更换DNS、翻墙、换网络或者更换 bark 服务器域名 https://api1.day.app ,<br>

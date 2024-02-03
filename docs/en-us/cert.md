@@ -1,3 +1,5 @@
+
+ *感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 当你需要集成AlarmPaw到自己的系统或重新实现后端代码时可能需要推送证书
  
 ##### 有效期到: *永久*

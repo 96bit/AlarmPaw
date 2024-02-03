@@ -1,3 +1,5 @@
+
+ *感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 ### 直接调用APNS接口
 如果有设备的 DeviceToken（可在APP中查看），就可以调用苹果APNS接口直接给设备发推送，APP中也无需添加服务器。<br>
 以下是命令行发推送示例：

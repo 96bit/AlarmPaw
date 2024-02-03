@@ -1,3 +1,5 @@
+
+ *感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 ## 下载源码
 从GitHub下载源码 [AlarmPaw](https://github.com/tsaohe/AlarmPaw)
 

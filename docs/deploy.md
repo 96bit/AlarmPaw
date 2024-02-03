@@ -1,4 +1,4 @@
-
+*感谢[BARK](https://github.com/Finb/Bark) 的开源项目*
 ## Docker 
 ```
 docker run -dt --name alarmpaw -p 8080:8080 -v `pwd`/data:/data thurmantsao/alarm-paw-server
