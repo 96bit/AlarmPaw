@@ -58,6 +58,11 @@
 		1998ACD92B6CFC3A00F6CAA5 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4BF2B5665E100FC31E2 /* Color+.swift */; };
 		1998ACDA2B6CFC3A00F6CAA5 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4C52B56AB5800FC31E2 /* Date+.swift */; };
 		1998ACDB2B6CFC3A00F6CAA5 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998ACD52B6CFBF800F6CAA5 /* Array+.swift */; };
+		1998ACF12B6D581500F6CAA5 /* AlarmPaWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998ACF02B6D581500F6CAA5 /* AlarmPaWatchApp.swift */; };
+		1998ACF32B6D581500F6CAA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998ACF22B6D581500F6CAA5 /* ContentView.swift */; };
+		1998ACF52B6D581700F6CAA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1998ACF42B6D581700F6CAA5 /* Assets.xcassets */; };
+		1998ACF82B6D581700F6CAA5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1998ACF72B6D581700F6CAA5 /* Preview Assets.xcassets */; };
+		1998ACFB2B6D581700F6CAA5 /* AlarmPaWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1998ACEE2B6D581500F6CAA5 /* AlarmPaWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		19C4388C2B64EDC300D73D63 /* addServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4388B2B64EDC300D73D63 /* addServerView.swift */; };
 		19C4954C2B66820D001AB195 /* suspense.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952C2B66820C001AB195 /* suspense.caf */; };
 		19C4954D2B66820D001AB195 /* sherwoodforest.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952D2B66820C001AB195 /* sherwoodforest.caf */; };
@@ -119,6 +124,13 @@
 			remoteGlobalIDString = 196E1CD52B5280F1001FAD01;
 			remoteInfo = NotificationServiceExtension;
 		};
+		1998ACF92B6D581700F6CAA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 196E1C972B5273CC001FAD01 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1998ACED2B6D581500F6CAA5;
+			remoteInfo = "AlarmPaWatch Watch App";
+		};
 		19D0F6FF2B55A4360039103D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 196E1C972B5273CC001FAD01 /* Project object */;
@@ -139,6 +151,17 @@
 				196E1CDD2B5280F1001FAD01 /* NotificationServiceExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1998ACFF2B6D581700F6CAA5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1998ACFB2B6D581700F6CAA5 /* AlarmPaWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -192,6 +215,11 @@
 		199723592B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		1997235A2B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1998ACD52B6CFBF800F6CAA5 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		1998ACEE2B6D581500F6CAA5 /* AlarmPaWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AlarmPaWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1998ACF02B6D581500F6CAA5 /* AlarmPaWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPaWatchApp.swift; sourceTree = "<group>"; };
+		1998ACF22B6D581500F6CAA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1998ACF42B6D581700F6CAA5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1998ACF72B6D581700F6CAA5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		19C4388B2B64EDC300D73D63 /* addServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addServerView.swift; sourceTree = "<group>"; };
 		19C4952C2B66820C001AB195 /* suspense.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = suspense.caf; sourceTree = "<group>"; };
 		19C4952D2B66820C001AB195 /* sherwoodforest.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sherwoodforest.caf; sourceTree = "<group>"; };
@@ -266,6 +294,13 @@
 				19E3F6982B6C01B600F23888 /* SwiftSMTP in Frameworks */,
 				196E1CE72B528F75001FAD01 /* SwiftyJSON in Frameworks */,
 				196E1CE42B528E80001FAD01 /* Kingfisher in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1998ACEB2B6D581500F6CAA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +424,7 @@
 				196E1CD72B5280F1001FAD01 /* NotificationServiceExtension */,
 				19D0F6F82B55A4360039103D /* NotificationContentExtension */,
 				194CA2242B6771E10033B602 /* AlarmPawUITests */,
+				1998ACEF2B6D581500F6CAA5 /* AlarmPaWatch Watch App */,
 				196E1CBC2B527C1E001FAD01 /* Frameworks */,
 				196E1CA02B5273CC001FAD01 /* Products */,
 			);
@@ -401,6 +437,7 @@
 				196E1CD62B5280F1001FAD01 /* NotificationServiceExtension.appex */,
 				19D0F6F52B55A4360039103D /* NotificationContentExtension.appex */,
 				194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */,
+				1998ACEE2B6D581500F6CAA5 /* AlarmPaWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -450,6 +487,25 @@
 				196E1CDA2B5280F1001FAD01 /* Info.plist */,
 			);
 			path = NotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		1998ACEF2B6D581500F6CAA5 /* AlarmPaWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				1998ACF02B6D581500F6CAA5 /* AlarmPaWatchApp.swift */,
+				1998ACF22B6D581500F6CAA5 /* ContentView.swift */,
+				1998ACF42B6D581700F6CAA5 /* Assets.xcassets */,
+				1998ACF62B6D581700F6CAA5 /* Preview Content */,
+			);
+			path = "AlarmPaWatch Watch App";
+			sourceTree = "<group>";
+		};
+		1998ACF62B6D581700F6CAA5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1998ACF72B6D581700F6CAA5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		19D0F6CE2B543C870039103D /* Extension */ = {
@@ -508,12 +564,14 @@
 				196E1C9C2B5273CC001FAD01 /* Frameworks */,
 				196E1C9D2B5273CC001FAD01 /* Resources */,
 				196E1CCA2B527C1E001FAD01 /* Embed Foundation Extensions */,
+				1998ACFF2B6D581700F6CAA5 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				196E1CDC2B5280F1001FAD01 /* PBXTargetDependency */,
 				19D0F7002B55A4360039103D /* PBXTargetDependency */,
+				1998ACFA2B6D581700F6CAA5 /* PBXTargetDependency */,
 			);
 			name = AlarmPaw;
 			packageProductDependencies = (
@@ -549,6 +607,23 @@
 			productReference = 196E1CD62B5280F1001FAD01 /* NotificationServiceExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		1998ACED2B6D581500F6CAA5 /* AlarmPaWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1998ACFC2B6D581700F6CAA5 /* Build configuration list for PBXNativeTarget "AlarmPaWatch Watch App" */;
+			buildPhases = (
+				1998ACEA2B6D581500F6CAA5 /* Sources */,
+				1998ACEB2B6D581500F6CAA5 /* Frameworks */,
+				1998ACEC2B6D581500F6CAA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AlarmPaWatch Watch App";
+			productName = "AlarmPaWatch Watch App";
+			productReference = 1998ACEE2B6D581500F6CAA5 /* AlarmPaWatch Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		19D0F6F42B55A4360039103D /* NotificationContentExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19D0F7022B55A4370039103D /* Build configuration list for PBXNativeTarget "NotificationContentExtension" */;
@@ -573,7 +648,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					194CA2222B6771E10033B602 = {
@@ -585,6 +660,9 @@
 					};
 					196E1CD52B5280F1001FAD01 = {
 						CreatedOnToolsVersion = 15.1;
+					};
+					1998ACED2B6D581500F6CAA5 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 					19D0F6F42B55A4360039103D = {
 						CreatedOnToolsVersion = 15.1;
@@ -617,6 +695,7 @@
 				196E1CD52B5280F1001FAD01 /* NotificationServiceExtension */,
 				19D0F6F42B55A4360039103D /* NotificationContentExtension */,
 				194CA2222B6771E10033B602 /* AlarmPawUITests */,
+				1998ACED2B6D581500F6CAA5 /* AlarmPaWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -676,6 +755,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1998ACEC2B6D581500F6CAA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1998ACF82B6D581700F6CAA5 /* Preview Assets.xcassets in Resources */,
+				1998ACF52B6D581700F6CAA5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +842,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1998ACEA2B6D581500F6CAA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1998ACF32B6D581500F6CAA5 /* ContentView.swift in Sources */,
+				1998ACF12B6D581500F6CAA5 /* AlarmPaWatchApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19D0F6F12B55A4360039103D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -774,6 +871,11 @@
 			isa = PBXTargetDependency;
 			target = 196E1CD52B5280F1001FAD01 /* NotificationServiceExtension */;
 			targetProxy = 196E1CDB2B5280F1001FAD01 /* PBXContainerItemProxy */;
+		};
+		1998ACFA2B6D581700F6CAA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1998ACED2B6D581500F6CAA5 /* AlarmPaWatch Watch App */;
+			targetProxy = 1998ACF92B6D581700F6CAA5 /* PBXContainerItemProxy */;
 		};
 		19D0F7002B55A4360039103D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1111,6 +1213,69 @@
 			};
 			name = Release;
 		};
+		1998ACFD2B6D581700F6CAA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = FUWV6U942Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AlarmPaWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.twown.paw;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		1998ACFE2B6D581700F6CAA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = FUWV6U942Q;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AlarmPaWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.twown.paw;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Release;
+		};
 		19D0F7032B55A4370039103D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1207,6 +1372,15 @@
 			buildConfigurations = (
 				196E1CDF2B5280F1001FAD01 /* Debug */,
 				196E1CE02B5280F1001FAD01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1998ACFC2B6D581700F6CAA5 /* Build configuration list for PBXNativeTarget "AlarmPaWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1998ACFD2B6D581700F6CAA5 /* Debug */,
+				1998ACFE2B6D581700F6CAA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

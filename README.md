@@ -12,7 +12,7 @@
 ## 发送推送
 1. 打开APP，复制测试URL 
 ```
-以下使用SERVER_ADDRESS 指代服务器地址 push.shkqg.com
+以下使用SERVER_ADDRESS 指代服务器地址 push.twown.com
 ```
 
 <img src="https://wx4.sinaimg.cn/mw2000/003rYfqply1grd1meqrvcj60bi08zt9i02.jpg" width=365 />

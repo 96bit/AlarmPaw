@@ -17,18 +17,18 @@ URL由推送key、参数 title、参数 body 组成。有下面两种组合方�
 ## 请求方式
 ##### GET 请求参数拼接在 URL 后面，例如：
 ```sh
-curl https://push.shkqg.com/your_key/推送内容?group=分组&copy=复制
+curl https://push.twown.com/your_key/推送内容?group=分组&copy=复制
 ```
 *手动拼接参数到URL上时，请注意URL编码问题，可以参考阅读[常见问题：URL编码](/faq?id=%e6%8e%a8%e9%80%81%e7%89%b9%e6%ae%8a%e5%ad%97%e7%ac%a6%e5%af%bc%e8%87%b4%e6%8e%a8%e9%80%81%e5%a4%b1%e8%b4%a5%ef%bc%8c%e6%af%94%e5%a6%82-%e6%8e%a8%e9%80%81%e5%86%85%e5%ae%b9%e5%8c%85%e5%90%ab%e9%93%be%e6%8e%a5%ef%bc%8c%e6%88%96%e6%8e%a8%e9%80%81%e5%bc%82%e5%b8%b8-%e6%af%94%e5%a6%82-%e5%8f%98%e6%88%90%e7%a9%ba%e6%a0%bc)*
 
 ##### POST 请求参数放在请求体中，例如：
 ```sh
-curl -X POST https://push.shkqg.com/your_key \
+curl -X POST https://push.twown.com/your_key \
      -d'body=推送内容&group=分组&copy=复制'
 ```
 ##### POST 请求支持JSON，例如：
 ```sh
-curl -X "POST" "//https://push.shkqg.com/your_key" \
+curl -X "POST" "//https://push.twown.com/your_key" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
   "body": "Test AlarmPaw Server",
@@ -44,7 +44,7 @@ curl -X "POST" "//https://push.shkqg.com/your_key" \
 
 ##### JSON 请求 key 可以放进请求体中,URL 路径须为 /push，例如
 ```sh
-curl -X "POST" "https://push.shkqg.com/push" \
+curl -X "POST" "https://push.twown.com/push" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
   "body": "Test AlarmPaw Server",
