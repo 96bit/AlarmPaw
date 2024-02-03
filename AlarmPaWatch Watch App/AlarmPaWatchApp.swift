@@ -2,7 +2,7 @@
 //  AlarmPaWatchApp.swift
 //  AlarmPaWatch Watch App
 //
-//  Created by He Cho on 2024/2/3.
+//  Created by He Cho on 2024/2/4.
 //
 
 import SwiftUI

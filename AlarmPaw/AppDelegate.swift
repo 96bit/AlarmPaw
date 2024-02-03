@@ -10,7 +10,6 @@ import SwiftUI
 import UserNotifications
 import RealmSwift
 
-
 struct Identifiers {
     static let reminderCategory = "myNotificationCategory"
     static let cancelAction = "cancel"
@@ -20,8 +19,8 @@ struct Identifiers {
 
 
 
-class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{
+  
     let generator = UISelectionFeedbackGenerator()
     
     func setupRealm() {
@@ -65,6 +64,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         }
         
     }
+    
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         // MARK:  处理注册失败的情况
@@ -120,13 +120,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
         
     }
-    
 
-    
-    
-    
-    
-    
     // 处理应用程序在前台是否显示通知
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -144,5 +138,3 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     
     
 }
-
-
