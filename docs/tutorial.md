@@ -71,4 +71,5 @@ curl -X "POST" "https://push.twown.com/push" \
 | group | 对消息进行分组，推送将按group分组显示在通知中心中。<br>也可在历史消息列表中选择查看不同的群组。 |
 | isArchive | 传 1 保存推送，传其他的不保存推送，不传按APP内设置来决定是否保存。 |
 | url | 点击推送时，跳转的URL ，支持URL Scheme 和 Universal Link |
-| active | 与ios捷径完成连接运行自动化｜
+| image | 一张图片的连接, 可以在通知里直接查看 ｜
+| active | 与ios捷径完成连接运行自动化 |

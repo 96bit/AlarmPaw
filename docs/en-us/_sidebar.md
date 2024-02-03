@@ -3,7 +3,7 @@
 - [AlarmPaw](/en-us/#AlarmPaw)
 - **App**
   - [Tutorial](/en-us/tutorial)
-  - [Automate](/email)
+  - [Automate](/en-us/email)
   - [Encryption](/en-us/encryption)
   - [FAQs](/en-us/faq)
 - **Server**
