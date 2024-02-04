@@ -186,7 +186,7 @@ mailHeader = "E-posta kısayolu çalıştırır";
 
 mailTitle = "Otomasyon konfigürasyonu";
 
-toMailTestTitle = "Otomasyon: AlarmPaaw";
+toMailTestTitle = "Otomasyon: AlarmPaw";
 
 toMailTestText = "{title:\"Başlık\",...}";
 
@@ -203,3 +203,7 @@ emailPasswordPl = "Lütfen şifre girin";
 tomailListHeader = "Alıcı e-posta listesi";
 
 emailNavigationTitle = "E-posta Otomasyonu";
+
+
+watchTips1 =  "Ücretsiz, Basit, Güvenli";
+watchBtn =  "Aç ve Kullan";

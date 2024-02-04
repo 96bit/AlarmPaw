@@ -22,13 +22,15 @@
 		1936B5172B56C47300FC31E2 /* WebKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B5162B56C47300FC31E2 /* WebKitView.swift */; };
 		1936B5192B56C71800FC31E2 /* Paw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B5182B56C71800FC31E2 /* Paw.swift */; };
 		1936B51B2B56E48E00FC31E2 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B51A2B56E48E00FC31E2 /* CloudKit.swift */; };
+		194479912B6F8EA200AC9F67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 194479932B6F8EA200AC9F67 /* InfoPlist.strings */; };
+		194479A42B6F923E00AC9F67 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4CE2B56B58B00FC31E2 /* Localizable.strings */; };
+		194479C62B6F9CA300AC9F67 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 194479C72B6F9CA300AC9F67 /* Launch Screen.storyboard */; };
 		1948DEB02B59235C00FDA68B /* MessageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948DEAF2B59235C00FDA68B /* MessageItem.swift */; };
 		1948DEB42B593BA000FDA68B /* ServerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948DEB32B593BA000FDA68B /* ServerListView.swift */; };
 		194CA2262B6771E10033B602 /* AlarmPawUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194CA2252B6771E10033B602 /* AlarmPawUITests.swift */; };
 		196AD46F2B5FA1A10086B42C /* otherModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196AD46E2B5FA1A10086B42C /* otherModal.swift */; };
 		196AD4702B5FA5570086B42C /* otherModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196AD46E2B5FA1A10086B42C /* otherModal.swift */; };
 		196AD4722B5FA6EE0086B42C /* baseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196AD4712B5FA6EE0086B42C /* baseResponse.swift */; };
-		196AD4782B60038B0086B42C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196AD4772B60038B0086B42C /* Launch Screen.storyboard */; };
 		196E1CA32B5273CC001FAD01 /* AlarmPawApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E1CA22B5273CC001FAD01 /* AlarmPawApp.swift */; };
 		196E1CA52B5273CC001FAD01 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E1CA42B5273CC001FAD01 /* ContentView.swift */; };
 		196E1CA92B5273CF001FAD01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 196E1CA82B5273CF001FAD01 /* Assets.xcassets */; };
@@ -105,7 +107,7 @@
 		19E417C62B6EB36200C3974B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E417C52B6EB36200C3974B /* ContentView.swift */; };
 		19E417C82B6EB36400C3974B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E417C72B6EB36400C3974B /* Assets.xcassets */; };
 		19E417CB2B6EB36400C3974B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E417CA2B6EB36400C3974B /* Preview Assets.xcassets */; };
-		19E417CE2B6EB36400C3974B /* PawPaw.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 19E417C12B6EB36100C3974B /* PawPaw.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		19E417CE2B6EB36400C3974B /* PAW.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 19E417C12B6EB36100C3974B /* PAW.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,7 +160,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				19E417CE2B6EB36400C3974B /* PawPaw.app in Embed Watch Content */,
+				19E417CE2B6EB36400C3974B /* PAW.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,6 +183,11 @@
 		1936B5162B56C47300FC31E2 /* WebKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitView.swift; sourceTree = "<group>"; };
 		1936B5182B56C71800FC31E2 /* Paw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paw.swift; sourceTree = "<group>"; };
 		1936B51A2B56E48E00FC31E2 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
+		194479922B6F8EA200AC9F67 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		194479942B6F8EA600AC9F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		194479952B6F8EA900AC9F67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		194479962B6F8EA900AC9F67 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		194479C72B6F9CA300AC9F67 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		1948DEAF2B59235C00FDA68B /* MessageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItem.swift; sourceTree = "<group>"; };
 		1948DEB32B593BA000FDA68B /* ServerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListView.swift; sourceTree = "<group>"; };
 		194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmPawUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,7 +197,6 @@
 		196AD4742B5FFE7A0086B42C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		196AD4752B6000950086B42C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		196AD4762B6000950086B42C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		196AD4772B60038B0086B42C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		196E1C9F2B5273CC001FAD01 /* AlarmPaw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlarmPaw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		196E1CA22B5273CC001FAD01 /* AlarmPawApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPawApp.swift; sourceTree = "<group>"; };
 		196E1CA42B5273CC001FAD01 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -257,7 +263,7 @@
 		19D0F7052B55A4B60039103D /* NotificationContentExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentExtension.entitlements; sourceTree = "<group>"; };
 		19E13B112B5A9C1A005AAA9D /* realmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmManager.swift; sourceTree = "<group>"; };
 		19E3F6952B6BF30E00F23888 /* emailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emailPageView.swift; sourceTree = "<group>"; };
-		19E417C12B6EB36100C3974B /* PawPaw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PawPaw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		19E417C12B6EB36100C3974B /* PAW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PAW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19E417C32B6EB36200C3974B /* AlarmPaWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmPaWatchApp.swift; sourceTree = "<group>"; };
 		19E417C52B6EB36200C3974B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		19E417C72B6EB36400C3974B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -436,7 +442,7 @@
 				196E1CD62B5280F1001FAD01 /* NotificationServiceExtension.appex */,
 				19D0F6F52B55A4360039103D /* NotificationContentExtension.appex */,
 				194CA2232B6771E10033B602 /* AlarmPawUITests.xctest */,
-				19E417C12B6EB36100C3974B /* PawPaw.app */,
+				19E417C12B6EB36100C3974B /* PAW.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -456,7 +462,8 @@
 				196E1CAA2B5273CF001FAD01 /* Preview Content */,
 				196E1CF12B529D43001FAD01 /* AppDelegate.swift */,
 				1936B4CE2B56B58B00FC31E2 /* Localizable.strings */,
-				196AD4772B60038B0086B42C /* Launch Screen.storyboard */,
+				194479C72B6F9CA300AC9F67 /* Launch Screen.storyboard */,
+				194479932B6F8EA200AC9F67 /* InfoPlist.strings */,
 			);
 			path = AlarmPaw;
 			sourceTree = "<group>";
@@ -637,7 +644,7 @@
 			);
 			name = "AlarmPaWatch Watch App";
 			productName = "AlarmPaWatch Watch App";
-			productReference = 19E417C12B6EB36100C3974B /* PawPaw.app */;
+			productReference = 19E417C12B6EB36100C3974B /* PAW.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -716,6 +723,7 @@
 				19C4954F2B66820D001AB195 /* anticipate.caf in Resources */,
 				19C495652B66820D001AB195 /* horn.caf in Resources */,
 				19C495512B66820D001AB195 /* tiptoes.caf in Resources */,
+				194479912B6F8EA200AC9F67 /* InfoPlist.strings in Resources */,
 				19C495552B66820D001AB195 /* newmail.caf in Resources */,
 				19C4956B2B66820D001AB195 /* ladder.caf in Resources */,
 				19C4955C2B66820D001AB195 /* birdsong.caf in Resources */,
@@ -744,7 +752,7 @@
 				19C4955E2B66820D001AB195 /* shake.caf in Resources */,
 				19C495592B66820D001AB195 /* descent.caf in Resources */,
 				19C4956A2B66820D001AB195 /* chime.caf in Resources */,
-				196AD4782B60038B0086B42C /* Launch Screen.storyboard in Resources */,
+				194479C62B6F9CA300AC9F67 /* Launch Screen.storyboard in Resources */,
 				19C4955F2B66820D001AB195 /* electronic.caf in Resources */,
 				19C495572B66820D001AB195 /* bell.caf in Resources */,
 			);
@@ -852,6 +860,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				194479A42B6F923E00AC9F67 /* Localizable.strings in Sources */,
 				19E417C62B6EB36200C3974B /* ContentView.swift in Sources */,
 				19E417C42B6EB36200C3974B /* AlarmPaWatchApp.swift in Sources */,
 			);
@@ -892,6 +901,17 @@
 				1997235A2B626AFC008B51A8 /* tr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		194479932B6F8EA200AC9F67 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				194479922B6F8EA200AC9F67 /* zh-Hans */,
+				194479942B6F8EA600AC9F67 /* en */,
+				194479952B6F8EA900AC9F67 /* ru */,
+				194479962B6F8EA900AC9F67 /* tr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		19D0F6FB2B55A4360039103D /* MainInterface.storyboard */ = {
@@ -1082,7 +1102,7 @@
 				CODE_SIGN_ENTITLEMENTS = AlarmPaw/AlarmPaw.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = FUWV6U942Q;
 				ENABLE_PREVIEWS = YES;
@@ -1121,7 +1141,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
@@ -1279,7 +1299,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = FUWV6U942Q;
 				ENABLE_PREVIEWS = YES;
@@ -1292,7 +1312,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.watchkitapp;
-				PRODUCT_NAME = PawPaw;
+				PRODUCT_NAME = PAW;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1311,7 +1331,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = FUWV6U942Q;
@@ -1325,7 +1345,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.watchkitapp;
-				PRODUCT_NAME = PawPaw;
+				PRODUCT_NAME = PAW;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=watchos*]" = "match AppStore com.twown.paw.watchkitapp";
 				SDKROOT = watchos;

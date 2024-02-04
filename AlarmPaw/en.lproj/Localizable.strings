@@ -193,7 +193,7 @@ mailHeader = "Email triggers the shortcut to run";
 
 mailTitle = "Automation configuration";
 
-toMailTestTitle = "Automation: AlarmPaaw";
+toMailTestTitle = "Automation: AlarmPaw";
 
 toMailTestText = "{title:\"Title\",...}";
 

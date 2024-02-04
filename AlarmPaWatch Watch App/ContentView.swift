@@ -24,17 +24,22 @@ struct ContentView: View {
                     
                     HStack{
                         Spacer()
-                        Text("免费、简单、安全")
+                        Text(NSLocalizedString("watchTips1", comment: "免费、简单、安全"))
+                            .padding()
                         Spacer()
                        
                     }
                     HStack{
                         Spacer()
-                        Text("打开即用")
+                        Button{
+                            
+                        }label: {
+                            Text(NSLocalizedString("watchBtn", comment: "打开即用"))
+                        }.buttonStyle(.borderless)
                         Spacer()
                     }
                 }.listRowBackground(Color.clear)
-            }.navigationTitle("PawPaw")
+            }.navigationTitle(NSLocalizedString("CFBundleDisplayName", comment: "程序名"))
         }
     }
 }

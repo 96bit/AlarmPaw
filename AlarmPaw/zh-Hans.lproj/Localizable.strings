@@ -200,7 +200,7 @@ mailTestTips = "主题包含: alarmpaw";
 mailHeader = "邮件触发运行捷径";
 mailTitle = "自动化配置";
 
-toMailTestTitle = "自动化: AlarmPaaw";
+toMailTestTitle = "自动化: AlarmPaw";
 toMailTestText = "{title:\"标题\",...}";
 
 sendMailFail = "调用失败";
@@ -212,3 +212,7 @@ emailPasswordPl =  "请输入密码";
 
 tomailListHeader = "接收邮件列表";
 emailNavigationTitle = "邮件自动化";
+
+
+watchTips1 = "免费、简单、安全";
+watchBtn = "打开即用";

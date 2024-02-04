@@ -189,7 +189,7 @@ mailHeader = "Почта запускает быстрый путь";
 
 mailTitle = "Конфигурация автоматизации";
 
-toMailTestTitle = "Автоматизация: AlarmPaaw";
+toMailTestTitle = "Автоматизация: AlarmPaw";
 
 toMailTestText = "{title:\"Заголовок\",...}";
 
@@ -206,3 +206,6 @@ emailPasswordPl = "Пожалуйста, введите пароль";
 tomailListHeader = "Список получателей писем";
 
 emailNavigationTitle = "Автоматизация почты";
+
+watchTips1 =  "Бесплатно, просто, безопасно";
+watchBtn = "Открыть и использовать";
