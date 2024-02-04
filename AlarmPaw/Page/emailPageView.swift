@@ -24,7 +24,7 @@ struct emailPageView: View {
                 Button{
                     self.showLoading = true
                     paw.dispatch_async_queue{
-                        sendMail(config: paw.email, title:   NSLocalizedString("toMailTestTitle", comment: "自动化: AlarmPaaw"), text:NSLocalizedString("toMailTestText", comment:  "{title:\"标题\",...}")){ error in
+                        sendMail(config: paw.email, title:   NSLocalizedString("toMailTestTitle", comment: "自动化: AlarmPaw"), text:NSLocalizedString("toMailTestText", comment:  "{title:\"标题\",...}")){ error in
                             paw.dispatch_sync_safely_main_queue {
                                 if error != nil {
                                     self.toastText = NSLocalizedString("sendMailFail", comment: "调用失败")

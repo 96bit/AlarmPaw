@@ -35,7 +35,7 @@ struct ContentView: View {
                             
                         }label: {
                             Text(NSLocalizedString("watchBtn", comment: "打开即用"))
-                        }.buttonStyle(.borderless)
+                        }.buttonStyle(.borderedProminent)
                         Spacer()
                     }
                 }.listRowBackground(Color.clear)
