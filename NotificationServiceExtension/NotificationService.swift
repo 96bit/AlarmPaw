@@ -30,7 +30,7 @@ class NotificationService: UNNotificationServiceExtension {
         let fileUrl = groupUrl?.appendingPathComponent(settings.realmName.rawValue)
         let config = Realm.Configuration(
             fileURL: fileUrl,
-            schemaVersion: 2,
+            schemaVersion: 3,
             migrationBlock: { _, oldSchemaVersion in
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if oldSchemaVersion < 1 {
@@ -240,17 +240,24 @@ class NotificationService: UNNotificationServiceExtension {
         
         
         if isArchive == true {
-            try? realm?.write {
-                let message = Message()
-                message.title = title
-                message.image = image
-                message.icon = icon
-                message.body = body
-                message.url = url
-                message.group = group ?? "默认"
-                message.createDate = Date()
-                realm?.add(message)
+            
+            let message = Message()
+            message.title = title
+            message.body = body
+            message.image = image
+            message.icon = icon
+            message.group = group
+            message.url = url
+            
+            do{
+                try realm?.write {
+                    realm?.add(message)
+                }
+            }catch{
+                print("\(error)")
             }
+            
+            
         }
         
         
@@ -269,7 +276,7 @@ class NotificationService: UNNotificationServiceExtension {
         
         let userInfo = bestAttemptContent.userInfo
         
-       
+        
         if badgeMode == .custom{
             // MARK: 通知角标 .custom
             if let badgeStr = userInfo["badge"] as? String, let badge = Int(badgeStr) {

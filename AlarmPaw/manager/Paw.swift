@@ -25,7 +25,8 @@ class pawManager: ObservableObject{
     
     @Published var showSafariWebView = false
     @Published var showSafariWebUrl:URL? = nil
-    @Published var  isNetworkAvailable = false
+    @Published var isNetworkAvailable = false
+    @Published var cloudCount = 0
     
     @Published var notificationPermissionStatus: UNAuthorizationStatus = .notDetermined
     private var cancellables: Set<AnyCancellable> = []

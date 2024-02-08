@@ -18,10 +18,8 @@ enum PageView :String{
 struct ContentView: View {
     @AppStorage("defaultPageViewShow") var page:PageView = .message
     @EnvironmentObject var paw: pawManager
-    @ObservedResults(Message.self,where: {!$0.isRead}) var messages
+    @ObservedResults(Message.self) var messages
     var body: some View {
-        
-        
         TabView(selection: $page) {
             // MARK: 信息页面
             NavigationStack{
@@ -29,7 +27,7 @@ struct ContentView: View {
                     .navigationTitle(NSLocalizedString("bottomBarMsg"))
             }.tabItem { Label(NSLocalizedString("bottomBarMsg"), systemImage: "ellipsis.message") }
                 .tag(PageView.message)
-                .badge(messages.count)
+                .badge(messages.where({!$0.isRead}).count)
             // MARK: 设置页面
             NavigationStack{
                 SettingView()
@@ -42,9 +40,33 @@ struct ContentView: View {
                     .ignoresSafeArea()
             }
             
+            
         }
-    
-      
+        //willEnterForegroundNotification
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            Task(priority: .background){
+                let messageNotCloud = messages.where({!$0.cloud})
+                if messageNotCloud.count == 0{
+                    print("没有数据")
+                }
+                let result = await CloudKitManager.shared.uploadCloud(Array(messageNotCloud))
+                do{
+                    let realm = try await Realm()
+                    try realm.write{
+                        for message in result{
+                            if let thawedObject = message.thaw(){
+                                thawedObject.cloud = true
+                            }
+                                
+                        }
+                    }
+                  
+                }catch{
+                    print(error)
+                }
+               
+            }
+        }
     }
     
     

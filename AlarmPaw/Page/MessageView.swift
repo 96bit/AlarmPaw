@@ -460,7 +460,7 @@ extension MessageView{
         var msgMap:[String:[Message]] = [:]
         
         for  message in messages{
-            let group = message.group ??  NSLocalizedString("deleteGroup")
+            let group = message.group ??  NSLocalizedString("defultGroup")
             if let _ = msgMap[group]{
                 continue
             }else{

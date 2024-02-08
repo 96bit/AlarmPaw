@@ -24,6 +24,7 @@ enum settings :String{
     case syncServerUrl = "syncServerUrl"
     case syncServerParams = "syncServerParams"
     case emailConfig = "emailStmpConfig"
+    case iCloudName = "iCloud.AlarmPaw"
 }
 
 

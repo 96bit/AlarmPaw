@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 @main
-struct AlarmPawApp: App {
+struct AlarmPawApp: SwiftUI.App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var paw = pawManager.shared
+
     private let timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some Scene {
         WindowGroup {
@@ -24,6 +26,7 @@ struct AlarmPawApp: App {
                     paw.monitorNetwork()
                     paw.monitorNotification()
                 }
+               
         }
     }
 }

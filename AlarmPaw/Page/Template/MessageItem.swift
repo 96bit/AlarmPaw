@@ -13,6 +13,7 @@ import UIKit
 
 struct MessageItem: View {
     @ObservedRealmObject var message:Message
+//    @State var message:Message
     @EnvironmentObject var paw:pawManager
     @Binding var imageID:String
     @Binding var toastText:String
@@ -59,15 +60,38 @@ struct MessageItem: View {
                         }
                        
                     }
-                    VStack(alignment: .leading, spacing:10){
-                        
-                        if let title = message.title{
-                            Text(title)
-                                .font(.system(.headline))
-                        }
-                        Divider()
-                        if let body = message.body{
-                            Text(body)
+                    ZStack(alignment: .topLeading){
+                        VStack(alignment: .leading, spacing:10){
+                            
+                            if let title = message.title{
+                                Text(title)
+                                    .font(.system(.headline))
+                            }
+                            Divider()
+                            if let body = message.body{
+                                Text(body)
+                            }
+                        }.padding(.horizontal)
+                        HStack{
+                            Spacer()
+                            Image(systemName: "bookmark")
+                                .animation(.easeInOut, value: message.isRead)
+                                .onTapGesture {
+                                    let _ = RealmManager.shared.updateObject(message) { message in
+                                        message.isRead = !message.isRead
+                                        self.toastText = NSLocalizedString("typechanged")
+                                    }
+                                }
+                                .onLongPressGesture{
+                                    let messages = RealmManager.shared.getObject()
+                                    let _ = RealmManager.shared.updateObjects(messages) { message in
+                                        message?.isRead = true
+                                    }
+                                    self.toastText = NSLocalizedString("allRead")
+                                }
+                                .foregroundStyle(message.isRead ? .gray : .green)
+                                .font(.caption)
+                            
                         }
                     }
                 }
@@ -103,28 +127,19 @@ struct MessageItem: View {
                     
                 }
                 
+               
             }
         }header: {
             HStack{
+                if message.cloud {
+                    Image(systemName: "bolt.horizontal.icloud.fill")
+                        .foregroundStyle(Color("AccentColor"))
+                        .font(.caption)
+                }
                 Text(message.createDate.agoFormatString())
                     .font(.caption2)
                 Spacer()
-                Image(systemName: message.isRead ? "envelope.open" :"envelope")
-                    .animation(.easeInOut, value: message.isRead)
-                    .onTapGesture {
-                        let _ = RealmManager.shared.updateObject(message) { message in
-                            message.isRead = !message.isRead
-                            self.toastText = NSLocalizedString("typechanged")
-                        }
-                    }
-                    .onLongPressGesture{
-                        let messages = RealmManager.shared.getObject()
-                        let _ = RealmManager.shared.updateObjects(messages) { message in
-                            message?.isRead = true
-                        }
-                        self.toastText = NSLocalizedString("allRead")
-                    }
-                    .foregroundStyle(message.isRead ? .gray : .green)
+               
             }.frame(minHeight: 30)
             
         }
@@ -177,8 +192,9 @@ extension MessageItem{
 
 #Preview {
     List {
-        MessageItem(message: Message(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123"]),imageID: .constant("123"),toastText: .constant("123"))
+        MessageItem(message: Message(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123","cloud":true]),imageID: .constant("123"),toastText: .constant("123"))
             .frame(width: 300)
+            .environmentObject(pawManager.shared)
     }.listStyle(GroupedListStyle())
     
     

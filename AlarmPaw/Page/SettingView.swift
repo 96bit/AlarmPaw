@@ -68,12 +68,20 @@ struct SettingView: View {
                 
                 
                 Section(header: Text("iCloud"),footer: Text(NSLocalizedString("icloudHeader"))) {
-                    HStack{
-                        Text(NSLocalizedString("icloudBody"))
-                        Spacer()
-                        Text(cloudStatus)
-                    }.onAppear{
-                        self.setCloudStatus()
+                    NavigationLink(destination: {
+                        cloudMessageView()
+                    }, label: {
+                        HStack{
+                            Text(NSLocalizedString("icloudBody"))
+                            Spacer()
+                            Text(cloudStatus)
+                        }
+                    })
+                    .task{
+                        let status = await CloudKitManager.shared.getCloudStatus()
+                        paw.dispatch_sync_safely_main_queue {
+                            self.cloudStatus = status
+                        }
                     }
                 }
                 
@@ -325,27 +333,6 @@ struct ShareSheet: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
         // Update the view controller if needed
-    }
-}
-
-extension SettingView{
-    func setCloudStatus(){
-        CKContainer.default().accountStatus { status, _ in
-            paw.dispatch_sync_safely_main_queue {
-                switch status {
-                case .available:
-                    self.cloudStatus = NSLocalizedString("opened")
-                case .noAccount, .restricted:
-                    self.cloudStatus = NSLocalizedString("notopen")
-                case .couldNotDetermine:
-                    self.cloudStatus = NSLocalizedString("unknown")
-                case .temporarilyUnavailable:
-                    break
-                @unknown default:
-                    break
-                }
-            }
-        }
     }
 }
 

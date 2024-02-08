@@ -22,6 +22,8 @@ final class Message: Object , ObjectKeyIdentifiable{
     @Persisted var createDate = Date()
     @Persisted var isRead:Bool = false
     @Persisted var url:String?
+    @Persisted var cloud:Bool = false
+    
 }
 
 extension Message: Codable{
@@ -38,6 +40,7 @@ extension Message: Codable{
         try container.encodeIfPresent(isRead, forKey: .isRead)
         try container.encodeIfPresent(url, forKey: .url)
     }
+   
 }
 
 
@@ -52,4 +55,43 @@ extension Message{
 
 
 
+extension Message {
+    // 可以添加一个便利构造器或修改现有构造器来支持从CKRecord初始化
+    convenience init(from record: CKRecord) {
+        self.init()
+        self.id = record.recordID.recordName
+        self.title = record["title"] as? String
+        self.body = record["body"] as? String
+        self.image = record["image"] as? String
+        self.icon = record["icon"] as? String
+        self.group = record["group"] as? String
+        self.createDate = record["createDate"] as? Date ?? Date()
+        self.isRead = record["isRead"] as? Bool ?? false
+        self.url = record["url"] as? String
+    }
+    
+    
+    
 
+}
+
+extension Message{
+    
+    // 将Message转换为CKRecord
+    func createCKRecord() -> CKRecord {
+        let record = CKRecord(recordType: "Message", recordID: CKRecord.ID(recordName: self.id))
+        record["title"] = self.title
+        record["body"] = self.body
+        record["image"] = self.image
+        record["icon"] = self.icon
+        record["group"] = self.group
+        record["createDate"] = self.createDate
+        record["isRead"] = self.isRead
+        record["url"] = self.url
+        record["cloud"] = true
+        return record
+    }
+    
+    
+    
+}

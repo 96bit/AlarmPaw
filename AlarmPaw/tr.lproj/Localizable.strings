@@ -68,6 +68,7 @@ messageModeChanged = "Mesaj Durumu Değiştirildi";
 markNotRead = "Okunmamış Olarak İşaretle";
 markRead = "Okundu Olarak İşaretle";
 deleteSuccess = "Silme Başarılı";
+deleteFail = "Silme Başarısız";
 deleteTitle = "Sil";
 
 nothing = "Hiçbir Şey";
@@ -77,7 +78,7 @@ groupMarkRead = "Grup Okundu";
 nothingMessage = "Hiç Mesaj Yok";
 deleteAllMessage = "Tüm Mesajları Sil";
 allMarkRead = "Tümünü Okundu Olarak İşaretle";
-deleteGroup = "Varsayılan Grup";
+defultGroup = "Varsayılan Grup";
 
 changeServer = "Sunucuyu Değiştir";
 useExample = "Örnek Kullanım";
@@ -207,3 +208,11 @@ emailNavigationTitle = "E-posta Otomasyonu";
 
 watchTips1 =  "Ücretsiz, Basit, Güvenli";
 watchBtn =  "Aç ve Kullan";
+
+getFail = "Alma Başarısız";
+
+cloudData = "Cloud Data";
+
+notData = "Not Data!";
+
+deleteAll = "Del All";

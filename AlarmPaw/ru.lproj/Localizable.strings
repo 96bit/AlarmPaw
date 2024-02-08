@@ -74,7 +74,8 @@ groupMarkRead = "Группа прочитана";
 nothingMessage = "Нет сообщений";
 deleteAllMessage = "Удалить все сообщения";
 deleteSuccess = "Удаление успешно";
-deleteGroup = "Группа по умолчанию";
+deleteFail = "Удаление не удалось";
+defultGroup = "Группа по умолчанию";
 
 changeServer = "Сменить сервер";
 useExample = "Пример использования";
@@ -209,3 +210,11 @@ emailNavigationTitle = "Автоматизация почты";
 
 watchTips1 =  "Бесплатно, просто, безопасно";
 watchBtn = "Открыть и использовать";
+
+getFail = "Получение не удалось";
+
+cloudData = "Cloud Data";
+
+notData = "Not Data!";
+
+deleteAll = "Del All";

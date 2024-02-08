@@ -80,7 +80,8 @@ groupMarkRead = "组已读";
 nothingMessage = "没有消息";
 deleteAllMessage = "删除所有信息";
 deleteSuccess = "删除成功";
-deleteGroup = "默认组";
+deleteFail = "删除失败";
+defultGroup = "默认组";
 
 
 changeServer = "切换服务器";
@@ -216,3 +217,11 @@ emailNavigationTitle = "邮件自动化";
 
 watchTips1 = "免费、简单、安全";
 watchBtn = "打开即用";
+
+getFail = "获取失败";
+
+cloudData = "云端数据";
+
+notData = "没有数据";
+
+deleteAll = "删除全部";

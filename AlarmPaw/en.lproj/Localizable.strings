@@ -78,7 +78,8 @@ nothingMessage = "No messages";
 deleteAllMessage = "Delete all messages";
 allMarkRead = "All read";
 deleteSuccess = "Delete successful";
-deleteGroup = "Default group";
+deleteFail = "Delete Fail";
+defultGroup = "Default group";
 
 changeServer = "Switch server";
 useExample = "Usage example";
@@ -210,3 +211,12 @@ emailPasswordPl = "Please enter password";
 tomailListHeader = "Recipient email list";
 
 emailNavigationTitle = "Email Automation";
+
+getFail = "Get Fail";
+
+
+cloudData = "Cloud Data";
+
+notData = "Not Data!";
+
+deleteAll = "Del All";
