@@ -109,9 +109,16 @@ extension ServerListView{
                         }
                         .swipeActions(edge: .leading) {
                             Button{
+                                
                                 if let index = paw.servers.firstIndex(where: {$0.id == item.id}){
                                     paw.servers[index].key = ""
                                 }
+                                
+                                Task{
+                                    await paw.register(server: item)
+                                }
+                                
+                               
                                 self.toastText = NSLocalizedString("controlSuccess")
                             }label: {
                                 Text("重置Key")

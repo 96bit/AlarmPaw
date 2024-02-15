@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var imageIndex = 0
     var body: some View {
         NavigationStack{
             List{
@@ -15,10 +16,15 @@ struct ContentView: View {
                 VStack{
                     HStack{
                         Spacer()
-                        Image("logo")
+                        Image(logoImage.arr[imageIndex].rawValue)
                             .resizable()
                             .scaledToFit()
                             .frame(height: 80)
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
+                            .animation(.bouncy, value: imageIndex)
+                            .onTapGesture {
+                                imageIndex = imageIndex < (logoImage.arr.count - 1) ? (imageIndex + 1) : 0
+                            }
                         Spacer()
                     }
                     
@@ -32,10 +38,10 @@ struct ContentView: View {
                     HStack{
                         Spacer()
                         Button{
-                            
+                            imageIndex = imageIndex < (logoImage.arr.count - 1) ? (imageIndex + 1) : 0
                         }label: {
-                            Text(NSLocalizedString("watchBtn", comment: "打开即用"))
-                        }.buttonStyle(.borderedProminent)
+                            Text(NSLocalizedString("watchBtn", comment: "图标"))
+                        }.buttonStyle(.borderless)
                         Spacer()
                     }
                 }.listRowBackground(Color.clear)

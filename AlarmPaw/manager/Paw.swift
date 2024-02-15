@@ -14,7 +14,6 @@ import Combine
 import UserNotifications
 
 class pawManager: ObservableObject{
-    
     @AppStorage(settings.deviceToken.rawValue) var deviceToken:String = ""
     @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
     @AppStorage(settings.server.rawValue) var servers:[serverInfo] = [serverInfo.serverDefault]
