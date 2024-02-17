@@ -1,4 +1,8 @@
-# App 所有功能均参照[Bark](https://github.com/Finb/Bark)开发, 只是推送的证书和服务器不同，请直接参照bark文档进行使用 
+# AlarmPaw
+
+一个ios端接收通知的应用
+
+*所有功能均参照[Bark](https://github.com/Finb/Bark)开发, 只是推送的证书和服务器不同，请直接参照bark文档进行使用* 
 
 ## 使用文档
 [https://bark.day.app](https://bark.day.app)
