@@ -220,3 +220,15 @@ cloudData = "Cloud Data";
 notData = "Not Data!";
 
 deleteAll = "Del All";
+
+resetKey = "Reset Key";
+
+
+failUrl = "Wrong Url";
+failSave = "Save Failed";
+failAuth = "Please Enable Album Permissions";
+saveSuccess = "Save Successful";
+failOther = "Other Error";
+
+
+doubleClickSave = "Double Click to Save";

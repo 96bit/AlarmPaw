@@ -96,6 +96,9 @@
 		19C495692B66820D001AB195 /* bloom.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495492B66820D001AB195 /* bloom.caf */; };
 		19C4956A2B66820D001AB195 /* chime.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954A2B66820D001AB195 /* chime.caf */; };
 		19C4956B2B66820D001AB195 /* ladder.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954B2B66820D001AB195 /* ladder.caf */; };
+		19D026882B80A68000035C27 /* AllMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D026872B80A68000035C27 /* AllMessageView.swift */; };
+		19D0268A2B80A69300035C27 /* GroupMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D026892B80A69300035C27 /* GroupMessageView.swift */; };
+		19D0268C2B80ABBC00035C27 /* messageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0268B2B80ABBC00035C27 /* messageTools.swift */; };
 		19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CC2B54399A0039103D /* URLSession+.swift */; };
 		19D0F6D02B543CCE0039103D /* Operator+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0F6CF2B543CCE0039103D /* Operator+.swift */; };
 		19D0F6F62B55A4360039103D /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196E1CBD2B527C1E001FAD01 /* UserNotifications.framework */; };
@@ -259,6 +262,9 @@
 		19C495492B66820D001AB195 /* bloom.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloom.caf; sourceTree = "<group>"; };
 		19C4954A2B66820D001AB195 /* chime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime.caf; sourceTree = "<group>"; };
 		19C4954B2B66820D001AB195 /* ladder.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ladder.caf; sourceTree = "<group>"; };
+		19D026872B80A68000035C27 /* AllMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMessageView.swift; sourceTree = "<group>"; };
+		19D026892B80A69300035C27 /* GroupMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessageView.swift; sourceTree = "<group>"; };
+		19D0268B2B80ABBC00035C27 /* messageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messageTools.swift; sourceTree = "<group>"; };
 		19D0F6CC2B54399A0039103D /* URLSession+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+.swift"; sourceTree = "<group>"; };
 		19D0F6CF2B543CCE0039103D /* Operator+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Operator+.swift"; sourceTree = "<group>"; };
 		19D0F6D72B54F6BE0039103D /* NotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceExtension.entitlements; sourceTree = "<group>"; };
@@ -353,15 +359,14 @@
 		1936B4BC2B56577900FC31E2 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				19D026862B80A3B000035C27 /* message */,
 				1948DEAE2B59234B00FDA68B /* Template */,
 				1936B4BD2B5657D900FC31E2 /* SettingView.swift */,
-				1936B4C12B56920200FC31E2 /* MessageView.swift */,
 				19166B572B57AC2500D02431 /* CustomHelpView.swift */,
 				1948DEB32B593BA000FDA68B /* ServerListView.swift */,
 				1987A6892B5CB98400452572 /* musicView.swift */,
 				197CE2C42B69503B00750434 /* pawAppIconView.swift */,
 				19E3F6952B6BF30E00F23888 /* emailPageView.swift */,
-				19447A262B6FEA3800AC9F67 /* cloudMessageView.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -410,7 +415,6 @@
 			children = (
 				1936B5142B56C43A00FC31E2 /* SFSafariViewController.swift */,
 				1936B5162B56C47300FC31E2 /* WebKitView.swift */,
-				1948DEAF2B59235C00FDA68B /* MessageItem.swift */,
 				19183BAA2B5BDE0800E2E346 /* AsyncImageView.swift */,
 				1987A68B2B5E165C00452572 /* toastView.swift */,
 				199723142B601F47008B51A8 /* musicItemView.swift */,
@@ -501,6 +505,19 @@
 				196E1CDA2B5280F1001FAD01 /* Info.plist */,
 			);
 			path = NotificationServiceExtension;
+			sourceTree = "<group>";
+		};
+		19D026862B80A3B000035C27 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				19D0268B2B80ABBC00035C27 /* messageTools.swift */,
+				1948DEAF2B59235C00FDA68B /* MessageItem.swift */,
+				1936B4C12B56920200FC31E2 /* MessageView.swift */,
+				19447A262B6FEA3800AC9F67 /* cloudMessageView.swift */,
+				19D026872B80A68000035C27 /* AllMessageView.swift */,
+				19D026892B80A69300035C27 /* GroupMessageView.swift */,
+			);
+			path = message;
 			sourceTree = "<group>";
 		};
 		19D0F6CE2B543C870039103D /* Extension */ = {
@@ -812,6 +829,7 @@
 				19E13B122B5A9C1A005AAA9D /* realmManager.swift in Sources */,
 				19D0F6D02B543CCE0039103D /* Operator+.swift in Sources */,
 				19C4388C2B64EDC300D73D63 /* addServerView.swift in Sources */,
+				19D0268A2B80A69300035C27 /* GroupMessageView.swift in Sources */,
 				19166B582B57AC2500D02431 /* CustomHelpView.swift in Sources */,
 				19447A272B6FEA3800AC9F67 /* cloudMessageView.swift in Sources */,
 				1987A68A2B5CB98400452572 /* musicView.swift in Sources */,
@@ -819,6 +837,8 @@
 				1936B5152B56C43A00FC31E2 /* SFSafariViewController.swift in Sources */,
 				1936B4C22B56920200FC31E2 /* MessageView.swift in Sources */,
 				196AD4722B5FA6EE0086B42C /* baseResponse.swift in Sources */,
+				19D0268C2B80ABBC00035C27 /* messageTools.swift in Sources */,
+				19D026882B80A68000035C27 /* AllMessageView.swift in Sources */,
 				199723152B601F47008B51A8 /* musicItemView.swift in Sources */,
 				196E1CD12B527FB1001FAD01 /* MessageModal.swift in Sources */,
 				197CE2C52B69503B00750434 /* pawAppIconView.swift in Sources */,

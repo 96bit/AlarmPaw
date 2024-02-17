@@ -242,14 +242,13 @@ extension pawManager{
         }
         
         do {
-            if let deviceInfo:DeviceInfo? = try await fetch(url: server.url + "/register/" + self.deviceToken + "/" + server.key){
+            if let deviceInfo:DeviceInfo? = try await fetch(url: server.url + "/register/" + self.deviceToken + "/" + servers[index].key){
                 
                 self.dispatch_sync_safely_main_queue {
                     servers[index].key = deviceInfo?.pawKey ?? ""
 //                        print("注册设备:", deviceInfo)
                 }
             }
-            
             
             
         }catch{

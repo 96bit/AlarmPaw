@@ -121,7 +121,7 @@ extension ServerListView{
                                
                                 self.toastText = NSLocalizedString("controlSuccess")
                             }label: {
-                                Text("重置Key")
+                                Text(NSLocalizedString("resetKey",comment: "重置Key"))
                             }.tint(.red)
                         }
                         

@@ -225,3 +225,15 @@ cloudData = "云端数据";
 notData = "没有数据";
 
 deleteAll = "删除全部";
+
+resetKey = "重置key";
+
+
+failUrl = "错误的Url";
+failSave = "保存失败";
+failAuth = "请打开相册权限";
+saveSuccess = "保存成功";
+failOther = "其他错误";
+
+
+doubleClickSave = "双击保存";

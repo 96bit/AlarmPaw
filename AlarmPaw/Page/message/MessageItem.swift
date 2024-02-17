@@ -13,10 +13,9 @@ import UIKit
 
 struct MessageItem: View {
     @ObservedRealmObject var message:Message
-//    @State var message:Message
     @EnvironmentObject var paw:pawManager
-    @Binding var imageID:String
-    @Binding var toastText:String
+    @State private var showImage:Bool = false
+    @State private var toastText:String = ""
     var body: some View {
         Section {
             Grid{
@@ -101,24 +100,15 @@ struct MessageItem: View {
                         if let image =  message.image{
                             HStack{
                                 Spacer()
-                                Text( self.imageID == message.id ? NSLocalizedString("displayImage"):NSLocalizedString("showImage"))
+                                Text( showImage ? NSLocalizedString("displayImage"):NSLocalizedString("showImage"))
                                     .font(.system(size: 10))
                             }.onTapGesture {
-                                if self.imageID == message.id{
-                                    self.imageID = "-1"
-                                }else{
-                                    self.imageID = message.id
-                                }
+                                self.showImage.toggle()
                             }
-                            if message.id == self.imageID{
-                                Group{
-                                    
-                                    if let imageURL = URL(string: image){
-                                        AsyncImageView(url: imageURL )
-                                    }
-                                }.aspectRatio(contentMode: .fit)
-                                    .animation(.easeInOut, value: self.imageID)
-                                
+                            if showImage, let imageURL = URL(string: image){
+                                AsyncImageView(url: imageURL )
+                                    .aspectRatio(contentMode: .fit)
+                                    .animation(.easeInOut, value: showImage)
                             }
                             
                         }
@@ -129,6 +119,7 @@ struct MessageItem: View {
                 
                
             }
+            .toast(info: $toastText)
         }header: {
             HStack{
                 if message.cloud {
@@ -192,10 +183,8 @@ extension MessageItem{
 
 #Preview {
     List {
-        MessageItem(message: Message(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123","cloud":true]),imageID: .constant("123"),toastText: .constant("123"))
+        MessageItem(message: Message(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123","cloud":true]))
             .frame(width: 300)
             .environmentObject(pawManager.shared)
     }.listStyle(GroupedListStyle())
-    
-    
 }

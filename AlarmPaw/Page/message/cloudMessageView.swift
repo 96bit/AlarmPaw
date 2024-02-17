@@ -38,7 +38,7 @@ struct cloudMessageView: View {
             }
             
             ForEach(messages, id: \.id){item in
-                MessageItem(message: item, imageID: $imageID, toastText: $toastText)
+                MessageItem(message: item)
             }.onDelete(perform: { indexSet in
                 Task{
                     await self.deleteMessageOne(indexSet)

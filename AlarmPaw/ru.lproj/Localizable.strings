@@ -213,8 +213,19 @@ watchBtn = "Открыть и использовать";
 
 getFail = "Получение не удалось";
 
-cloudData = "Cloud Data";
+cloudData = "Облачные данные";
 
-notData = "Not Data!";
+notData = "Нет данных";
 
-deleteAll = "Del All";
+deleteAll = "Удалить все";
+
+resetKey = "Сбросить ключ";
+
+
+failUrl = "Неверный Url";
+failSave = "Ошибка сохранения";
+failAuth = "Пожалуйста, включите доступ к альбому";
+saveSuccess = "Успешно сохранено";
+failOther = "Другая ошибка";
+
+doubleClickSave = "Двойной клик для сохранения";

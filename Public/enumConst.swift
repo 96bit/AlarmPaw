@@ -84,3 +84,30 @@ enum logoImage:String,CaseIterable{
     case nine = "logo9"
     static let arr = [logoImage.def,logoImage.zero,logoImage.one,logoImage.two,logoImage.three,logoImage.four,logoImage.five,logoImage.six,logoImage.seven,logoImage.eight,logoImage.nine]
 }
+
+
+enum saveType:String{
+    case failUrl
+    case failSave
+    case failAuth
+    case success
+    case other
+}
+
+extension saveType {
+
+    var localized: String {
+        switch self {
+        case .failUrl:
+            return NSLocalizedString(self.rawValue, comment: "Url错误")
+        case .failSave:
+            return NSLocalizedString("failSave", comment: "Save failed")
+        case .failAuth:
+            return NSLocalizedString("failAuth", comment: "No permission")
+        case .success:
+            return NSLocalizedString("saveSuccess", comment: "Save successful")
+        case .other:
+            return NSLocalizedString("failOther", comment: "Other error")
+        }
+    }
+}

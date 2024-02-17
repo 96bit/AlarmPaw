@@ -211,8 +211,18 @@ watchBtn =  "Aç ve Kullan";
 
 getFail = "Alma Başarısız";
 
-cloudData = "Cloud Data";
+cloudData = "Bulut Verisi";
 
-notData = "Not Data!";
+notData = "Veri Yok";
 
-deleteAll = "Del All";
+deleteAll = "Hepsini Sil";
+
+resetKey = "Anahtarı Sıfırla";
+
+failUrl = "Yanlış Url";
+failSave = "Kaydetme başarısız";
+failAuth = "Lütfen albüm izinlerini açın";
+saveSuccess = "Başarıyla kaydedildi";
+failOther = "Diğer hata";
+
+doubleClickSave = "Kaydetmek için Çift Tıklayın";
