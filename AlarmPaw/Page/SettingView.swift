@@ -25,6 +25,9 @@ struct SettingView: View {
     @State private var serverSize:CGSize = .zero
     @State private var serverColor:Color = .red
     @State private var showChangeIcon = false
+    @State private var showGithubAction = false
+    @State private var showHelpWeb = false
+    @State private var showProblemWeb = false
     var timerz = Timer.publish(every: 6, on: .main, in: .common).autoconnect()
     var body: some View {
         
@@ -167,13 +170,12 @@ struct SettingView: View {
                     }
                 }
                 
-                
+                // MARK: GITHUB
                 if let infoDict = Bundle.main.infoDictionary,
                    let runId = infoDict["GitHub Run Id"] as? String{
                     Section(footer:Text(NSLocalizedString("buildDesc"))){
                         Button{
-                            self.paw.copy(text: runId)
-                            self.toastText = NSLocalizedString("copySuccessText")
+                            self.showGithubAction = true
                         }label:{
                             HStack{
                                 Text("Github Run Id")
@@ -202,8 +204,7 @@ struct SettingView: View {
                 Section(header:Text(NSLocalizedString("otherHeader"))) {
                     
                     Button{
-                        self.webUrl = otherUrl.problemWebUrl.rawValue
-                        self.webShow.toggle()
+                        self.showProblemWeb.toggle()
                     }label: {
                         HStack(alignment:.center){
                             Text(NSLocalizedString("commonProblem"))
@@ -214,8 +215,7 @@ struct SettingView: View {
                     }
                     
                     Button{
-                        self.webUrl = otherUrl.helpWebUrl.rawValue
-                        self.webShow.toggle()
+                        self.showHelpWeb.toggle()
                     }label: {
                         HStack(alignment:.center){
                             Text(NSLocalizedString("useHelpTitle"))
@@ -250,9 +250,21 @@ struct SettingView: View {
                 }
             }
         }
-        .fullScreenCover(isPresented: $webShow) {
-            SFSafariViewWrapper(url: URL(string: self.webUrl)!)
+        .fullScreenCover(isPresented: $showProblemWeb) {
+            SFSafariViewWrapper(url: URL(string: otherUrl.problemWebUrl.rawValue)!)
                 .ignoresSafeArea()
+        }
+        .fullScreenCover(isPresented: $showHelpWeb) {
+            SFSafariViewWrapper(url: URL(string: otherUrl.helpWebUrl.rawValue)!)
+                .ignoresSafeArea()
+        }
+        .fullScreenCover(isPresented: $showGithubAction) {
+            if let infoDict = Bundle.main.infoDictionary,
+               let runId = infoDict["GitHub Run Id"] as? String{
+                SFSafariViewWrapper(url: URL(string: otherUrl.actinsRunUrl.rawValue + runId)!)
+                    .ignoresSafeArea()
+            }
+           
         }
         .fullScreenCover(isPresented: $showServer) {
             ServerListView()

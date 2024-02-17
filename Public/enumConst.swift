@@ -50,6 +50,7 @@ enum otherUrl:String{
     case defaultServer = "https://push.twown.com"
     case delpoydoc = "https://alarmpaw.twown.com/#/?id=alarmpaw"
     case emailHelpUrl = "https://alarmpaw.twown.com/#/email"
+    case actinsRunUrl = "https://github.com/96bit/AlarmPaw/actions/runs/"
 }
 
 
