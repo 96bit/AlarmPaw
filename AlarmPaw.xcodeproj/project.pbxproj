@@ -92,7 +92,6 @@
 		19C495652B66820D001AB195 /* horn.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495452B66820D001AB195 /* horn.caf */; };
 		19C495662B66820D001AB195 /* minuet.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495462B66820D001AB195 /* minuet.caf */; };
 		19C495672B66820D001AB195 /* newsflash.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495472B66820D001AB195 /* newsflash.caf */; };
-		19C495682B66820D001AB195 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495482B66820D001AB195 /* silence.caf */; };
 		19C495692B66820D001AB195 /* bloom.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C495492B66820D001AB195 /* bloom.caf */; };
 		19C4956A2B66820D001AB195 /* chime.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954A2B66820D001AB195 /* chime.caf */; };
 		19C4956B2B66820D001AB195 /* ladder.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4954B2B66820D001AB195 /* ladder.caf */; };
@@ -258,7 +257,6 @@
 		19C495452B66820D001AB195 /* horn.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = horn.caf; sourceTree = "<group>"; };
 		19C495462B66820D001AB195 /* minuet.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = minuet.caf; sourceTree = "<group>"; };
 		19C495472B66820D001AB195 /* newsflash.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = newsflash.caf; sourceTree = "<group>"; };
-		19C495482B66820D001AB195 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
 		19C495492B66820D001AB195 /* bloom.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bloom.caf; sourceTree = "<group>"; };
 		19C4954A2B66820D001AB195 /* chime.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chime.caf; sourceTree = "<group>"; };
 		19C4954B2B66820D001AB195 /* ladder.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ladder.caf; sourceTree = "<group>"; };
@@ -396,7 +394,6 @@
 				19C4953D2B66820D001AB195 /* paymentsuccess.caf */,
 				19C4953E2B66820D001AB195 /* shake.caf */,
 				19C4952D2B66820C001AB195 /* sherwoodforest.caf */,
-				19C495482B66820D001AB195 /* silence.caf */,
 				19C495342B66820C001AB195 /* spell.caf */,
 				19C4952C2B66820C001AB195 /* suspense.caf */,
 				19C495302B66820C001AB195 /* telegraph.caf */,
@@ -763,7 +760,6 @@
 				19C495642B66820D001AB195 /* update.caf in Resources */,
 				19C495692B66820D001AB195 /* bloom.caf in Resources */,
 				19C4954C2B66820D001AB195 /* suspense.caf in Resources */,
-				19C495682B66820D001AB195 /* silence.caf in Resources */,
 				19C495662B66820D001AB195 /* minuet.caf in Resources */,
 				19C495532B66820D001AB195 /* healthnotification.caf in Resources */,
 				19C495502B66820D001AB195 /* telegraph.caf in Resources */,
@@ -1142,7 +1138,7 @@
 				CODE_SIGN_ENTITLEMENTS = AlarmPaw/AlarmPaw.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = FUWV6U942Q;
 				ENABLE_PREVIEWS = YES;
@@ -1181,7 +1177,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
