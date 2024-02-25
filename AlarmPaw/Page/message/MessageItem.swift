@@ -36,8 +36,8 @@ struct MessageItem: View {
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .overlay(alignment: .topTrailing) {
                             if let _ =  message.url {
-                                Image(systemName: "cursorarrow.click.2")
-                                    .background(Circle().foregroundStyle(.green))
+                                Image(systemName: "link")
+                                    .foregroundStyle(.green)
                                     .offset(x:5 , y: -5)
                             }
                         }
