@@ -22,20 +22,12 @@ struct MessageItem: View {
                 GridRow(alignment:.top ) {
                     VStack(spacing:10){
                         Group{
-                            if let icon = message.icon{
-                                if paw.startsWithHttpOrHttps(icon){
-                                    if let imageURL = URL(string: icon){
-                                        AsyncImageView(url: imageURL )
-                                    }else{
-                                        Image(msgIcon.info.rawValue)
-                                            .resizable()
-                                    }
-                                }else{
-                                    Image(getLocalIcon(iconStr: icon))
-                                        .resizable()
-                                }
+                            if let icon = message.icon,
+                               let imageURL = URL(string: icon),
+                               paw.startsWithHttpOrHttps(icon){
+                                AsyncImageView(url: imageURL )
                             }else{
-                                Image(msgIcon.info.rawValue)
+                                Image("slogo")
                                     .resizable()
                             }
                         }
@@ -50,7 +42,7 @@ struct MessageItem: View {
                             }
                         }
                         
-                        Text( limitTextToLines(message.group ?? NSLocalizedString("unknown"), charactersPerLine: 10)  )
+                        Text( limitTextToLines(message.group ?? NSLocalizedString("unknown",comment: ""), charactersPerLine: 10)  )
                             .font(.system(size:10))
                             
                     }.onTapGesture {
@@ -78,7 +70,7 @@ struct MessageItem: View {
                                 .onTapGesture {
                                     let _ = RealmManager.shared.updateObject(message) { message in
                                         message.isRead = !message.isRead
-                                        self.toastText = NSLocalizedString("typechanged")
+                                        self.toastText = NSLocalizedString("typechanged",comment: "")
                                     }
                                 }
                                 .onLongPressGesture{
@@ -86,7 +78,7 @@ struct MessageItem: View {
                                     let _ = RealmManager.shared.updateObjects(messages) { message in
                                         message?.isRead = true
                                     }
-                                    self.toastText = NSLocalizedString("allRead")
+                                    self.toastText = NSLocalizedString("allRead",comment: "")
                                 }
                                 .foregroundStyle(message.isRead ? .gray : .green)
                                 .font(.caption)
@@ -100,7 +92,7 @@ struct MessageItem: View {
                         if let image =  message.image{
                             HStack{
                                 Spacer()
-                                Text( showImage ? NSLocalizedString("displayImage"):NSLocalizedString("showImage"))
+                                Text( showImage ? NSLocalizedString("displayImage",comment: ""):NSLocalizedString("showImage",comment: ""))
                                     .font(.system(size: 10))
                             }.onTapGesture {
                                 self.showImage.toggle()
@@ -138,27 +130,6 @@ struct MessageItem: View {
     }
 }
 
-extension MessageItem{
-    func getLocalIcon(iconStr:String)-> String {
-        
-        switch iconStr{
-        case "weixin":
-            return msgIcon.weixin.rawValue
-        case "info":
-            return msgIcon.info.rawValue
-        case "warn":
-            return msgIcon.warn.rawValue
-        case "error":
-            return msgIcon.error.rawValue
-        case "miniapp":
-            return msgIcon.miniapp.rawValue
-        default:
-            return msgIcon.info.rawValue
-        }
-        
-    }
-
-}
 
 extension MessageItem{
     func limitTextToLines(_ text: String, charactersPerLine: Int) -> String {

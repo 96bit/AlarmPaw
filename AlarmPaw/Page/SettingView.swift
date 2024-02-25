@@ -21,7 +21,7 @@ struct SettingView: View {
     @State private var toastText = ""
     @State private var isShareSheetPresented = false
     @State private var jsonFileUrl:URL?
-    @State private var cloudStatus = NSLocalizedString("checkimge")
+    @State private var cloudStatus = NSLocalizedString("checkimge",comment: "")
     @State private var serverSize:CGSize = .zero
     @State private var serverColor:Color = .red
     @State private var showChangeIcon = false
@@ -35,23 +35,23 @@ struct SettingView: View {
             List{
                 if !paw.isNetworkAvailable{
                     Section(header:Text(
-                        NSLocalizedString("settingNetWorkHeader")
+                        NSLocalizedString("settingNetWorkHeader",comment: "")
                     )) {
                         Button{
                             paw.openSetting()
                         }label: {
                             HStack{
-                                Text(NSLocalizedString("settingNetWorkTitle"))
+                                Text(NSLocalizedString("settingNetWorkTitle",comment: ""))
                                     .foregroundStyle(Color("textBlack"))
                                 Spacer()
-                                Text(NSLocalizedString("openSetting"))
+                                Text(NSLocalizedString("openSetting",comment: ""))
                             }
                         }
                     }
                 }
                 
                 if paw.notificationPermissionStatus.rawValue < 2 {
-                    Section(header:Text(NSLocalizedString("notificationHeader"))) {
+                    Section(header:Text(NSLocalizedString("notificationHeader",comment: ""))) {
                         Button{
                             if paw.notificationPermissionStatus.rawValue == 0{
                                 paw.registerForRemoteNotifications()
@@ -60,22 +60,22 @@ struct SettingView: View {
                             }
                         }label: {
                             HStack{
-                                Text(NSLocalizedString("notificationTitle"))
+                                Text(NSLocalizedString("notificationTitle",comment: ""))
                                     .foregroundStyle(Color("textBlack"))
                                 Spacer()
-                                Text(paw.notificationPermissionStatus.rawValue == 0 ? NSLocalizedString("openNotification") : NSLocalizedString("openSetting"))
+                                Text(paw.notificationPermissionStatus.rawValue == 0 ? NSLocalizedString("openNotification",comment: "") : NSLocalizedString("openSetting",comment: ""))
                             }
                         }
                     }
                 }
                 
                 
-                Section(header: Text("iCloud"),footer: Text(NSLocalizedString("icloudHeader"))) {
+                Section(header: Text("iCloud"),footer: Text(NSLocalizedString("icloudHeader",comment: ""))) {
                     NavigationLink(destination: {
                         cloudMessageView()
                     }, label: {
                         HStack{
-                            Text(NSLocalizedString("icloudBody"))
+                            Text(NSLocalizedString("icloudBody",comment: ""))
                             Spacer()
                             Text(cloudStatus)
                         }
@@ -101,9 +101,9 @@ struct SettingView: View {
                     
                 }
  
-                Section(header: Text(NSLocalizedString("badgeHeader")),footer: Text(NSLocalizedString("baddgeFooter"))) {
+                Section(header: Text(NSLocalizedString("badgeHeader",comment: "")),footer: Text(NSLocalizedString("baddgeFooter",comment: ""))) {
                     HStack{
-                        Text(NSLocalizedString("badgeModeTitle"))
+                        Text(NSLocalizedString("badgeModeTitle",comment: ""))
                             .foregroundStyle(Color("textBlack"))
                         Spacer()
                         Text(paw.badgeMode.rawValue)
@@ -118,46 +118,46 @@ struct SettingView: View {
                         }
                         .onLongPressGesture(minimumDuration: 1, maximumDistance: 10, perform: {
                             if paw.badgeMode == .auto{
-                                self.toastText = NSLocalizedString("autoModeNotClear")
+                                self.toastText = NSLocalizedString("autoModeNotClear",comment: "")
                             }else{
-                                self.toastText = NSLocalizedString("clearSuccess")
+                                self.toastText = NSLocalizedString("clearSuccess",comment: "")
                                 paw.changeBadge(badge:-1)
                             }
                             
                         })
                 }
                 
-                Section(footer:Text(NSLocalizedString("exportHeader"))) {
+                Section(footer:Text(NSLocalizedString("exportHeader",comment: ""))) {
                     HStack{
                         Button {
                             
                             if RealmManager.shared.getObject()?.count ?? 0 > 0{
-                                self.toastText = NSLocalizedString("controlSuccess")
+                                self.toastText = NSLocalizedString("controlSuccess",comment: "")
                                 // TODO: 这个位置有警告，暂时不清楚什么原因，不影响使用
                                 self.exportJSON()
                                 isShareSheetPresented = true
                             }else{
-                                self.toastText = NSLocalizedString("nothingMessage")
+                                self.toastText = NSLocalizedString("nothingMessage",comment: "")
                             }
                             
                             
                         } label: {
-                            Text(NSLocalizedString("exportTitle"))
+                            Text(NSLocalizedString("exportTitle",comment: ""))
                         }
                         
                         Spacer()
-                        Text(String(format: NSLocalizedString("someMessageCount"), messages.count) )
+                        Text(String(format: NSLocalizedString("someMessageCount",comment: ""), messages.count) )
                     }
                     
                 }
                 
-                Section(footer:Text(NSLocalizedString("deviceTokenHeader"))) {
+                Section(footer:Text(NSLocalizedString("deviceTokenHeader",comment: ""))) {
                     Button{
                         if paw.deviceToken != ""{
                             paw.copy(text: paw.deviceToken)
-                            self.toastText = NSLocalizedString("copySuccessText")
+                            self.toastText = NSLocalizedString("copySuccessText",comment: "")
                         }else{
-                            self.toastText =  NSLocalizedString("needRegister")
+                            self.toastText =  NSLocalizedString("needRegister",comment: "")
                         }
                     }label: {
                         HStack{
@@ -166,6 +166,7 @@ struct SettingView: View {
                             Spacer()
                             Text(maskString(paw.deviceToken))
                                 .foregroundStyle(.gray)
+                            Image(systemName: "doc.on.doc")
                         }
                     }
                 }
@@ -173,7 +174,7 @@ struct SettingView: View {
                 // MARK: GITHUB
                 if let infoDict = Bundle.main.infoDictionary,
                    let runId = infoDict["GitHub Run Id"] as? String{
-                    Section(footer:Text(NSLocalizedString("buildDesc"))){
+                    Section(footer:Text(NSLocalizedString("buildDesc",comment: ""))){
                         Button{
                             self.showGithubAction = true
                         }label:{
@@ -181,33 +182,42 @@ struct SettingView: View {
                                 Text("Github Run Id")
                                 Spacer()
                                 Text(runId)
+                                    .foregroundStyle(.gray)
+                                Image(systemName: "chevron.right")
                             }.foregroundStyle(Color("textBlack"))
                         }
                     }
                 }
                 
-                Section(header:Text(NSLocalizedString("AppIconTitle")),footer:Text(NSLocalizedString("AppIconTips"))) {
+                
+                Section(header:Text(NSLocalizedString("otherHeader",comment: ""))) {
+                    
                     Button{
                         self.showChangeIcon.toggle()
                     }label: {
                         HStack(alignment:.center){
-                            Text(NSLocalizedString("AppIconTitle"))
+                            Text(NSLocalizedString("AppIconTitle",comment: "程序图标"))
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }.foregroundStyle(Color("textBlack"))
+                        
+                    }
+                    Button{
+                        paw.openSetting()
+                    }label: {
+                        HStack(alignment:.center){
+                            Text(NSLocalizedString("openSetting",comment: ""))
                             Spacer()
                             Image(systemName: "chevron.right")
                         }.foregroundStyle(Color("textBlack"))
                         
                     }
                     
-                }
-                
-                
-                Section(header:Text(NSLocalizedString("otherHeader"))) {
-                    
                     Button{
                         self.showProblemWeb.toggle()
                     }label: {
                         HStack(alignment:.center){
-                            Text(NSLocalizedString("commonProblem"))
+                            Text(NSLocalizedString("commonProblem",comment: ""))
                             Spacer()
                             Image(systemName: "chevron.right")
                         }.foregroundStyle(Color("textBlack"))
@@ -218,7 +228,7 @@ struct SettingView: View {
                         self.showHelpWeb.toggle()
                     }label: {
                         HStack(alignment:.center){
-                            Text(NSLocalizedString("useHelpTitle"))
+                            Text(NSLocalizedString("useHelpTitle",comment: ""))
                             Spacer()
                             Image(systemName: "chevron.right")
                         }.foregroundStyle(Color("textBlack"))
@@ -236,6 +246,7 @@ struct SettingView: View {
         .background(hexColor("#f5f5f5"))
         .toolbar {
             ToolbarItem {
+               
                 Button{
                     self.showServer = true
                 }label:{
@@ -248,6 +259,8 @@ struct SettingView: View {
                             }
                         }
                 }
+                .padding(.horizontal)
+               
             }
         }
         .fullScreenCover(isPresented: $showProblemWeb) {
@@ -314,17 +327,17 @@ extension SettingView{
             
             guard let jsonString = String(data: jsonData, encoding: .utf8),
                   let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
-                self.toastText = NSLocalizedString("exportFail")
+                self.toastText = NSLocalizedString("exportFail",comment: "")
                 return
             }
             
             let fileURL = documentsDirectory.appendingPathComponent("messages.json")
             try jsonString.write(to: fileURL, atomically: false, encoding: .utf8)
             self.jsonFileUrl = fileURL
-            self.toastText = NSLocalizedString("exportSuccess")
+            self.toastText = NSLocalizedString("exportSuccess",comment: "")
             print("JSON file saved at: \(fileURL.absoluteString)")
         } catch {
-            self.toastText = NSLocalizedString("exportFail")
+            self.toastText = NSLocalizedString("exportFail",comment: "")
             print("Error encoding JSON: \(error.localizedDescription)")
         }
     }

@@ -34,15 +34,6 @@ enum badgeAutoMode:String {
 }
 
 
-enum msgIcon: String, Codable{
-    case info = "icon-info"
-    case warn = "icon-warn"
-    case error = "icon-error"
-    case weixin = "icon-weixin"
-    case miniapp = "icon-miniapp"
-    
-}
-
 enum otherUrl:String{
     case defaultImage = "https://alarmpaw.twown.com/_media/avatar.jpg"
     case helpWebUrl = "https://alarmpaw.twown.com/#/tutorial"
@@ -64,10 +55,8 @@ enum appIcon:String,CaseIterable{
     case five = "AppIcon5"
     case six = "AppIcon6"
     case seven = "AppIcon7"
-    case eight = "AppIcon8"
-    case nine = "AppIcon9"
     
-    static let arr = [appIcon.def,appIcon.zero,appIcon.one,appIcon.two,appIcon.three,appIcon.four,appIcon.five,appIcon.six,appIcon.seven,appIcon.eight,appIcon.nine]
+    static let arr = [appIcon.def,appIcon.zero,appIcon.one,appIcon.two,appIcon.three,appIcon.four,appIcon.five,appIcon.six,appIcon.seven]
 }
 
 
@@ -81,9 +70,7 @@ enum logoImage:String,CaseIterable{
     case five = "logo5"
     case six = "logo6"
     case seven = "logo7"
-    case eight = "logo8"
-    case nine = "logo9"
-    static let arr = [logoImage.def,logoImage.zero,logoImage.one,logoImage.two,logoImage.three,logoImage.four,logoImage.five,logoImage.six,logoImage.seven,logoImage.eight,logoImage.nine]
+    static let arr = [logoImage.def,logoImage.zero,logoImage.one,logoImage.two,logoImage.three,logoImage.four,logoImage.five,logoImage.six,logoImage.seven]
 }
 
 

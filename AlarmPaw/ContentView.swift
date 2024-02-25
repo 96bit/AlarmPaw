@@ -24,17 +24,25 @@ struct ContentView: View {
             // MARK: 信息页面
             NavigationStack{
                 MessageView()
-                    .navigationTitle(NSLocalizedString("bottomBarMsg"))
-            }.tabItem { Label(NSLocalizedString("bottomBarMsg"), systemImage: "ellipsis.message") }
+              
+                    .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
+            }.tabItem { Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message") }
                 .tag(PageView.message)
                 .badge(messages.where({!$0.isRead}).count)
             // MARK: 设置页面
             NavigationStack{
                 SettingView()
-                    .navigationTitle(NSLocalizedString("bottomBarSettings"))
-            }.tabItem { Label(NSLocalizedString("bottomBarSettings"), systemImage: "gearshape") }
+                    .navigationTitle(NSLocalizedString("bottomBarSettings",comment: ""))
+                    
+                
+                
+                
+            }.tabItem { Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape") }
                 .tag(PageView.setting)
-        }  .fullScreenCover(isPresented: $paw.showSafariWebView) {
+        }
+
+        
+        .fullScreenCover(isPresented: $paw.showSafariWebView) {
             if let url = paw.showSafariWebUrl{
                 SFSafariViewWrapper(url: url)
                     .ignoresSafeArea()

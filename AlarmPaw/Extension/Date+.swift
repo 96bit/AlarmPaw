@@ -7,10 +7,6 @@
 
 import UIKit
 
-func NSLocalizedString(_ key: String) -> String {
-    return NSLocalizedString(key, comment: "")
-}
-
 
 extension Date {
     func formatString(format: String) -> String {
@@ -37,14 +33,14 @@ extension Date {
         }
         if hour > 0 {
             if minute > 0 {
-                return String(format: NSLocalizedString("timeMinHourAgo"), hour, minute)
+                return String(format: NSLocalizedString("timeMinHourAgo",comment: ""), hour, minute)
             }
-            return String(format: NSLocalizedString("timeHourAgo"), hour)
+            return String(format: NSLocalizedString("timeHourAgo",comment: ""), hour)
         }
         if minute > 1 {
-            return String(format: NSLocalizedString("timeMinAgo"), minute)
+            return String(format: NSLocalizedString("timeMinAgo",comment: ""), minute)
         }
-        return NSLocalizedString("timeJustNow")
+        return NSLocalizedString("timeJustNow",comment: "")
     }
 }
 

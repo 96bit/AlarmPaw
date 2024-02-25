@@ -29,7 +29,7 @@ struct cloudMessageView: View {
             if messages.count == 0 && !showLoading{
                 HStack{
                     Spacer()
-                    Text(NSLocalizedString("notData"))
+                    Text(NSLocalizedString("notData",comment: ""))
                     Spacer()
                 }.frame(height: 300)
                     .padding()
@@ -51,7 +51,7 @@ struct cloudMessageView: View {
         }
         .toast(info: $toastText)
         .loading(showLoading)
-        .navigationTitle(NSLocalizedString("cloudData"))
+        .navigationTitle(NSLocalizedString("cloudData",comment: ""))
         .toolbar{
             ToolbarItem {
                 if messages.count > 0{
@@ -61,7 +61,7 @@ struct cloudMessageView: View {
                             self.exportJSON()
                             self.isShareSheetPresented = true
                         }else{
-                            self.toastText = NSLocalizedString("notData")
+                            self.toastText = NSLocalizedString("notData",comment: "")
                         }
                         self.showLoading = false
                     }label: {
@@ -81,20 +81,20 @@ struct cloudMessageView: View {
             }
         }
         .actionSheet(isPresented: $deleteMode) {
-            ActionSheet(title: Text(NSLocalizedString("deleteTimeMessage")),buttons: [
-                .destructive(Text(NSLocalizedString("allTime")), action: {
+            ActionSheet(title: Text(NSLocalizedString("deleteTimeMessage",comment: "")),buttons: [
+                .destructive(Text(NSLocalizedString("allTime",comment: "")), action: {
                     deleteMessage(.allTime)
                 }),
-                .destructive(Text(NSLocalizedString("monthAgo")), action: {
+                .destructive(Text(NSLocalizedString("monthAgo",comment: "")), action: {
                     deleteMessage( .lastMonth)
                 }),
-                .destructive(Text(NSLocalizedString("weekAgo")), action: {
+                .destructive(Text(NSLocalizedString("weekAgo",comment: "")), action: {
                     deleteMessage( .lastWeek)
                 }),
-                .destructive(Text(NSLocalizedString("dayAgo")), action: {
+                .destructive(Text(NSLocalizedString("dayAgo",comment: "")), action: {
                     deleteMessage( .lastDay)
                 }),
-                .destructive(Text(NSLocalizedString("hourAgo")), action: {
+                .destructive(Text(NSLocalizedString("hourAgo",comment: "")), action: {
                     deleteMessage( .lastHour)
                 }),
                 .cancel()
@@ -116,7 +116,7 @@ struct cloudMessageView: View {
             let itemId  = messages[index2].id
             let res = await  CloudKitManager.shared.deleteMessage(itemId)
             paw.dispatch_sync_safely_main_queue {
-                self.toastText = NSLocalizedString( res ? "deleteSuccess" :"deleteFail")
+                self.toastText = NSLocalizedString( res ? "deleteSuccess" :"deleteFail",comment: "")
                 if res{
                     messages.remove(atOffsets: index)
                 }
@@ -149,7 +149,7 @@ struct cloudMessageView: View {
             paw.dispatch_sync_safely_main_queue {
                 self.showLoading = false
                
-                self.toastText = res ? NSLocalizedString("deleteSuccess") : NSLocalizedString("deleteFail")
+                self.toastText = res ? NSLocalizedString("deleteSuccess",comment: "") : NSLocalizedString("deleteFail",comment: "")
             }
         }
         
@@ -169,7 +169,7 @@ struct cloudMessageView: View {
         }
         catch{
             pawManager.shared.dispatch_sync_safely_main_queue {
-                self.toastText = NSLocalizedString("getFail")
+                self.toastText = NSLocalizedString("getFail",comment: "")
             }
         }
         
@@ -187,17 +187,17 @@ struct cloudMessageView: View {
             
             guard let jsonString = String(data: jsonData, encoding: .utf8),
                   let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else{
-                self.toastText = NSLocalizedString("exportFail")
+                self.toastText = NSLocalizedString("exportFail",comment: "")
                 return
             }
             
             let fileURL = documentsDirectory.appendingPathComponent("messages.json")
             try jsonString.write(to: fileURL, atomically: false, encoding: .utf8)
             self.jsonFileUrl = fileURL
-            self.toastText = NSLocalizedString("exportSuccess")
+            self.toastText = NSLocalizedString("exportSuccess",comment: "")
             print("JSON file saved at: \(fileURL.absoluteString)")
         } catch {
-            self.toastText = NSLocalizedString("exportFail")
+            self.toastText = NSLocalizedString("exportFail",comment: "")
             print("Error encoding JSON: \(error.localizedDescription)")
         }
     }

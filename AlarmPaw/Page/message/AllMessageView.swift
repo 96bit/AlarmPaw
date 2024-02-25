@@ -27,10 +27,10 @@ struct AllMessageView: View {
                         Button {
                             let _ = RealmManager.shared.updateObject(item) { item2 in
                                 item2.isRead = !item2.isRead
-                                self.toastText = NSLocalizedString("messageModeChanged")
+                                self.toastText = NSLocalizedString("messageModeChanged",comment: "")
                             }
                         } label: {
-                            Label(item.isRead ? NSLocalizedString("markNotRead") :  NSLocalizedString("markRead"), systemImage: item.isRead ? "envelope.open": "envelope")
+                            Label(item.isRead ? NSLocalizedString("markNotRead",comment: "") :  NSLocalizedString("markRead",comment: ""), systemImage: item.isRead ? "envelope.open": "envelope")
                         }.tint(.blue)
                     }
                     .animation(.interactiveSpring, value: item.id)

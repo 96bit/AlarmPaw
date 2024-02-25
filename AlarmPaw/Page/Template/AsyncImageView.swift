@@ -78,7 +78,7 @@ struct AsyncImageView: View {
                     
                 
             case .failure:
-                Text(NSLocalizedString("unknown"))
+                Text(NSLocalizedString("unknown",comment: ""))
             @unknown default:
                 fatalError("This has not been implemented.")
             }

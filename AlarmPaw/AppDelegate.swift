@@ -80,7 +80,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         UNUserNotificationCenter.current().delegate = self
         
         
-        let copyAction =  UNNotificationAction(identifier:Identifiers.copyAction, title: NSLocalizedString("copyTitle"), options: [],icon: .init(systemImageName: "doc.on.doc"))
+        let copyAction =  UNNotificationAction(identifier:Identifiers.copyAction, title: NSLocalizedString("copyTitle",comment: ""), options: [],icon: .init(systemImageName: "doc.on.doc"))
         
         // 创建 category
         let category = UNNotificationCategory(identifier: Identifiers.reminderCategory,

@@ -38,7 +38,7 @@ struct musicCellView: View {
                     .foregroundStyle(.gray)
                     .onTapGesture {
                         UIPasteboard.general.string = self.name
-                        self.toastText =  NSLocalizedString("copySuccessText")
+                        self.toastText =  NSLocalizedString("copySuccessText",comment: "")
                     }
             }
             
@@ -50,7 +50,7 @@ struct musicCellView: View {
             } catch {
                 print("Error loading video duration: \(error.localizedDescription)")
             }
-        }.navigationTitle(NSLocalizedString("allSounds"))
+        }.navigationTitle(NSLocalizedString("allSounds",comment: ""))
         
         
     }

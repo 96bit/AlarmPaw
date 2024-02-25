@@ -38,10 +38,10 @@ struct GroupMessageView: View {
                                         Button {
                                             let _ = RealmManager.shared.updateObject(message) { item2 in
                                                 item2.isRead = !item2.isRead
-                                                self.toastText = NSLocalizedString("messageModeChanged")
+                                                self.toastText = NSLocalizedString("messageModeChanged",comment: "")
                                             }
                                         } label: {
-                                            Label(message.isRead ? NSLocalizedString("markNotRead") :  NSLocalizedString("markRead"), systemImage: message.isRead ? "envelope.open": "envelope")
+                                            Label(message.isRead ? NSLocalizedString("markNotRead",comment: "") :  NSLocalizedString("markRead",comment: ""), systemImage: message.isRead ? "envelope.open": "envelope")
                                         }.tint(.blue)
                                     }
                                     .swipeActions(edge: .trailing) {
@@ -50,7 +50,7 @@ struct GroupMessageView: View {
                                             let _ = RealmManager.shared.deleteObject(message)
                                             
                                         } label: {
-                                            Label(NSLocalizedString("deleteTitle"), systemImage: "trash")
+                                            Label(NSLocalizedString("deleteTitle",comment: ""), systemImage: "trash")
                                         }
                                     }
                                     .animation(.interactiveSpring, value: message.id)
@@ -65,9 +65,9 @@ struct GroupMessageView: View {
                             Text(key)
                             Spacer()
                             let readCount = msgMap[key]?.where({!$0.isRead}).count ?? 0
-                            Text(readCount == 0 ?NSLocalizedString("nothing") : "\(readCount)")
+                            Text(readCount == 0 ?NSLocalizedString("nothing",comment: "") : "\(readCount)")
                                 .fontWeight(.bold)
-                            Text(NSLocalizedString("notread"))
+                            Text(NSLocalizedString("notread",comment: ""))
                                 .font(.system(size: 10))
                                 .foregroundStyle(.gray)
                             
@@ -75,7 +75,7 @@ struct GroupMessageView: View {
                     }
                     .id(UUID())
                 }header: {
-                    Text(String(format: NSLocalizedString("someMessageCount"), msgMap[key]?.count ?? 0))
+                    Text(String(format: NSLocalizedString("someMessageCount",comment: ""), msgMap[key]?.count ?? 0))
                 }
                 .swipeActions(edge: .trailing) {
                     if !isExpandedBinding.wrappedValue{
@@ -86,7 +86,7 @@ struct GroupMessageView: View {
                                 let _ = realm.deleteObjects(deleitem)
                             }
                         } label: {
-                            Label(NSLocalizedString("deleteMessageGroup"), systemImage: "trash")
+                            Label(NSLocalizedString("deleteMessageGroup",comment: ""), systemImage: "trash")
                         }
                     }
                     
@@ -102,7 +102,7 @@ struct GroupMessageView: View {
                                 }
                             }
                         } label: {
-                            Label(NSLocalizedString("groupMarkRead"), systemImage: "envelope")
+                            Label(NSLocalizedString("groupMarkRead",comment: ""), systemImage: "envelope")
                         }.tint(.blue)
                     }
                 }
@@ -122,7 +122,7 @@ extension GroupMessageView{
         var msgMap:[String:Results<Message>] = [:]
         
         for  message in messages{
-            let group = message.group ??  NSLocalizedString("defultGroup")
+            let group = message.group ??  NSLocalizedString("defultGroup",comment: "")
             if let _ = msgMap[group]{
                 continue
             }else{

@@ -359,14 +359,11 @@
 		1936B4BC2B56577900FC31E2 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				19375F832B82458F00AA9C4E /* settings */,
 				19D026862B80A3B000035C27 /* message */,
 				1948DEAE2B59234B00FDA68B /* Template */,
 				1936B4BD2B5657D900FC31E2 /* SettingView.swift */,
-				19166B572B57AC2500D02431 /* CustomHelpView.swift */,
-				1948DEB32B593BA000FDA68B /* ServerListView.swift */,
-				1987A6892B5CB98400452572 /* musicView.swift */,
-				197CE2C42B69503B00750434 /* pawAppIconView.swift */,
-				19E3F6952B6BF30E00F23888 /* emailPageView.swift */,
+				1936B4C12B56920200FC31E2 /* MessageView.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -408,6 +405,16 @@
 				19C495442B66820D001AB195 /* update.caf */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		19375F832B82458F00AA9C4E /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				1948DEB32B593BA000FDA68B /* ServerListView.swift */,
+				197CE2C42B69503B00750434 /* pawAppIconView.swift */,
+				19E3F6952B6BF30E00F23888 /* emailPageView.swift */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 		1948DEAE2B59234B00FDA68B /* Template */ = {
@@ -510,9 +517,10 @@
 		19D026862B80A3B000035C27 /* message */ = {
 			isa = PBXGroup;
 			children = (
+				1987A6892B5CB98400452572 /* musicView.swift */,
+				19166B572B57AC2500D02431 /* CustomHelpView.swift */,
 				19D0268B2B80ABBC00035C27 /* messageTools.swift */,
 				1948DEAF2B59235C00FDA68B /* MessageItem.swift */,
-				1936B4C12B56920200FC31E2 /* MessageView.swift */,
 				19447A262B6FEA3800AC9F67 /* cloudMessageView.swift */,
 				19D026872B80A68000035C27 /* AllMessageView.swift */,
 				19D026892B80A69300035C27 /* GroupMessageView.swift */,
@@ -1134,7 +1142,7 @@
 				CODE_SIGN_ENTITLEMENTS = AlarmPaw/AlarmPaw.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = FUWV6U942Q;
 				ENABLE_PREVIEWS = YES;
@@ -1151,7 +1159,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1173,7 +1181,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaw/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FUWV6U942Q;
@@ -1191,7 +1199,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.2;
+				MARKETING_VERSION = 1.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1331,7 +1339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = FUWV6U942Q;
 				ENABLE_PREVIEWS = YES;
@@ -1342,7 +1350,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.watchkitapp;
 				PRODUCT_NAME = PAW;
 				SDKROOT = watchos;
@@ -1363,7 +1371,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"AlarmPaWatch Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=watchos*]" = FUWV6U942Q;
@@ -1375,7 +1383,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twown.paw.watchkitapp;
 				PRODUCT_NAME = PAW;
 				PROVISIONING_PROFILE_SPECIFIER = "";

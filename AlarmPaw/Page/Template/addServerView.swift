@@ -19,7 +19,7 @@ struct addServerView: View {
         VStack{
            
             LabeledContent {
-                TextField(NSLocalizedString("inputServerAddress"), text: $serverName)
+                TextField(NSLocalizedString("inputServerAddress",comment: ""), text: $serverName)
                     .focused($editServer)
                
             } label: {
@@ -39,7 +39,7 @@ struct addServerView: View {
                 Button{
                     self.showServerHelp.toggle()
                 }label: {
-                    Text(NSLocalizedString("checkServerDeploy"))
+                    Text(NSLocalizedString("checkServerDeploy",comment: ""))
                         .font(.caption2)
                 }
                 
@@ -49,7 +49,7 @@ struct addServerView: View {
                         self.dismiss()
                     }
                 }label: {
-                    Text(NSLocalizedString("recoverDefaultServer"))
+                    Text(NSLocalizedString("recoverDefaultServer",comment: ""))
                         .font(.caption2)
                 }
             }
@@ -57,7 +57,7 @@ struct addServerView: View {
 
         }.padding()
             .toast(info: $toastText)
-            .navigationTitle(NSLocalizedString("addNewServerListAddress"))
+            .navigationTitle(NSLocalizedString("addNewServerListAddress",comment: ""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 
@@ -88,7 +88,7 @@ struct addServerView: View {
     func addServer(url: String)-> Bool{
         
         if !startsWithHttpOrHttps(url){
-            self.toastText = NSLocalizedString("verifyFail")
+            self.toastText = NSLocalizedString("verifyFail",comment: "")
             return false
         }
         
@@ -100,9 +100,9 @@ struct addServerView: View {
             }else{
                 paw.servers.append(serverInfo(url: url, key: ""))
             }
-            self.toastText = NSLocalizedString("addSuccess")
+            self.toastText = NSLocalizedString("addSuccess",comment: "")
         }else{
-            self.toastText =  NSLocalizedString("serverExist")
+            self.toastText =  NSLocalizedString("serverExist",comment: "")
             return false
         }
         

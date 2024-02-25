@@ -109,11 +109,11 @@ class CloudKitManager {
             let status = try await CKContainer(identifier: settings.iCloudName.rawValue).accountStatus()
             switch status {
             case .available:
-                return NSLocalizedString("opened")
+                return NSLocalizedString("opened",comment: "")
             case .noAccount, .restricted:
-                return NSLocalizedString("notopen")
+                return NSLocalizedString("notopen",comment: "")
             case .couldNotDetermine:
-                return NSLocalizedString("unknown")
+                return NSLocalizedString("unknown",comment: "")
             case .temporarilyUnavailable:
                 break
             @unknown default:
@@ -123,7 +123,7 @@ class CloudKitManager {
             print(error)
         }
         
-        return NSLocalizedString("notopen")
+        return NSLocalizedString("notopen",comment: "")
         
     }
     
