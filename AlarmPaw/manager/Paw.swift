@@ -235,7 +235,7 @@ extension pawManager{
     
     func register(server: serverInfo) async  {
         
-        print("开始注册设备")
+        print("注册设备")
         guard let index = servers.firstIndex(where: {$0.id == server.id}) else {
             print("没有获取到")
             return
@@ -309,3 +309,33 @@ extension pawManager{
     }
 }
 
+
+extension pawManager{
+    func addServer(url: String)-> (Bool,String){
+        var toastText:String = ""
+        if !startsWithHttpOrHttps(url){
+            toastText = NSLocalizedString("verifyFail",comment: "")
+            return (false,toastText)
+        }
+        
+        let count = self.servers.filter({$0.url == url}).count
+        
+        if count == 0{
+            if serverInfo.serverDefault.url == url {
+                self.servers.insert(serverInfo(url: url, key: ""), at: 0)
+            }else{
+                self.servers.append(serverInfo(url: url, key: ""))
+            }
+            toastText = NSLocalizedString("addSuccess",comment: "")
+        }else{
+            toastText =  NSLocalizedString("serverExist",comment: "")
+            return (false,toastText)
+        }
+        
+        Task(priority: .userInitiated) {
+            await self.registerAll()
+        }
+        
+        return (true,toastText)
+    }
+}

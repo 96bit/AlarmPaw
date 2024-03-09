@@ -6,6 +6,7 @@
   
 */
 
+
 CFBundleDisplayName = "Pençe";
 
 removeMessage = "Sil";
@@ -226,3 +227,16 @@ saveSuccess = "Başarıyla kaydedildi";
 failOther = "Diğer hata";
 
 doubleClickSave = "Kaydetmek için Çift Tıklayın";
+
+
+requestFail = "İstek Başarısız Oldu";
+signTitle = "Bildirim";
+signSubTitle = "Hesabınıza erişin, bildirim almak için kaydolun";
+signHelp = "Nasıl başlayacağınızı bilmiyor musunuz? Yardım Alın";
+signRetry = "Tekrar Deneyin";
+signPhoneInput = "Telefon numaranızı girin";
+signCodeInput = "Doğrulama kodunu girin";
+signGetCode = "Doğrulama Kodunu Alın";
+
+
+serverConfig = "Sunucu Yapılandırma/Değiştirme";

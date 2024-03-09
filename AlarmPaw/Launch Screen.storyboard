@@ -22,7 +22,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slogo" translatesAutoresizingMaskIntoConstraints="NO" id="uLR-dR-qgI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="uLR-dR-qgI">
                                 <rect key="frame" x="92" y="215" width="209" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="EtF-Ms-ib6"/>
@@ -47,6 +47,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="slogo" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
 </document>

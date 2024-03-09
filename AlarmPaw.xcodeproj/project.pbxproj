@@ -63,6 +63,14 @@
 		1998ACD92B6CFC3A00F6CAA5 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4BF2B5665E100FC31E2 /* Color+.swift */; };
 		1998ACDA2B6CFC3A00F6CAA5 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4C52B56AB5800FC31E2 /* Date+.swift */; };
 		1998ACDB2B6CFC3A00F6CAA5 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1998ACD52B6CFBF800F6CAA5 /* Array+.swift */; };
+		19AF5DA42B8B5943006A4928 /* angularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DA32B8B5943006A4928 /* angularButton.swift */; };
+		19AF5DA72B8B5B7E006A4928 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DA62B8B5B7E006A4928 /* SignInView.swift */; };
+		19AF5DA92B8B5C58006A4928 /* view+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DA82B8B5C58006A4928 /* view+.swift */; };
+		19AF5DAB2B8B6624006A4928 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DAA2B8B6624006A4928 /* LoginView.swift */; };
+		19AF5DB12B8B74C3006A4928 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DB02B8B74C3006A4928 /* QRView.swift */; };
+		19AF5DB32B8B7548006A4928 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DB22B8B7548006A4928 /* ScanView.swift */; };
+		19AF5DB62B8B7A85006A4928 /* QRScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 19AF5DB52B8B7A85006A4928 /* QRScanner */; };
+		19AF5DB82B8B8088006A4928 /* QRScannerSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DB72B8B8088006A4928 /* QRScannerSample.swift */; };
 		19C4388C2B64EDC300D73D63 /* addServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4388B2B64EDC300D73D63 /* addServerView.swift */; };
 		19C4954C2B66820D001AB195 /* suspense.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952C2B66820C001AB195 /* suspense.caf */; };
 		19C4954D2B66820D001AB195 /* sherwoodforest.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952D2B66820C001AB195 /* sherwoodforest.caf */; };
@@ -228,6 +236,13 @@
 		199723592B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		1997235A2B626AFC008B51A8 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1998ACD52B6CFBF800F6CAA5 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		19AF5DA32B8B5943006A4928 /* angularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = angularButton.swift; sourceTree = "<group>"; };
+		19AF5DA62B8B5B7E006A4928 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		19AF5DA82B8B5C58006A4928 /* view+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "view+.swift"; sourceTree = "<group>"; };
+		19AF5DAA2B8B6624006A4928 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		19AF5DB02B8B74C3006A4928 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		19AF5DB22B8B7548006A4928 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		19AF5DB72B8B8088006A4928 /* QRScannerSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerSample.swift; sourceTree = "<group>"; };
 		19C4388B2B64EDC300D73D63 /* addServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addServerView.swift; sourceTree = "<group>"; };
 		19C4952C2B66820C001AB195 /* suspense.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = suspense.caf; sourceTree = "<group>"; };
 		19C4952D2B66820C001AB195 /* sherwoodforest.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sherwoodforest.caf; sourceTree = "<group>"; };
@@ -296,6 +311,7 @@
 			files = (
 				196E1CF02B52962A001FAD01 /* RealmSwift in Frameworks */,
 				196E1CEE2B52962A001FAD01 /* Realm in Frameworks */,
+				19AF5DB62B8B7A85006A4928 /* QRScanner in Frameworks */,
 				19E3F6942B6BF2AF00F23888 /* SwiftSMTP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,6 +373,7 @@
 		1936B4BC2B56577900FC31E2 /* Page */ = {
 			isa = PBXGroup;
 			children = (
+				19AF5DA52B8B5B5F006A4928 /* account */,
 				19375F832B82458F00AA9C4E /* settings */,
 				19D026862B80A3B000035C27 /* message */,
 				1948DEAE2B59234B00FDA68B /* Template */,
@@ -407,6 +424,7 @@
 		19375F832B82458F00AA9C4E /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				19C4388B2B64EDC300D73D63 /* addServerView.swift */,
 				1948DEB32B593BA000FDA68B /* ServerListView.swift */,
 				197CE2C42B69503B00750434 /* pawAppIconView.swift */,
 				19E3F6952B6BF30E00F23888 /* emailPageView.swift */,
@@ -422,8 +440,8 @@
 				19183BAA2B5BDE0800E2E346 /* AsyncImageView.swift */,
 				1987A68B2B5E165C00452572 /* toastView.swift */,
 				199723142B601F47008B51A8 /* musicItemView.swift */,
-				19C4388B2B64EDC300D73D63 /* addServerView.swift */,
 				197152E12B6FF1BD009999E5 /* loadingView.swift */,
+				19AF5DA32B8B5943006A4928 /* angularButton.swift */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -511,6 +529,18 @@
 			path = NotificationServiceExtension;
 			sourceTree = "<group>";
 		};
+		19AF5DA52B8B5B5F006A4928 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				19AF5DA62B8B5B7E006A4928 /* SignInView.swift */,
+				19AF5DAA2B8B6624006A4928 /* LoginView.swift */,
+				19AF5DB02B8B74C3006A4928 /* QRView.swift */,
+				19AF5DB22B8B7548006A4928 /* ScanView.swift */,
+				19AF5DB72B8B8088006A4928 /* QRScannerSample.swift */,
+			);
+			path = account;
+			sourceTree = "<group>";
+		};
 		19D026862B80A3B000035C27 /* message */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +563,7 @@
 				1936B4BF2B5665E100FC31E2 /* Color+.swift */,
 				1936B4C52B56AB5800FC31E2 /* Date+.swift */,
 				1998ACD52B6CFBF800F6CAA5 /* Array+.swift */,
+				19AF5DA82B8B5C58006A4928 /* view+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -614,6 +645,7 @@
 				196E1CED2B52962A001FAD01 /* Realm */,
 				196E1CEF2B52962A001FAD01 /* RealmSwift */,
 				19E3F6932B6BF2AF00F23888 /* SwiftSMTP */,
+				19AF5DB52B8B7A85006A4928 /* QRScanner */,
 			);
 			productName = AlarmPaw;
 			productReference = 196E1C9F2B5273CC001FAD01 /* AlarmPaw.app */;
@@ -722,6 +754,7 @@
 				196E1CE52B528F75001FAD01 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
+				19AF5DB42B8B7A84006A4928 /* XCRemoteSwiftPackageReference "QRScanner" */,
 			);
 			productRefGroup = 196E1CA02B5273CC001FAD01 /* Products */;
 			projectDirPath = "";
@@ -831,10 +864,13 @@
 				1948DEB42B593BA000FDA68B /* ServerListView.swift in Sources */,
 				1998ACD62B6CFBF800F6CAA5 /* Array+.swift in Sources */,
 				19E13B122B5A9C1A005AAA9D /* realmManager.swift in Sources */,
+				19AF5DB32B8B7548006A4928 /* ScanView.swift in Sources */,
 				19D0F6D02B543CCE0039103D /* Operator+.swift in Sources */,
 				19C4388C2B64EDC300D73D63 /* addServerView.swift in Sources */,
+				19AF5DA72B8B5B7E006A4928 /* SignInView.swift in Sources */,
 				19D0268A2B80A69300035C27 /* GroupMessageView.swift in Sources */,
 				19166B582B57AC2500D02431 /* CustomHelpView.swift in Sources */,
+				19AF5DA42B8B5943006A4928 /* angularButton.swift in Sources */,
 				19447A272B6FEA3800AC9F67 /* cloudMessageView.swift in Sources */,
 				1987A68A2B5CB98400452572 /* musicView.swift in Sources */,
 				1936B4B02B563CF200FC31E2 /* enumConst.swift in Sources */,
@@ -849,6 +885,7 @@
 				1936B4C62B56AB5800FC31E2 /* Date+.swift in Sources */,
 				1936B51B2B56E48E00FC31E2 /* CloudKit.swift in Sources */,
 				19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */,
+				19AF5DB82B8B8088006A4928 /* QRScannerSample.swift in Sources */,
 				196E1CA52B5273CC001FAD01 /* ContentView.swift in Sources */,
 				1987A68C2B5E165C00452572 /* toastView.swift in Sources */,
 				19183BAB2B5BDE0800E2E346 /* AsyncImageView.swift in Sources */,
@@ -858,9 +895,12 @@
 				1936B5172B56C47300FC31E2 /* WebKitView.swift in Sources */,
 				199723172B601FA0008B51A8 /* audioManager.swift in Sources */,
 				1948DEB02B59235C00FDA68B /* MessageItem.swift in Sources */,
+				19AF5DB12B8B74C3006A4928 /* QRView.swift in Sources */,
 				196E1CA32B5273CC001FAD01 /* AlarmPawApp.swift in Sources */,
+				19AF5DA92B8B5C58006A4928 /* view+.swift in Sources */,
 				190B90212B5EA47B0099DA0E /* other.swift in Sources */,
 				196AD46F2B5FA1A10086B42C /* otherModal.swift in Sources */,
+				19AF5DAB2B8B6624006A4928 /* LoginView.swift in Sources */,
 				1936B5192B56C71800FC31E2 /* Paw.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1477,6 +1517,14 @@
 				kind = branch;
 			};
 		};
+		19AF5DB42B8B7A84006A4928 /* XCRemoteSwiftPackageReference "QRScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/96bit/QRScanner.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kitura/Swift-SMTP.git";
@@ -1527,6 +1575,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		19AF5DB52B8B7A85006A4928 /* QRScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19AF5DB42B8B7A84006A4928 /* XCRemoteSwiftPackageReference "QRScanner" */;
+			productName = QRScanner;
 		};
 		19E3F6932B6BF2AF00F23888 /* SwiftSMTP */ = {
 			isa = XCSwiftPackageProductDependency;

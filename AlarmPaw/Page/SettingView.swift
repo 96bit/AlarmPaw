@@ -17,7 +17,6 @@ struct SettingView: View {
     @State private var webShow:Bool = false
     @State private var webUrl:String = otherUrl.helpWebUrl.rawValue
     @State private var progressValue: Double = 0.0
-    @State private var showServer = false
     @State private var toastText = ""
     @State private var isShareSheetPresented = false
     @State private var jsonFileUrl:URL?
@@ -28,7 +27,12 @@ struct SettingView: View {
     @State private var showGithubAction = false
     @State private var showHelpWeb = false
     @State private var showProblemWeb = false
-    var timerz = Timer.publish(every: 6, on: .main, in: .common).autoconnect()
+    @State private var showScanConfig = false
+    @State private var showServer:Bool = false
+    @State private var showLogin:Bool = false
+    @State private var scanUrl:String = ""
+    
+    var timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some View {
         
         VStack{
@@ -67,6 +71,23 @@ struct SettingView: View {
                             }
                         }
                     }
+                }
+                
+                Section(header:Text(NSLocalizedString("serverConfig", comment: "配置/修改服务器")))  {
+                   
+                    NavigationLink(destination: {
+                        ServerListView()
+                    }, label: {
+                        HStack{
+                            Image(systemName: "bolt.horizontal.icloud")
+                                .foregroundStyle(serverColor)
+                                
+                            Text(NSLocalizedString("serverList", comment: "服务器列表"))
+                               
+                            Spacer()
+                            Text("\(paw.servers.count)")
+                        }
+                    })
                 }
                 
                 
@@ -245,23 +266,17 @@ struct SettingView: View {
         .toast(info: $toastText)
         .background(hexColor("#f5f5f5"))
         .toolbar {
+            
             ToolbarItem {
-               
-                Button{
-                    self.showServer = true
-                }label:{
-                    Image("baseline_filter_drama_black_24pt")
-                        .tint(serverColor)
-                        .task {
-                            let color = await paw.healthAllColor()
-                            paw.dispatch_sync_safely_main_queue {
-                                self.serverColor = color
-                            }
-                        }
+                Button {
+                    self.showScanConfig.toggle()
+                } label: {
+                    Image(systemName: "qrcode.viewfinder")
                 }
-                .padding(.horizontal)
-               
+
             }
+        
+            
         }
         .fullScreenCover(isPresented: $showProblemWeb) {
             SFSafariViewWrapper(url: URL(string: otherUrl.problemWebUrl.rawValue)!)
@@ -278,9 +293,6 @@ struct SettingView: View {
                     .ignoresSafeArea()
             }
            
-        }
-        .fullScreenCover(isPresented: $showServer) {
-            ServerListView()
         }
         .sheet(isPresented: $isShareSheetPresented) {
             ShareSheet(activityItems: [self.jsonFileUrl!])
@@ -299,6 +311,31 @@ struct SettingView: View {
                 paw.dispatch_sync_safely_main_queue {
                     self.serverColor = color
                 }
+            }
+        }
+        
+        .fullScreenCover(isPresented: $showScanConfig) {
+            ScanView { code, mode in
+                if mode == 0 {
+                    let (mode,msg) = paw.addServer(url: code)
+                    self.toastText = msg
+                    self.showServer = mode
+                }else if mode == 1{
+                    self.scanUrl = code
+                    self.showLogin.toggle()
+                }
+            }
+        }
+        .fullScreenCover(isPresented: $showLogin){
+            LoginView(registerUrl: scanUrl)
+        }
+        .navigationDestination(isPresented: $showServer) {
+            ServerListView()
+        }
+        .task {
+            let color = await paw.healthAllColor()
+            paw.dispatch_sync_safely_main_queue {
+                self.serverColor = color
             }
         }
         

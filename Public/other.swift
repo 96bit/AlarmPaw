@@ -15,6 +15,25 @@ func startsWithHttpOrHttps(_ urlString: String) -> Bool {
 }
 
 
+func scanModeAndString(_ urlString: String) -> (String, String){
+    
+    
+    if urlString.hasPrefix("add:"){
+        let prefixRemoved = String(urlString.dropFirst(4))
+        if isValidURL(prefixRemoved){
+            return ("add", prefixRemoved)
+        }
+    }else if urlString.hasPrefix("config:"){
+        let prefixRemoved = String(urlString.dropFirst(7))
+        if isValidURL(prefixRemoved){
+            return ("config", prefixRemoved)
+        }
+    }
+    return ("", "")
+}
+
+
+
 func isValidURL(_ urlString: String) -> Bool {
     guard let url = URL(string: urlString) else {
         return false // 无效的URL格式

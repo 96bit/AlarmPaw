@@ -232,3 +232,16 @@ failOther = "Other Error";
 
 
 doubleClickSave = "Double Click to Save";
+
+
+requestFail = "Request Failed";
+signTitle = "Notification";
+signSubTitle = "Access your account, register to receive notifications";
+signHelp = "Don't know how to get started? Get Help";
+signRetry = "Retry";
+signPhoneInput = "Enter your phone number";
+signCodeInput = "Enter the verification code";
+signGetCode = "Get Verification Code";
+
+
+serverConfig = "Configure/Modify Server";

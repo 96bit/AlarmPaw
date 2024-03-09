@@ -46,6 +46,15 @@
       }
     },
     {
+      "identity" : "qrscanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/96bit/QRScanner.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "0262bf06c1f4683b6cde9ee9a72f3b720147e81c"
+      }
+    },
+    {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core.git",
