@@ -109,6 +109,27 @@ class RealmManager {
         }
        return false
     }
+    
+    func allRead(){
+        let alldata = self.getObject()?.where({!$0.isRead})
+        let _ = self.updateObjects(alldata){data in
+            data?.isRead = true
+        }
+    }
+    func allDel(_ mode: Int = 0) {
+        switch mode {
+        case 0:
+            let alldata = self.getObject()?.where({$0.isRead})
+            let _ = self.deleteObjects(alldata)
+        case 1:
+            let alldata = self.getObject()?.where({!$0.isRead})
+            let _ = self.deleteObjects(alldata)
+        case 3:
+            let _ = self.deleteObjects(self.getObject())
+        default:
+            break
+        }
+    }
 
 }
 

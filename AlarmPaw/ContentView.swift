@@ -23,6 +23,7 @@ struct ContentView: View {
         TabView(selection: $page) {
             // MARK: 信息页面
             NavigationStack{
+                
                 MessageView()
               
                     .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))

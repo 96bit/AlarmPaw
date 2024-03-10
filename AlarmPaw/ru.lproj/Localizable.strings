@@ -240,3 +240,14 @@ signCodeInput = "Введите код подтверждения";
 signGetCode = "Получить код подтверждения";
 
 serverConfig = "Настройка/Изменение сервера";
+
+changeTipsTitle = "Невозможно отменить операцию!";
+
+changeTips1SubTitle = "Вы уверены, что хотите удалить все непрочитанные сообщения?";
+
+changeTips2SubTitle = "Вы уверены, что хотите удалить все прочитанные сообщения?";
+
+
+readAllQuickAction = "Отметить все как прочитанное";
+delReadAllQuickAction = "Удалить все прочитанные";
+delNotReadAllQuickAction = "Удалить все непрочитанные";

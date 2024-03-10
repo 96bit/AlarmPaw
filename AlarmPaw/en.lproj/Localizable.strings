@@ -245,3 +245,13 @@ signGetCode = "Get Verification Code";
 
 
 serverConfig = "Configure/Modify Server";
+
+changeTipsTitle = "Irreversible Operation!";
+
+changeTips1SubTitle = "Are you sure you want to delete all unread messages?";
+
+changeTips2SubTitle = "Are you sure you want to delete all read messages?";
+
+readAllQuickAction = "Mark All as Read";
+delReadAllQuickAction = "Delete All Read";
+delNotReadAllQuickAction = "Delete All Unread";

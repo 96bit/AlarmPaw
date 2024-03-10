@@ -339,3 +339,9 @@ extension pawManager{
         return (true,toastText)
     }
 }
+
+extension pawManager{
+    func addQuickActions(){
+        UIApplication.shared.shortcutItems = QuickAction.allShortcutItems
+    }
+}

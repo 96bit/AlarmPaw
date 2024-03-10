@@ -240,3 +240,14 @@ signGetCode = "Doğrulama Kodunu Alın";
 
 
 serverConfig = "Sunucu Yapılandırma/Değiştirme";
+
+changeTipsTitle = "İşlem Geri Alınamaz!";
+
+changeTips1SubTitle = "Tüm okunmamış mesajları silmek istediğinizden emin misiniz?";
+
+changeTips2SubTitle = "Tüm okunan mesajları silmek istediğinizden emin misiniz?";
+
+
+readAllQuickAction = "Tümünü Okundu Olarak İşaretle";
+delReadAllQuickAction = "Tüm Okunanları Sil";
+delNotReadAllQuickAction = "Tüm Okunmamışları Sil";

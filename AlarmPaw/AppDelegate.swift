@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import UserNotifications
 import RealmSwift
+import UIKit
 
 struct Identifiers {
     static let reminderCategory = "myNotificationCategory"
@@ -20,7 +21,7 @@ struct Identifiers {
 
 
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{
-  
+    
     let generator = UISelectionFeedbackGenerator()
     
     func setupRealm() {
@@ -39,14 +40,14 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
                 }
             }
         )
-
+        
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
-
-        #if DEBUG
-            let realm = try? Realm()
-            print("message count: \(realm?.objects(Message.self).count ?? 0)")
-        #endif
+        
+#if DEBUG
+        let realm = try? Realm()
+        print("message count: \(realm?.objects(Message.self).count ?? 0)")
+#endif
     }
     
     
@@ -54,12 +55,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         // MARK: 将设备令牌发送到服务器
-       
+        
         pawManager.shared.dispatch_sync_safely_main_queue {
             pawManager.shared.deviceToken = token
         }
         
-        Task(priority: .userInitiated) { 
+        Task(priority: .userInitiated) {
             await  pawManager.shared.registerAll()
         }
         
@@ -90,8 +91,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
         UNUserNotificationCenter.current().setNotificationCategories([category])
         
+        
+        
         return true
     }
+    
+    
     
     
     
@@ -100,7 +105,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         notificatonHandler(userInfo: response.notification.request.content.userInfo)
         pawManager.shared.clickMessageHandler()
         completionHandler()
-
+        
     }
     
     func notificatonHandler(userInfo: [AnyHashable : Any] ){
@@ -110,7 +115,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             }
             return nil
         }()
-
+        
         // URL 直接打开
         if let url = url {
             pawManager.shared.openUrl(url: url)
@@ -120,7 +125,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
         
     }
-
+    
     // 处理应用程序在前台是否显示通知
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
@@ -136,5 +141,22 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
     }
     
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        if let selectAction = options.shortcutItem{
+            QuickAction.selectAction = selectAction
+        }
+        let sceneonfiguration = UISceneConfiguration(name: "Quick Action Scene", sessionRole: connectingSceneSession.role)
+        sceneonfiguration.delegateClass = QuickActionSceneDelegate.self
+        return sceneonfiguration
+    }
     
+    
+    
+}
+
+
+class QuickActionSceneDelegate:UIResponder,UIWindowSceneDelegate{
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        QuickAction.selectAction = shortcutItem
+    }
 }

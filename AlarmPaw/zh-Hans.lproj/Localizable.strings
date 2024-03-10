@@ -249,3 +249,14 @@ signCodeInput = "请输入验证码";
 signGetCode = "获取验证码";
 
 serverConfig = "配置/修改服务器";
+
+changeTipsTitle = "操作不可逆！";
+
+changeTips1SubTitle ="是否确认删除所有未读消息!";
+
+changeTips2SubTitle ="是否确认删除所有已读消息!";
+
+
+readAllQuickAction = "已读全部";
+delReadAllQuickAction = "删除全部已读";
+delNotReadAllQuickAction = "删除全部未读";
