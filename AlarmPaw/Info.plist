@@ -19,7 +19,7 @@
 	<key>UIApplicationShortcutItems</key>
 	<array/>
 	<key>NSCameraUsageDescription</key>
-	<string>扫描二维码</string>
+	<string>Scan QR code</string>
 	<key>GitHub Run Id</key>
 	<string>0</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -34,7 +34,7 @@
 		<string>INStartCallIntent</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>保存消息图片到相册</string>
+	<string>Save message images to the gallery</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

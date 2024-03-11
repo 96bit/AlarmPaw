@@ -31,7 +31,6 @@ struct SettingView: View {
     @State private var showServer:Bool = false
     @State private var showLogin:Bool = false
     @State private var scanUrl:String = ""
-    
     var timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some View {
         
@@ -78,8 +77,9 @@ struct SettingView: View {
                     NavigationLink(destination: {
                         ServerListView()
                     }, label: {
+                       
                         HStack{
-                            Image(systemName: "bolt.horizontal.icloud")
+                            Image(systemName: "server.rack")
                                 .foregroundStyle(serverColor)
                                 
                             Text(NSLocalizedString("serverList", comment: "服务器列表"))
@@ -96,7 +96,14 @@ struct SettingView: View {
                         cloudMessageView()
                     }, label: {
                         HStack{
-                            Text(NSLocalizedString("icloudBody",comment: ""))
+                            Label {
+                                Text(NSLocalizedString("icloudBody",comment: ""))
+                                    
+                            } icon: {
+                                Image(systemName: "externaldrive")
+                            }
+                           
+
                             Spacer()
                             Text(cloudStatus)
                         }
@@ -110,43 +117,6 @@ struct SettingView: View {
                 }
                 
                 
-                Section(header:Text(NSLocalizedString("mailHeader", comment: "邮件触发运行捷径"))) {
-                    
-                    NavigationLink(destination:  emailPageView()) {
-                        HStack{
-                            Text(NSLocalizedString("mailTitle", comment: "自动化配置"))
-                            
-                        }
-                    }
-                    
-                    
-                }
- 
-                Section(header: Text(NSLocalizedString("badgeHeader",comment: "")),footer: Text(NSLocalizedString("baddgeFooter",comment: ""))) {
-                    HStack{
-                        Text(NSLocalizedString("badgeModeTitle",comment: ""))
-                            .foregroundStyle(Color("textBlack"))
-                        Spacer()
-                        Text(paw.badgeMode.rawValue)
-                            .foregroundStyle(paw.badgeMode == .auto ? .blue : .red)
-                    }.contentShape(Rectangle())
-                        .onTapGesture {
-                            paw.badgeMode = paw.badgeMode == .auto ? .custom : .auto
-                            if let badge = RealmManager.shared.getUnreadCount(){
-                                paw.changeBadge(badge:badge )
-                            }
-                            
-                        }
-                        .onLongPressGesture(minimumDuration: 1, maximumDistance: 10, perform: {
-                            if paw.badgeMode == .auto{
-                                self.toastText = NSLocalizedString("autoModeNotClear",comment: "")
-                            }else{
-                                self.toastText = NSLocalizedString("clearSuccess",comment: "")
-                                paw.changeBadge(badge:-1)
-                            }
-                            
-                        })
-                }
                 
                 Section(footer:Text(NSLocalizedString("exportHeader",comment: ""))) {
                     HStack{
@@ -172,6 +142,10 @@ struct SettingView: View {
                     
                 }
                 
+                
+                
+                
+                
                 Section(footer:Text(NSLocalizedString("deviceTokenHeader",comment: ""))) {
                     Button{
                         if paw.deviceToken != ""{
@@ -182,8 +156,14 @@ struct SettingView: View {
                         }
                     }label: {
                         HStack{
-                            Text("DeviceToken")
-                                .foregroundStyle(Color("textBlack"))
+                            Label {
+                                Text("DeviceToken")
+                                    .foregroundStyle(Color("textBlack"))
+                            } icon: {
+                                Image(systemName: "key.radiowaves.forward")
+                            }
+
+                           
                             Spacer()
                             Text(maskString(paw.deviceToken))
                                 .foregroundStyle(.gray)
@@ -192,15 +172,160 @@ struct SettingView: View {
                     }
                 }
                 
+                
+                
+                
+                Section(header:Text("配置")) {
+                    Button{
+                        self.showChangeIcon.toggle()
+                    }label: {
+                        
+
+                        HStack(alignment:.center){
+                            Label {
+                                Text(NSLocalizedString("AppIconTitle",comment: "程序图标"))
+                                    .foregroundStyle(Color("textBlack"))
+                            } icon: {
+                                Image(systemName: "apple.logo")
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.gray)
+                        }
+                        
+                    }
+            
+
+                    Picker(selection: paw.$badgeMode) {
+                        ForEach(badgeAutoMode.allCases, id: \.self){ item in
+                            Text(item.rawValue).tag(item)
+                        }
+                    } label: {
+                        Label {
+                            Text(NSLocalizedString("badgeModeTitle",comment: "角标模式"))
+                        } icon: {
+                            Image(systemName: "app.badge")
+                        }
+                    }
+                    .onChange(of: paw.badgeMode) {value in
+                        if value == .auto{
+                            if let badge = RealmManager.shared.getUnreadCount(){
+                                paw.changeBadge(badge:badge )
+                            }
+                        }else{
+                            paw.changeBadge(badge: -1)
+                        }
+                    }
+
+                    
+                    
+                    NavigationLink(destination:  emailPageView()) {
+                        
+                        Label {
+                            Text(NSLocalizedString("mailTitle", comment: "自动化配置"))
+                        } icon: {
+                            Image(systemName: "paperclip")
+                        }
+                    }
+                    
+                    
+                    NavigationLink(destination: CryptoConfigView()) {
+                        
+                        
+                        Label {
+                            Text("算法配置")
+                        } icon: {
+                            Image(systemName: "bolt.shield")
+                        }
+                    }
+                    
+                    
+                    
+                }
+            
+                
+                
+                Section(header:Text(NSLocalizedString("otherHeader",comment: ""))) {
+                    
+                   
+                    Button{
+                        paw.openSetting()
+                    }label: {
+                        HStack(alignment:.center){
+                            
+                            Label {
+                                Text(NSLocalizedString("openSetting",comment: ""))
+                                    .foregroundStyle(Color("textBlack"))
+                            } icon: {
+                                Image(systemName: "gearshape")
+                                
+                            }
+
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.gray)
+                        }
+                        
+                    }
+                    
+                    Button{
+                        self.showProblemWeb.toggle()
+                    }label: {
+                        HStack(alignment:.center){
+                            Label {
+                                Text(NSLocalizedString("commonProblem",comment: ""))
+                                    .foregroundStyle(Color("textBlack"))
+                            } icon: {
+                                Image(systemName: "questionmark.circle")
+                            }
+
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.gray)
+                        }
+                        
+                    }
+                    
+                    Button{
+                        self.showHelpWeb.toggle()
+                    }label: {
+                        HStack(alignment:.center){
+                            Label {
+                                Text(NSLocalizedString("useHelpTitle",comment: ""))
+                                    .foregroundStyle(Color("textBlack"))
+                            } icon: {
+                                Image(systemName: "person.crop.circle.badge.questionmark")
+                            }
+
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.gray)
+                        }
+                        
+                        
+                    }
+                   
+                }
+                
                 // MARK: GITHUB
                 if let infoDict = Bundle.main.infoDictionary,
-                   let runId = infoDict["GitHub Run Id"] as? String{
+                   let runId = infoDict["GitHub Run Id"] as? String
+                {
                     Section(footer:Text(NSLocalizedString("buildDesc",comment: ""))){
                         Button{
                             self.showGithubAction = true
                         }label:{
                             HStack{
-                                Text("Github Run Id")
+                                Label {
+                                    Text("Github Run Id")
+                                } icon: {
+                                    
+                                    Image("github")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 30)
+                                }
+                              
                                 Spacer()
                                 Text(runId)
                                     .foregroundStyle(.gray)
@@ -209,54 +334,6 @@ struct SettingView: View {
                         }
                     }
                 }
-                
-                
-                Section(header:Text(NSLocalizedString("otherHeader",comment: ""))) {
-                    
-                    Button{
-                        self.showChangeIcon.toggle()
-                    }label: {
-                        HStack(alignment:.center){
-                            Text(NSLocalizedString("AppIconTitle",comment: "程序图标"))
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }.foregroundStyle(Color("textBlack"))
-                        
-                    }
-                    Button{
-                        paw.openSetting()
-                    }label: {
-                        HStack(alignment:.center){
-                            Text(NSLocalizedString("openSetting",comment: ""))
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }.foregroundStyle(Color("textBlack"))
-                        
-                    }
-                    
-                    Button{
-                        self.showProblemWeb.toggle()
-                    }label: {
-                        HStack(alignment:.center){
-                            Text(NSLocalizedString("commonProblem",comment: ""))
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }.foregroundStyle(Color("textBlack"))
-                        
-                    }
-                    
-                    Button{
-                        self.showHelpWeb.toggle()
-                    }label: {
-                        HStack(alignment:.center){
-                            Text(NSLocalizedString("useHelpTitle",comment: ""))
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                        }.foregroundStyle(Color("textBlack"))
-                        
-                    }
-                }
-                
                 
                 
                 

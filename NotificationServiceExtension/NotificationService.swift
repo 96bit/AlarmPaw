@@ -19,8 +19,10 @@ import UIKit
 
 class NotificationService: UNNotificationServiceExtension {
     
-    @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
-    @AppStorage(settings.emailConfig.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var email:emailConfig = emailConfig.data
+    @AppStorage(settings.badgemode.rawValue,store: defaultStore) var badgeMode:badgeAutoMode = .auto
+    @AppStorage(settings.emailConfig.rawValue,store: defaultStore) var email:emailConfig = emailConfig.data
+    
+    @AppStorage(settings.CryptoSettingFields.rawValue,store: defaultStore) var cryptoFields:CryptoSettingFields = CryptoSettingFields.data
     
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
@@ -274,8 +276,50 @@ class NotificationService: UNNotificationServiceExtension {
             return
         }
         
-        let userInfo = bestAttemptContent.userInfo
+        var userInfo = bestAttemptContent.userInfo
         
+        // 如果是加密推送，则使用密文配置 bestAttemptContent
+        if let ciphertext = userInfo["ciphertext"] as? String {
+            do {
+                var map = try decrypt(ciphertext: ciphertext, iv: userInfo["iv"] as? String)
+                for (key, val) in map {
+                    // 将key重写为小写
+                    map[key.lowercased()] = val
+                }
+                
+                var alert = [String: Any]()
+                if let title = map["title"] as? String {
+                    bestAttemptContent.title = title
+                    alert["title"] = title
+                }
+                if let body = map["body"] as? String {
+                    bestAttemptContent.body = body
+                    alert["body"] = body
+                }
+                if let group = map["group"] as? String {
+                    bestAttemptContent.threadIdentifier = group
+                }
+                if var sound = map["sound"] as? String {
+                    if !sound.hasSuffix(".caf") {
+                        sound = "\(sound).caf"
+                    }
+                    bestAttemptContent.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: sound))
+                }
+                if let badge = map["badge"] as? Int {
+                    bestAttemptContent.badge = badge as NSNumber
+                }
+                
+                map["aps"] = ["alert": alert]
+                userInfo = map
+                bestAttemptContent.userInfo = userInfo
+            }
+            catch {
+                bestAttemptContent.body = "Decryption Failed"
+                bestAttemptContent.userInfo = ["aps": ["alert": ["body": bestAttemptContent.body]]]
+                contentHandler(bestAttemptContent)
+                return
+            }
+        }
         
         if badgeMode == .custom{
             // MARK: 通知角标 .custom
@@ -335,7 +379,23 @@ class NotificationService: UNNotificationServiceExtension {
         
     }
     
-    
+    // MARK: 解密
+    func decrypt(ciphertext: String, iv: String? = nil) throws -> [String: Any] {
+        
+        if let iv = iv {
+            // Support using specified IV parameter for decryption
+            cryptoFields.iv = iv
+        }
+        
+        let aes = try AESCryptoModel(cryptoFields: cryptoFields)
+        
+        let json = try aes.decrypt(ciphertext: ciphertext)
+        
+        guard let data = json.data(using: .utf8), let map = JSON(data).dictionaryObject else {
+            throw MyError.customError(description: "JSON parsing failed")
+        }
+        return map
+    }
     
     override func serviceExtensionTimeWillExpire() {
         // Called just before the extension will be terminated by the system.

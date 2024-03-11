@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+let defaultStore = UserDefaults(suiteName: settings.groupName.rawValue)
 
 enum settings :String{
     case groupName = "group.AlarmPaw"
@@ -26,10 +27,11 @@ enum settings :String{
     case emailConfig = "emailStmpConfig"
     case iCloudName = "iCloud.AlarmPaw"
     case firstStartApp = "firstStartApp"
+    case CryptoSettingFields = "CryptoSettingFields"
 }
 
 
-enum badgeAutoMode:String {
+enum badgeAutoMode:String, CaseIterable {
     case auto = "自动"
     case custom = "自定义"
 }

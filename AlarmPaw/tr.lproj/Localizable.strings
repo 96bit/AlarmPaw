@@ -251,3 +251,15 @@ changeTips2SubTitle = "Tüm okunan mesajları silmek istediğinizden emin misini
 readAllQuickAction = "Tümünü Okundu Olarak İşaretle";
 delReadAllQuickAction = "Tüm Okunanları Sil";
 delNotReadAllQuickAction = "Tüm Okunmamışları Sil";
+
+
+faqUrl = "https://alarmpaw.twown.com/#/faq";
+docUrl = "https://alarmpaw.twown.com/#/?id=alarmpaw";
+encryptionUrl = "https://alarmpaw.twown.com/#/encryption";
+deployUrl = "https://alarmpaw.twown.com/#/deploy";
+documentation = "Dokümantasyon";
+ivComment = "IV rastgele oluşturulabilir, ancak öyleyse 'iv' parametresine iletilmelidir.";
+opensslEncodingComment = "OpenSSL, giriş Anahtarının ve IV'nin onaltılık kodlamasını gerektirir.";
+ciphertextComment = "Şifre metni özel karakterler içerebilir, bu nedenle onu URL kodlamayı unutmayın.";
+consoleComment = "Konsol yazdırır";
+keyComment = "%d bit olmalı";

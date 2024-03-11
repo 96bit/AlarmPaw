@@ -72,6 +72,11 @@
 		19AF5DB62B8B7A85006A4928 /* QRScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 19AF5DB52B8B7A85006A4928 /* QRScanner */; };
 		19AF5DB82B8B8088006A4928 /* QRScannerSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DB72B8B8088006A4928 /* QRScannerSample.swift */; };
 		19B942D42B9EC57F00BE64B5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B942D62B9EC57F00BE64B5 /* Launch Screen.storyboard */; };
+		19B942DD2B9ED1EB00BE64B5 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B942DC2B9ED1EB00BE64B5 /* Algorithm.swift */; };
+		19B942E02B9ED2BC00BE64B5 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 19B942DF2B9ED2BC00BE64B5 /* CryptoSwift */; };
+		19B942E62B9EE20B00BE64B5 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 19B942E52B9EE20B00BE64B5 /* CryptoSwift */; };
+		19B942E72B9EE22F00BE64B5 /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B942DC2B9ED1EB00BE64B5 /* Algorithm.swift */; };
+		19B942E92B9EE3FC00BE64B5 /* CryptoConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B942E82B9EE3FC00BE64B5 /* CryptoConfigView.swift */; };
 		19C4388C2B64EDC300D73D63 /* addServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4388B2B64EDC300D73D63 /* addServerView.swift */; };
 		19C4954C2B66820D001AB195 /* suspense.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952C2B66820C001AB195 /* suspense.caf */; };
 		19C4954D2B66820D001AB195 /* sherwoodforest.caf in Resources */ = {isa = PBXBuildFile; fileRef = 19C4952D2B66820C001AB195 /* sherwoodforest.caf */; };
@@ -246,6 +251,8 @@
 		19AF5DB72B8B8088006A4928 /* QRScannerSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerSample.swift; sourceTree = "<group>"; };
 		19B942D52B9EC57F00BE64B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		19B942DB2B9EC68700BE64B5 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Launch Screen.strings"; sourceTree = "<group>"; };
+		19B942DC2B9ED1EB00BE64B5 /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
+		19B942E82B9EE3FC00BE64B5 /* CryptoConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoConfigView.swift; sourceTree = "<group>"; };
 		19C4388B2B64EDC300D73D63 /* addServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addServerView.swift; sourceTree = "<group>"; };
 		19C4952C2B66820C001AB195 /* suspense.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = suspense.caf; sourceTree = "<group>"; };
 		19C4952D2B66820C001AB195 /* sherwoodforest.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sherwoodforest.caf; sourceTree = "<group>"; };
@@ -315,6 +322,7 @@
 				196E1CF02B52962A001FAD01 /* RealmSwift in Frameworks */,
 				196E1CEE2B52962A001FAD01 /* Realm in Frameworks */,
 				19AF5DB62B8B7A85006A4928 /* QRScanner in Frameworks */,
+				19B942E02B9ED2BC00BE64B5 /* CryptoSwift in Frameworks */,
 				19E3F6942B6BF2AF00F23888 /* SwiftSMTP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +336,7 @@
 				19E3F6982B6C01B600F23888 /* SwiftSMTP in Frameworks */,
 				196E1CE72B528F75001FAD01 /* SwiftyJSON in Frameworks */,
 				196E1CE42B528E80001FAD01 /* Kingfisher in Frameworks */,
+				19B942E62B9EE20B00BE64B5 /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +378,7 @@
 				196AD46E2B5FA1A10086B42C /* otherModal.swift */,
 				190B90202B5EA47B0099DA0E /* other.swift */,
 				196AD4712B5FA6EE0086B42C /* baseResponse.swift */,
+				19B942DC2B9ED1EB00BE64B5 /* Algorithm.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -439,6 +449,7 @@
 				1948DEB32B593BA000FDA68B /* ServerListView.swift */,
 				197CE2C42B69503B00750434 /* pawAppIconView.swift */,
 				19E3F6952B6BF30E00F23888 /* emailPageView.swift */,
+				19B942E82B9EE3FC00BE64B5 /* CryptoConfigView.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -658,6 +669,7 @@
 				196E1CEF2B52962A001FAD01 /* RealmSwift */,
 				19E3F6932B6BF2AF00F23888 /* SwiftSMTP */,
 				19AF5DB52B8B7A85006A4928 /* QRScanner */,
+				19B942DF2B9ED2BC00BE64B5 /* CryptoSwift */,
 			);
 			productName = AlarmPaw;
 			productReference = 196E1C9F2B5273CC001FAD01 /* AlarmPaw.app */;
@@ -682,6 +694,7 @@
 				196E1CE92B52905C001FAD01 /* Realm */,
 				196E1CEB2B52905C001FAD01 /* RealmSwift */,
 				19E3F6972B6C01B600F23888 /* SwiftSMTP */,
+				19B942E52B9EE20B00BE64B5 /* CryptoSwift */,
 			);
 			productName = NotificationServiceExtension;
 			productReference = 196E1CD62B5280F1001FAD01 /* NotificationServiceExtension.appex */;
@@ -767,6 +780,7 @@
 				196E1CE82B52905C001FAD01 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */,
 				19AF5DB42B8B7A84006A4928 /* XCRemoteSwiftPackageReference "QRScanner" */,
+				19B942DE2B9ED2BC00BE64B5 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 196E1CA02B5273CC001FAD01 /* Products */;
 			projectDirPath = "";
@@ -874,6 +888,7 @@
 				196E1CF22B529D43001FAD01 /* AppDelegate.swift in Sources */,
 				1936B4C02B5665E100FC31E2 /* Color+.swift in Sources */,
 				1948DEB42B593BA000FDA68B /* ServerListView.swift in Sources */,
+				19B942E92B9EE3FC00BE64B5 /* CryptoConfigView.swift in Sources */,
 				1998ACD62B6CFBF800F6CAA5 /* Array+.swift in Sources */,
 				19E13B122B5A9C1A005AAA9D /* realmManager.swift in Sources */,
 				19AF5DB32B8B7548006A4928 /* ScanView.swift in Sources */,
@@ -890,6 +905,7 @@
 				1936B4C22B56920200FC31E2 /* MessageView.swift in Sources */,
 				196AD4722B5FA6EE0086B42C /* baseResponse.swift in Sources */,
 				19D0268C2B80ABBC00035C27 /* messageTools.swift in Sources */,
+				19B942DD2B9ED1EB00BE64B5 /* Algorithm.swift in Sources */,
 				19D026882B80A68000035C27 /* AllMessageView.swift in Sources */,
 				199723152B601F47008B51A8 /* musicItemView.swift in Sources */,
 				196E1CD12B527FB1001FAD01 /* MessageModal.swift in Sources */,
@@ -922,6 +938,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B942E72B9EE22F00BE64B5 /* Algorithm.swift in Sources */,
 				19967D022B70F70E004FB222 /* CloudKit.swift in Sources */,
 				1998ACD72B6CFC3A00F6CAA5 /* URLSession+.swift in Sources */,
 				1998ACD82B6CFC3A00F6CAA5 /* Operator+.swift in Sources */,
@@ -1547,6 +1564,14 @@
 				kind = branch;
 			};
 		};
+		19B942DE2B9ED2BC00BE64B5 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.1;
+			};
+		};
 		19E3F6922B6BF2AF00F23888 /* XCRemoteSwiftPackageReference "Swift-SMTP" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Kitura/Swift-SMTP.git";
@@ -1602,6 +1627,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 19AF5DB42B8B7A84006A4928 /* XCRemoteSwiftPackageReference "QRScanner" */;
 			productName = QRScanner;
+		};
+		19B942DF2B9ED2BC00BE64B5 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19B942DE2B9ED2BC00BE64B5 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+		19B942E52B9EE20B00BE64B5 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19B942DE2B9ED2BC00BE64B5 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 		19E3F6932B6BF2AF00F23888 /* SwiftSMTP */ = {
 			isa = XCSwiftPackageProductDependency;

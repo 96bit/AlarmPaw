@@ -36,7 +36,7 @@ notRegistered = "未注册";
 registered = "已注册";
 icloudHeader = "通知消息将在iCloud可用时同步";
 icloudBody = "iCloud同步";
-badgeModeTitle = "Badge模式";
+badgeModeTitle = "角标模式";
 badgeHeader = "推送角标模式，点击修改,长按清除角标";
 baddgeFooter = "自动：未读数,自定义:按照url参数";
 
@@ -199,7 +199,7 @@ switchError = "暂时不能切换";
 
 mailTestTips = "主题包含: alarmpaw";
 mailHeader = "邮件触发运行捷径";
-mailTitle = "自动化配置";
+mailTitle = "邮件配置";
 
 toMailTestTitle = "自动化: AlarmPaw";
 toMailTestText = "{title:\"标题\",...}";
@@ -260,3 +260,15 @@ changeTips2SubTitle ="是否确认删除所有已读消息!";
 readAllQuickAction = "已读全部";
 delReadAllQuickAction = "删除全部已读";
 delNotReadAllQuickAction = "删除全部未读";
+
+
+faqUrl = "https://alarmpaw.twown.com/#/faq";
+docUrl = "https://alarmpaw.twown.com/#/?id=alarmpaw";
+encryptionUrl = "https://alarmpaw.twown.com/#/encryption";
+deployUrl = "https://alarmpaw.twown.com/#/deploy";
+documentation = "使用文档";
+ivComment = "IV可以是随机生成的，但如果是随机的就需要放在 iv 参数里传递。";
+opensslEncodingComment = "OpenSSL 要求输入的 Key 和 IV 需使用十六进制编码。";
+ciphertextComment = "密文可能有特殊字符，所以记得 URL 编码一下。";
+consoleComment = "控制台将打印";
+keyComment = "必须%d位";

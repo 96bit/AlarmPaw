@@ -255,3 +255,15 @@ changeTips2SubTitle = "Are you sure you want to delete all read messages?";
 readAllQuickAction = "Mark All as Read";
 delReadAllQuickAction = "Delete All Read";
 delNotReadAllQuickAction = "Delete All Unread";
+
+
+faqUrl = "https://alarmpaw.twown.com/#/faq";
+docUrl = "https://alarmpaw.twown.com/#/?id=alarmpaw";
+encryptionUrl = "https://alarmpaw.twown.com/#/encryption";
+deployUrl = "https://alarmpaw.twown.com/#/deploy";
+documentation = "Documentation";
+ivComment = "The IV can be randomly generated, but if it is, it needs to be passed in the 'iv'; parameter.";
+opensslEncodingComment = "OpenSSL requires the input Key and IV to be in hexadecimal encoding.";
+ciphertextComment = "The ciphertext may contain special characters, so remember to URL encode it.";
+consoleComment = "The console will print";
+keyComment = "Must be %d bits";
