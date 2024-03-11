@@ -54,6 +54,9 @@ struct pawAppIconView: View {
                                         }catch{
                                             print(error)
                                         }
+                                        DispatchQueue.main.async{
+                                            dismiss()
+                                        }
                                     }
                                    
                                 }else{

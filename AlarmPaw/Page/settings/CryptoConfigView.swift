@@ -32,7 +32,7 @@ struct CryptoConfigView: View {
             
             
             Section(header:Text("")){
-                Picker(selection: $cryptoFields.algorithm, label: Text("算法")) {
+                Picker(selection: $cryptoFields.algorithm, label: Text(NSLocalizedString("cryptoConfigAlgorithm", comment: "算法"))) {
                     ForEach(Algorithm.allCases,id: \.self){item in
                         Text(item.rawValue).tag(item.rawValue)
                     }
@@ -40,7 +40,7 @@ struct CryptoConfigView: View {
             }
             
             Section {
-                Picker(selection: $cryptoFields.mode, label: Text("模式")) {
+                Picker(selection: $cryptoFields.mode, label: Text(NSLocalizedString("cryptoConfigMode", comment: "模式"))) {
                     ForEach(modes,id: \.self){item in
                         Text(item).tag(item)
                     }
@@ -49,7 +49,7 @@ struct CryptoConfigView: View {
             
             Section {
                 Picker(selection: $cryptoFields.padding, label: Text("Padding")) {
-                    Text("pkcs7")
+                    Text("pkcs7").tag("pkcs7")
                 }
             }
             
@@ -62,7 +62,7 @@ struct CryptoConfigView: View {
                         Image(systemName: "key")
                     }
                     Spacer()
-                    TextField("输入\(expectKeyLength)位数的key", text: $cryptoFields.key)
+                    TextField(String(format: NSLocalizedString("cryptoConfigKey", comment: "输入\(expectKeyLength)位数的key"), expectKeyLength), text: $cryptoFields.key)
                         .onDisappear{
                             let _ = verifyKey()
                         }
@@ -84,7 +84,7 @@ struct CryptoConfigView: View {
                         Image(systemName: "dice")
                     }
                     Spacer()
-                    TextField("请输入16位Iv", text: $cryptoFields.iv)
+                    TextField(NSLocalizedString("cryptoConfigIv", comment: "请输入16位Iv"), text: $cryptoFields.iv)
                         .onDisappear{
                             let _ = verifyIv()
                         }
@@ -100,7 +100,7 @@ struct CryptoConfigView: View {
                 Button {
                     createCopyText()
                 } label: {
-                    Text("复制发送脚本")
+                    Text(NSLocalizedString("cryptoConfigCopyTitle", comment: "复制发送脚本"))
                         .padding(.horizontal)
                     
                 }.buttonStyle(BorderedProminentButtonStyle())
@@ -115,15 +115,15 @@ struct CryptoConfigView: View {
             
             
             
-        }.navigationTitle("算法配置")
+        }.navigationTitle(NSLocalizedString("cryptoConfigNavTitle", comment: "算法配置"))
             .toolbar{
                 ToolbarItem {
                     Button {
                         if verifyKey() && verifyIv(){
-                            self.toastText = "验证成功"
+                            self.toastText = NSLocalizedString("cryptoConfigSuccess", comment: "验证成功")
                         }
                     } label: {
-                        Text("验证")
+                        Text(NSLocalizedString("cryptoConfigVerify", comment: "验证"))
                     }
                     
                 }
@@ -133,7 +133,7 @@ struct CryptoConfigView: View {
     func verifyKey()-> Bool{
         if cryptoFields.key.count != expectKeyLength{
             cryptoFields.key = ""
-            self.toastText = "Key参数长度不正确"
+            self.toastText = NSLocalizedString("cryptoConfigKeyFail", comment: "Key参数长度不正确")
             return false
         }
         return true
@@ -142,7 +142,7 @@ struct CryptoConfigView: View {
     func verifyIv() -> Bool{
         if cryptoFields.iv.count != 16 {
             cryptoFields.iv = ""
-            self.toastText = "Iv参数长度不正确"
+            self.toastText = NSLocalizedString("cryptoConfigIvFail", comment: "Iv参数长度不正确")
             return false
         }
         return true
@@ -151,7 +151,7 @@ struct CryptoConfigView: View {
     
     func createCopyText(){
         if cryptoFields.iv == "" || cryptoFields.key == ""{
-            self.toastText = "参数不全"
+            self.toastText = NSLocalizedString("cryptoConfigParamsFail", comment: "参数不全")
             return
         }
         let text =   """
@@ -185,7 +185,7 @@ struct CryptoConfigView: View {
                     """
         
         pawManager.shared.copy(text: text)
-        self.toastText = "复制成功"
+        self.toastText = NSLocalizedString("copySuccessText", comment: "复制成功")
     }
 }
 

@@ -267,3 +267,20 @@ opensslEncodingComment = "OpenSSL requires the input Key and IV to be in hexadec
 ciphertextComment = "The ciphertext may contain special characters, so remember to URL encode it.";
 consoleComment = "The console will print";
 keyComment = "Must be %d bits";
+
+
+cryptoConfigAlgorithm = "Algorithm";
+cryptoConfigMode = "Mode";
+cryptoConfigKey = "Enter key with %d digits";
+cryptoConfigIv = "Enter 16-digit Iv";
+cryptoConfigCopyTitle = "Copy and Send Script";
+cryptoConfigNavTitle = "Algorithm Config";
+cryptoConfigSuccess = "Verification Successful";
+cryptoConfigVerify = "Verify";
+cryptoConfigKeyFail = "Incorrect Key parameter length";
+cryptoConfigIvFail = "Incorrect Iv parameter length";
+cryptoConfigParamsFail = "Incomplete parameters";
+configTitle = "Config";
+
+badgeAuto = "Auto";
+badgeCustom = "Custom";

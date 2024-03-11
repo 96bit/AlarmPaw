@@ -263,3 +263,20 @@ opensslEncodingComment = "OpenSSL, giriş Anahtarının ve IV'nin onaltılık ko
 ciphertextComment = "Şifre metni özel karakterler içerebilir, bu nedenle onu URL kodlamayı unutmayın.";
 consoleComment = "Konsol yazdırır";
 keyComment = "%d bit olmalı";
+
+
+cryptoConfigAlgorithm = "Algoritma";
+cryptoConfigMode = "Mod";
+cryptoConfigKey = "%d basamaklı anahtar girin";
+cryptoConfigIv = "16 basamaklı Iv girin";
+cryptoConfigCopyTitle = "Komutu Kopyala ve Gönder";
+cryptoConfigNavTitle = "Algoritma Konfigürasyonu";
+cryptoConfigSuccess = "Doğrulama Başarılı";
+cryptoConfigVerify = "Doğrula";
+cryptoConfigKeyFail = "Anahtar parametre uzunluğu yanlış";
+cryptoConfigIvFail = "Iv parametre uzunluğu yanlış";
+cryptoConfigParamsFail = "Eksik parametreler";
+configTitle = "Konfigürasyon";
+
+badgeAuto = "Otomatik";
+badgeCustom = "Özel";

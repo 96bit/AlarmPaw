@@ -286,8 +286,12 @@ class NotificationService: UNNotificationServiceExtension {
                     // 将key重写为小写
                     map[key.lowercased()] = val
                 }
-                
                 var alert = [String: Any]()
+                
+                if let alertEmp = (userInfo["aps"] as? [String: Any])?["alert"] as? [String: Any]{
+                    alert = alertEmp
+                }
+                
                 if let title = map["title"] as? String {
                     bestAttemptContent.title = title
                     alert["title"] = title

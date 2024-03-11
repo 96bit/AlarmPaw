@@ -31,6 +31,8 @@ struct SettingView: View {
     @State private var showServer:Bool = false
     @State private var showLogin:Bool = false
     @State private var scanUrl:String = ""
+    @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
+    
     var timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     var body: some View {
         
@@ -175,7 +177,7 @@ struct SettingView: View {
                 
                 
                 
-                Section(header:Text("配置")) {
+                Section(header:Text(NSLocalizedString("configTitle", comment: "配置"))) {
                     Button{
                         self.showChangeIcon.toggle()
                     }label: {
@@ -186,7 +188,19 @@ struct SettingView: View {
                                 Text(NSLocalizedString("AppIconTitle",comment: "程序图标"))
                                     .foregroundStyle(Color("textBlack"))
                             } icon: {
-                                Image(systemName: "apple.logo")
+                                if let index = appIcon.arr.firstIndex(where: {$0 == setting_active_app_icon}){
+                                    Image(logoImage.arr[index].rawValue)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                }else{
+                                    Image("logo")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 25)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                }
                             }
                             Spacer()
                             Image(systemName: "chevron.right")
@@ -194,12 +208,11 @@ struct SettingView: View {
                         }
                         
                     }
-            
+                
 
                     Picker(selection: paw.$badgeMode) {
-                        ForEach(badgeAutoMode.allCases, id: \.self){ item in
-                            Text(item.rawValue).tag(item)
-                        }
+                        Text(NSLocalizedString("badgeAuto",comment: "自动")).tag(badgeAutoMode.auto)
+                        Text(NSLocalizedString("badgeCustom",comment: "自定义")).tag(badgeAutoMode.custom)
                     } label: {
                         Label {
                             Text(NSLocalizedString("badgeModeTitle",comment: "角标模式"))
@@ -233,7 +246,7 @@ struct SettingView: View {
                         
                         
                         Label {
-                            Text("算法配置")
+                            Text(NSLocalizedString("cryptoConfigNavTitle", comment: "算法配置") )
                         } icon: {
                             Image(systemName: "bolt.shield")
                         }

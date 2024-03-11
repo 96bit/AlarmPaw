@@ -272,3 +272,19 @@ opensslEncodingComment = "OpenSSL 要求输入的 Key 和 IV 需使用十六进�
 ciphertextComment = "密文可能有特殊字符，所以记得 URL 编码一下。";
 consoleComment = "控制台将打印";
 keyComment = "必须%d位";
+
+cryptoConfigAlgorithm = "算法";
+cryptoConfigMode = "模式";
+cryptoConfigKey = "输入%d位数的key";
+cryptoConfigIv = "请输入16位Iv";
+cryptoConfigCopyTitle = "复制发送脚本";
+cryptoConfigNavTitle = "算法配置";
+cryptoConfigSuccess = "验证成功";
+cryptoConfigVerify = "验证";
+cryptoConfigKeyFail = "Key参数长度不正确";
+cryptoConfigIvFail = "Iv参数长度不正确";
+cryptoConfigParamsFail = "参数不全";
+configTitle = "配置";
+
+badgeAuto = "自动";
+badgeCustom = "自定义";

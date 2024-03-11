@@ -264,3 +264,21 @@ opensslEncodingComment = "OpenSSL требует, чтобы входной кл
 ciphertextComment = "Шифротекст может содержать специальные символы, поэтому не забудьте закодировать его в URL.";
 consoleComment = "Консоль выведет";
 keyComment = "Должен быть %d бит";
+
+
+cryptoConfigAlgorithm = "Алгоритм";
+cryptoConfigMode = "Режим";
+cryptoConfigKey = "Введите ключ с %d цифрами";
+cryptoConfigIv = "Введите 16-значный Iv";
+cryptoConfigCopyTitle = "Копировать и отправить скрипт";
+cryptoConfigNavTitle = "Конфигурация алгоритма";
+cryptoConfigSuccess = "Проверка успешна";
+cryptoConfigVerify = "Проверить";
+cryptoConfigKeyFail = "Неправильная длина параметра ключа";
+cryptoConfigIvFail = "Неправильная длина параметра Iv";
+cryptoConfigParamsFail = "Неполные параметры";
+configTitle = "Настройка";
+
+
+badgeAuto = "Авто";
+badgeCustom = "Пользовательский";

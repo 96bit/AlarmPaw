@@ -31,9 +31,10 @@ enum settings :String{
 }
 
 
+
 enum badgeAutoMode:String, CaseIterable {
-    case auto = "自动"
-    case custom = "自定义"
+    case auto = "Auto"
+    case custom = "Custom"
 }
 
 
