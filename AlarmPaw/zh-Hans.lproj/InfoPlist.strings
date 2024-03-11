@@ -5,5 +5,8 @@
   Created by He Cho on 2024/2/4.
   
 */
-CFBundleDisplayName = "爪子";
-CFBundleName = "爪子";
+CFBundleDisplayName = "八百里加急";
+CFBundleName = "八百里加急";
+
+NSCameraUsageDescription = "扫描二维码";
+NSPhotoLibraryUsageDescription = "保存消息图片到相册";

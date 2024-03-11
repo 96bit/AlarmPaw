@@ -7,3 +7,6 @@
 */
 CFBundleDisplayName = "Alarm Paw";
 CFBundleName = "Alarm Paw";
+
+NSCameraUsageDescription = "QR kodunu tarayın";
+NSPhotoLibraryUsageDescription = "Mesaj resimlerini galeriye kaydet";
