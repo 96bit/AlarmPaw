@@ -104,3 +104,12 @@ extension saveType {
         }
     }
 }
+
+
+enum pageShow{
+    case login
+    case servers
+    case scan
+    case appIcon
+    case none
+}

@@ -22,6 +22,7 @@ extension URLSession{
     }
     
     
+    
   
 }
 
@@ -39,4 +40,20 @@ extension URLCache {
         .init(memoryCapacity: 20 * 1024 * 1024,
               diskCapacity: 30 * 1024 * 1024)
     }()
+}
+
+extension URLComponents{
+    func getParams()-> [String:String]{
+        var parameters = [String: String]()
+        // 遍历查询项目并将它们添加到字典中
+        if let queryItems = self.queryItems {
+         
+            for queryItem in queryItems {
+                if let value = queryItem.value {
+                    parameters[queryItem.name] = value
+                }
+            }
+        }
+        return parameters
+    }
 }

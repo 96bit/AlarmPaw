@@ -19,7 +19,6 @@ struct Identifiers {
 
 
 
-
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate{
     
     let generator = UISelectionFeedbackGenerator()

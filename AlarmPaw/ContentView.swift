@@ -25,7 +25,7 @@ struct ContentView: View {
             NavigationStack{
                 
                 MessageView()
-              
+                
                     .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
             }.tabItem { Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message") }
                 .tag(PageView.message)
@@ -34,14 +34,12 @@ struct ContentView: View {
             NavigationStack{
                 SettingView()
                     .navigationTitle(NSLocalizedString("bottomBarSettings",comment: ""))
-                    
-                
-                
-                
             }.tabItem { Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape") }
                 .tag(PageView.setting)
         }
-
+        .sheet(isPresented: $paw.showServer) {
+            ServerListView(showClose: true)
+        }
         
         .fullScreenCover(isPresented: $paw.showSafariWebView) {
             if let url = paw.showSafariWebUrl{
@@ -51,6 +49,9 @@ struct ContentView: View {
             
             
         }
+        
+        
+        
         //willEnterForegroundNotification
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
             Task(priority: .background){
@@ -66,16 +67,18 @@ struct ContentView: View {
                             if let thawedObject = message.thaw(){
                                 thawedObject.cloud = true
                             }
-                                
+                            
                         }
                     }
-                  
+                    
                 }catch{
                     print(error)
                 }
-               
+                
             }
         }
+        
+        
     }
     
     

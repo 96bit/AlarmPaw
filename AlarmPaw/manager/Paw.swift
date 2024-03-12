@@ -28,11 +28,15 @@ class pawManager: ObservableObject{
     @Published var cloudCount = 0
     
     @Published var notificationPermissionStatus: UNAuthorizationStatus = .notDetermined
+    @Published var showLogin:Bool = false
+    @Published var scanUrl:String = ""
+    @Published var showServer:Bool = false
     private var cancellables: Set<AnyCancellable> = []
     
     static let shared = pawManager()
     private let session = URLSession(configuration: .default)
     private init() {}
+    
     
     
     func changeBadge(badge:Int){

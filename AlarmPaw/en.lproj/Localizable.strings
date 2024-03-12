@@ -284,3 +284,9 @@ configTitle = "Config";
 
 badgeAuto = "Auto";
 badgeCustom = "Custom";
+
+
+scanViewFailAdress = "Invalid address";
+scanViewAnewScan = "Rescan";
+
+paramsError = "Url Error;";

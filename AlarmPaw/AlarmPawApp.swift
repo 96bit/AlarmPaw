@@ -11,6 +11,7 @@ import RealmSwift
 @main
 struct AlarmPawApp: SwiftUI.App {
     @Environment(\.scenePhase) var phase
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var paw = pawManager.shared
     @AppStorage("defaultPageViewShow") var page:PageView = .message
@@ -27,13 +28,11 @@ struct AlarmPawApp: SwiftUI.App {
             
                 ContentView()
                     .environmentObject(pawManager.shared)
-                
                     .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                         if let badge = RealmManager.shared.getUnreadCount(){
                             paw.changeBadge(badge: badge)
                         }
                     }
-                
                     .alert(isPresented: $showAlart) {
                         Alert(title:
                                 Text(NSLocalizedString("changeTipsTitle", comment: "操作不可逆！")),
@@ -50,7 +49,6 @@ struct AlarmPawApp: SwiftUI.App {
                                     }
                                 ), secondaryButton: .cancel())
                     }
-                
                     .task {
                         paw.monitorNetwork()
                         paw.monitorNotification()
@@ -68,11 +66,38 @@ struct AlarmPawApp: SwiftUI.App {
                         }
                         
                     }
-                   
-                
-            
-            
-            
+                    .onOpenURL { url in
+                        
+                        guard let scheme = url.scheme,
+                              let host = url.host(),
+                              let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else{ return }
+                        let params = components.getParams()
+                        debugPrint(scheme, host, params)
+                        
+                        if host == "login"{
+                            if let url = params["url"]{
+                                paw.scanUrl = url
+                                paw.showLogin.toggle()
+                            }else{
+                                self.toastText =  NSLocalizedString("paramsError", comment: "参数错误")
+                            }
+                           
+                        }else if host == "add"{
+                            if let url = params["url"]{
+                                let (mode1,msg) = paw.addServer(url: url)
+                                self.toastText = msg
+                                paw.showServer = mode1
+                            }else{
+                                self.toastText = NSLocalizedString("paramsError", comment: "参数错误")
+                            }
+                        }
+                       
+                    }
+                    .fullScreenCover(isPresented: $paw.showLogin){
+                        LoginView(registerUrl: paw.scanUrl)
+                    }
+                    
+
             
         }
         

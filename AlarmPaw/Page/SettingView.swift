@@ -28,9 +28,9 @@ struct SettingView: View {
     @State private var showHelpWeb = false
     @State private var showProblemWeb = false
     @State private var showScanConfig = false
-    @State private var showServer:Bool = false
-    @State private var showLogin:Bool = false
-    @State private var scanUrl:String = ""
+    @State private var showLogin = false
+    @State private var showServer = false
+    
     @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
     
     var timerz = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
@@ -392,7 +392,6 @@ struct SettingView: View {
         .sheet(isPresented: $showChangeIcon) {
             NavigationStack{
                 pawAppIconView()
-                
             }.presentationDetents([.medium])
             
         }
@@ -408,20 +407,21 @@ struct SettingView: View {
         .fullScreenCover(isPresented: $showScanConfig) {
             ScanView { code, mode in
                 if mode == 0 {
-                    let (mode,msg) = paw.addServer(url: code)
+                    let (mode1,msg) = paw.addServer(url: code)
                     self.toastText = msg
-                    self.showServer = mode
+                    showServer = mode1
+                    
                 }else if mode == 1{
-                    self.scanUrl = code
-                    self.showLogin.toggle()
+                    paw.scanUrl = code
+                    showLogin.toggle()
                 }
             }
         }
-        .fullScreenCover(isPresented: $showLogin){
-            LoginView(registerUrl: scanUrl)
-        }
         .navigationDestination(isPresented: $showServer) {
             ServerListView()
+        }
+        .fullScreenCover(isPresented: $showLogin){
+            LoginView(registerUrl: paw.scanUrl)
         }
         .task {
             let color = await paw.healthAllColor()

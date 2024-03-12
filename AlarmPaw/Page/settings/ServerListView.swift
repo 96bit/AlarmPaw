@@ -13,6 +13,7 @@ struct ServerListView: View {
     @State var showAction:Bool = false
     @State var toastText:String = ""
     @State var addMode:Bool = false
+    var showClose:Bool = false
     var body: some View {
         NavigationStack{
             serverList
@@ -26,6 +27,17 @@ struct ServerListView: View {
                         }
                         .padding(.horizontal)
                         
+                    }
+                    if showClose {
+                       
+                        ToolbarItem{
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "xmark.seal")
+                            }
+
+                        }
                     }
                 }
                 .sheet(isPresented: $addMode, content: {

@@ -280,3 +280,8 @@ configTitle = "Konfigürasyon";
 
 badgeAuto = "Otomatik";
 badgeCustom = "Özel";
+
+scanViewFailAdress = "Geçersiz adres";
+scanViewAnewScan = "Yeniden Tara";
+
+paramsError = "Url Error;";

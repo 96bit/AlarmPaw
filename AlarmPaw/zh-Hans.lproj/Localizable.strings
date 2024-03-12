@@ -288,3 +288,8 @@ configTitle = "配置";
 
 badgeAuto = "自动";
 badgeCustom = "自定义";
+
+scanViewFailAdress =  "不正确的地址";
+scanViewAnewScan =  "重新扫码";
+
+paramsError = "参数错误";

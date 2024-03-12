@@ -282,3 +282,7 @@ configTitle = "Настройка";
 
 badgeAuto = "Авто";
 badgeCustom = "Пользовательский";
+
+scanViewFailAdress = "Неверный адрес";
+scanViewAnewScan = "Повторное сканирование";
+paramsError = "Url Error;";

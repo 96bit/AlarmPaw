@@ -25,7 +25,7 @@ struct ScanView: View {
                     case "add":
                         startConfig(url,0)
                         self.dismiss()
-                    case "config":
+                    case "login":
                         startConfig(url,1)
                         self.dismiss()
                     default:
@@ -35,10 +35,11 @@ struct ScanView: View {
                    
                 }
                 .actionSheet(isPresented: $showActive) {
+                
                     
-                    ActionSheet(title: Text("不正确的地址"),buttons: [
-
-                        .default(Text("重新扫码"), action: {
+                    ActionSheet(title: Text(NSLocalizedString("scanViewFailAdress", comment: "不正确的地址")),buttons: [
+                        
+                        .default(Text(NSLocalizedString("scanViewAnewScan", comment: "重新扫码")), action: {
                             debugPrint(self.scanCode)
                             self.scanCode = ""
                             self.restart.toggle()
@@ -73,8 +74,7 @@ struct ScanView: View {
                 .padding(.top,50)
                 Spacer()
                 VStack{
-                    Text("config:https://twown.com/config")
-                    
+                    Text("login:https://twown.com/config")
                     Text("OR")
                     Text("add:https://push.twown.com")
                 }.padding(.bottom, 50)
