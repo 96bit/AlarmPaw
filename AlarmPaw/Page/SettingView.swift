@@ -160,6 +160,7 @@ struct SettingView: View {
                         HStack{
                             Label {
                                 Text("DeviceToken")
+                                    .font(.system(size: 15))
                                     .foregroundStyle(Color("textBlack"))
                             } icon: {
                                 Image(systemName: "key.radiowaves.forward")
