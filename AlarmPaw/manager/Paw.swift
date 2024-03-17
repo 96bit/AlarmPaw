@@ -14,23 +14,24 @@ import Combine
 import UserNotifications
 
 class pawManager: ObservableObject{
+    
     @AppStorage(settings.deviceToken.rawValue) var deviceToken:String = ""
     @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
     @AppStorage(settings.server.rawValue) var servers:[serverInfo] = [serverInfo.serverDefault]
-    @AppStorage(settings.defaultPage.rawValue) var page:PageView = .message
+    @AppStorage(settings.defaultPage.rawValue) var page:pageState.tabPage = .message
     @AppStorage(settings.messageFirstShow.rawValue) var firstShow = true
     @AppStorage(settings.messageShowMode.rawValue) var showMessageMode:MessageGroup = .all
     @AppStorage(settings.emailConfig.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var email:emailConfig = emailConfig.data
     
-    @Published var showSafariWebView = false
-    @Published var showSafariWebUrl:URL? = nil
     @Published var isNetworkAvailable = false
     @Published var cloudCount = 0
     
     @Published var notificationPermissionStatus: UNAuthorizationStatus = .notDetermined
-    @Published var showLogin:Bool = false
-    @Published var scanUrl:String = ""
-    @Published var showServer:Bool = false
+
+    
+    
+    
+    
     private var cancellables: Set<AnyCancellable> = []
     
     static let shared = pawManager()
@@ -75,8 +76,8 @@ class pawManager: ObservableObject{
             UIApplication.shared.open(url, options: [UIApplication.OpenExternalURLOptionsKey.universalLinksOnly: true]) { success in
                 if !success {
                     // 打不开Universal Link时，则用内置 safari 打开
-                    self.showSafariWebUrl = url
-                    self.showSafariWebView = true
+                    pageState.shared.webUrl = url.path()
+                    pageState.shared.fullPage = .web
                     
                 }
             }

@@ -69,7 +69,6 @@ struct pawAppIconView: View {
             }
         }
         .toast(info: $toastText)
-        
         .listStyle(GroupedListStyle())
         .navigationTitle(NSLocalizedString("AppIconTitle",comment: ""))
         .navigationBarTitleDisplayMode(.inline)

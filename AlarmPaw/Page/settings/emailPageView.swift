@@ -10,7 +10,6 @@ import SwiftSMTP
 
 struct emailPageView: View {
     @EnvironmentObject var paw:pawManager
-    @State var helpShow = false
     @State var showLoading:Bool = false
     @State var toastText:String = ""
     var body: some View {
@@ -105,15 +104,12 @@ struct emailPageView: View {
             .toolbar {
                 ToolbarItem {
                     Button{
-                        self.helpShow.toggle()
+                        pageState.shared.webUrl = otherUrl.emailHelpUrl.rawValue
+                        pageState.shared.fullPage = .web
                     }label: {
                         Image(systemName: "questionmark.circle")
                     }
                 }
-            }
-            .fullScreenCover(isPresented: $helpShow) {
-                SFSafariViewWrapper(url: URL(string: otherUrl.emailHelpUrl.rawValue)!)
-                    .ignoresSafeArea()
             }
             .toast(info: $toastText)
             .onDisappear{

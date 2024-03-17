@@ -9,45 +9,87 @@ import SwiftUI
 import RealmSwift
 
 
-enum PageView :String{
-    case message = "message"
-    case setting = "setting"
-}
-
 
 struct ContentView: View {
-    @AppStorage("defaultPageViewShow") var page:PageView = .message
+
     @EnvironmentObject var paw: pawManager
+    @EnvironmentObject var pageView:pageState
     @ObservedResults(Message.self) var messages
+    @State var toastText:String = ""
     var body: some View {
-        TabView(selection: $page) {
+        TabView(selection: $pageView.page) {
             // MARK: 信息页面
             NavigationStack{
                 
                 MessageView()
-                
                     .navigationTitle(NSLocalizedString("bottomBarMsg",comment: ""))
-            }.tabItem { Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message") }
-                .tag(PageView.message)
+            }.tabItem {
+                Label(NSLocalizedString("bottomBarMsg",comment: ""), systemImage: "ellipsis.message")
+            }
+                .tag(pageState.tabPage.message)
                 .badge(messages.where({!$0.isRead}).count)
             // MARK: 设置页面
             NavigationStack{
                 SettingView()
                     .navigationTitle(NSLocalizedString("bottomBarSettings",comment: ""))
-            }.tabItem { Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape") }
-                .tag(PageView.setting)
-        }
-        .sheet(isPresented: $paw.showServer) {
-            ServerListView(showClose: true)
-        }
-        
-        .fullScreenCover(isPresented: $paw.showSafariWebView) {
-            if let url = paw.showSafariWebUrl{
-                SFSafariViewWrapper(url: url)
-                    .ignoresSafeArea()
+            }.tabItem {
+                Label(NSLocalizedString("bottomBarSettings",comment: ""), systemImage: "gearshape")
             }
-            
-            
+                .tag(pageState.tabPage.setting)
+        }
+        .toast(info: $toastText)
+        // MARK: sheet
+        .sheet(isPresented: pageState.shared.sheetPageShow){
+            switch pageState.shared.sheetPage {
+            case .servers:
+                ServerListView(showClose: true)
+            case .appIcon:
+                NavigationStack{
+                    pawAppIconView()
+                }.presentationDetents([.medium])
+            case .addServer:
+                addServerView()
+            case .web:
+                SFSafariViewWrapper(url: pageState.shared.webUrl)
+                    .ignoresSafeArea()
+            default:
+                EmptyView()
+            }
+        }
+        // MARK: full
+        .fullScreenCover(isPresented: pageState.shared.fullPageShow){
+            switch pageState.shared.fullPage {
+            case .login:
+                LoginView(registerUrl: pageState.shared.scanUrl)
+            case .servers:
+                ServerListView(showClose: true)
+            case .example:
+                CustomHelpView()
+            case .music:
+                musicView()
+            case .scan:
+                ScanView { code, mode in
+                    if mode == 0 {
+                        let (mode1,msg) = paw.addServer(url: code)
+                        self.toastText = msg
+                        if mode1{
+//                            pageView.sheetPage = .servers
+                            pageView.fullPage = .none
+                            pageView.sheetPage = .none
+                            pageView.page = .setting
+                            pageView.showServerListView = true
+                        }
+                    }else if mode == 1{
+                        pageView.scanUrl = code
+                        pageView.fullPage = .login
+                    }
+                }
+            case .web:
+                SFSafariViewWrapper(url: pageState.shared.webUrl)
+                    .ignoresSafeArea()
+            default:
+                EmptyView()
+            }
         }
         
         
@@ -70,7 +112,6 @@ struct ContentView: View {
                             
                         }
                     }
-                    
                 }catch{
                     print(error)
                 }

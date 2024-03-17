@@ -10,6 +10,7 @@ import UIKit
 
 struct CustomHelpView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.scenePhase) var phase
     @EnvironmentObject var paw:pawManager
     @State var username:String = ""
     @State var title:String = ""

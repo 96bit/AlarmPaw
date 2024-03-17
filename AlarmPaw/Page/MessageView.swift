@@ -13,7 +13,7 @@ struct MessageView: View {
     @EnvironmentObject var paw:pawManager
     @State private var searchText = ""
     @State private var showAction = false
-    @State private var showHelp = false
+
     @State private var toastText = ""
     @State private var helpviewSize:CGSize = .zero
     var body: some View {
@@ -29,7 +29,7 @@ struct MessageView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 
                 Button{
-                    self.showHelp = true
+                    pageState.shared.fullPage = .example
                 }label:{
                     Image(systemName: "questionmark.circle")
                     
@@ -86,9 +86,6 @@ struct MessageView: View {
                 
             ])
         }
-        .fullScreenCover(isPresented: $showHelp, content: {
-            CustomHelpView()
-        })
         .toast(info: $toastText)
     }
     

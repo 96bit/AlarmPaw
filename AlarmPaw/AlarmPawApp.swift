@@ -11,10 +11,9 @@ import RealmSwift
 @main
 struct AlarmPawApp: SwiftUI.App {
     @Environment(\.scenePhase) var phase
-    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var paw = pawManager.shared
-    @AppStorage("defaultPageViewShow") var page:PageView = .message
+    @StateObject var pageView = pageState.shared
     @AppStorage(settings.firstStartApp.rawValue) var firstart:Bool = true
     @State var showDelNotReadAlart:Bool = false
     @State var showDelReadAlart:Bool = false
@@ -27,7 +26,8 @@ struct AlarmPawApp: SwiftUI.App {
         WindowGroup {
             
                 ContentView()
-                    .environmentObject(pawManager.shared)
+                .environmentObject(pawManager.shared)
+                .environmentObject(pageState.shared)
                     .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                         if let badge = RealmManager.shared.getUnreadCount(){
                             paw.changeBadge(badge: badge)
@@ -76,8 +76,10 @@ struct AlarmPawApp: SwiftUI.App {
                         
                         if host == "login"{
                             if let url = params["url"]{
-                                paw.scanUrl = url
-                                paw.showLogin.toggle()
+                             
+                                pageState.shared.scanUrl = url
+                                pageView.fullPage = .login
+                            
                             }else{
                                 self.toastText =  NSLocalizedString("paramsError", comment: "参数错误")
                             }
@@ -85,20 +87,21 @@ struct AlarmPawApp: SwiftUI.App {
                         }else if host == "add"{
                             if let url = params["url"]{
                                 let (mode1,msg) = paw.addServer(url: url)
+                                debugPrint(mode1)
                                 self.toastText = msg
-                                paw.showServer = mode1
+                                if !pageState.shared.showServerListView {
+                                    pageView.fullPage = .none
+                                    pageView.sheetPage = .none
+                                    pageView.page = .setting
+                                    pageView.showServerListView = true
+                                }
                             }else{
                                 self.toastText = NSLocalizedString("paramsError", comment: "参数错误")
                             }
                         }
                        
                     }
-                    .fullScreenCover(isPresented: $paw.showLogin){
-                        LoginView(registerUrl: paw.scanUrl)
-                    }
-                    
-
-            
+                  
         }
         
     }
@@ -112,7 +115,7 @@ struct AlarmPawApp: SwiftUI.App {
             if let name = QuickAction.selectAction?.userInfo?["name"] as? String{
                 QuickAction.selectAction = nil
                 print(name)
-                self.page = .message
+                pageState.shared.page = .message
                 switch name{
                 case "allread":
                     RealmManager.shared.allRead()

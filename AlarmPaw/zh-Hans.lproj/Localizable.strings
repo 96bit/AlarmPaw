@@ -215,7 +215,7 @@ tomailListHeader = "接收邮件列表";
 emailNavigationTitle = "邮件自动化";
 
 
-watchTips1 = "免费、简单、安全";
+watchTips1 = "自由、简单、安全";
 watchBtn = "打开即用";
 
 getFail = "获取失败";

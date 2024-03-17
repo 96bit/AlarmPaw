@@ -30,7 +30,7 @@ struct ContentView: View {
                     
                     HStack{
                         Spacer()
-                        Text(NSLocalizedString("watchTips1", comment: "免费、简单、安全"))
+                        Text(NSLocalizedString("watchTips1", comment: "自由、简单、安全"))
                             .padding()
                         Spacer()
                        

@@ -13,6 +13,7 @@ import CloudKit
 struct SettingView: View {
     @ObservedResults(Message.self) var messages
     @EnvironmentObject var paw:pawManager
+    @EnvironmentObject var pageView:pageState
     @State private var isArchive:Bool = false
     @State private var webShow:Bool = false
     @State private var webUrl:String = otherUrl.helpWebUrl.rawValue
@@ -23,13 +24,7 @@ struct SettingView: View {
     @State private var cloudStatus = NSLocalizedString("checkimge",comment: "")
     @State private var serverSize:CGSize = .zero
     @State private var serverColor:Color = .red
-    @State private var showChangeIcon = false
-    @State private var showGithubAction = false
-    @State private var showHelpWeb = false
-    @State private var showProblemWeb = false
-    @State private var showScanConfig = false
-    @State private var showLogin = false
-    @State private var showServer = false
+
     
     @AppStorage("setting_active_app_icon") var setting_active_app_icon:appIcon = .def
     
@@ -75,21 +70,26 @@ struct SettingView: View {
                 }
                 
                 Section(header:Text(NSLocalizedString("serverConfig", comment: "配置/修改服务器")))  {
-                   
-                    NavigationLink(destination: {
-                        ServerListView()
-                    }, label: {
-                       
-                        HStack{
-                            Image(systemName: "server.rack")
-                                .foregroundStyle(serverColor)
-                                
-                            Text(NSLocalizedString("serverList", comment: "服务器列表"))
-                               
+                    
+                    Button {
+                        pageView.showServerListView.toggle()
+                    } label: {
+                        HStack(alignment:.center){
+                            Label {
+                                Text(NSLocalizedString("serverList", comment: "服务器列表"))
+                            } icon: {
+                                Image(systemName: "server.rack")
+                                    .scaleEffect(0.9)
+                                    .foregroundStyle(serverColor)
+                                    
+                            }
                             Spacer()
                             Text("\(paw.servers.count)")
+                            Image(systemName: "chevron.right")
+                                .foregroundStyle(.gray)
                         }
-                    })
+                    }
+
                 }
                 
                 
@@ -180,7 +180,7 @@ struct SettingView: View {
                 
                 Section(header:Text(NSLocalizedString("configTitle", comment: "配置"))) {
                     Button{
-                        self.showChangeIcon.toggle()
+                        pageView.sheetPage = .appIcon
                     }label: {
                         
 
@@ -283,7 +283,8 @@ struct SettingView: View {
                     }
                     
                     Button{
-                        self.showProblemWeb.toggle()
+                        pageView.fullPage = .web
+                        pageView.webUrl = otherUrl.problemWebUrl.rawValue
                     }label: {
                         HStack(alignment:.center){
                             Label {
@@ -301,7 +302,9 @@ struct SettingView: View {
                     }
                     
                     Button{
-                        self.showHelpWeb.toggle()
+                        pageView.webUrl = otherUrl.helpWebUrl.rawValue
+                        pageView.fullPage = .web
+                        
                     }label: {
                         HStack(alignment:.center){
                             Label {
@@ -327,7 +330,12 @@ struct SettingView: View {
                 {
                     Section(footer:Text(NSLocalizedString("buildDesc",comment: ""))){
                         Button{
-                            self.showGithubAction = true
+                            if let infoDict = Bundle.main.infoDictionary,
+                               let runId = infoDict["GitHub Run Id"] as? String{
+                                pageView.webUrl = otherUrl.actinsRunUrl.rawValue + runId
+                                pageView.fullPage = .web
+                            }
+                            
                         }label:{
                             HStack{
                                 Label {
@@ -360,7 +368,7 @@ struct SettingView: View {
             
             ToolbarItem {
                 Button {
-                    self.showScanConfig.toggle()
+                    pageView.fullPage = .scan
                 } label: {
                     Image(systemName: "qrcode.viewfinder")
                 }
@@ -369,31 +377,10 @@ struct SettingView: View {
         
             
         }
-        .fullScreenCover(isPresented: $showProblemWeb) {
-            SFSafariViewWrapper(url: URL(string: otherUrl.problemWebUrl.rawValue)!)
-                .ignoresSafeArea()
-        }
-        .fullScreenCover(isPresented: $showHelpWeb) {
-            SFSafariViewWrapper(url: URL(string: otherUrl.helpWebUrl.rawValue)!)
-                .ignoresSafeArea()
-        }
-        .fullScreenCover(isPresented: $showGithubAction) {
-            if let infoDict = Bundle.main.infoDictionary,
-               let runId = infoDict["GitHub Run Id"] as? String{
-                SFSafariViewWrapper(url: URL(string: otherUrl.actinsRunUrl.rawValue + runId)!)
-                    .ignoresSafeArea()
-            }
-           
-        }
+
         .sheet(isPresented: $isShareSheetPresented) {
             ShareSheet(activityItems: [self.jsonFileUrl!])
                 .presentationDetents([.medium, .large])
-        }
-        .sheet(isPresented: $showChangeIcon) {
-            NavigationStack{
-                pawAppIconView()
-            }.presentationDetents([.medium])
-            
         }
         .onReceive(self.timerz) { _ in
             Task{
@@ -403,25 +390,9 @@ struct SettingView: View {
                 }
             }
         }
-        
-        .fullScreenCover(isPresented: $showScanConfig) {
-            ScanView { code, mode in
-                if mode == 0 {
-                    let (mode1,msg) = paw.addServer(url: code)
-                    self.toastText = msg
-                    showServer = mode1
-                    
-                }else if mode == 1{
-                    paw.scanUrl = code
-                    showLogin.toggle()
-                }
-            }
-        }
-        .navigationDestination(isPresented: $showServer) {
+
+        .navigationDestination(isPresented: $pageView.showServerListView) {
             ServerListView()
-        }
-        .fullScreenCover(isPresented: $showLogin){
-            LoginView(registerUrl: paw.scanUrl)
         }
         .task {
             let color = await paw.healthAllColor()

@@ -23,7 +23,6 @@ struct SignInView: View {
     @FocusState private var isPhoneFocused: Bool
     @FocusState private var isCodeFocused: Bool
     
-    @State var showHelpWeb:Bool = false
        
     
     var filedColor:Color{
@@ -59,7 +58,8 @@ struct SignInView: View {
                     .foregroundColor(.primary.opacity(0.7))
                     .accentColor(.primary.opacity(0.7))
                     .onTapGesture {
-                        self.showHelpWeb.toggle()
+                        pageState.shared.webUrl = otherUrl.helpRegisterWebUrl.rawValue
+                        pageState.shared.fullPage = .web
                     }
                 Spacer()
                 
@@ -105,11 +105,6 @@ struct SignInView: View {
                 }
             }
         }
-        .sheet(isPresented: $showHelpWeb) {
-            SFSafariViewWrapper(url: URL(string: otherUrl.helpRegisterWebUrl.rawValue)!)
-                .ignoresSafeArea()
-        }
-    
         
 
     }

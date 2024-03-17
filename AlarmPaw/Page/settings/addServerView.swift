@@ -14,7 +14,6 @@ struct addServerView: View {
     @State var serverName:String = ""
     @State private var pickerSelect:requestHeader = .https
     @State private var toastText:String = ""
-    @State var showServerHelp = false
     var body: some View {
         VStack{
            
@@ -37,7 +36,8 @@ struct addServerView: View {
             Spacer()
             HStack{
                 Button{
-                    self.showServerHelp.toggle()
+                    pageState.shared.webUrl = otherUrl.delpoydoc.rawValue
+                    pageState.shared.fullPage = .web
                 }label: {
                     Text(NSLocalizedString("checkServerDeploy",comment: ""))
                         .font(.caption2)
@@ -80,10 +80,7 @@ struct addServerView: View {
                     .tint(Color("textBlack"))
                 }
             }
-            .fullScreenCover(isPresented: $showServerHelp, content: {
-                SFSafariViewWrapper(url: URL(string: otherUrl.delpoydoc.rawValue)!)
-                    .ignoresSafeArea()
-            })
+          
     }
     func addServer(url: String)-> Bool{
         

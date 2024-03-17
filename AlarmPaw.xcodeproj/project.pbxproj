@@ -23,6 +23,8 @@
 		1936B5172B56C47300FC31E2 /* WebKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B5162B56C47300FC31E2 /* WebKitView.swift */; };
 		1936B5192B56C71800FC31E2 /* Paw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B5182B56C71800FC31E2 /* Paw.swift */; };
 		1936B51B2B56E48E00FC31E2 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1936B51A2B56E48E00FC31E2 /* CloudKit.swift */; };
+		193DB4C52BA09F3B0041711A /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DB4C42BA09F3B0041711A /* Dictionary+.swift */; };
+		193DB4C72BA1F88C0041711A /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DB4C62BA1F88C0041711A /* ViewState.swift */; };
 		194479912B6F8EA200AC9F67 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 194479932B6F8EA200AC9F67 /* InfoPlist.strings */; };
 		194479A42B6F923E00AC9F67 /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 1936B4CE2B56B58B00FC31E2 /* Localizable.strings */; };
 		19447A272B6FEA3800AC9F67 /* cloudMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19447A262B6FEA3800AC9F67 /* cloudMessageView.swift */; };
@@ -204,6 +206,8 @@
 		1936B5162B56C47300FC31E2 /* WebKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitView.swift; sourceTree = "<group>"; };
 		1936B5182B56C71800FC31E2 /* Paw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paw.swift; sourceTree = "<group>"; };
 		1936B51A2B56E48E00FC31E2 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
+		193DB4C42BA09F3B0041711A /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
+		193DB4C62BA1F88C0041711A /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		194479922B6F8EA200AC9F67 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		194479942B6F8EA600AC9F67 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		194479952B6F8EA900AC9F67 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -366,6 +370,7 @@
 				19E13B112B5A9C1A005AAA9D /* realmManager.swift */,
 				1936B51A2B56E48E00FC31E2 /* CloudKit.swift */,
 				199723162B601FA0008B51A8 /* audioManager.swift */,
+				193DB4C62BA1F88C0041711A /* ViewState.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				19AF5DB02B8B74C3006A4928 /* QRView.swift */,
 				19AF5DB22B8B7548006A4928 /* ScanView.swift */,
 				19AF5DB72B8B8088006A4928 /* QRScannerSample.swift */,
+				193DB4C42BA09F3B0041711A /* Dictionary+.swift */,
 			);
 			path = account;
 			sourceTree = "<group>";
@@ -914,6 +920,7 @@
 				1936B51B2B56E48E00FC31E2 /* CloudKit.swift in Sources */,
 				19D0F6CD2B54399A0039103D /* URLSession+.swift in Sources */,
 				19AF5DB82B8B8088006A4928 /* QRScannerSample.swift in Sources */,
+				193DB4C52BA09F3B0041711A /* Dictionary+.swift in Sources */,
 				196E1CA52B5273CC001FAD01 /* ContentView.swift in Sources */,
 				1987A68C2B5E165C00452572 /* toastView.swift in Sources */,
 				19183BAB2B5BDE0800E2E346 /* AsyncImageView.swift in Sources */,
@@ -922,6 +929,7 @@
 				19E3F6962B6BF30E00F23888 /* emailPageView.swift in Sources */,
 				1936B5172B56C47300FC31E2 /* WebKitView.swift in Sources */,
 				199723172B601FA0008B51A8 /* audioManager.swift in Sources */,
+				193DB4C72BA1F88C0041711A /* ViewState.swift in Sources */,
 				1948DEB02B59235C00FDA68B /* MessageItem.swift in Sources */,
 				19AF5DB12B8B74C3006A4928 /* QRView.swift in Sources */,
 				196E1CA32B5273CC001FAD01 /* AlarmPawApp.swift in Sources */,

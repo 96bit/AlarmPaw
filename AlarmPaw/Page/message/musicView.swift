@@ -10,6 +10,7 @@ import AVFoundation
 import UIKit
 
 struct musicView: View {
+    @Environment(\.dismiss) var dismiss
     @State var toastText = ""
     @StateObject var audioPlayerManager = AudioPlayerManager()
     var body: some View {
