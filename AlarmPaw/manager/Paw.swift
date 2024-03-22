@@ -15,13 +15,13 @@ import UserNotifications
 
 class pawManager: ObservableObject{
     
-    @AppStorage(settings.deviceToken.rawValue) var deviceToken:String = ""
-    @AppStorage(settings.badgemode.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var badgeMode:badgeAutoMode = .auto
-    @AppStorage(settings.server.rawValue) var servers:[serverInfo] = [serverInfo.serverDefault]
-    @AppStorage(settings.defaultPage.rawValue) var page:pageState.tabPage = .message
-    @AppStorage(settings.messageFirstShow.rawValue) var firstShow = true
-    @AppStorage(settings.messageShowMode.rawValue) var showMessageMode:MessageGroup = .all
-    @AppStorage(settings.emailConfig.rawValue,store: UserDefaults(suiteName: settings.groupName.rawValue)) var email:emailConfig = emailConfig.data
+    @AppStorage(settings.deviceToken) var deviceToken:String = ""
+    @AppStorage(settings.badgemode,store: defaultStore) var badgeMode:badgeAutoMode = .auto
+    @AppStorage(settings.server) var servers:[serverInfo] = [serverInfo.serverDefault]
+    @AppStorage(settings.defaultPage) var page:pageState.tabPage = .message
+    @AppStorage(settings.messageFirstShow) var firstShow = true
+    @AppStorage(settings.messageShowMode) var showMessageMode:MessageGroup = .all
+    @AppStorage(settings.emailConfig,store: defaultStore) var email:emailConfig = emailConfig.data
     
     @Published var isNetworkAvailable = false
     @Published var cloudCount = 0

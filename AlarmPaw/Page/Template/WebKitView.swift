@@ -29,7 +29,7 @@ struct WebKitViewTable:UIViewRepresentable{
 // 显示webview的页面
 struct WebKitView:View{
     // 数据模型使用
-    @State var url:String = otherUrl.helpWebUrl.rawValue
+    @State var url:String = otherUrl.helpWebUrl
     
     
     var webview:WKWebView{

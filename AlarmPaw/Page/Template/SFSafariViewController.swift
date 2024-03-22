@@ -36,7 +36,7 @@ struct SFSafariViewWrapper: UIViewControllerRepresentable {
     let url: String
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<Self>) -> SFSafariViewController {
-        let requestUrl:URL = URL(string: url) ?? URL(string: otherUrl.problemWebUrl.rawValue)!
+        let requestUrl:URL = URL(string: url) ?? URL(string: otherUrl.problemWebUrl)!
         let sfVC =  SFSafariViewController(url: requestUrl)
 //        sfVC.preferredBarTintColor = .blue // set color to tint the background of the navigation bar and the toolbar.
 //        sfVC.preferredControlTintColor = .yellow // set the color to tint the control buttons on the navigation bar and the toolbar.

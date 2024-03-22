@@ -58,7 +58,7 @@ struct SignInView: View {
                     .foregroundColor(.primary.opacity(0.7))
                     .accentColor(.primary.opacity(0.7))
                     .onTapGesture {
-                        pageState.shared.webUrl = otherUrl.helpRegisterWebUrl.rawValue
+                        pageState.shared.webUrl = otherUrl.helpRegisterWebUrl
                         pageState.shared.fullPage = .web
                     }
                 Spacer()

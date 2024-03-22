@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CryptoConfigView: View {
     @Environment(\.dismiss) var dismiss
-    @AppStorage(settings.CryptoSettingFields.rawValue,store: defaultStore) var cryptoFields:CryptoSettingFields = CryptoSettingFields.data
+    @AppStorage(settings.CryptoSettingFields,store: defaultStore) var cryptoFields:CryptoSettingFields = CryptoSettingFields.data
     @State var toastText:String = ""
     
     var expectKeyLength:Int {

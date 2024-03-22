@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 import UIKit
-
+import MarkdownUI
 
 
 struct MessageItem: View {
@@ -60,7 +60,7 @@ struct MessageItem: View {
                             }
                             Divider()
                             if let body = message.body{
-                                Text(body)
+                                Markdown(body)
                             }
                         }.padding(.horizontal)
                         HStack{

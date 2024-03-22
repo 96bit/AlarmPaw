@@ -19,17 +19,17 @@ import UIKit
 
 class NotificationService: UNNotificationServiceExtension {
     
-    @AppStorage(settings.badgemode.rawValue,store: defaultStore) var badgeMode:badgeAutoMode = .auto
-    @AppStorage(settings.emailConfig.rawValue,store: defaultStore) var email:emailConfig = emailConfig.data
+    @AppStorage(settings.badgemode,store: defaultStore) var badgeMode:badgeAutoMode = .auto
+    @AppStorage(settings.emailConfig,store: defaultStore) var email:emailConfig = emailConfig.data
     
-    @AppStorage(settings.CryptoSettingFields.rawValue,store: defaultStore) var cryptoFields:CryptoSettingFields = CryptoSettingFields.data
+    @AppStorage(settings.CryptoSettingFields,store: defaultStore) var cryptoFields:CryptoSettingFields = CryptoSettingFields.data
     
     var contentHandler: ((UNNotificationContent) -> Void)?
     var bestAttemptContent: UNMutableNotificationContent?
     
     lazy var realm: Realm? = {
-        let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: settings.groupName.rawValue)
-        let fileUrl = groupUrl?.appendingPathComponent(settings.realmName.rawValue)
+        let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: settings.groupName)
+        let fileUrl = groupUrl?.appendingPathComponent(settings.realmName)
         let config = Realm.Configuration(
             fileURL: fileUrl,
             schemaVersion: 3,
@@ -80,7 +80,7 @@ class NotificationService: UNNotificationServiceExtension {
     fileprivate func downloadImage(_ imageUrl: String, _ bestAttemptContent: UNMutableNotificationContent) async -> String? {
         
         
-        guard let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: settings.groupName.rawValue),
+        guard let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: settings.groupName),
               let cache = try? ImageCache(name: "shared", cacheDirectoryURL: groupUrl),
               let imageResource = URL(string: imageUrl)
         else {
@@ -355,6 +355,11 @@ class NotificationService: UNNotificationServiceExtension {
         // MARK: 发送邮件
         mailAuto(userInfo)
         
+        if let lastBpdy = userInfo["body"] as? String{
+            bestAttemptContent.userInfo["body"] = removeMarkdownSymbols(from: lastBpdy)
+        }
+       
+        
         Task.init {
             
             // 设置推送图标
@@ -406,6 +411,18 @@ class NotificationService: UNNotificationServiceExtension {
         // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
         if let contentHandler = contentHandler, let bestAttemptContent =  bestAttemptContent {
             contentHandler(bestAttemptContent)
+        }
+    }
+    func removeMarkdownSymbols(from input: String) -> String {
+        do {
+            // 定义匹配 Markdown 标记的正则表达式
+            let regex = try NSRegularExpression(pattern: "[\\*_~#`]", options: .caseInsensitive)
+            // 使用空字符串替换匹配的 Markdown 标记
+            let modifiedString = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count), withTemplate: "")
+            return modifiedString
+        } catch {
+            print("Error: \(error)")
+            return input // 如果出现错误，返回原始字符串
         }
     }
     

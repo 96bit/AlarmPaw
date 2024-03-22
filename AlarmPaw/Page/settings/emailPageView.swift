@@ -104,7 +104,7 @@ struct emailPageView: View {
             .toolbar {
                 ToolbarItem {
                     Button{
-                        pageState.shared.webUrl = otherUrl.emailHelpUrl.rawValue
+                        pageState.shared.webUrl = otherUrl.emailHelpUrl
                         pageState.shared.fullPage = .web
                     }label: {
                         Image(systemName: "questionmark.circle")

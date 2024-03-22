@@ -45,7 +45,7 @@ struct serverInfo: Codable, Identifiable{
         self.status = statues
     }
     
-    static let serverDefault = serverInfo(url: otherUrl.defaultServer.rawValue, key: "")
+    static let serverDefault = serverInfo(url: otherUrl.defaultServer, key: "")
   
 }
 

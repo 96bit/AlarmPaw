@@ -1,5 +1,5 @@
 {
-  "originHash" : "6a8540020449afbc0ab76101a4f3bda864857ce7df09d22348721d35bd28ea69",
+  "originHash" : "e5f30d55c5a56045a31ebb1b730931a6905814ae34727ac03e162f64fdbaaec6",
   "pins" : [
     {
       "identity" : "bluecryptor",
@@ -56,6 +56,15 @@
       }
     },
     {
+      "identity" : "networkimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/NetworkImage",
+      "state" : {
+        "revision" : "7aff8d1b31148d32c5933d75557d42f6323ee3d1",
+        "version" : "6.0.0"
+      }
+    },
+    {
       "identity" : "qrscanner",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/96bit/QRScanner.git",
@@ -89,6 +98,15 @@
       "state" : {
         "revision" : "e97a6fcb1ab07462881ac165fdbb37f067e205d5",
         "version" : "1.5.4"
+      }
+    },
+    {
+      "identity" : "swift-markdown-ui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/96bit/swift-markdown-ui.git",
+      "state" : {
+        "revision" : "4d1dd431665b581dcd0a0a7a41cfc2eb586aecb3",
+        "version" : "2.5.0"
       }
     },
     {

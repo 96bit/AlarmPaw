@@ -14,7 +14,7 @@ struct AlarmPawApp: SwiftUI.App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject var paw = pawManager.shared
     @StateObject var pageView = pageState.shared
-    @AppStorage(settings.firstStartApp.rawValue) var firstart:Bool = true
+    @AppStorage(settings.firstStartApp) var firstart:Bool = true
     @State var showDelNotReadAlart:Bool = false
     @State var showDelReadAlart:Bool = false
     @State var showAlart:Bool = false

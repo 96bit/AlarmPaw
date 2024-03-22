@@ -36,7 +36,7 @@ struct addServerView: View {
             Spacer()
             HStack{
                 Button{
-                    pageState.shared.webUrl = otherUrl.delpoydoc.rawValue
+                    pageState.shared.webUrl = otherUrl.delpoydoc
                     pageState.shared.fullPage = .web
                 }label: {
                     Text(NSLocalizedString("checkServerDeploy",comment: ""))

@@ -8,46 +8,13 @@
 import Foundation
 import SwiftUI
 
-let defaultStore = UserDefaults(suiteName: settings.groupName.rawValue)
-
-enum settings :String{
-    case groupName = "group.AlarmPaw"
-    case realmName = "AlarmPaw.realm"
-    case cloudMessageName = "alarmPawMessageCloud"
-    case settingName = "cryptoSettingFields"
-    case deviceToken = "deviceToken"
-    case imageCache = "shard"
-    case badgemode = "alarmpawbadgemode"
-    case server = "serverArrayStroage"
-    case defaultPage = "defaultPageViewShow"
-    case messageFirstShow = "messageFirstShow"
-    case messageShowMode = "messageShowMode"
-    case syncServerUrl = "syncServerUrl"
-    case syncServerParams = "syncServerParams"
-    case emailConfig = "emailStmpConfig"
-    case iCloudName = "iCloud.AlarmPaw"
-    case firstStartApp = "firstStartApp"
-    case CryptoSettingFields = "CryptoSettingFields"
-}
 
 
 
 enum badgeAutoMode:String, CaseIterable {
     case auto = "Auto"
     case custom = "Custom"
-}
-
-
-enum otherUrl:String{
-    case defaultImage = "https://alarmpaw.twown.com/_media/avatar.jpg"
-    case helpWebUrl = "https://alarmpaw.twown.com/#/tutorial"
-    case problemWebUrl = "https://alarmpaw.twown.com/#/faq"
-    case defaultServer = "https://push.twown.com"
-    case delpoydoc = "https://alarmpaw.twown.com/#/?id=alarmpaw"
-    case emailHelpUrl = "https://alarmpaw.twown.com/#/email"
-    case actinsRunUrl = "https://github.com/96bit/AlarmPaw/actions/runs/"
-    case helpRegisterWebUrl = "https://alarmpaw.twown.com/#/registerUser"
-}
+}   
 
 
 enum appIcon:String,CaseIterable{

@@ -16,7 +16,7 @@ struct SettingView: View {
     @EnvironmentObject var pageView:pageState
     @State private var isArchive:Bool = false
     @State private var webShow:Bool = false
-    @State private var webUrl:String = otherUrl.helpWebUrl.rawValue
+    @State private var webUrl:String = otherUrl.helpWebUrl
     @State private var progressValue: Double = 0.0
     @State private var toastText = ""
     @State private var isShareSheetPresented = false
@@ -284,7 +284,7 @@ struct SettingView: View {
                     
                     Button{
                         pageView.fullPage = .web
-                        pageView.webUrl = otherUrl.problemWebUrl.rawValue
+                        pageView.webUrl = otherUrl.problemWebUrl
                     }label: {
                         HStack(alignment:.center){
                             Label {
@@ -302,7 +302,7 @@ struct SettingView: View {
                     }
                     
                     Button{
-                        pageView.webUrl = otherUrl.helpWebUrl.rawValue
+                        pageView.webUrl = otherUrl.helpWebUrl
                         pageView.fullPage = .web
                         
                     }label: {
@@ -332,7 +332,7 @@ struct SettingView: View {
                         Button{
                             if let infoDict = Bundle.main.infoDictionary,
                                let runId = infoDict["GitHub Run Id"] as? String{
-                                pageView.webUrl = otherUrl.actinsRunUrl.rawValue + runId
+                                pageView.webUrl = otherUrl.actinsRunUrl + runId
                                 pageView.fullPage = .web
                             }
                             

@@ -24,8 +24,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     let generator = UISelectionFeedbackGenerator()
     
     func setupRealm() {
-        let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: settings.groupName.rawValue)
-        let fileUrl = groupUrl?.appendingPathComponent(settings.realmName.rawValue)
+        let groupUrl = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: settings.groupName)
+        let fileUrl = groupUrl?.appendingPathComponent(settings.realmName)
         
         let config = Realm.Configuration(
             fileURL: fileUrl,

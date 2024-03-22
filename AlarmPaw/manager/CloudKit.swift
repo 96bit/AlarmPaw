@@ -10,7 +10,7 @@ import Foundation
 
 class CloudKitManager {
     static let shared = CloudKitManager()
-    let privateCloudDatabase = CKContainer(identifier: settings.iCloudName.rawValue).privateCloudDatabase
+    let privateCloudDatabase = CKContainer(identifier: settings.iCloudName).privateCloudDatabase
    
     private init() {}
 
@@ -106,7 +106,7 @@ class CloudKitManager {
     func getCloudStatus() async -> String {
         
         do{
-            let status = try await CKContainer(identifier: settings.iCloudName.rawValue).accountStatus()
+            let status = try await CKContainer(identifier: settings.iCloudName).accountStatus()
             switch status {
             case .available:
                 return NSLocalizedString("opened",comment: "")
