@@ -12,7 +12,7 @@ import CloudKit
 import UIKit
 
 
-final class Message: Object , ObjectKeyIdentifiable{
+final class NotificationMessage: Object , ObjectKeyIdentifiable{
     @Persisted var id:String = UUID().uuidString
     @Persisted var title:String?
     @Persisted var body:String?
@@ -26,7 +26,7 @@ final class Message: Object , ObjectKeyIdentifiable{
     
 }
 
-extension Message: Codable{
+extension NotificationMessage: Codable{
     enum CodingKeys: String, CodingKey {
         case id, title, body, icon, group, createDate, isRead, url,cloud,markdown
     }
@@ -46,18 +46,18 @@ extension Message: Codable{
 }
 
 
-extension Message{
+extension NotificationMessage{
     static let messages = [
        
-        Message(value: ["title":  NSLocalizedString("messageExampleTitle1",comment: ""),"group":  NSLocalizedString("messageExampleGroup1",comment: ""),"body": NSLocalizedString("messageExampleBody1",comment: ""),"icon":"warn","image":otherUrl.defaultImage,"cloud":true]),
-        Message(value: ["title":NSLocalizedString("messageExampleTitle2",comment: ""),"group":NSLocalizedString("messageExampleGroup2",comment: ""),"body":NSLocalizedString("messageExampleBody2",comment: ""),"icon":otherUrl.defaultImage,"cloud":true]),
-        Message(value: ["group":NSLocalizedString("messageExampleGroup3",comment: ""),"title":NSLocalizedString("messageExampleTitle3",comment: "") ,"body":NSLocalizedString("messageExampleBody3",comment: ""),"url":"weixin://","icon":"weixin","cloud":true])
+        NotificationMessage(value: ["title":  NSLocalizedString("messageExampleTitle1",comment: ""),"group":  NSLocalizedString("messageExampleGroup1",comment: ""),"body": NSLocalizedString("messageExampleBody1",comment: ""),"icon":"warn","image":otherUrl.defaultImage,"cloud":true]),
+        NotificationMessage(value: ["title":NSLocalizedString("messageExampleTitle2",comment: ""),"group":NSLocalizedString("messageExampleGroup2",comment: ""),"body":NSLocalizedString("messageExampleBody2",comment: ""),"icon":otherUrl.defaultImage,"cloud":true]),
+        NotificationMessage(value: ["group":NSLocalizedString("messageExampleGroup3",comment: ""),"title":NSLocalizedString("messageExampleTitle3",comment: "") ,"body":NSLocalizedString("messageExampleBody3",comment: ""),"url":"weixin://","icon":"weixin","cloud":true])
     ]
 }
 
 
 
-extension Message {
+extension NotificationMessage {
     // 可以添加一个便利构造器或修改现有构造器来支持从CKRecord初始化
     convenience init(from record: CKRecord) {
         self.init()
@@ -78,11 +78,11 @@ extension Message {
 
 }
 
-extension Message{
+extension NotificationMessage{
     
     // 将Message转换为CKRecord
     func createCKRecord() -> CKRecord {
-        let record = CKRecord(recordType: "Message", recordID: CKRecord.ID(recordName: self.id))
+        let record = CKRecord(recordType: settings.recordType, recordID: CKRecord.ID(recordName: self.id))
         record["title"] = self.title
         record["body"] = self.body
         record["icon"] = self.icon

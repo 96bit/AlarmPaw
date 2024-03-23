@@ -10,7 +10,7 @@ import SwiftUI
 struct cloudMessageView: View {
     @EnvironmentObject var paw:pawManager
     @State var toastText = ""
-    @State var messages:[Message] = []
+    @State var messages:[NotificationMessage] = []
     @State var imageID:String = ""
     @State var showLoading = false
     @State private var jsonFileUrl:URL?
@@ -159,6 +159,7 @@ struct cloudMessageView: View {
     func setMessage()async {
         pawManager.shared.dispatch_sync_safely_main_queue {
             self.showLoading = true
+           
         }
         do{
             let messages = try await  CloudKitManager.shared.fetchAllMessages()
@@ -168,6 +169,7 @@ struct cloudMessageView: View {
             }
         }
         catch{
+            print(error)
             pawManager.shared.dispatch_sync_safely_main_queue {
                 self.toastText = NSLocalizedString("getFail",comment: "")
             }

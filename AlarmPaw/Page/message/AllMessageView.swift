@@ -10,10 +10,10 @@ import RealmSwift
 
 struct AllMessageView: View {
     @Binding var searchText:String
-    @ObservedResults(Message.self,
+    @ObservedResults(NotificationMessage.self,
                      sortDescriptor: SortDescriptor(keyPath: "createDate",
                                                     ascending: false)) var messages
-    var messageResults:Results<Message> {
+    var messageResults:Results<NotificationMessage> {
        return filterMessage(messages, searchText: searchText)
     }
     

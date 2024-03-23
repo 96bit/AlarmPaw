@@ -208,7 +208,7 @@ class NotificationService: UNNotificationServiceExtension {
         
         if isArchive == true {
             
-            let message = Message()
+            let message = NotificationMessage()
             message.title = title
             message.body = body
             message.icon = icon
@@ -301,7 +301,7 @@ class NotificationService: UNNotificationServiceExtension {
             }
         }else{
             // MARK: 通知角标 .auto
-            let messages = realm?.objects(Message.self).where {!$0.isRead}
+            let messages = realm?.objects(NotificationMessage.self).where {!$0.isRead}
             bestAttemptContent.badge = NSNumber(value:  messages?.count ?? 0 + 1)
         }
         

@@ -14,7 +14,7 @@ struct ContentView: View {
 
     @EnvironmentObject var paw: pawManager
     @EnvironmentObject var pageView:pageState
-    @ObservedResults(Message.self) var messages
+    @ObservedResults(NotificationMessage.self) var messages
     @State var toastText:String = ""
     var body: some View {
         TabView(selection: $pageView.page) {

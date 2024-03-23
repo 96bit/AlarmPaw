@@ -45,7 +45,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
 #if DEBUG
         let realm = try? Realm()
-        print("message count: \(realm?.objects(Message.self).count ?? 0)")
+        print("message count: \(realm?.objects(NotificationMessage.self).count ?? 0)")
 #endif
     }
     

@@ -11,7 +11,7 @@ import RealmSwift
 import Photos
 import SwiftUI
 
-func filterMessage(_ messages:Results<Message>,searchText:String)-> Results<Message>{
+func filterMessage(_ messages:Results<NotificationMessage>,searchText:String)-> Results<NotificationMessage>{
     if searchText == ""{
         return messages
     }

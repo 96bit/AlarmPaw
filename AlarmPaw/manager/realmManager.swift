@@ -22,7 +22,7 @@ class RealmManager {
     }
 
     // Create
-    func addObject(_ object: Message) -> Bool {
+    func addObject(_ object: NotificationMessage) -> Bool {
         guard let realm = realm else { return false }
         do {
             try realm.write {
@@ -35,15 +35,15 @@ class RealmManager {
     }
 
     // Read
-    func getObject() -> Results<Message>? {
+    func getObject() -> Results<NotificationMessage>? {
         guard let realm = realm else { return nil }
-        return realm.objects(Message.self)
+        return realm.objects(NotificationMessage.self)
     }
     
 
 
     // Update
-    func updateObject(_ object: Message, with updates: (Message) -> Void) -> Bool {
+    func updateObject(_ object: NotificationMessage, with updates: (NotificationMessage) -> Void) -> Bool {
         guard let realm = realm else { return false }
         do {
             try realm.write {
@@ -58,14 +58,14 @@ class RealmManager {
         }
     }
     
-    func updateObjects(_ results: Results<Message>?, with updates: (Message?) -> Void) -> Bool {
+    func updateObjects(_ results: Results<NotificationMessage>?, with updates: (NotificationMessage?) -> Void) -> Bool {
         guard let realm = realm else { return false }
         
         if let datas = results{
             do {
                 try realm.write {
                     for object in datas {
-                        let data = realm.objects(Message.self).where({$0.id == object.id}).first
+                        let data = realm.objects(NotificationMessage.self).where({$0.id == object.id}).first
                         updates(data)
                     }
                 }
@@ -79,12 +79,12 @@ class RealmManager {
     }
 
     // Delete
-    func deleteObject(_ object: Message?) -> Bool {
+    func deleteObject(_ object: NotificationMessage?) -> Bool {
         guard let realm = realm else { return false }
         if let data = object{
             do {
                 try realm.write {
-                    let item = realm.objects(Message.self).where({$0.id == data.id})
+                    let item = realm.objects(NotificationMessage.self).where({$0.id == data.id})
                     realm.delete(item)
                 }
                 return true

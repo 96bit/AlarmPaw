@@ -59,7 +59,7 @@ struct AlarmPawApp: SwiftUI.App {
                     .toast(info: $toastText)
                     .onAppear {
                         if RealmManager.shared.getUnreadCount() == 0 && firstart {
-                            for item in Message.messages{
+                            for item in NotificationMessage.messages{
                                 let _ = RealmManager.shared.addObject(item)
                             }
                             self.firstart = false

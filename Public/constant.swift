@@ -13,7 +13,7 @@ let defaultStore = UserDefaults(suiteName: settings.groupName)
 
 struct otherUrl {
 #if DEBUG
-    static let defaultServer = "http://192.168.0.11:8080"
+    static let defaultServer = "http://192.168.0.211:8080"
 #else
     static let defaultServer = "https://push.twown.com"
 #endif
@@ -46,4 +46,5 @@ struct settings {
     static let  iCloudName = "iCloud.AlarmPaw"
     static let  firstStartApp = "firstStartApp"
     static let  CryptoSettingFields = "CryptoSettingFields"
+    static let  recordType = "NotificationMessage"
 }

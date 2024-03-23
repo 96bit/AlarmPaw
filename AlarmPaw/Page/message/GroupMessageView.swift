@@ -9,10 +9,10 @@ import SwiftUI
 import RealmSwift
 
 struct GroupMessageView: View {
-    @ObservedResults(Message.self,
+    @ObservedResults(NotificationMessage.self,
                      sortDescriptor: SortDescriptor(keyPath: "createDate",
                                                     ascending: false)) var messages
-    var msgMap:[String: Results<Message>]{
+    var msgMap:[String: Results<NotificationMessage>]{
         let results = filterMessage(messages, searchText: searchText)
         return createMessageMap(results)
     }
@@ -118,8 +118,8 @@ struct GroupMessageView: View {
     
 }
 extension GroupMessageView{
-    func createMessageMap(_ messages:Results<Message>) -> [String:Results<Message>] {
-        var msgMap:[String:Results<Message>] = [:]
+    func createMessageMap(_ messages:Results<NotificationMessage>) -> [String:Results<NotificationMessage>] {
+        var msgMap:[String:Results<NotificationMessage>] = [:]
         
         for  message in messages{
             let group = message.group ??  NSLocalizedString("defultGroup",comment: "")

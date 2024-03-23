@@ -15,9 +15,16 @@ import Down
 
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
-    let webview:WKWebView = {
-        let web = WKWebView()
-        return web
+    let markLabel:UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.numberOfLines = 0 // 设置为 0 表示可以显示多行文本
+        label.lineBreakMode = .byWordWrapping // 换行方式为按单词换行
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
+        
+        
+        return label
     }()
     
     let copyTips: UILabel = {
@@ -30,14 +37,13 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(copyTips)
-        self.view.addSubview(webview)
-        
-        webview.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(markLabel)
+        markLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            webview.topAnchor.constraint(equalTo: view.topAnchor),
-            webview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webview.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            markLabel.topAnchor.constraint(equalTo: view.topAnchor,constant: 10),
+            markLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
+            markLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
+            markLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
         ])
         
     }
@@ -59,14 +65,35 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         if let markdown = userInfo["markdown"] as? String {
             
             let down = Down(markdownString: markdown)
-            if let html = try? down.toHTML(){
-                webview.loadHTMLString(html, baseURL: nil)
+        
+            do {
+//                let attributedString = try down.toAttributedString()
+                let attributedString = try down.toAttributedString()
+                
+                let mutableAttributedString = NSMutableAttributedString(attributedString: attributedString)
+                
+                let textColor = UIColor { traitCollection in
+                    if traitCollection.userInterfaceStyle == .dark {
+                        return UIColor.white // 深色模式下的字体颜色
+                    } else {
+                        return UIColor.black // 浅色模式下的字体颜色
+                    }
+                }
+                
+                mutableAttributedString.addAttribute(.foregroundColor, value: textColor, range: NSRange(location: 0, length: mutableAttributedString.length))
+            
+                
+                markLabel.attributedText = mutableAttributedString
+               
                 return
+            } catch {
+                print("Error converting Markdown to NSAttributedString:", error)
             }
+            
             
         }
         self.preferredContentSize = CGSize(width: 0, height: 1)
-        webview.removeFromSuperview()
+        markLabel.removeFromSuperview()
        
         
     }

@@ -10,11 +10,12 @@ import RealmSwift
 import UIKit
 import MarkdownUI
 
-
 struct MessageItem: View {
-    @ObservedRealmObject var message:Message
+    @ObservedRealmObject var message:NotificationMessage
     @EnvironmentObject var paw:pawManager
     @State private var toastText:String = ""
+    @State private var showMark:Bool = false
+    @State private var showAni:Bool = false
     var body: some View {
         Section {
             Grid{
@@ -83,13 +84,46 @@ struct MessageItem: View {
                                 .font(.caption)
                             
                         }
+                       
+                            
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Button{
+                                    self.showAni.toggle()
+                                    if !showAni{
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                            self.showMark.toggle()
+                                        }
+                                    }else{
+                                        self.showMark.toggle()
+                                    }
+                                }label: {
+                                    Image(systemName: showAni ? "text.badge.xmark" : "ellipsis")
+                                }
+                            }
+                        }.opacity(message.markdown != nil ? 1 : 0)
                     }
                 }
+                
+               
+                
 
                 if let markdownText = message.markdown{
-                    GridRow(alignment: .top) {
-                        Markdown(markdownText)
+                    
+                    
+                    GridRow(alignment: .center) {
+                        ScrollView {
+                            Markdown(markdownText)
+                        }
+                       
                     }.gridCellColumns(2)
+                    .frame(height: showMark ? 300 : 0)
+                    .opacity(showAni ? 1 : 0)
+                    .animation(.spring, value: showAni)
+
+                   
                 }
             }
             .toast(info: $toastText)
@@ -106,7 +140,7 @@ struct MessageItem: View {
                
             }.frame(minHeight: 30)
             
-        }
+        }.padding(.top)
         
     }
 }
@@ -135,7 +169,7 @@ extension MessageItem{
 
 #Preview {
     List {
-        MessageItem(message: Message(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123","cloud":true]))
+        MessageItem(message: NotificationMessage(value: [ "id":"123","title":"123","isRead":true,"icon":"error","group":"123","image":"https://day.app/assets/images/avatar.jpg","body":"123","cloud":true]))
             .frame(width: 300)
             .environmentObject(pawManager.shared)
     }.listStyle(GroupedListStyle())

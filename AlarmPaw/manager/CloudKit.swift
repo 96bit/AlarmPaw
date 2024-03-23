@@ -14,12 +14,12 @@ class CloudKitManager {
    
     private init() {}
 
-    func uploadCloud(_ messages: [Message]) async -> [Message] {
-        var updatedMessages: [Message] = []
+    func uploadCloud(_ messages: [NotificationMessage]) async -> [NotificationMessage] {
+        var updatedMessages: [NotificationMessage] = []
         
         do {
             // Execute tasks in parallel and await their completion
-            try await withThrowingTaskGroup(of: (Message, Bool).self, body: { group in
+            try await withThrowingTaskGroup(of: (NotificationMessage, Bool).self, body: { group in
                 for message in messages {
                     group.addTask { [weak self] in
                         guard let self = self else { return (message, false) }
@@ -44,8 +44,9 @@ class CloudKitManager {
     
     
     // 创建CKRecord并保存到CloudKit
-    func saveMessageToCloudKit(message: Message) async->Bool  {
+    func saveMessageToCloudKit(message: NotificationMessage) async-> Bool  {
         let record = message.createCKRecord()
+        
         do{
             try await privateCloudDatabase.save(record)
             print("Successfully saved record to CloudKit")
@@ -53,6 +54,7 @@ class CloudKitManager {
         }catch{
             print(error)
         }
+        
         return false
     }
     
@@ -65,12 +67,12 @@ class CloudKitManager {
         }
     }
     
-    func fetchAllMessages() async throws -> [Message] {
+    func fetchAllMessages() async throws -> [NotificationMessage] {
            let predicate = NSPredicate(value: true) // 查询所有记录
-           let query = CKQuery(recordType: "Message", predicate: predicate)
+           let query = CKQuery(recordType: settings.recordType, predicate: predicate)
 
            return try await withCheckedThrowingContinuation { continuation in
-               var fetchedMessages = [Message]()
+               var fetchedMessages = [NotificationMessage]()
 
                // 使用 CKQueryOperation
                let operation = CKQueryOperation(query: query)
@@ -80,7 +82,7 @@ class CloudKitManager {
                    switch result {
                    case .success(let record):
                        // 转换 CKRecord 到 Message
-                       let message = Message(from: record)
+                       let message = NotificationMessage(from: record)
                        fetchedMessages.append(message)
                    case .failure(let error):
                        print("Failed to fetch record with ID \(recordID): \(error)")

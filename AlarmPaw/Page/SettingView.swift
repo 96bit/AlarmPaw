@@ -11,7 +11,7 @@ import CloudKit
 
 
 struct SettingView: View {
-    @ObservedResults(Message.self) var messages
+    @ObservedResults(NotificationMessage.self) var messages
     @EnvironmentObject var paw:pawManager
     @EnvironmentObject var pageView:pageState
     @State private var isArchive:Bool = false
