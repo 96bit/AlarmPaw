@@ -44,6 +44,7 @@ struct MessageItem: View {
                         
                         Text( limitTextToLines(message.group ?? NSLocalizedString("unknown",comment: ""), charactersPerLine: 10)  )
                             .font(.system(size:10))
+                            .foregroundStyle(message.isRead ? .gray : .red)
                             
                     }.onTapGesture {
                         if let url =  message.url{
@@ -65,24 +66,12 @@ struct MessageItem: View {
                         }.padding(.horizontal)
                         HStack{
                             Spacer()
-                            Image(systemName: "bookmark")
-                                .animation(.easeInOut, value: message.isRead)
-                                .onTapGesture {
-                                    let _ = RealmManager.shared.updateObject(message) { message in
-                                        message.isRead = !message.isRead
-                                        self.toastText = NSLocalizedString("typechanged",comment: "")
-                                    }
-                                }
-                                .onLongPressGesture{
-                                    let messages = RealmManager.shared.getObject()
-                                    let _ = RealmManager.shared.updateObjects(messages) { message in
-                                        message?.isRead = true
-                                    }
-                                    self.toastText = NSLocalizedString("allRead",comment: "")
-                                }
-                                .foregroundStyle(message.isRead ? .gray : .red)
-                                .font(.caption)
                             
+                            if message.cloud {
+                                Image(systemName: "bolt.horizontal.icloud.fill")
+                                    .foregroundStyle(Color("AccentColor"))
+                                    .font(.caption)
+                            }
                         }
                        
                             
@@ -98,6 +87,9 @@ struct MessageItem: View {
                                         }
                                     }else{
                                         self.showMark.toggle()
+                                    }
+                                    let _ = RealmManager.shared.updateObject(message) { item2 in
+                                        item2.isRead = true
                                     }
                                 }label: {
                                     Image(systemName: showAni ? "text.badge.xmark" : "ellipsis")
@@ -129,11 +121,7 @@ struct MessageItem: View {
             .toast(info: $toastText)
         }header: {
             HStack{
-                if message.cloud {
-                    Image(systemName: "bolt.horizontal.icloud.fill")
-                        .foregroundStyle(Color("AccentColor"))
-                        .font(.caption)
-                }
+                
                 Text(message.createDate.agoFormatString())
                     .font(.caption2)
                 Spacer()
