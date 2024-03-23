@@ -23,16 +23,12 @@ struct GroupMessageView: View {
         List{
 
             ForEach(msgMap.keys.sorted(), id: \.self) { key in
-                let isExpandedBinding = Binding(
-                    get: { self.expandedStates[key, default: false] },
-                    set: { self.expandedStates[key] = $0 }
-                )
-                Section {
-                    DisclosureGroup(isExpanded: isExpandedBinding){
+                
+                Section{
+                    NavigationLink {
                         if let messageResult = msgMap[key]{
-                            ForEach(messageResult, id: \.id) { message in
-                                
-                                if isExpandedBinding.wrappedValue {
+                            List {
+                                ForEach(messageResult, id: \.id) { message in
                                     MessageItem(message: message)
                                     .swipeActions(edge: .leading) {
                                         Button {
@@ -54,13 +50,13 @@ struct GroupMessageView: View {
                                         }
                                     }
                                     .animation(.interactiveSpring, value: message.id)
-                                    Divider()
                                     
                                 }
-                                
                             }
+                            .navigationTitle(key)
+                           
                         }
-                    }label: {
+                    } label: {
                         HStack{
                             Text(key)
                             Spacer()
@@ -73,39 +69,116 @@ struct GroupMessageView: View {
                             
                         }
                     }
-                    .id(UUID())
                 }header: {
                     Text(String(format: NSLocalizedString("someMessageCount",comment: ""), msgMap[key]?.count ?? 0))
-                }
-                .swipeActions(edge: .trailing) {
-                    if !isExpandedBinding.wrappedValue{
-                        Button(role: .destructive) {
-                            let realm = RealmManager.shared
-                            let deleitem = realm.getObject()?.where({$0.group == key})
-                            if let deleitem = deleitem{
-                                let _ = realm.deleteObjects(deleitem)
-                            }
-                        } label: {
-                            Label(NSLocalizedString("deleteMessageGroup",comment: ""), systemImage: "trash")
+                }.swipeActions(edge: .trailing) {
+                    Button(role: .destructive) {
+                        let realm = RealmManager.shared
+                        let deleitem = realm.getObject()?.where({$0.group == key})
+                        if let deleitem = deleitem{
+                            let _ = realm.deleteObjects(deleitem)
                         }
+                    } label: {
+                        Label(NSLocalizedString("deleteMessageGroup",comment: ""), systemImage: "trash")
                     }
-                    
                 }
                 .swipeActions(edge: .leading) {
-                    if !isExpandedBinding.wrappedValue{
-                        Button {
-                            let realm = RealmManager.shared
-                            let alldata = realm.getObject()?.where({$0.group == key})
-                            if let alldata = alldata{
-                                let _ = realm.updateObjects(alldata) { data in
-                                    data?.isRead = true
-                                }
+                    Button {
+                        let realm = RealmManager.shared
+                        let alldata = realm.getObject()?.where({$0.group == key})
+                        if let alldata = alldata{
+                            let _ = realm.updateObjects(alldata) { data in
+                                data?.isRead = true
                             }
-                        } label: {
-                            Label(NSLocalizedString("groupMarkRead",comment: ""), systemImage: "envelope")
-                        }.tint(.blue)
-                    }
+                        }
+                    } label: {
+                        Label(NSLocalizedString("groupMarkRead",comment: ""), systemImage: "envelope")
+                    }.tint(.blue)
                 }
+                
+               
+
+//                
+//                
+//                Section {
+//                    DisclosureGroup(isExpanded: isExpandedBinding){
+//                        if let messageResult = msgMap[key]{
+//                            ForEach(messageResult, id: \.id) { message in
+//                                
+//                                if isExpandedBinding.wrappedValue {
+//                                    MessageItem(message: message)
+//                                    .swipeActions(edge: .leading) {
+//                                        Button {
+//                                            let _ = RealmManager.shared.updateObject(message) { item2 in
+//                                                item2.isRead = !item2.isRead
+//                                                self.toastText = NSLocalizedString("messageModeChanged",comment: "")
+//                                            }
+//                                        } label: {
+//                                            Label(message.isRead ? NSLocalizedString("markNotRead",comment: "") :  NSLocalizedString("markRead",comment: ""), systemImage: message.isRead ? "envelope.open": "envelope")
+//                                        }.tint(.blue)
+//                                    }
+//                                    .swipeActions(edge: .trailing) {
+//                                        Button(role: .destructive) {
+//                                            
+//                                            let _ = RealmManager.shared.deleteObject(message)
+//                                            
+//                                        } label: {
+//                                            Label(NSLocalizedString("deleteTitle",comment: ""), systemImage: "trash")
+//                                        }
+//                                    }
+//                                    .animation(.interactiveSpring, value: message.id)
+//                                    Divider()
+//                                    
+//                                }
+//                                
+//                            }
+//                        }
+//                    }label: {
+//                        HStack{
+//                            Text(key)
+//                            Spacer()
+//                            let readCount = msgMap[key]?.where({!$0.isRead}).count ?? 0
+//                            Text(readCount == 0 ?NSLocalizedString("nothing",comment: "") : "\(readCount)")
+//                                .fontWeight(.bold)
+//                            Text(NSLocalizedString("notread",comment: ""))
+//                                .font(.system(size: 10))
+//                                .foregroundStyle(.gray)
+//                            
+//                        }
+//                    }
+//                    .id(UUID())
+//                }header: {
+//                    Text(String(format: NSLocalizedString("someMessageCount",comment: ""), msgMap[key]?.count ?? 0))
+//                }
+//                .swipeActions(edge: .trailing) {
+//                    if !isExpandedBinding.wrappedValue{
+//                        Button(role: .destructive) {
+//                            let realm = RealmManager.shared
+//                            let deleitem = realm.getObject()?.where({$0.group == key})
+//                            if let deleitem = deleitem{
+//                                let _ = realm.deleteObjects(deleitem)
+//                            }
+//                        } label: {
+//                            Label(NSLocalizedString("deleteMessageGroup",comment: ""), systemImage: "trash")
+//                        }
+//                    }
+//                    
+//                }
+//                .swipeActions(edge: .leading) {
+//                    if !isExpandedBinding.wrappedValue{
+//                        Button {
+//                            let realm = RealmManager.shared
+//                            let alldata = realm.getObject()?.where({$0.group == key})
+//                            if let alldata = alldata{
+//                                let _ = realm.updateObjects(alldata) { data in
+//                                    data?.isRead = true
+//                                }
+//                            }
+//                        } label: {
+//                            Label(NSLocalizedString("groupMarkRead",comment: ""), systemImage: "envelope")
+//                        }.tint(.blue)
+//                    }
+//                }
             }
         }
         .toast(info: $toastText)

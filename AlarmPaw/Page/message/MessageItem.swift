@@ -48,6 +48,9 @@ struct MessageItem: View {
                             
                     }.onTapGesture {
                         if let url =  message.url{
+                            let _ = RealmManager.shared.updateObject(message) { item2 in
+                                item2.isRead = true
+                            }
                             paw.openUrl(url: url)
                         }
                        
@@ -67,11 +70,11 @@ struct MessageItem: View {
                         HStack{
                             Spacer()
                             
-                            if message.cloud {
-                                Image(systemName: "bolt.horizontal.icloud.fill")
-                                    .foregroundStyle(Color("AccentColor"))
-                                    .font(.caption)
-                            }
+                            Image(systemName: "bolt.horizontal.icloud.fill")
+                                .foregroundStyle(message.cloud ? .green : .pink)
+                                .font(.caption)
+                            
+                           
                         }
                        
                             
@@ -79,21 +82,22 @@ struct MessageItem: View {
                             Spacer()
                             HStack{
                                 Spacer()
-                                Button{
-                                    self.showAni.toggle()
-                                    if !showAni{
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                Image(systemName: showAni ? "text.badge.xmark" : "ellipsis")
+                                    .foregroundStyle(.accent)
+                                    .onTapGesture {
+                                        self.showAni.toggle()
+                                        if !showAni{
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                                self.showMark.toggle()
+                                            }
+                                        }else{
                                             self.showMark.toggle()
                                         }
-                                    }else{
-                                        self.showMark.toggle()
+                                        let _ = RealmManager.shared.updateObject(message) { item2 in
+                                            item2.isRead = true
+                                        }
                                     }
-                                    let _ = RealmManager.shared.updateObject(message) { item2 in
-                                        item2.isRead = true
-                                    }
-                                }label: {
-                                    Image(systemName: showAni ? "text.badge.xmark" : "ellipsis")
-                                }
+                              
                             }
                         }.opacity(message.markdown != nil ? 1 : 0)
                     }
