@@ -80,7 +80,7 @@ struct MessageItem: View {
                                     }
                                     self.toastText = NSLocalizedString("allRead",comment: "")
                                 }
-                                .foregroundStyle(message.isRead ? .gray : .green)
+                                .foregroundStyle(message.isRead ? .gray : .red)
                                 .font(.caption)
                             
                         }
