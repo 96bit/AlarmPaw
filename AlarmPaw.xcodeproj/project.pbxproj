@@ -68,6 +68,7 @@
 		19A8BDFD2BADAFB700022B66 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 19A8BDFC2BADAFB700022B66 /* MarkdownUI */; };
 		19A8BDFF2BADB5A900022B66 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8BDFE2BADB5A800022B66 /* constant.swift */; };
 		19A8BE002BADB5A900022B66 /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A8BDFE2BADB5A800022B66 /* constant.swift */; };
+		19A8BE052BADC0C300022B66 /* Down in Frameworks */ = {isa = PBXBuildFile; productRef = 19A8BE042BADC0C300022B66 /* Down */; };
 		19AF5DA42B8B5943006A4928 /* angularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DA32B8B5943006A4928 /* angularButton.swift */; };
 		19AF5DA72B8B5B7E006A4928 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DA62B8B5B7E006A4928 /* SignInView.swift */; };
 		19AF5DA92B8B5C58006A4928 /* view+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AF5DA82B8B5C58006A4928 /* view+.swift */; };
@@ -355,6 +356,7 @@
 			files = (
 				19D0F6F72B55A4360039103D /* UserNotificationsUI.framework in Frameworks */,
 				19D0F6F62B55A4360039103D /* UserNotifications.framework in Frameworks */,
+				19A8BE052BADC0C300022B66 /* Down in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +728,9 @@
 			dependencies = (
 			);
 			name = NotificationContentExtension;
+			packageProductDependencies = (
+				19A8BE042BADC0C300022B66 /* Down */,
+			);
 			productName = NotificationContentExtension;
 			productReference = 19D0F6F52B55A4360039103D /* NotificationContentExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -795,6 +800,7 @@
 				19AF5DB42B8B7A84006A4928 /* XCRemoteSwiftPackageReference "QRScanner" */,
 				19B942DE2B9ED2BC00BE64B5 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				19A8BDFB2BADAFB700022B66 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
+				19A8BE012BADC07300022B66 /* XCRemoteSwiftPackageReference "Down" */,
 			);
 			productRefGroup = 196E1CA02B5273CC001FAD01 /* Products */;
 			projectDirPath = "";
@@ -1582,6 +1588,14 @@
 				minimumVersion = 2.5.0;
 			};
 		};
+		19A8BE012BADC07300022B66 /* XCRemoteSwiftPackageReference "Down" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnxnguyen/Down.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		19AF5DB42B8B7A84006A4928 /* XCRemoteSwiftPackageReference "QRScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/96bit/QRScanner.git";
@@ -1653,6 +1667,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 19A8BDFB2BADAFB700022B66 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
 			productName = MarkdownUI;
+		};
+		19A8BE042BADC0C300022B66 /* Down */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19A8BE012BADC07300022B66 /* XCRemoteSwiftPackageReference "Down" */;
+			productName = Down;
 		};
 		19AF5DB52B8B7A85006A4928 /* QRScanner */ = {
 			isa = XCSwiftPackageProductDependency;

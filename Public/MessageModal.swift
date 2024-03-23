@@ -16,29 +16,31 @@ final class Message: Object , ObjectKeyIdentifiable{
     @Persisted var id:String = UUID().uuidString
     @Persisted var title:String?
     @Persisted var body:String?
-    @Persisted var image:String?
     @Persisted var icon:String?
     @Persisted var group:String?
     @Persisted var createDate = Date()
     @Persisted var isRead:Bool = false
     @Persisted var url:String?
     @Persisted var cloud:Bool = false
+    @Persisted var markdown:String?
     
 }
 
 extension Message: Codable{
     enum CodingKeys: String, CodingKey {
-        case id, title, body, image, icon, group, createDate, isRead, url
+        case id, title, body, icon, group, createDate, isRead, url,cloud,markdown
     }
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(title, forKey: .title)
         try container.encodeIfPresent(body, forKey: .body)
-        try container.encodeIfPresent(image, forKey: .image)
         try container.encodeIfPresent(icon, forKey: .icon)
         try container.encodeIfPresent(group, forKey: .group)
+        try container.encodeIfPresent(createDate, forKey: .createDate)
         try container.encodeIfPresent(isRead, forKey: .isRead)
         try container.encodeIfPresent(url, forKey: .url)
+        try container.encodeIfPresent(cloud, forKey: .cloud)
+        try container.encodeIfPresent(markdown, forKey: .markdown)
     }
    
 }
@@ -62,12 +64,13 @@ extension Message {
         self.id = record.recordID.recordName
         self.title = record["title"] as? String
         self.body = record["body"] as? String
-        self.image = record["image"] as? String
         self.icon = record["icon"] as? String
         self.group = record["group"] as? String
         self.createDate = record["createDate"] as? Date ?? Date()
-        self.isRead = record["isRead"] as? Bool ?? false
+        self.isRead = record["isRead"] as? Bool ?? true
         self.url = record["url"] as? String
+        self.cloud = record["cloud"] as? Bool ?? true
+        self.markdown = record["markdown"] as? String
     }
     
     
@@ -82,13 +85,13 @@ extension Message{
         let record = CKRecord(recordType: "Message", recordID: CKRecord.ID(recordName: self.id))
         record["title"] = self.title
         record["body"] = self.body
-        record["image"] = self.image
         record["icon"] = self.icon
         record["group"] = self.group
         record["createDate"] = self.createDate
         record["isRead"] = self.isRead
         record["url"] = self.url
         record["cloud"] = true
+        record["markdown"] = self.markdown
         return record
     }
     

@@ -29,7 +29,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         
         let config = Realm.Configuration(
             fileURL: fileUrl,
-            schemaVersion: 3,
+            schemaVersion: 5,
             migrationBlock: { _, oldSchemaVersion in
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if oldSchemaVersion < 1 {

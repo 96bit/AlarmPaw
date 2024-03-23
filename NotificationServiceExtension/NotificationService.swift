@@ -32,7 +32,7 @@ class NotificationService: UNNotificationServiceExtension {
         let fileUrl = groupUrl?.appendingPathComponent(settings.realmName)
         let config = Realm.Configuration(
             fileURL: fileUrl,
-            schemaVersion: 3,
+            schemaVersion: 5,
             migrationBlock: { _, oldSchemaVersion in
                 // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if oldSchemaVersion < 1 {
@@ -106,41 +106,7 @@ class NotificationService: UNNotificationServiceExtension {
         //        return result.originalData
     }
     
-    /// 为 Notification Content 设置图片
-    /// - Parameter bestAttemptContent: 要设置的 Notification Content
-    /// - Returns: 返回设置图片后的 Notification Content
-    fileprivate func setImage(content bestAttemptContent: UNMutableNotificationContent) async -> UNMutableNotificationContent {
-        let userInfo = bestAttemptContent.userInfo
-        
-        guard let imageUrl = userInfo["image"] as? String,
-              startsWithHttpOrHttps(imageUrl),
-              let imageFileUrl = await downloadImage(imageUrl,bestAttemptContent)
-        else {
-            return bestAttemptContent
-        }
-        
-        
-        
-        let copyDestUrl = URL(fileURLWithPath: imageFileUrl).appendingPathExtension(".tmp")
-        // 将图片缓存复制一份，推送使用完后会自动删除，但图片缓存需要留着以后在历史记录里查看
-        try? FileManager.default.copyItem(
-            at: URL(fileURLWithPath: imageFileUrl),
-            to: copyDestUrl
-        )
-        
-        if let attachment = try? UNNotificationAttachment(
-            identifier: "image",
-            url: copyDestUrl,
-            //kUTTypePNG
-            options: [UNNotificationAttachmentOptionsTypeHintKey: "public.png"]
-        ) {
-            bestAttemptContent.attachments = [attachment]
-        }
-        
-        bestAttemptContent.userInfo["imageFile"] = imageFileUrl
-        
-        return bestAttemptContent
-    }
+
     
     /// 为 Notification Content 设置ICON
     /// - Parameter bestAttemptContent: 要设置的 Notification Content
@@ -228,10 +194,9 @@ class NotificationService: UNNotificationServiceExtension {
         let title = alert?["title"] as? String
         let body = alert?["body"] as? String
         let group = (userInfo["aps"] as? [String: Any])?["thread-id"] as? String
-        let image = userInfo["image"] as? String
         let icon = userInfo["icon"] as? String
         let url = userInfo["url"] as? String
-        
+        let markdown = userInfo["markdown"] as? String
         
         var isArchive: Bool{
             if let archive = userInfo["isarchive"] as? String {
@@ -246,10 +211,10 @@ class NotificationService: UNNotificationServiceExtension {
             let message = Message()
             message.title = title
             message.body = body
-            message.image = image
             message.icon = icon
             message.group = group
             message.url = url
+            message.markdown = markdown
             
             do{
                 try realm?.write {
@@ -313,6 +278,10 @@ class NotificationService: UNNotificationServiceExtension {
                     bestAttemptContent.badge = badge as NSNumber
                 }
                 
+                if let markdown = map["markdown"] as? String {
+                    alert["markdown"] = markdown
+                }
+                
                 map["aps"] = ["alert": alert]
                 userInfo = map
                 bestAttemptContent.userInfo = userInfo
@@ -355,20 +324,12 @@ class NotificationService: UNNotificationServiceExtension {
         // MARK: 发送邮件
         mailAuto(userInfo)
         
-        if let lastBpdy = userInfo["body"] as? String{
-            bestAttemptContent.userInfo["body"] = removeMarkdownSymbols(from: lastBpdy)
-        }
-       
-        
+   
         Task.init {
-            
             // 设置推送图标
             let iconResult = await setIcon(content: bestAttemptContent)
-            // 设置推送图片
-            let imageResult = await self.setImage(content: iconResult)
-            
-            
-            contentHandler(imageResult)
+
+            contentHandler(iconResult)
         }
     }
     
@@ -413,18 +374,44 @@ class NotificationService: UNNotificationServiceExtension {
             contentHandler(bestAttemptContent)
         }
     }
-    func removeMarkdownSymbols(from input: String) -> String {
-        do {
-            // 定义匹配 Markdown 标记的正则表达式
-            let regex = try NSRegularExpression(pattern: "[\\*_~#`]", options: .caseInsensitive)
-            // 使用空字符串替换匹配的 Markdown 标记
-            let modifiedString = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count), withTemplate: "")
-            return modifiedString
-        } catch {
-            print("Error: \(error)")
-            return input // 如果出现错误，返回原始字符串
-        }
-    }
+    
+    
     
 }
 
+
+/// 为 Notification Content 设置图片
+/// - Parameter bestAttemptContent: 要设置的 Notification Content
+/// - Returns: 返回设置图片后的 Notification Content
+//    fileprivate func setImage(content bestAttemptContent: UNMutableNotificationContent) async -> UNMutableNotificationContent {
+//        let userInfo = bestAttemptContent.userInfo
+//
+//        guard let imageUrl = userInfo["image"] as? String,
+//              startsWithHttpOrHttps(imageUrl),
+//              let imageFileUrl = await downloadImage(imageUrl,bestAttemptContent)
+//        else {
+//            return bestAttemptContent
+//        }
+//
+//
+//
+//        let copyDestUrl = URL(fileURLWithPath: imageFileUrl).appendingPathExtension(".tmp")
+//        // 将图片缓存复制一份，推送使用完后会自动删除，但图片缓存需要留着以后在历史记录里查看
+//        try? FileManager.default.copyItem(
+//            at: URL(fileURLWithPath: imageFileUrl),
+//            to: copyDestUrl
+//        )
+//
+//        if let attachment = try? UNNotificationAttachment(
+//            identifier: "image",
+//            url: copyDestUrl,
+//            //kUTTypePNG
+//            options: [UNNotificationAttachmentOptionsTypeHintKey: "public.png"]
+//        ) {
+//            bestAttemptContent.attachments = [attachment]
+//        }
+//
+//        bestAttemptContent.userInfo["imageFile"] = imageFileUrl
+//
+//        return bestAttemptContent
+//    }

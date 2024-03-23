@@ -14,7 +14,6 @@ import MarkdownUI
 struct MessageItem: View {
     @ObservedRealmObject var message:Message
     @EnvironmentObject var paw:pawManager
-    @State private var showImage:Bool = false
     @State private var toastText:String = ""
     var body: some View {
         Section {
@@ -60,7 +59,7 @@ struct MessageItem: View {
                             }
                             Divider()
                             if let body = message.body{
-                                Markdown(body)
+                                Text(body)
                             }
                         }.padding(.horizontal)
                         HStack{
@@ -86,30 +85,12 @@ struct MessageItem: View {
                         }
                     }
                 }
-                GridRow(alignment: .center) {
-                    VStack(alignment: .leading, spacing:10){
-                        
-                        if let image =  message.image{
-                            HStack{
-                                Spacer()
-                                Text( showImage ? NSLocalizedString("displayImage",comment: ""):NSLocalizedString("showImage",comment: ""))
-                                    .font(.system(size: 10))
-                            }.onTapGesture {
-                                self.showImage.toggle()
-                            }
-                            if showImage, let imageURL = URL(string: image){
-                                AsyncImageView(url: imageURL )
-                                    .aspectRatio(contentMode: .fit)
-                                    .animation(.easeInOut, value: showImage)
-                            }
-                            
-                        }
-                        
+
+                if let markdownText = message.markdown{
+                    GridRow(alignment: .top) {
+                        Markdown(markdownText)
                     }.gridCellColumns(2)
-                    
                 }
-                
-               
             }
             .toast(info: $toastText)
         }header: {
