@@ -14,7 +14,12 @@ struct AllMessageView: View {
                      sortDescriptor: SortDescriptor(keyPath: "createDate",
                                                     ascending: false)) var messages
     var messageResults:Results<NotificationMessage> {
-       return filterMessage(messages, searchText: searchText)
+        let messages = filterMessage(messages, searchText: searchText)
+        let newResult = messages.sorted(by: [
+            SortDescriptor(keyPath: "isRead", ascending: true),
+            SortDescriptor(keyPath: "createDate", ascending: false)
+        ])
+       return newResult
     }
     
     @State var toastText:String = ""

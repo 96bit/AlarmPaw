@@ -18,7 +18,12 @@ func filterMessage(_ messages:Results<NotificationMessage>,searchText:String)-> 
     
     let resultFilter = messages.filter(NSPredicate(format: "title CONTAINS[c] %@ OR body CONTAINS[c] %@", searchText, searchText))
     
-    return resultFilter.sorted(by: [ SortDescriptor(keyPath: "isRead", ascending: true),SortDescriptor(keyPath: "createDate", ascending: false)])
+    let newResult = resultFilter.sorted(by: [
+        SortDescriptor(keyPath: "isRead", ascending: true),
+        SortDescriptor(keyPath: "createDate", ascending: false)
+    ])
+    
+    return newResult
 }
 
 
