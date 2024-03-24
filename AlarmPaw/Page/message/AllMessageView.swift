@@ -20,6 +20,7 @@ struct AllMessageView: View {
             SortDescriptor(keyPath: "createDate", ascending: false)
         ])
        return newResult
+        
     }
     
     @State var toastText:String = ""
